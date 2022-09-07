@@ -13,8 +13,21 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://reactplay.io">rectplay</a>-
-          <a href="https://nhost.io">nhost</a> Hackathon
+          Welcome to{" "}
+          <a
+            className="font-bold underline decoration-white hover:text-white transition-all duration-150"
+            href="https://reactplay.io"
+          >
+            rectplay
+          </a>
+          -
+          <a
+            className="font-bold underline decoration-white hover:text-white transition-all duration-150"
+            href="https://reactplay.io"
+          >
+            nhost
+          </a>{" "}
+          Hackathon
         </h1>
       </main>
 
