@@ -27,12 +27,21 @@ coverage
 build/Release
 
 # Dependency directories
-node_modules
+/node_modules
 jspm_packages
 
 # Optional npm cache directory
 .npm
 
+# next.js
+/.next/
+/out/
+# production
+/build
+
+
 # Optional REPL history
 .node_repl_history
-.next
+
+# local env files
+.env*.local
