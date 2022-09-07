@@ -34,15 +34,17 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>
-        Welcome <strong>{userData.displayName}</strong>, to nhost-reactplay
-        hackathon
-      </h3>
-      <Link href="/">
-        <a>
-          <h2>Home</h2>
-        </a>
-      </Link>
+      <main className={styles.main}>
+        <h1 className={styles.title}>
+          Welcome <strong>{userData.displayName}</strong>, to nhost-reactplay
+          hackathon
+        </h1>
+        <Link href="/">
+          <a>
+            <h2>Home</h2>
+          </a>
+        </Link>
+      </main>
     </div>
   );
 }
