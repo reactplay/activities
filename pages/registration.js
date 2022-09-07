@@ -15,8 +15,10 @@ export default function Home() {
     if (!isLoading) {
       if (!isAuthenticated) {
         const external_path = NHOST.AUTH_URL(
-          `http://localhost:${
-            process.env.NEXT_PUBLIC_DEV_PORT ?? "3000"
+          `http://${location.hostname}${
+            process.env.NEXT_PUBLIC_DEV_PORT
+              ? `:${process.env.NEXT_PUBLIC_DEV_PORT}`
+              : ""
           }/registration`
         );
         router.push(external_path, undefined, { shallow: true });
@@ -36,8 +38,7 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome <strong>{userData.displayName}</strong>, to nhost-reactplay
-          hackathon
+          Welcome <strong>{userData.displayName}</strong>, to the hackathon
         </h1>
         <Link href="/">
           <a>
