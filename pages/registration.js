@@ -1,28 +1,37 @@
 import { useAuthenticationStatus, useUserData } from "@nhost/react";
-import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import { NHOST } from "../services/nhost";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const { isAuthenticated, isLoading } = useAuthenticationStatus();
-  const { authAttempt, setAuthAttempt } = useState(1);
   const userData = useUserData();
+  const router = useRouter();
+
+  useEffect(() => {
+    console.log(isLoading, isAuthenticated);
+    if (!isLoading) {
+      if (!isAuthenticated) {
+        const external_path = NHOST.AUTH_URL(
+          `http://localhost:${
+            process.env.NEXT_PUBLIC_DEV_PORT ?? "3000"
+          }/registration`
+        );
+        router.push(external_path, undefined, { shallow: true });
+      }
+    }
+  }, [isLoading]);
 
   if (!isAuthenticated) {
-    if (typeof window !== "undefined" && authAttempt <= 5) {
-      setAuthAttempt(authAttempt + 1);
-      console.log(`Authentication attempt ${authAttempt}`);
-      window.location = NHOST.AUTH_URL(
-        `http://localhost:${
-          process.env.RAECT_APP_DEV_PORT ?? "3000"
-        }/registration`
-      );
-    }
     return null;
   }
+
+  if (isLoading) {
+    return <div>Loading user information. Please wait...</div>;
+  }
+
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>
