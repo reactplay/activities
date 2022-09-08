@@ -1,4 +1,4 @@
-import { useAuthenticationStatus, useUserData } from "@nhost/react";
+import { useAuthenticationStatus, useUserData } from "@nhost/nextjs";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import { NHOST } from "../services/nhost";
@@ -21,6 +21,7 @@ export default function Home() {
               : ""
           }/registration`
         );
+        console.log(`External URL for auth: ${external_path}`);
         router.push(external_path, undefined, { shallow: true });
       }
     }
