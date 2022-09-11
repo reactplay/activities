@@ -5,14 +5,14 @@ import Header from "./Header";
 
 const Layout = ({ children, title, description }) => {
   return (
-    <div className="bg-black">
+    <div className="bg-[#051630]">
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="bg-black">{children}</main>
+      <main>{children}</main>
       <Footer />
     </div>
   );
