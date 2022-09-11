@@ -24,11 +24,13 @@ const Header = () => {
     },
   ];
   return (
-    <header className="pt-5 pb-1 px-4 flex justify-center items-baseline bg-transparent border-b-2 border-gray-800">
+    <header className="pt-5 pb-1 px-4 flex justify-center items-baseline bg-transparent font-primary text-white">
       <div className="inline-flex justify-center items-baseline mx-auto">
         {links.map((link, index) => (
           <Link key={index} href={link.href}>
-            <a className="uppercase mr-16">{link.name}</a>
+            <a className="uppercase mr-16 text-lg tracking-widest">
+              {link.name}
+            </a>
           </Link>
         ))}
       </div>

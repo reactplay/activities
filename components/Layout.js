@@ -5,7 +5,7 @@ import Header from "./Header";
 
 const Layout = ({ children, title, description }) => {
   return (
-    <div>
+    <div className="bg-black">
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
