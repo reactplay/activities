@@ -28,7 +28,7 @@ const Header = () => {
       <div className="inline-flex justify-center items-baseline mx-auto">
         {links.map((link, index) => (
           <Link key={index} href={link.href}>
-            <a className="text-white uppercase mr-16">{link.name}</a>
+            <a className="uppercase mr-16">{link.name}</a>
           </Link>
         ))}
       </div>
