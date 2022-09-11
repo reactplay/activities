@@ -1,0 +1,17 @@
+.container{
+  background-color: #ffffff;
+  height: 100vh;
+  width: 100%;
+}
+.card{
+  height: 25.5rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: 22.5rem;
+  border: 0.06rem solid #00F2FE;
+  border-radius: 1.1rem;
+  box-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
