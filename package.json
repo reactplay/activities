@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nhost/nextjs": "^1.7.4",
+    "@nhost/react": "^0.12.4",
+    "graphql": "^16.6.0",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
