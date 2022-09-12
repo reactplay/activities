@@ -28,7 +28,7 @@ export default function Home() {
                 : ""
             }/registration`
           );
-
+          console.error(`External URL path: ${external_path}`);
           window.location = external_path;
         }
       } else {
