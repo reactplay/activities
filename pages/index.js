@@ -1,17 +1,22 @@
 import Layout from "../components/Layout";
 import {
-  PrimaryButton,
-  SecondaryButton,
-  SecondaryOutlinedButton,
-} from "../components/Buttons";
+  Hero,
+  About,
+  ChallengesAndPrizes,
+  Judges,
+  CTA,
+  FAQs,
+} from "../components/Home";
 
 export default function Home() {
   return (
     <Layout title="HACK-R-PLAY" description="A hackathon hosted by ReactPlay">
-      <div>hello world</div>
-      <PrimaryButton>Register +</PrimaryButton>
-      <SecondaryButton>Register +</SecondaryButton>
-      <SecondaryOutlinedButton>Register +</SecondaryOutlinedButton>
+      <Hero />
+      <About />
+      <ChallengesAndPrizes />
+      <Judges />
+      <CTA />
+      <FAQs />
     </Layout>
   );
 }
