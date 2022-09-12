@@ -17,7 +17,6 @@ export default function Home() {
   };
 
   useEffect(() => {
-    console.log(isLoading, isAuthenticated);
     if (!isLoading) {
       if (!isAuthenticated) {
         if (typeof window !== "undefined") {
@@ -31,7 +30,6 @@ export default function Home() {
           const external_path = NHOST.AUTH_URL(
             `${protocol}://${host}${port}/registration`
           );
-          console.error(`External URL path: ${external_path}`);
           window.location = external_path;
         }
       } else {
