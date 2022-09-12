@@ -1,4 +1,4 @@
-import { TextField, FormControl, Autocomplete } from "@mui/material";
+import { TextField, FormControl, Autocomplete, Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import * as _ from "lodash";
 import dynamic from "next/dynamic";
@@ -126,6 +126,22 @@ const FormBuilder = ({ fields, data, onChange }) => {
             filterSelectedOptions
             multiple={field.multiple}
             freeSolo={field.freeSolo}
+            renderOption={(props, option) => (
+              <Box
+                component="li"
+                sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
+                {...props}
+              >
+                <img
+                  loading="lazy"
+                  width="40"
+                  src={option.avatarUrl}
+                  alt=""
+                  className="rounded-full"
+                />
+                {option.displayName}
+              </Box>
+            )}
             onChange={(e, newValue) => {
               let updatedval = newValue;
               if (field.multiple) {
@@ -144,14 +160,13 @@ const FormBuilder = ({ fields, data, onChange }) => {
               onDataChanged(field.datafield, updatedval);
             }}
             renderInput={(params) => (
-              <>
-                <img src={params} />
+              <div>
                 <TextField
                   {...params}
                   size="small"
                   placeholder={field.placeholder}
                 />
-              </>
+              </div>
             )}
           />
         );
@@ -164,6 +179,9 @@ const FormBuilder = ({ fields, data, onChange }) => {
               formats={QuillFormats}
               theme="snow"
               className="h-full"
+              onChange={(v) => {
+                onDataChanged(field.datafield, v);
+              }}
             />
           </div>
         );
