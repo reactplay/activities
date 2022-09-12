@@ -17,18 +17,19 @@ export default function Home() {
   };
 
   useEffect(() => {
-    console.log(isLoading, isAuthenticated);
     if (!isLoading) {
       if (!isAuthenticated) {
         if (typeof window !== "undefined") {
+          const protocol = process.env.NEXT_PUBLIC_PROTOCOL
+            ? process.env.NEXT_PUBLIC_PROTOCOL
+            : "https";
+          const host = window.location.hostname;
+          const port = process.env.NEXT_PUBLIC_DEV_PORT
+            ? `:${process.env.NEXT_PUBLIC_DEV_PORT}`
+            : "";
           const external_path = NHOST.AUTH_URL(
-            `http://${window.location.hostname}${
-              process.env.NEXT_PUBLIC_DEV_PORT
-                ? `:${process.env.NEXT_PUBLIC_DEV_PORT}`
-                : ""
-            }/registration`
+            `${protocol}://${host}${port}/registration`
           );
-
           window.location = external_path;
         }
       } else {
