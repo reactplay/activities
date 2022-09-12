@@ -3,36 +3,54 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import { NHOST } from "../services/nhost";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 
 export default function Home() {
   const { isAuthenticated, isLoading } = useAuthenticationStatus();
+  const [isDataLoading, setIsDataLoading] = useState(true);
+
   const userData = useUserData();
-  const router = useRouter();
+
+  const initializeData = () => {
+    // Write your initialization snippets here
+    console.log(userData);
+    setIsDataLoading(false);
+  };
 
   useEffect(() => {
     console.log(isLoading, isAuthenticated);
     if (!isLoading) {
       if (!isAuthenticated) {
         const external_path = NHOST.AUTH_URL(
-          `http://${location.hostname}${
+          `http://localhost${
             process.env.NEXT_PUBLIC_DEV_PORT
               ? `:${process.env.NEXT_PUBLIC_DEV_PORT}`
               : ""
           }/registration`
         );
-        console.log(`External URL for auth: ${external_path}`);
-        router.push(external_path, undefined, { shallow: true });
+
+        if (typeof window !== "undefined") {
+          window.location = external_path;
+        }
+      } else {
+        initializeData();
       }
     }
   }, [isLoading]);
 
-  if (!isAuthenticated) {
-    return null;
+  if (isLoading) {
+    return (
+      <div className={styles.container}>
+        <main className={styles.main}>
+          <h5 className={styles.title}>
+            Loading authentication information. Please wait.
+          </h5>
+        </main>
+      </div>
+    );
   }
 
-  if (isLoading) {
-    return <div>Loading user information. Please wait...</div>;
+  if (isDataLoading) {
+    return <div>Loading data information. Please wait...</div>;
   }
 
   return (
@@ -49,4 +67,5 @@ export default function Home() {
       </main>
     </div>
   );
+  return null;
 }
