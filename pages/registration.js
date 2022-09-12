@@ -20,15 +20,15 @@ export default function Home() {
     console.log(isLoading, isAuthenticated);
     if (!isLoading) {
       if (!isAuthenticated) {
-        const external_path = NHOST.AUTH_URL(
-          `http://localhost${
-            process.env.NEXT_PUBLIC_DEV_PORT
-              ? `:${process.env.NEXT_PUBLIC_DEV_PORT}`
-              : ""
-          }/registration`
-        );
-
         if (typeof window !== "undefined") {
+          const external_path = NHOST.AUTH_URL(
+            `http://${window.location.hostname}${
+              process.env.NEXT_PUBLIC_DEV_PORT
+                ? `:${process.env.NEXT_PUBLIC_DEV_PORT}`
+                : ""
+            }/registration`
+          );
+
           window.location = external_path;
         }
       } else {
