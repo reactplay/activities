@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="158.118" height="216" viewBox="0 0 158.118 216">
+  <defs>
+    <linearGradient id="linear-gradient" y1="1" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#00f2fe"/>
+      <stop offset="1" stop-color="#68fdc6"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_485" data-name="Group 485" transform="translate(-116.235 -5514)">
+    <path id="Polygon_15" data-name="Polygon 15" d="M108,2.5,2.674,156.706H213.326L108,2.5M108,0,216,158.118H0Z" transform="translate(274.353 5514) rotate(90)" opacity="0.29" fill="url(#linear-gradient)"/>
+    <g id="Polygon_19" data-name="Polygon 19" transform="translate(232 5534) rotate(90)" fill="#00f2fe" opacity="0.16">
+      <path d="M 60.04502868652344 43.5 L 0.9549756646156311 43.5 L 30.50000190734863 0.8776670694351196 L 60.04502868652344 43.5 Z" stroke="none"/>
+      <path d="M 30.50000190734863 1.755332946777344 L 1.909950256347656 43 L 59.09005355834961 43 L 30.50000190734863 1.755332946777344 M 30.50000190734863 0 L 61 44 L 3.814697265625e-06 44 L 30.50000190734863 0 Z" stroke="none" fill="#707070"/>
+    </g>
+  </g>
+</svg>
