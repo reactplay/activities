@@ -6,7 +6,10 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      primary: ["Bebas Neue", "cursive"],
+      body: ["Roboto Mono", "monospace"],
+    },
   },
   plugins: [],
 };
