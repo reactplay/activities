@@ -1,9 +1,9 @@
+import Layout from "../components/Layout";
 import {
   PrimaryButton,
   SecondaryButton,
   SecondaryOutlinedButton,
 } from "../components/Buttons";
-import Layout from "../components/Layout";
 
 export default function Home() {
   return (
