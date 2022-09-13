@@ -1,4 +1,6 @@
 import { PrimaryButton, SecondaryOutlinedButton } from "../Buttons";
+import { FiCheckCircle } from "react-icons/fi";
+import { BiRightArrowAlt } from "react-icons/bi";
 
 const Hero = () => {
   return (
@@ -22,10 +24,18 @@ const Hero = () => {
         </p>
         <div className="inline-flex justify-center items-center mt-8">
           <div className="mr-4">
-            <PrimaryButton>Register</PrimaryButton>
+            <PrimaryButton>
+              Register <FiCheckCircle className="ml-2 my-auto" size={20} />
+            </PrimaryButton>
           </div>
           <div>
-            <SecondaryOutlinedButton>Become a sponsor</SecondaryOutlinedButton>
+            <SecondaryOutlinedButton>
+              View Submissions
+              <BiRightArrowAlt
+                className="ml-2 my-auto text-[#00F2FE]"
+                size={25}
+              />
+            </SecondaryOutlinedButton>
           </div>
         </div>
       </div>
