@@ -11,7 +11,7 @@ import {
 } from "../components/Home";
 
 import DottedAndFilledTriangle from "../public/Home/DottedAndFilledTriangle.svg";
-import Flower from "../public/Home/Flower.svg";
+import Flower from "../public/Flower.svg";
 
 export default function Home() {
   return (
