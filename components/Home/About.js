@@ -31,17 +31,17 @@ const About = () => {
         </div>
       </div>
       <div className="-mt-10 -ml-36">
-        <div className="w-fit h-fit border-2 border-[#68FDC6] rounded-tl-[6.5rem] flex justify-center items-center p-14 -ml-10">
+        <div className="w-fit h-fit border-2 border-[#68FDC6] rounded-tl-[6.5rem] flex justify-center items-center py-14 px-12 -ml-10">
           <p className=" text-[#68FDC6] font-primary text-4xl mx-auto max-w-[8rem] max-h-32">
             Ipsum dolor sit amet, conctetur
           </p>
         </div>
-        <div className="w-fit h-fit border-2 border-white rounded-tr-[6.5rem] flex justify-center items-center p-14 ml-36 -mt-7">
+        <div className="w-fit h-fit border-2 border-white rounded-tr-[6.5rem] flex justify-center items-center py-14 px-12 ml-36 -mt-7">
           <p className=" text-white font-primary text-4xl mx-auto max-w-[8rem] max-h-32">
             Ipsum dolor sit amet, conctetur
           </p>
         </div>
-        <div className="w-fit h-fit border-2 border-[#00F2FE] rounded-br-[6.5rem] flex justify-center items-center p-14 ml-80 -mt-7">
+        <div className="w-fit h-fit border-2 border-[#00F2FE] rounded-br-[6.5rem] flex justify-center items-center py-14 px-12 ml-80 -mt-7">
           <p className=" text-[#00F2FE] font-primary text-4xl mx-auto max-w-[8rem] max-h-32">
             Ipsum dolor sit amet, conctetur
           </p>
