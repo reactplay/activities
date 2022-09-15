@@ -15,6 +15,23 @@ import Flower from "../public/Flower.svg";
 import Partners from "../components/Home/Partners";
 
 export default function Home() {
+  const faqs = [
+    {
+      question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
+    },
+    {
+      question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
+    },
+    {
+      question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
+    },
+  ];
   return (
     <Layout title="HACK-R-PLAY" description="A hackathon hosted by ReactPlay">
       <div className="absolute left-9 -top-10">
@@ -34,7 +51,7 @@ export default function Home() {
       <Judges />
       <Partners />
       <CTA />
-      <FAQs />
+      <FAQs faqs={faqs} />
     </Layout>
   );
 }
