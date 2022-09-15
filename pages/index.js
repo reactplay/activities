@@ -50,7 +50,12 @@ export default function Home() {
       <About />
       <Judges />
       <Partners />
-      <CTA />
+      <CTA
+        title="Be a part of the best react event"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum
+            est ultricies integer quis. Iaculis urna id volutpat lacus laoreet."
+      />
       <FAQs faqs={faqs} />
     </Layout>
   );
