@@ -1,8 +1,19 @@
-import React from "react";
+import Image from "next/image";
+
+import GradientAndSmallTriangle from "../../public/GradientAndSmallTriangle.svg";
 
 const ChallengesAndPrizes = () => {
   return (
-    <div className="mt-16 bg-white bg-opacity-10 flex flex-col justify-center items-center py-24 px-16">
+    <div className="relative mt-16 bg-white bg-opacity-10 flex flex-col justify-center items-center py-24 px-16">
+      <div className="absolute -left-5 -top-11">
+        <Image
+          src={GradientAndSmallTriangle}
+          alt="Gradient AndSmall Triangle"
+          width={280}
+          height={280}
+        />
+      </div>
+
       <h1 className="font-primary text-white text-5xl tracking-wider">
         Challenges & Prizes
       </h1>

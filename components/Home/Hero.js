@@ -7,7 +7,7 @@ import { BiRightArrowAlt } from "react-icons/bi";
 import GradientFlower from "../../public/Home/GradientFlower.svg";
 import DottedAndFilledTriangle from "../../public/Home/DottedAndFilledTriangle.svg";
 import Flower from "../../public/Flower.svg";
-import GradientAndSmallTriangle from "../../public/Home/GradientAndSmallTriangle.svg";
+import GradientAndSmallTriangle from "../../public/GradientAndSmallTriangle.svg";
 import HeroCoders from "../../public/Home/HeroCoders.svg";
 import HeroLines from "../../public/Home/HeroLines.svg";
 import RadialGradient from "../../public/Home/RadialGradient.svg";
