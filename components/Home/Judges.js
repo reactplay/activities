@@ -1,8 +1,23 @@
-import React from "react";
+import Image from "next/image";
+
+import DottedPattern from "../../public/Judges/DottedPattern.svg";
+import Lines from "../../public/Judges/Lines.svg";
 
 const Judges = () => {
   return (
     <div className="relative mt-16 bg-white bg-opacity-10 flex flex-col justify-center items-center py-24 px-16">
+      <div className="absolute -left-16 top-6">
+        <Image
+          src={DottedPattern}
+          alt="Dotted Pattern"
+          width={155}
+          height={155}
+        />
+      </div>
+      <div className="absolute left-36 -top-16">
+        <Image src={Lines} alt="Lines" width={800} height={800} />
+      </div>
+
       <h1 className="font-primary text-white text-5xl tracking-wider">
         Judges & Mentors
       </h1>
