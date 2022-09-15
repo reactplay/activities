@@ -26,12 +26,13 @@
 }
 .cardAvatar{
   position: relative;
-  right: -2rem !important; 
-  border-radius: 50%;
+  left: 0.5rem !important; 
+  border-radius: 50%; 
 }
 .cardAvatar2nd{
+  background-color: #2ECC71;
   position: absolute; 
-  left:-1.5rem !important; 
+  right:1rem !important; 
   border-radius: 50%;
 }
 
