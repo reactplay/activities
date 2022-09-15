@@ -30,7 +30,6 @@ export default function Home() {
 
       <Hero />
       <About />
-      <ChallengesAndPrizes />
       <Judges />
       <CTA />
       <FAQs />
