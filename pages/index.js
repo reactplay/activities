@@ -12,6 +12,7 @@ import {
 
 import DottedAndFilledTriangle from "../public/Home/DottedAndFilledTriangle.svg";
 import Flower from "../public/Flower.svg";
+import Partners from "../components/Home/Partners";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
       <Hero />
       <About />
       <Judges />
+      <Partners />
       <CTA />
       <FAQs />
     </Layout>
