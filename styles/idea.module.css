@@ -5,9 +5,7 @@
   padding: 1rem;
 }
 
-.cardConatiner{
-   background-color: aqua;
-}
+
 
 .card{
   height: 25.5rem !important;
@@ -30,7 +28,6 @@
   border-radius: 50%; 
 }
 .cardAvatar2nd{
-  background-color: #2ECC71;
   position: absolute; 
   right:1rem !important; 
   border-radius: 50%;
