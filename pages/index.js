@@ -32,6 +32,22 @@ export default function Home() {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
     },
   ];
+
+  const judges = [
+    {
+      name: "lorem ipsum dolor sit",
+      title: "lorem ipsum",
+    },
+    {
+      name: "lorem ipsum dolor sit",
+      title: "lorem ipsum",
+    },
+    {
+      name: "lorem ipsum dolor sit",
+      title: "lorem ipsum",
+    },
+  ];
+
   return (
     <Layout title="HACK-R-PLAY" description="A hackathon hosted by ReactPlay">
       <div className="absolute left-9 -top-10">
@@ -48,7 +64,7 @@ export default function Home() {
 
       <Hero />
       <About />
-      <Judges />
+      <Judges judges={judges} />
       <Partners />
       <CTA
         title="Be a part of the best react event"
