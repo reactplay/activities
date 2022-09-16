@@ -9,7 +9,7 @@ const Judges = ({ judges }) => {
       id="judges"
       className="relative mt-16 bg-white bg-opacity-10 flex flex-col justify-center items-center py-24 px-16"
     >
-      <div className="absolute -left-16 top-6">
+      <div className="absolute md:-left-16 md:top-6 -left-20 top-3">
         <Image
           src={DottedPattern}
           alt="Dotted Pattern"
@@ -21,12 +21,12 @@ const Judges = ({ judges }) => {
         <Image src={Lines} alt="Lines" width={800} height={800} />
       </div>
 
-      <h1 className="font-primary text-white text-5xl tracking-wider z-10">
+      <h1 className="font-primary text-white md:text-5xl text-4xl tracking-wider z-10">
         Judges & Mentors
       </h1>
-      <div className="inline-flex justify-center items-center mt-14 p-3 z-10">
+      <div className="inline-flex md:flex-row flex-col justify-center items-center md:mt-14 mt-6 p-3 z-10">
         {judges.map((judge) => (
-          <div className="mr-6 p-2 flex flex-col justify-center items-start font-body">
+          <div className="md:mr-8 md:mt-0 mt-4 p-2 flex flex-col justify-center items-start font-body">
             <div className="w-48 h-48 bg-gray-600 rounded-md rounded-tl-[4rem]">
               {judge.image ? <Image src={judge.image} layout="fixed" /> : null}
             </div>
