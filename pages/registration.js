@@ -8,6 +8,9 @@ import { FIELD_TEMPLATE } from "@/services/consts/registration-fields";
 import { Button } from "@mui/material";
 import { getAllUsers } from "@/services/graphql/auth";
 import { assign_member, insert_idea } from "@/services/graphql/ideas";
+import { PrimaryButton, SecondaryButton } from "@/components/Buttons";
+import { useRouter } from "next/router";
+import Layout from "@/components/Layout";
 
 export default function Home() {
   const { isAuthenticated, isLoading } = useAuthenticationStatus();
@@ -15,6 +18,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [storedIdeaData, setStoredIdeaData] = useState({});
   const [formData, setFormData] = useState({});
+  const router = useRouter();
 
   const userData = useUserData();
 
@@ -96,7 +100,6 @@ export default function Home() {
   };
 
   const onIdeaDataChanged = (data) => {
-    console.log(JSON.stringify(data));
     setFormData({ ...data });
     setStoredIdeaData({ ...data });
   };
@@ -126,42 +129,43 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center create-plays-wrapper">
-      <div>
-        <span className="title-primary">
-          Register your <strong>idea</strong>
-        </span>
-      </div>
-      <div className="w-full h-full max-w-6xl flex bg-white shadow-md rounded mb-6">
-        <div className="flex flex-col flex-1">
-          <div className="h-14 p-8">
-            Welcome <strong>{userData.displayName}</strong>, log your idea
-          </div>
+    <Layout>
+      <div className="w-full h-full flex flex-col justify-center items-center create-plays-wrapper">
+        <div className="w-full h-full max-w-6xl flex shadow-md rounded mb-6">
+          <div className="flex flex-col flex-1 bg-white">
+            <div className="h-14 p-8">
+              Welcome <strong>{userData.displayName}</strong>, log your idea
+            </div>
 
-          <div className="flex-1 px-10 py-8 overflow-auto">
-            <form>
-              <FormBuilder
-                fields={FIELD_TEMPLATE}
-                onChange={(data) => onIdeaDataChanged(data)}
-              />
-            </form>
-          </div>
-          <div className="h-14">
-            <hr />
-            <div className="p-8 h-full flex items-center">
-              <Button
-                size="small"
-                variant="contained"
-                disabled={isFieldsAreInValid()}
-                onClick={() => onSubmit()}
-              >
-                Log your idea
-              </Button>
+            <div className="flex-1 px-10 py-8 overflow-auto">
+              <form>
+                <FormBuilder
+                  fields={FIELD_TEMPLATE}
+                  onChange={(data) => onIdeaDataChanged(data)}
+                />
+              </form>
+            </div>
+            <div>
+              <hr />
+              <div className="p-8 h-full flex items-center">
+                <PrimaryButton
+                  disabled={isFieldsAreInValid()}
+                  onClick={() => onSubmit()}
+                >
+                  Log your idea{" "}
+                </PrimaryButton>
+                <div className="p-2">
+                  <Link href={"/"}>
+                    <a className="uppercase mr-16 text-lg tracking-widest">
+                      Cancel
+                    </a>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
-  return null;
 }
