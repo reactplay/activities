@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="681.627" height="739.301" viewBox="0 0 681.627 739.301">
+  <g id="flower" transform="translate(-493 105.736)" opacity="0.18" style="mix-blend-mode: overlay;isolation: isolate">
+    <g id="logo_shape" data-name="logo shape" transform="translate(493 -105.736)" style="mix-blend-mode: overlay;isolation: isolate">
+      <g id="Ellipse_8" data-name="Ellipse 8" transform="translate(297.074 0) rotate(60)" fill="none" stroke="#00f2fe" stroke-width="2">
+        <ellipse cx="343.179" cy="144.898" rx="343.179" ry="144.898" stroke="none"/>
+        <ellipse cx="343.179" cy="144.898" rx="342.179" ry="143.898" fill="none"/>
+      </g>
+      <g id="Ellipse_9" data-name="Ellipse 9" transform="translate(0 220.53)" fill="none" stroke="#00f2fe" stroke-width="2">
+        <ellipse cx="340.813" cy="145.265" rx="340.813" ry="145.265" stroke="none"/>
+        <ellipse cx="340.813" cy="145.265" rx="339.813" ry="144.265" fill="none"/>
+      </g>
+      <g id="Ellipse_10" data-name="Ellipse 10" transform="translate(640.254 144.898) rotate(120)" fill="none" stroke="#00f2fe" stroke-width="2">
+        <ellipse cx="343.179" cy="144.898" rx="343.179" ry="144.898" stroke="none"/>
+        <ellipse cx="343.179" cy="144.898" rx="342.179" ry="143.898" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>
