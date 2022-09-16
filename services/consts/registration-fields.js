@@ -7,14 +7,7 @@ export const FIELD_TEMPLATE = [
     required: true,
   },
   {
-    datafield: "description",
-    type: "rich",
-    display: "Description",
-    placeholder: "Describe your idea",
-    required: true,
-  },
-  {
-    datafield: "user",
+    datafield: "users",
     type: "userlist",
     display: "Members",
     placeholder: "Select team members",
@@ -22,5 +15,13 @@ export const FIELD_TEMPLATE = [
     max: 2,
     options: [],
     fieldName: "displayName",
+  },
+  ,
+  {
+    datafield: "description",
+    type: "rich",
+    display: "Description",
+    placeholder: "Describe your idea",
+    required: true,
   },
 ];

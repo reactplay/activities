@@ -7,19 +7,21 @@ import FormBuilder from "@/components/form-builder";
 import { FIELD_TEMPLATE } from "@/services/consts/registration-fields";
 import { Button } from "@mui/material";
 import { getAllUsers } from "@/services/graphql/auth";
+import { assign_member, insert_idea } from "@/services/graphql/ideas";
 
 export default function Home() {
   const { isAuthenticated, isLoading } = useAuthenticationStatus();
   const [isDataLoading, setIsDataLoading] = useState(true);
-  const [storedData, setStoredData] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [storedIdeaData, setStoredIdeaData] = useState({});
   const [formData, setFormData] = useState({});
 
   const userData = useUserData();
 
   const initializeData = () => {
-    if (Object.keys(storedData).length === 0) {
+    if (Object.keys(storedIdeaData).length === 0) {
       setIsDataLoading(true);
-      const all_apis = [{ name: "user", method: getAllUsers }];
+      const all_apis = [{ name: "users", method: getAllUsers }];
       const promises = [];
       all_apis.forEach((api) => {
         promises.push(api.method());
@@ -29,7 +31,7 @@ export default function Home() {
         .then((res) => {
           res.forEach((rApi, rApi_ind) => {
             const api_obj = all_apis[rApi_ind];
-            storedData[api_obj.name] = rApi;
+            storedIdeaData[api_obj.name] = rApi;
             const anyField = FIELD_TEMPLATE.filter((field) => {
               return field.datafield === api_obj.name;
             });
@@ -37,7 +39,7 @@ export default function Home() {
               anyField[0].options = rApi;
             }
           });
-          setStoredData({ ...storedData });
+          setStoredIdeaData({ ...storedIdeaData });
         })
         .finally(() => {
           setIsDataLoading(false);
@@ -93,11 +95,35 @@ export default function Home() {
     return res;
   };
 
-  const onChange = (data) => {
+  const onIdeaDataChanged = (data) => {
+    console.log(JSON.stringify(data));
     setFormData({ ...data });
+    setStoredIdeaData({ ...data });
   };
 
-  const onSubmit = () => {};
+  const onSubmit = () => {
+    setIsSubmitting(true);
+    let idea_id = storedIdeaData.id;
+    let selected_users = storedIdeaData.users;
+    const idea_object = (({ title, description }) => ({ title, description }))(
+      storedIdeaData
+    );
+    if (!idea_id)
+      return insert_idea(idea_object).then((res) => {
+        idea_id = res.id;
+        if (selected_users && selected_users.length) {
+          const promises = [];
+          selected_users.forEach((user) => {
+            promises.push(assign_member(idea_id, user.id));
+          });
+          return Promise.all(promises).then((res) => {
+            setIsSubmitting(false);
+          });
+        } else {
+          setIsSubmitting(false);
+        }
+      });
+  };
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center create-plays-wrapper">
@@ -116,7 +142,7 @@ export default function Home() {
             <form>
               <FormBuilder
                 fields={FIELD_TEMPLATE}
-                onChange={(data) => onChange(data)}
+                onChange={(data) => onIdeaDataChanged(data)}
               />
             </form>
           </div>
@@ -129,7 +155,7 @@ export default function Home() {
                 disabled={isFieldsAreInValid()}
                 onClick={() => onSubmit()}
               >
-                Create the awesome
+                Log your idea
               </Button>
             </div>
           </div>
