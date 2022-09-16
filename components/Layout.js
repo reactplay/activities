@@ -5,7 +5,7 @@ import Header from "./Header";
 
 const Layout = ({ children, title, description }) => {
   return (
-    <div className="bg-[#051630]">
+    <div className="relative bg-[#051630] overflow-clip">
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
