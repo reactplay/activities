@@ -5,7 +5,10 @@ import Lines from "../../public/Hack-R-Play/Lines.svg";
 
 const Judges = ({ judges }) => {
   return (
-    <div className="relative mt-16 bg-white bg-opacity-10 flex flex-col justify-center items-center py-24 px-16">
+    <section
+      id="judges"
+      className="relative mt-16 bg-white bg-opacity-10 flex flex-col justify-center items-center py-24 px-16"
+    >
       <div className="absolute -left-16 top-6">
         <Image
           src={DottedPattern}
@@ -32,7 +35,7 @@ const Judges = ({ judges }) => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

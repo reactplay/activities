@@ -5,7 +5,10 @@ import CTAImage from "../../public/Hack-R-Play/CTAImage.svg";
 
 const CTA = ({ title, description, image }) => {
   return (
-    <div className="relative flex flex-col -mt-14 py-16 px-28 justify-center items-center overflow-clip bg-[#00F2FE]">
+    <section
+      id="cta"
+      className="relative flex flex-col -mt-14 py-16 px-28 justify-center items-center overflow-clip bg-[#00F2FE]"
+    >
       <div className="inline-flex justify-center items-center mx-auto max-w-4xl px-14">
         <div>
           <Image
@@ -24,7 +27,7 @@ const CTA = ({ title, description, image }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

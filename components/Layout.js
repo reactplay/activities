@@ -12,7 +12,7 @@ const Layout = ({ children, title, description }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main>{children}</main>
+      <main className="scroll-smooth">{children}</main>
       <Footer />
     </div>
   );

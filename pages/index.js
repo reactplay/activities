@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <Layout title="HACK-R-PLAY" description="A hackathon hosted by ReactPlay">
-      <div className="absolute left-9 -top-10">
+      <div className="absolute left-9 -top-10 z-0">
         <Image
           src={DottedAndFilledTriangle}
           alt="Dotted And Filled Triangle"
@@ -57,7 +57,7 @@ export default function Home() {
           height={220}
         />
       </div>
-      <div className="absolute -right-60 -top-48">
+      <div className="absolute -right-60 -top-48 z-0">
         <Image src={Flower} alt="Flower" width={500} height={500} />
       </div>
 

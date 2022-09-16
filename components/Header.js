@@ -17,8 +17,11 @@ const MobileHeader = ({ links, setMobileActive }) => {
 
         <nav className="mt-10 w-full h-full flex flex-col justify-start items-center">
           {links.map((link, index) => (
-            <Link key={index} href={link.href}>
-              <a className="uppercase mt-14 text-2xl tracking-widest">
+            <Link key={index} href={`${link.href}`} scroll={false}>
+              <a
+                onClick={() => setMobileActive(false)}
+                className="uppercase mt-14 text-2xl tracking-widest"
+              >
                 {link.name}
               </a>
             </Link>
@@ -33,33 +36,29 @@ const Header = () => {
   const links = [
     {
       name: "About",
-      href: "/#about",
+      href: "#about",
     },
     {
-      name: "Challenges",
-      href: "/#challenges",
-    },
-    {
-      name: "Sponsor",
-      href: "/#sponsor",
+      name: "Sponsors",
+      href: "#sponsors",
     },
     {
       name: "Judges",
-      href: "/#judges",
+      href: "#judges",
     },
     {
       name: "Faqs",
-      href: "/#faqs",
+      href: "#faqs",
     },
   ];
   const [mobileActive, setMobileActive] = useState(false);
   console.log(mobileActive);
   return (
     <>
-      <header className="pt-5 pb-1 px-4 flex md:justify-center justify-end items-baseline bg-transparent font-primary text-white">
-        <div className="md:inline-flex hidden justify-center items-baseline mx-auto">
+      <header className="pt-5 pb-1 px-4 flex md:justify-center justify-end items-baseline bg-transparent font-primary text-white z-10">
+        <div className="md:inline-flex hidden justify-center items-baseline mx-auto z-10">
           {links.map((link, index) => (
-            <Link key={index} href={link.href}>
+            <Link key={index} href={`${link.href}`} scroll={false}>
               <a className="uppercase mr-16 text-lg tracking-widest">
                 {link.name}
               </a>

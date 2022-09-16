@@ -13,7 +13,7 @@ import RadialGradient from "../../public/Hack-R-Play/RadialGradient.svg";
 
 const Hero = () => {
   return (
-    <div className="relative flex py-4 px-8 justify-center items-center overflow-clip">
+    <section className="relative flex py-4 px-8 justify-center items-center overflow-clip">
       <div className="absolute -left-12 top-36">
         <Image
           src={GradientFlower}
@@ -82,7 +82,7 @@ const Hero = () => {
           <Image src={HeroCoders} alt="Hero Coders" width={750} height={750} />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

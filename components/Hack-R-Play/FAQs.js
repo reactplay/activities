@@ -21,7 +21,10 @@ const FAQs = ({ faqs }) => {
   };
 
   return (
-    <div className="relative mt-16 flex flex-col justify-center items-center py-24 px-16">
+    <div
+      id="faqs"
+      className="relative mt-16 flex flex-col justify-center items-center py-24 px-16"
+    >
       <h1 className="font-primary text-white text-5xl tracking-wider">FAQs</h1>
       <div className="p-10">
         {faqs.map((faq, index) => (

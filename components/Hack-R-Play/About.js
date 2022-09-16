@@ -5,7 +5,10 @@ import Flower from "../../public/Hack-R-Play/Flower.svg";
 
 const About = () => {
   return (
-    <div className="relative flex flex-col -mt-14 px-8 justify-center items-center overflow-clip">
+    <section
+      id="about"
+      className="relative flex flex-col pt-10 px-8 justify-center items-center overflow-clip scroll-smooth"
+    >
       <div className="flex flex-row col-span-4 mx-auto px-28">
         <div className="mr-14 -mt-4">
           <Image
@@ -50,7 +53,7 @@ const About = () => {
       <div className="absolute bottom-5 -left-48">
         <Image src={Flower} alt="About Flower" width={400} height={400} />
       </div>
-    </div>
+    </section>
   );
 };
 
