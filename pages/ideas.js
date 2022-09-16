@@ -1,10 +1,10 @@
-import Card from "/components/Ideas/Card";
+import IdeaCard from "/components/Ideas/Card";
 import styles from '/styles/idea.module.css';
-import { Grid, AutoSizer } from "react-virtualized";
 import { useQuery } from '@apollo/client';
 import ideaQuery from '/queries/fetch-ideas.gql';
 import Layout from "../components/Layout";
 import { useEffect, useState } from "react";
+import { Grid } from "@mui/material";
 
 
 const IdeaListingPage = () => {
@@ -38,18 +38,7 @@ const IdeaListingPage = () => {
     }
 
   }, [data])
-  const CellRender = (columnIndex, key, rowIndex, style) => {
-    const row = Number(rowIndex.split("-")[0]);
-    const ind = (row * 3) + columnIndex;
 
-    if (ind < ideas.length) {
-      return (
-        <Card data={ideas[ind]} style={style} />
-      );
-    }
-    return null;
-
-  }
 
 
   return (
@@ -65,32 +54,20 @@ const IdeaListingPage = () => {
                 Brain stroming ideas are coming soon...
               </p>
                 :
-                <main className={`${styles.container} `}>
-                  <AutoSizer>
+                <main className="flex justify-center bg-white pt-5 pb-5 pl-4 pr-4">
+                  <Grid container
+                    spacing={{ md: 1 }} rowSpacing={2}
+                    columns={{ xs: 1, md: 2, lg: 3 }}>
                     {
-                      ({ width, height }) => {
+                      ideas.map((value) => {
                         return (
-                          <Grid
-                            cellRenderer={({ columnIndex, key, rowIndex, style }) => (CellRender(columnIndex, rowIndex, key, style))}
-                            columnWidth={380}
-                            height={height}
-                            containerStyle={{
-                              marginLeft: '5%',
-                              display: 'flex',
-                              justifyContent: 'center'
-                            }}
-                            columnCount={3}
-                            overscanColumnCount={1}
-                            overscanRowCount={1}
-                            rowHeight={430}
-                            rowCount={Math.ceil(ideas.length / 3)}
-                            width={width}
-                          />
-
+                          <Grid item className="flex justify-center" xs={1} md={1} >
+                            <IdeaCard data={value} />
+                          </Grid>
                         );
-                      }
+                      })
                     }
-                  </AutoSizer>
+                  </Grid>
                 </main>
             }</>
       }

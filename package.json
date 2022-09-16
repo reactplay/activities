@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/material": "^5.10.5",
     "@nhost/nextjs": "^1.7.4",
     "@nhost/react": "^0.12.4",
     "@nhost/react-apollo": "^4.7.4",
