@@ -7,7 +7,7 @@ const Judges = ({ judges }) => {
   return (
     <section
       id="judges"
-      className="relative mt-16 bg-white bg-opacity-10 flex flex-col justify-center items-center py-24 px-16"
+      className="relative mt-16 bg-white bg-opacity-10 flex flex-col justify-center items-center py-24 md:px-16 px-6"
     >
       <div className="absolute md:-left-16 md:top-6 -left-20 top-3">
         <Image
@@ -17,11 +17,11 @@ const Judges = ({ judges }) => {
           height={155}
         />
       </div>
-      <div className="absolute left-36 -top-16 ">
+      <div className="md:block hidden absolute left-36 -top-16 ">
         <Image src={Lines} alt="Lines" width={800} height={800} />
       </div>
 
-      <h1 className="font-primary text-white md:text-5xl text-4xl tracking-wider z-10">
+      <h1 className="font-primary text-white text-5xl tracking-wider z-10">
         Judges & Mentors
       </h1>
       <div className="inline-flex md:flex-row flex-col justify-center items-center md:mt-14 mt-6 p-3 z-10">
