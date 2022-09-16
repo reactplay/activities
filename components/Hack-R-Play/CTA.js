@@ -1,7 +1,7 @@
 import React from "react";
 import { SecondaryButton } from "../Buttons";
 import Image from "next/image";
-import CTAImage from "../../public/CTA/CTAImage.svg";
+import CTAImage from "../../public/Hack-R-Play/CTAImage.svg";
 
 const CTA = ({ title, description, image }) => {
   return (

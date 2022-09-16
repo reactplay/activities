@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import DottedPattern from "../../public/Judges/DottedPattern.svg";
-import Lines from "../../public/Judges/Lines.svg";
+import DottedPattern from "../../public/Hack-R-Play/DottedPattern.svg";
+import Lines from "../../public/Hack-R-Play/Lines.svg";
 
 const Judges = ({ judges }) => {
   return (

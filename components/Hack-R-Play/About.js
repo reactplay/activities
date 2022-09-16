@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import ReactPlayDotted from "../../public/About/ReactPlayLogoDotted.svg";
-import Flower from "../../public/Flower.svg";
+import ReactPlayDotted from "../../public/Hack-R-Play/ReactPlayLogoDotted.svg";
+import Flower from "../../public/Hack-R-Play/Flower.svg";
 
 const About = () => {
   return (

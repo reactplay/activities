@@ -4,13 +4,12 @@ import { PrimaryButton, SecondaryOutlinedButton } from "../Buttons";
 import { FiCheckCircle } from "react-icons/fi";
 import { BiRightArrowAlt } from "react-icons/bi";
 
-import GradientFlower from "../../public/Home/GradientFlower.svg";
-import DottedAndFilledTriangle from "../../public/Home/DottedAndFilledTriangle.svg";
-import Flower from "../../public/Flower.svg";
-import GradientAndSmallTriangle from "../../public/GradientAndSmallTriangle.svg";
-import HeroCoders from "../../public/Home/HeroCoders.svg";
-import HeroLines from "../../public/Home/HeroLines.svg";
-import RadialGradient from "../../public/Home/RadialGradient.svg";
+import GradientFlower from "../../public/Hack-R-Play/GradientFlower.svg";
+import Flower from "../../public/Hack-R-Play/Flower.svg";
+import GradientAndSmallTriangle from "../../public/Hack-R-Play/GradientAndSmallTriangle.svg";
+import HeroCoders from "../../public/Hack-R-Play/HeroCoders.svg";
+import HeroLines from "../../public/Hack-R-Play/HeroLines.svg";
+import RadialGradient from "../../public/Hack-R-Play/RadialGradient.svg";
 
 const Hero = () => {
   return (

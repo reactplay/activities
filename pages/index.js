@@ -4,15 +4,14 @@ import Image from "next/image";
 import {
   Hero,
   About,
-  ChallengesAndPrizes,
   Judges,
+  Partners,
   CTA,
   FAQs,
-} from "../components/Home";
+} from "../components/Hack-R-Play";
 
-import DottedAndFilledTriangle from "../public/Home/DottedAndFilledTriangle.svg";
-import Flower from "../public/Flower.svg";
-import Partners from "../components/Home/Partners";
+import DottedAndFilledTriangle from "../public/Hack-R-Play/DottedAndFilledTriangle.svg";
+import Flower from "../public/Hack-R-Play/Flower.svg";
 
 export default function Home() {
   const faqs = [
