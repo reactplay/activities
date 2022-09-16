@@ -10,8 +10,13 @@ import GradientAndSmallTriangle from "../../public/Hack-R-Play/GradientAndSmallT
 import HeroCoders from "../../public/Hack-R-Play/HeroCoders.svg";
 import HeroLines from "../../public/Hack-R-Play/HeroLines.svg";
 import RadialGradient from "../../public/Hack-R-Play/RadialGradient.svg";
+import { useRouter } from "next/router";
 
 const Hero = () => {
+  const router = useRouter();
+  const redirectToRegistration = () => {
+    router.push("/registration");
+  };
   return (
     <div className="relative flex py-4 px-8 justify-center items-center overflow-clip">
       <div className="absolute -left-12 top-36">
@@ -64,7 +69,7 @@ const Hero = () => {
         </p>
         <div className="inline-flex justify-center items-center mt-8 z-10">
           <div className="mr-4">
-            <PrimaryButton>
+            <PrimaryButton handleOnClick={() => redirectToRegistration()}>
               Register <FiCheckCircle className="ml-2 my-auto" size={20} />
             </PrimaryButton>
           </div>
