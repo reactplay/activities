@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="431" height="117.7" viewBox="0 0 431 117.7">
+  <g id="Logo" transform="translate(-427 -136.3)">
+    <g id="Group_311" data-name="Group 311" transform="translate(19.5 25)">
+      <g id="Group_309" data-name="Group 309" transform="translate(-112)">
+        <text id="Play" transform="translate(859.5 187.3)" fill="#fff" font-size="80" font-family="BebasNeue-Regular, Bebas Neue" letter-spacing="0.24em"><tspan x="-88.12" y="0">PLAY</tspan></text>
+        <text id="R" transform="translate(739.5 187.3)" fill="#00f2fe" font-size="80" font-family="BebasNeue-Regular, Bebas Neue" letter-spacing="0.24em"><tspan x="-16.12" y="0">R</tspan></text>
+        <text id="Hack" transform="translate(614.5 187.3)" fill="#fff" font-size="80" font-family="BebasNeue-Regular, Bebas Neue" letter-spacing="0.24em"><tspan x="-93.44" y="0">HACK</tspan></text>
+      </g>
+      <line id="Line_26" data-name="Line 26" x2="8" transform="translate(597 162.5)" fill="none" stroke="#00f2fe" stroke-width="4"/>
+      <line id="Line_27" data-name="Line 27" x2="8" transform="translate(648 162.5)" fill="none" stroke="#00f2fe" stroke-width="4"/>
+    </g>
+    <g id="Group_489" data-name="Group 489">
+      <rect id="Rectangle_262" data-name="Rectangle 262" width="155" height="32" transform="translate(703 222)" fill="#68fdc6"/>
+      <text id="SEP_14_-_16_2022" data-name="SEP 14 - 16, 2022" transform="translate(713 245)" fill="#021236" font-size="20" font-family="BebasNeue-Regular, Bebas Neue" letter-spacing="0.08em"><tspan x="0" y="0">SEP 14 - 16, 2022</tspan></text>
+      <text id="_100_react_event_in_the_universe" data-name="100% react event in the universe" transform="translate(436 244)" fill="#68fdc6" font-size="18" font-family="BebasNeue-Regular, Bebas Neue" letter-spacing="0.1em"><tspan x="0" y="0">100% react event in the universe</tspan></text>
+      <g id="Rectangle_253" data-name="Rectangle 253" transform="translate(427 222)" fill="none" stroke="#68fdc6" stroke-width="1">
+        <rect width="276" height="32" stroke="none"/>
+        <rect x="0.5" y="0.5" width="275" height="31" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

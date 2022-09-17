@@ -10,6 +10,7 @@ import GradientAndSmallTriangle from "../../public/Hack-R-Play/GradientAndSmallT
 import HeroCoders from "../../public/Hack-R-Play/HeroCoders.svg";
 import HeroLines from "../../public/Hack-R-Play/HeroLines.svg";
 import RadialGradient from "../../public/Hack-R-Play/RadialGradient.svg";
+import BannerLogo from "../../public/Hack-R-Play/BannerLogo.svg";
 
 const Hero = () => {
   return (
@@ -39,16 +40,8 @@ const Hero = () => {
       </div>
 
       <div className="flex flex-col justify-center items-center mx-auto pt-16 max-w-3xl z-10">
-        <h1 className="font-primary md:text-7xl text-5xl tracking-wide text-white ">
-          H a c k<span className="text-[#00F2FE]">-r-</span>p l a y
-        </h1>
-        <div className="inline-flex justify-center items-center border border-[#68FDC6] text-[#68FDC6] font-primary tracking-widest md:text-lg leading-none -mt-1">
-          <span className="pt-2 pb-1 px-2">
-            100% React Event In the Universe
-          </span>
-          <span className="bg-[#68FDC6] text-[#051630] pt-2 pb-1 px-2">
-            Sep 14 - 16, 2022
-          </span>
+        <div className="block md:w-1/2 md:h-1/2 w-11/12 h-11/12">
+          <Image src={BannerLogo} alt="Banner Logo" layout="responsive" />
         </div>
         <p className="text-center text-gray-300 font-body mt-7">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
