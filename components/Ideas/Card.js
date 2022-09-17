@@ -49,7 +49,6 @@ const IdeaCard = ({ data }) => {
                     <>
                       {
                         value && (
-                          // <Grid item xs={6}>
                           <Image
                             key={value + index.toString()}
                             className={data.avatarUrl.includes(undefined) ? styles.cardAvatarSingle : styleAvaratr}
@@ -58,7 +57,6 @@ const IdeaCard = ({ data }) => {
                             layout={'fixed'}
                             src={data.avatarUrl[index]}
                             alt={'user avatar'} aria-label='user avatar' />
-                          // </Grid>
                         )
                       }
                     </>
@@ -69,7 +67,12 @@ const IdeaCard = ({ data }) => {
             <Grid item
               xs={6}
               className="flex flex-row justify-center gap-2 items-center ">
-              <Image src={image !== null ? image : ""} alt={`status ${data.status}`} />
+              {
+                image !== null ?
+                  <Image src={image} alt={`status ${data.status}`} />
+                  : null
+              }
+
               <Typography variant={"body2"} color={color}>
                 {data.status}
               </Typography>
