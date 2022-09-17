@@ -37,3 +37,42 @@ export const assign_member = (idea_id, user_id) => {
   };
   return submit(input_obj);
 };
+
+
+export const listIdea = () => {
+  const input_obj = {
+    "display": "Play Tags",
+    "name": "hackathon_ideas",
+    "function": "hackathon_ideas",
+    "return": [
+      "description",
+      "title",
+      "id", {
+        "idea_status_map": {
+          "status_id_map": [
+            "label"
+          ]
+        }
+      }, {
+        "idea_members_map ": [
+          "id", {
+            "user_id_map": [
+              "avatarUrl",
+              "displayName"
+            ]
+          }
+
+        ]
+
+      }, {
+        "idea_owner_map": [
+          "avatarUrl",
+          "displayName"
+        ]
+
+      }
+    ],
+    "distinct": "id"
+  }
+  return submit(input_obj);
+}
