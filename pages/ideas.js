@@ -8,8 +8,6 @@ import Typography from '@mui/material/Typography';
 import { CTA } from "/components/Hack-R-Play";
 import DottedAndFilledTriangle from "/public/Hack-R-Play/DottedAndFilledTriangle.svg";
 import Flower from "/public/Hack-R-Play/Flower.svg";
-import Logo from "/public/Logo.png";
-import Link from "next/link";
 import styles from '/styles/idea.module.css'
 
 
@@ -49,15 +47,6 @@ const IdeaListingPage = () => {
 
   return (
     <Layout title="HACK-R-PLAY" description="A hackathon hosted by ReactPlay">
-      <div className="absolute left-8 top-12 md:top-2">
-        <Image
-          src={Logo}
-          alt="React play Logo"
-          width={230}
-          height={50}
-          layout="fixed"
-        />
-      </div>
       <div className="absolute left-9 -top-10">
         <Image
           src={DottedAndFilledTriangle}
@@ -68,13 +57,6 @@ const IdeaListingPage = () => {
       </div>
       <div className="absolute -right-60 -top-48">
         <Image src={Flower} alt="Flower" width={500} height={500} />
-      </div>
-      <div className={`absolute top-48 md:top-3 right-32 md:right-10 ${styles.registerBtn}`}>
-        <Link href={""}>
-          <a className=" font-semibold  text-lg ">
-            REGISTER NOW
-          </a>
-        </Link>
       </div>
       <Grid container
         columns={{ xs: 12, md: 12 }}

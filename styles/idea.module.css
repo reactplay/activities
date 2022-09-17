@@ -16,8 +16,16 @@ border-radius: 64px 8px 8px 8px !important;
 opacity: 1;
 }
 
+.title{
+  overflow: hidden;
+  height: 57px;  
+}
+
 .cardDescription{
   color: #FFFFFF99 !important;
+  overflow: hidden;
+  height: 100px;
+  text-overflow: ellipsis;  
 }
 
 .cardAvatarSingle{

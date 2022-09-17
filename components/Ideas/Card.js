@@ -5,7 +5,6 @@ import InProgress from '/public/Idea-List/inProgress.svg';
 import Complted from '/public/Idea-List/completed.svg';
 import NotStarted from '/public/Idea-List/notStart.svg';
 
-
 const IdeaCard = ({ data }) => {
 
   const [image, color] = data.status === 'Submitted' ?
@@ -24,14 +23,16 @@ const IdeaCard = ({ data }) => {
         className={" pt-12 px-8 h-72"}
       >
         <Grid item xs={1} className={""}>
-          <Typography variant='h5' color="#00F2FE">
+          <Typography variant='h5'
+            className={`${styles.title} `}
+            color="#00F2FE">
             {data.title}
           </Typography>
         </Grid>
         <Grid item xs={1}
           className="">
           <div
-            className={styles.cardDescription}
+            className={`${styles.cardDescription}`}
             dangerouslySetInnerHTML={{ __html: data.description }} />
         </Grid>
         <Grid item xs={1}
