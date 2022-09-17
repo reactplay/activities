@@ -85,14 +85,3 @@ const IdeaCard = ({ data }) => {
   );
 }
 export default IdeaCard;
-
-{/* <Grid item xs={1}>
-            <Typography variant='h6'>
-              {data.title}
-            </Typography>
-          </Grid>
-          <Grid item xs={1}>
-            <Typography variant='subtitle2'>
-              {data.title}
-            </Typography>
-          </Grid> */}
