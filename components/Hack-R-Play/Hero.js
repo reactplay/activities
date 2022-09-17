@@ -38,7 +38,7 @@ const Hero = () => {
         <Image src={RadialGradient} alt="Radial Gradient" layout="responsive" />
       </div>
 
-      <div className="flex flex-col justify-center items-center mx-auto pt-16 max-w-3xl">
+      <div className="flex flex-col justify-center items-center mx-auto pt-16 max-w-3xl z-10">
         <h1 className="font-primary md:text-7xl text-5xl tracking-wide text-white ">
           H a c k<span className="text-[#00F2FE]">-r-</span>p l a y
         </h1>
@@ -50,12 +50,12 @@ const Hero = () => {
             Sep 14 - 16, 2022
           </span>
         </div>
-        <p className="text-center text-gray-300 font-body mt-7 z-10">
+        <p className="text-center text-gray-300 font-body mt-7">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum
           est ultricies integer quis. Iaculis urna id volutpat lacus laoreet.
         </p>
-        <div className="inline-flex justify-center items-center md:mt-8 mt-14 z-10">
+        <div className="inline-flex justify-center items-center md:mt-8 mt-14">
           <div className="mr-4">
             <PrimaryButton>
               Register <FiCheckCircle className="ml-2 my-auto" size={20} />

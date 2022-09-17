@@ -7,7 +7,7 @@ const Partners = () => {
   return (
     <section
       id="sponsors"
-      className="relative flex flex-col justify-center items-center py-20 md:px-16 px-8"
+      className="relative flex flex-col justify-center items-center py-28 md:px-16 px-8"
     >
       <div className="absolute right-1 top-0 md:w-44 md:h-44 w-20 h-20 ">
         <Image
