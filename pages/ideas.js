@@ -85,9 +85,10 @@ const IdeaListingPage = () => {
           container
           item
           xs={12} md={12}
-          spacing={0}
+
+          spacing={2}
           rowSpacing={2}
-          columns={{ xs: 12, md: 12 }}
+          columns={{ xs: 12, md: 12, lg: 12 }}
           className=" py-16 md:px-10">
           {ideas.map((value) => {
             return (
@@ -95,7 +96,9 @@ const IdeaListingPage = () => {
                 container
                 justifyContent={"center"}
                 xs={12}
-                md={4}>
+                md={6}
+                lg={4}
+              >
                 <IdeaCard data={value} />
               </Grid>
             );
