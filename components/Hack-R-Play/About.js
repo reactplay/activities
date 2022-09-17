@@ -18,7 +18,7 @@ const About = () => {
           />
         </div>
         <div className="md:max-w-sm">
-          <h2 className="font-primary text-5xl uppercase text-white tracking-wide">
+          <h2 className="font-primary text-5xl uppercase text-white tracking-wide md:text-left text-center">
             <span className="text-[#00F2FE]">About</span> this event
           </h2>
           <p className="mt-4 font-body text-gray-300">
