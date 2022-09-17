@@ -14,7 +14,7 @@ import BannerLogo from "../../public/Hack-R-Play/BannerLogo.svg";
 
 const Hero = () => {
   return (
-    <section className="relative flex py-6 px-8 justify-center items-center overflow-clip">
+    <section className="relative flex py-6 md:px-8 px-4 justify-center items-center overflow-clip">
       <div className="absolute -left-12 md:top-36 top-80 md:w-40 md:h-40 w-24 h-24 z-0">
         <Image
           src={GradientFlower}
@@ -39,7 +39,7 @@ const Hero = () => {
         <Image src={RadialGradient} alt="Radial Gradient" layout="responsive" />
       </div>
 
-      <div className="flex flex-col justify-center items-center mx-auto pt-16 max-w-3xl z-10">
+      <div className="flex flex-col justify-center items-center mx-auto pt-16 md:max-w-3xl z-10">
         <div className="block md:w-1/2 md:h-1/2 w-11/12 h-11/12">
           <Image src={BannerLogo} alt="Banner Logo" layout="responsive" />
         </div>
@@ -49,7 +49,7 @@ const Hero = () => {
           est ultricies integer quis. Iaculis urna id volutpat lacus laoreet.
         </p>
         <div className="inline-flex justify-center items-center md:mt-8 mt-14">
-          <div className="mr-4">
+          <div className="md:mr-4 mr-2">
             <PrimaryButton>
               Register <FiCheckCircle className="ml-2 my-auto" size={20} />
             </PrimaryButton>
