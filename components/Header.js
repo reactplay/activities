@@ -4,7 +4,7 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { PrimaryButton } from "./Buttons";
 import Image from "next/image";
 
-import NavbarLogo from "../public/Hack-R-Play/NavbarLogo.svg";
+import NavbarLogo from "../public/Hack-R-Play/NavbarLogo.png";
 
 const MobileHeader = ({ links, setMobileActive, secondary }) => {
   return (
