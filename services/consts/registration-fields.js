@@ -9,9 +9,8 @@ export const FIELD_TEMPLATE = [
   {
     datafield: "users",
     type: "userlist",
-    display: "Members",
+    display: "Member",
     placeholder: "Select team members",
-    multiple: true,
     max: 2,
     options: [],
     fieldName: "displayName",

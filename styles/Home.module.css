@@ -1,3 +1,4 @@
+@import "form-control.css";
 .container {
   padding: 0 2rem;
 }
@@ -126,4 +127,29 @@
   .logo img {
     filter: invert(1);
   }
+}
+
+
+.page-title {
+  text-decoration: none; 
+  position: relative; 
+}   
+
+.page-title:after {
+  position: absolute;
+  content: '';
+  height: 2px;
+  bottom: -8px; 
+
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 30%;
+  background: #00F2FE;
+    
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
 }

@@ -10,6 +10,9 @@ module.exports = {
       primary: ["Bebas Neue", "cursive"],
       body: ["Roboto Mono", "monospace"],
     },
+    letterSpacing: {
+      wild: "0.3rem",
+    },
   },
   plugins: [],
 };

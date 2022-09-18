@@ -48,7 +48,11 @@ export default function Home() {
   ];
 
   return (
-    <Layout title="HACK-R-PLAY" description="A hackathon hosted by ReactPlay">
+    <Layout
+      title="HACK-R-PLAY"
+      description="A hackathon hosted by ReactPlay"
+      homepage={true}
+    >
       <div className="absolute left-9 -top-10">
         <Image
           src={DottedAndFilledTriangle}
