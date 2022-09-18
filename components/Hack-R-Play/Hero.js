@@ -10,7 +10,7 @@ import GradientAndSmallTriangle from "../../public/Hack-R-Play/GradientAndSmallT
 import HeroCoders from "../../public/Hack-R-Play/HeroCoders.svg";
 import HeroLines from "../../public/Hack-R-Play/HeroLines.svg";
 import RadialGradient from "../../public/Hack-R-Play/RadialGradient.svg";
-import BannerLogo from "../../public/Hack-R-Play/BannerLogo.svg";
+import BannerLogo from "../../public/Hack-R-Play/BannerLogo.png";
 
 const Hero = () => {
   return (
