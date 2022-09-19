@@ -4,9 +4,8 @@ import { Grid, Card, Typography } from "@mui/material";
 import InProgress from "/public/Idea-List/inProgress.svg";
 import Complted from "/public/Idea-List/completed.svg";
 import NotStarted from "/public/Idea-List/notStart.svg";
-import React from "react";
 
-const IdeaCard = ({ data, onClick }) => {
+const IdeaCard = ({ data }) => {
   const [image, color] =
     data.status === "Submitted"
       ? [Complted, "#68FDC6"]
@@ -16,17 +15,8 @@ const IdeaCard = ({ data, onClick }) => {
       ? [InProgress, "#FDC668"]
       : [NotStarted, "#FD6868"];
 
-  const onCardClicked = () => {
-    if (onClick) {
-      onClick();
-    }
-  };
   return (
-    <Card
-      className={styles.card}
-      variant="outlined"
-      onClick={() => onCardClicked()}
-    >
+    <Card className={styles.card} variant="outlined">
       <Grid container columns={{ xs: 1 }} className={" pt-12 px-8 h-72"}>
         <Grid item xs={1} className={""}>
           <Typography
@@ -45,22 +35,29 @@ const IdeaCard = ({ data, onClick }) => {
         </Grid>
         <Grid item xs={1} alignSelf={"flex-end"}>
           <Grid columns={12} container>
-            <Grid item className="flex" xs={6}>
+            <Grid
+              item
+              style={{
+                position: "relative",
+                top: 0,
+                left: 0,
+              }}
+              className="flex"
+              xs={6}
+            >
               {data.avatarUrl.map((value, index) => {
-                const styleAvaratr =
-                  index === 1
-                    ? `${styles.cardAvatar2nd}  justify-self-center`
-                    : `${styles.cardAvatar} justify-self-center`;
                 return (
-                  <React.Fragment key={index}>
+                  <div
+                    className={
+                      !data.avatarUrl.includes(undefined) && index === 1
+                        ? styles.cardParent
+                        : null
+                    }
+                  >
                     {value && (
                       <Image
                         key={value + index.toString()}
-                        className={
-                          data.avatarUrl.includes(undefined)
-                            ? styles.cardAvatarSingle
-                            : styleAvaratr
-                        }
+                        className={styles.cardAvatar}
                         height={50}
                         width={50}
                         layout={"fixed"}
@@ -69,7 +66,7 @@ const IdeaCard = ({ data, onClick }) => {
                         aria-label="user avatar"
                       />
                     )}
-                  </React.Fragment>
+                  </div>
                 );
               })}
             </Grid>
@@ -79,14 +76,15 @@ const IdeaCard = ({ data, onClick }) => {
               className="flex flex-row justify-center gap-2 items-center "
             >
               {image !== null ? (
-                <Image
-                  src={image}
-                  alt={`status ${data.status || "Not Started"}`}
-                />
+                <Image src={image} alt={`status ${data.status}`} />
               ) : null}
 
-              <Typography variant={"body2"} color={color}>
-                {data.status || "Not Started"}
+              <Typography
+                variant={"body2"}
+                color={color}
+                className={styles.cardStatus}
+              >
+                {data?.status?.toUpperCase() || "NOT STARTED"}
               </Typography>
             </Grid>
           </Grid>

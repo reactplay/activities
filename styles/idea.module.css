@@ -1,74 +1,73 @@
-.container {
+.container{
   background-color: #ffffff;
   width: 100%;
   height: 100vh;
   padding: 1rem;
 }
 
-.card {
-  width: 100%;
-  height: 320px;
-  background: #ffffff0f 0% 0% no-repeat padding-box !important;
-  border: 2px solid #ffffff29 !important;
-  border-radius: 64px 8px 8px 8px !important;
-  opacity: 1;
-  cursor: pointer;
-}
-.card:hover {
-  webkit-box-shadow: 10px 10px 61px -17px rgba(50,249,229,1);
-  -moz-box-shadow: 10px 10px 61px -17px rgba(50,249,229,1);
-  box-shadow: 10px 10px 61px -17px rgba(50,249,229,1);
+.pageTitle{
+  font-family: Bebas Neue !important;
 }
 
-.title {
+.card{ 
+width: 100%;
+height: 320px;
+background: #FFFFFF0F 0% 0% no-repeat padding-box !important;
+border: 2px solid #FFFFFF29 !important;
+border-radius: 64px 8px 8px 8px !important;
+opacity: 1;
+}
+
+.title{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
   overflow: hidden;
-  height: 57px;
+  line-clamp: 2;
+  font-family: Bebas Neue !important;
+  
 }
 
-.cardDescription {
-  color: #ffffff99 !important;
+.cardDescription{
+  color: #FFFFFF99 !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
   overflow: hidden;
-  height: 100px;
-  text-overflow: ellipsis;
+  line-clamp: 4; 
+  font-family: Roboto Mono !important;
 }
 
-.cardAvatarSingle {
-  border-radius: 50%;
-  border: 2px solid #707070 !important;
-}
-.cardAvatar {
-  position: absolute;
-  left: 0.2rem !important;
-  border-radius: 50%;
-  border: 2px solid #707070 !important;
-}
-.cardAvatar2nd {
+.cardAvatar{
   border-radius: 50%;
   border: 2px solid #707070 !important;
 }
 
-.registerBtn {
-  width: 150px;
-  padding: 0.5rem;
-  height: 44px;
-  background: transparent
-    linear-gradient(
-      146deg,
-      var(--unnamed-color-00f2fe) 0%,
-      #32f9e5 52%,
-      var(--unnamed-color-68fdc6) 100%
-    )
-    0% 0% no-repeat padding-box;
-  background: transparent
-    linear-gradient(146deg, #00f2fe 0%, #32f9e5 52%, #68fdc6 100%) 0% 0%
-    no-repeat padding-box;
-  border-radius: 2px;
-  opacity: 1;
+.cardParent{
+    position: absolute;
+    top:0.09rem;
+    left: 2rem;
+    width: 50px;
 }
 
-.underLine {
-  height: 4px;
-  background: transparent linear-gradient(90deg, #00f2fe 0%, #68fdc6 100%) 0% 0%
-    no-repeat padding-box;
-  opacity: 1;
+.cardStatus{
+  font-family: Roboto Mono, Regular !important;
 }
+
+.registerBtn{
+width: 150px;
+padding: 0.5rem;
+height: 44px;
+background: transparent linear-gradient(146deg, var(--unnamed-color-00f2fe) 0%, #32F9E5 52%, var(--unnamed-color-68fdc6) 100%) 0% 0% no-repeat padding-box;
+background: transparent linear-gradient(146deg, #00F2FE 0%, #32F9E5 52%, #68FDC6 100%) 0% 0% no-repeat padding-box;
+border-radius: 2px;
+opacity: 1;
+}
+
+.underLine{
+height: 4px;
+background: transparent linear-gradient(90deg, #00F2FE 0%, #68FDC6 100%) 0% 0% no-repeat padding-box;
+opacity: 1;
+}
+
+

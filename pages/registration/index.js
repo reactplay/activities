@@ -109,10 +109,6 @@ export default function Home() {
     setStoredIdeaData({ ...data });
   };
 
-  const os = () => {
-    alert("here");
-  };
-
   const onSubmit = () => {
     setIsSubmitting(true);
     let idea_id = storedIdeaData.id;

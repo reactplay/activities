@@ -20,8 +20,17 @@ const Partners = () => {
       <h1 className="font-primary text-white text-5xl tracking-wider relative before:content[''] before:absolute before:w-1/4 before:h-1 before:-bottom-2 before:border-b-[3px] before:rounded-sm before:left-24 before:border-[#32F9E5]">
         Our Sponsors
       </h1>
-      <div className="mx-auto mt-5 py-10 md:w-1/3 md:h-1/3 w-1/2 h-1/2">
-        <Image src={NhostLogo} alt="Nhost Logo" layout="responsive" />
+      <div className="mt-5 flex flex-col justify-center items-center py-10 w-fit px-">
+        <div className="md:w-2/5 md:h-2/5 w-1/2 h-1/2">
+          <a href="https://nhost.io" target="_blank" rel="noreferrer">
+            <Image src={NhostLogo} alt="Nhost Logo" layout="responsive" />
+          </a>
+        </div>
+        <p className="text-center text-gray-300 font-body mt-5 md:px-56">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum
+          est ultricies integer quis. Iaculis urna id volutpat lacus laoreet.
+        </p>
       </div>
     </section>
   );

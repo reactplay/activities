@@ -62,6 +62,7 @@ export const list_ideas = (
     name: "hackathon_ideas",
     function: "hackathon_ideas",
     offset: (page_no - 1) * page_size,
+    limit: page_size,
     orders: [
       {
         field: sort_by,
