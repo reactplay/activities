@@ -3,8 +3,9 @@ import { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { PrimaryButton } from "./Buttons";
 import Image from "next/image";
-
 import NavbarLogo from "../public/Hack-R-Play/NavbarLogo.png";
+
+import { useRouter } from "next/router";
 
 const MobileHeader = ({ links, setMobileActive }) => {
   return (
@@ -38,6 +39,11 @@ const MobileHeader = ({ links, setMobileActive }) => {
 
 const Header = ({ links, secondary = false }) => {
   const [mobileActive, setMobileActive] = useState(false);
+  const router = useRouter();
+  const redirectToRegistration = () => {
+    router.push("/registration");
+  };
+
   return (
     <>
       {secondary ? (
@@ -50,7 +56,10 @@ const Header = ({ links, secondary = false }) => {
             </Link>
           </div>
           <div className="inline-flex justify-center items-center z-10">
-            <PrimaryButton small={true}>
+            <PrimaryButton
+              handleOnClick={() => redirectToRegistration()}
+              small={true}
+            >
               <span className="my-auto">Register Now</span>
             </PrimaryButton>
           </div>
