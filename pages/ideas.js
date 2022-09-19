@@ -67,7 +67,7 @@ const IdeaListingPage = () => {
       >
         <Grid xs={12} md={12} items container justifyContent={"center"}>
           <Grid item xs={12} md={12}>
-            <Typography variant="h4" className="text-center" color={"#ffffff"}>
+            <Typography variant="h2" className={`${styles.pageTitle} text-center`} color={"#ffffff"}>
               SUBMISSIONS
             </Typography>
           </Grid>
@@ -79,10 +79,9 @@ const IdeaListingPage = () => {
         <Grid
           container
           item
-          xs={12}
-          md={12}
-          spacing={2}
-          rowSpacing={2}
+          xs={12} md={12}
+          spacing={1}
+          rowSpacing={4}
           columns={{ xs: 12, md: 12, lg: 12 }}
           className=" py-16 md:px-10"
         >

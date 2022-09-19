@@ -5,7 +5,9 @@
   padding: 1rem;
 }
 
-
+.pageTitle{
+  font-family: Bebas Neue !important;
+}
 
 .card{ 
 width: 320px;
@@ -17,30 +19,39 @@ opacity: 1;
 }
 
 .title{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
   overflow: hidden;
-  height: 57px;  
+  line-clamp: 2;
+  font-family: Bebas Neue !important;
+  
 }
 
 .cardDescription{
   color: #FFFFFF99 !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
   overflow: hidden;
-  height: 100px;
-  text-overflow: ellipsis;  
+  line-clamp: 4; 
+  font-family: Roboto Mono !important;
 }
 
-.cardAvatarSingle{
+.cardAvatar{
   border-radius: 50%;
   border: 2px solid #707070 !important;
 }
-.cardAvatar{
-  position: absolute; 
-  left:0.2rem !important; 
- border-radius: 50%; 
- border: 2px solid #707070 !important;
+
+.cardParent{
+    position: absolute;
+    top:0.09rem;
+    left: 2rem;
+    width: 50px;
 }
-.cardAvatar2nd{
-  border-radius: 50%;  
-  border: 2px solid #707070 !important;
+
+.cardStatus{
+  font-family: Roboto Mono, Regular !important;
 }
 
 .registerBtn{
