@@ -12,7 +12,18 @@ import HeroLines from "../../public/Hack-R-Play/HeroLines.svg";
 import RadialGradient from "../../public/Hack-R-Play/RadialGradient.svg";
 import BannerLogo from "../../public/Hack-R-Play/BannerLogo.png";
 
+import { useRouter } from "next/router";
+
+
 const Hero = () => {
+  const router = useRouter();
+  const redirectToRegistration = () => {
+    router.push("/registration");
+  };
+  const redirectToSubmissions = () => {
+    router.push("/ideas");
+  };
+
   return (
     <section className="relative flex py-6 md:px-8 px-4 justify-center items-center overflow-clip">
       <div className="absolute -left-12 md:top-36 top-80 md:w-40 md:h-40 w-24 h-24 z-0">
@@ -44,18 +55,19 @@ const Hero = () => {
           <Image src={BannerLogo} alt="Banner Logo" layout="responsive" />
         </div>
         <p className="text-center text-gray-300 font-body mt-7">
+
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum
           est ultricies integer quis. Iaculis urna id volutpat lacus laoreet.
         </p>
         <div className="inline-flex justify-center items-center md:mt-8 mt-14">
           <div className="md:mr-4 mr-2">
-            <PrimaryButton>
+          <PrimaryButton handleOnClick={() => redirectToRegistration()}>
               Register <FiCheckCircle className="ml-2 my-auto" size={20} />
             </PrimaryButton>
           </div>
           <div>
-            <SecondaryOutlinedButton>
+            <SecondaryOutlinedButton handleOnClick={() => redirectToSubmissions()}>
               View Submissions
               <BiRightArrowAlt
                 className="ml-2 my-auto text-[#00F2FE]"

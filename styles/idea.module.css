@@ -1,0 +1,63 @@
+.container{
+  background-color: #ffffff;
+  width: 100%;
+  height: 100vh;
+  padding: 1rem;
+}
+
+
+
+.card{ 
+width: 320px;
+height: 320px;
+background: #FFFFFF0F 0% 0% no-repeat padding-box !important;
+border: 2px solid #FFFFFF29 !important;
+border-radius: 64px 8px 8px 8px !important;
+opacity: 1;
+}
+
+.title{
+  overflow: hidden;
+  height: 57px;  
+}
+
+.cardDescription{
+  color: #FFFFFF99 !important;
+  overflow: hidden;
+  height: 100px;
+  text-overflow: ellipsis;  
+}
+
+.cardAvatarSingle{
+  border-radius: 50%;
+  border: 2px solid #707070 !important;
+}
+.cardAvatar{
+  position: absolute; 
+  left:0.2rem !important; 
+ border-radius: 50%; 
+ border: 2px solid #707070 !important;
+}
+.cardAvatar2nd{
+  border-radius: 50%;  
+  border: 2px solid #707070 !important;
+}
+
+.registerBtn{
+width: 150px;
+padding: 0.5rem;
+height: 44px;
+background: transparent linear-gradient(146deg, var(--unnamed-color-00f2fe) 0%, #32F9E5 52%, var(--unnamed-color-68fdc6) 100%) 0% 0% no-repeat padding-box;
+background: transparent linear-gradient(146deg, #00F2FE 0%, #32F9E5 52%, #68FDC6 100%) 0% 0% no-repeat padding-box;
+border-radius: 2px;
+opacity: 1;
+}
+
+.underLine{
+height: 4px;
+background: transparent linear-gradient(90deg, #00F2FE 0%, #68FDC6 100%) 0% 0% no-repeat padding-box;
+opacity: 1;
+}
+
+
+
