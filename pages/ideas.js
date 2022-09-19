@@ -85,9 +85,8 @@ const IdeaListingPage = () => {
           container
           item
           xs={12} md={12}
-
-          spacing={2}
-          rowSpacing={2}
+          spacing={1}
+          rowSpacing={4}
           columns={{ xs: 12, md: 12, lg: 12 }}
           className=" py-16 md:px-10">
           {ideas.map((value) => {
