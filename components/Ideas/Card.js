@@ -39,18 +39,24 @@ const IdeaCard = ({ data }) => {
             columns={12}
             container >
             <Grid item
+              style={{
+                position: 'relative',
+                top: 0,
+                left: 0
+              }}
               className="flex"
               xs={6} >
               {
                 data.avatarUrl.map((value, index) => {
-                  const styleAvaratr = index === 1 ? `${styles.cardAvatar2nd}  justify-self-center` : `${styles.cardAvatar} justify-self-center`;
+
                   return (
-                    <>
+                    <div
+                      className={!data.avatarUrl.includes(undefined) && index === 1 ? styles.cardParent : null}>
                       {
                         value && (
                           <Image
                             key={value + index.toString()}
-                            className={data.avatarUrl.includes(undefined) ? styles.cardAvatarSingle : styleAvaratr}
+                            className={styles.cardAvatar}
                             height={50}
                             width={50}
                             layout={'fixed'}
@@ -58,7 +64,8 @@ const IdeaCard = ({ data }) => {
                             alt={'user avatar'} aria-label='user avatar' />
                         )
                       }
-                    </>
+
+                    </div>
                   );
                 })
               }
