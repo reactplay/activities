@@ -5,18 +5,20 @@ import Flower from "../../public/Hack-R-Play/Flower.svg";
 
 const About = () => {
   return (
-    <div className="relative flex flex-col -mt-14 px-8 justify-center items-center overflow-clip">
-      <div className="flex flex-row col-span-4 mx-auto px-28">
-        <div className="mr-14 -mt-4">
+    <section
+      id="about"
+      className="relative flex flex-col pt-14 md:px-8 px-4 md:justify-center md:items-center overflow-clip justify-start items-center"
+    >
+      <div className="flex md:flex-row md:col-span-4 flex-col md:mx-auto md:px-28">
+        <div className="md:block hidden mr-14 -mt-4 w-72 h-72">
           <Image
             src={ReactPlayDotted}
             alt="React Play Dotted"
-            width={300}
-            height={300}
+            layout="responsive"
           />
         </div>
-        <div className="max-w-sm">
-          <h2 className="font-primary text-5xl uppercase text-white tracking-wide">
+        <div className="md:max-w-sm">
+          <h2 className="font-primary text-5xl uppercase text-white tracking-wide md:text-left text-center">
             <span className="text-[#00F2FE]">About</span> this event
           </h2>
           <p className="mt-4 font-body text-gray-300">
@@ -30,27 +32,27 @@ const About = () => {
           </p>
         </div>
       </div>
-      <div className="-mt-10 -ml-36">
-        <div className="w-fit h-fit border-2 border-[#68FDC6] rounded-tl-[6.5rem] flex justify-center items-center py-14 px-12 -ml-10">
-          <p className=" text-[#68FDC6] font-primary text-4xl mx-auto max-w-[8rem] max-h-32">
+      <div className="md:-mt-10 mt-8 md:-ml-36">
+        <div className="w-fit h-fit border-2 border-[#68FDC6] rounded-tl-[6.5rem] flex justify-center items-center md:py-12 md:px-12 pt-12 pb-7 px-6 md:-ml-10">
+          <p className=" text-[#68FDC6] font-primary md:text-3xl text-2xl mx-auto max-w-[8rem] max-h-32">
             Ipsum dolor sit amet, conctetur
           </p>
         </div>
-        <div className="w-fit h-fit border-2 border-white rounded-tr-[6.5rem] flex justify-center items-center py-14 px-12 ml-36 -mt-7">
-          <p className=" text-white font-primary text-4xl mx-auto max-w-[8rem] max-h-32">
+        <div className="w-fit h-fit border-2 border-white md:rounded-tr-[6.5rem] flex justify-center items-center md:py-14 md:px-12 py-7 px-6 md:ml-36 md:-mt-10">
+          <p className=" text-white font-primary md:text-3xl text-2xl  mx-auto max-w-[8rem] max-h-32">
             Ipsum dolor sit amet, conctetur
           </p>
         </div>
-        <div className="w-fit h-fit border-2 border-[#00F2FE] rounded-br-[6.5rem] flex justify-center items-center py-14 px-12 ml-80 -mt-7">
-          <p className=" text-[#00F2FE] font-primary text-4xl mx-auto max-w-[8rem] max-h-32">
+        <div className="w-fit h-fit border-2 border-[#00F2FE] rounded-br-[6.5rem] flex justify-center items-center md:py-14 md:px-12 py-7 px-6 md:ml-80 md:-mt-10">
+          <p className=" text-[#00F2FE] font-primary md:text-3xl text-2xl mx-auto max-w-[8rem] max-h-32">
             Ipsum dolor sit amet, conctetur
           </p>
         </div>
       </div>
-      <div className="absolute bottom-5 -left-48">
-        <Image src={Flower} alt="About Flower" width={400} height={400} />
+      <div className="absolute md:bottom-11 md:-left-48 -bottom-28 -right-32 md:w-1/3 md:h-1/3 w-3/4 h-3/4">
+        <Image src={Flower} alt="About Flower" layout="responsive" />
       </div>
-    </div>
+    </section>
   );
 };
 

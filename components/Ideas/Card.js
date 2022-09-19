@@ -4,6 +4,7 @@ import { Grid, Card, Typography } from "@mui/material";
 import InProgress from "/public/Idea-List/inProgress.svg";
 import Complted from "/public/Idea-List/completed.svg";
 import NotStarted from "/public/Idea-List/notStart.svg";
+import React from "react";
 
 const IdeaCard = ({ data, onClick }) => {
   const [image, color] =
@@ -13,7 +14,7 @@ const IdeaCard = ({ data, onClick }) => {
       ? [NotStarted, "#FD6868"]
       : data.status === "In Progress"
       ? [InProgress, "#FDC668"]
-      : [null, null];
+      : [NotStarted, "#FD6868"];
 
   const onCardClicked = () => {
     if (onClick) {
@@ -51,7 +52,7 @@ const IdeaCard = ({ data, onClick }) => {
                     ? `${styles.cardAvatar2nd}  justify-self-center`
                     : `${styles.cardAvatar} justify-self-center`;
                 return (
-                  <>
+                  <React.Fragment key={index}>
                     {value && (
                       <Image
                         key={value + index.toString()}
@@ -68,7 +69,7 @@ const IdeaCard = ({ data, onClick }) => {
                         aria-label="user avatar"
                       />
                     )}
-                  </>
+                  </React.Fragment>
                 );
               })}
             </Grid>
@@ -78,11 +79,14 @@ const IdeaCard = ({ data, onClick }) => {
               className="flex flex-row justify-center gap-2 items-center "
             >
               {image !== null ? (
-                <Image src={image} alt={`status ${data.status}`} />
+                <Image
+                  src={image}
+                  alt={`status ${data.status || "Not Started"}`}
+                />
               ) : null}
 
               <Typography variant={"body2"} color={color}>
-                {data.status}
+                {data.status || "Not Started"}
               </Typography>
             </Grid>
           </Grid>

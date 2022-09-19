@@ -4,7 +4,10 @@ import GradientAndSmallTriangle from "../../public/Hack-R-Play/GradientAndSmallT
 
 const ChallengesAndPrizes = () => {
   return (
-    <div className="relative mt-16 bg-white bg-opacity-10 flex flex-col justify-center items-center py-24 px-16">
+    <section
+      id="challenges"
+      className="relative mt-16 bg-white bg-opacity-10 flex flex-col justify-center items-center py-24 px-16"
+    >
       <div className="absolute -left-5 -top-11">
         <Image
           src={GradientAndSmallTriangle}
@@ -40,7 +43,7 @@ const ChallengesAndPrizes = () => {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

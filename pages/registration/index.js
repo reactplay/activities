@@ -15,6 +15,7 @@ import {
 } from "@/components/Buttons";
 import { useRouter } from "next/router";
 import LayoutWrapper from "@/components/LayoutWrapper";
+import { update_ideas_status } from "@/services/graphql/status";
 
 export default function Home() {
   const { isAuthenticated, isLoading } = useAuthenticationStatus();
@@ -125,13 +126,19 @@ export default function Home() {
         idea_id = res.id;
         if (selected_users && selected_users.length) {
           const promises = [];
-          selected_users.forEach((user) => {
-            promises.push(assign_member(idea_id, user.id));
-          });
+          console.log(storedIdeaData);
+          if (storedIdeaData.users) {
+            promises.push(assign_member(idea_id, storedIdeaData.users));
+          }
+          formData.status = "63c47cd7-f9c4-41e1-87b6-7ebe7b59f00e";
+          formData.id = idea_id;
+          promises.push(update_ideas_status(formData));
           return Promise.all(promises).then((res) => {
+            router.push("/ideas");
             setIsSubmitting(false);
           });
         } else {
+          router.push("/ideas");
           setIsSubmitting(false);
         }
       });
@@ -171,9 +178,9 @@ export default function Home() {
                   <div className="p-2">
                     <PrimaryButton
                       disabled={isFieldsAreInValid()}
-                      onClick={() => os()}
+                      handleOnClick={() => onSubmit()}
                     >
-                      {`Register Now -- ${isFieldsAreInValid()}`}
+                      {`Register Now`}
                       <FiCheckCircle className="ml-2 my-auto" size={20} />
                     </PrimaryButton>
                   </div>

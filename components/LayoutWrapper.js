@@ -4,9 +4,20 @@ import HeroLines from "../public/Hack-R-Play/HeroLines.svg";
 import DottedAndFilledTriangle from "../public/Hack-R-Play/DottedAndFilledTriangle.svg";
 import Image from "next/image";
 
+const links = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "Submissions",
+    href: "/ideas",
+  },
+];
+
 export default function LayoutWrapper({ title, description, children }) {
   return (
-    <Layout title={title} description={description}>
+    <Layout links={links} title={title} description={description}>
       <div className="absolute left-9 -top-10 opacity-50">
         <Image
           src={DottedAndFilledTriangle}

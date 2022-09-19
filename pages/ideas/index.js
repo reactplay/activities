@@ -1,15 +1,19 @@
-import IdeaCard from "/components/Ideas/Card";
+import IdeaCard from "@/components/Ideas/Card";
 import { useEffect, useState } from "react";
-import { list_ideas } from "@/services/graphql/ideas";
+import { idea_count, list_ideas } from "@/services/graphql/ideas";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import { CTA } from "@/components/Hack-R-Play";
 import gstyles from "@/styles/Home.module.css";
-import { Pagination, Stack, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import SortButtons from "@/components/SortButtons";
+import Pagination from "@/components/Pagination";
 import { useRouter } from "next/router";
+
+const PAGE_SIZE = 12;
 
 const IdeaListingPage = () => {
   const [ideas, setIdeas] = useState([]);
+  const [ideaCount, setIdeaCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
@@ -17,19 +21,28 @@ const IdeaListingPage = () => {
     loadIdeas();
   }, []);
 
-  const loadIdeas = (button) => {
-    console.log("here", button);
+  const loadIdeas = (button, pageno) => {
     setIsLoading(true);
     const prom = undefined;
+    const promises = [];
     if (button) {
-      prom = list_ideas(10, button.field, button.asc ? "asc" : "desc");
+      promises.push(
+        list_ideas(
+          pageno || 1,
+          button.field,
+          button.asc ? "asc" : "desc",
+          PAGE_SIZE
+        )
+      );
     } else {
-      prom = list_ideas(prom);
+      promises.push(list_ideas(pageno || 1, "created_at", "asc", PAGE_SIZE));
     }
+    promises.push(idea_count());
 
-    prom
+    Promise.all(promises)
       .then((res) => {
-        processResultData(res);
+        processResultData(res[0]);
+        setIdeaCount(res[1]);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -70,21 +83,28 @@ const IdeaListingPage = () => {
       description="A hackathon hosted by ReactPlay"
     >
       <div className="z-[9]">
-        <div className="h-14 p-16 flex  items-center justify-center">
+        <div className="h-14 p-16 flex flex-col items-center justify-center">
           <h2
             className={`font-primary text-5xl uppercase text-white tracking-wide ${gstyles["page-title"]}`}
           >
             SUBMISSIONS
           </h2>
+          <div className="text-[#ffffff99] py-4"> Total: {ideaCount}</div>
         </div>
         <div className="flex justify-end">
+          <div>
+            <Pagination
+              total={ideaCount}
+              pagesize={PAGE_SIZE}
+              onChange={(pageno) => loadIdeas(undefined, pageno)}
+            />
+          </div>
           <div>
             <SortButtons
               onChange={(b) => loadIdeas(b)}
               buttons={[
-                { label: "Created", field: "created_at" },
-                { label: "Updated", field: "updated_at" },
-                { label: "Name", field: "name" },
+                { label: "Date", field: "created_at" },
+                { label: "Name", field: "title" },
               ]}
             />
           </div>
@@ -121,9 +141,9 @@ const IdeaListingPage = () => {
               </Grid>
             );
           })}
-          <div className="py-4 flex items-center justify-center w-full">
+          {/* <div className="py-4 flex items-center justify-center w-full">
             <Pagination count={10} color="primary" />
-          </div>
+          </div> */}
         </Grid>
 
         <CTA

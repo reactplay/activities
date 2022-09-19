@@ -48,21 +48,16 @@ export default function Home() {
   ];
 
   return (
-    <Layout
-      title="HACK-R-PLAY"
-      description="A hackathon hosted by ReactPlay"
-      homepage={true}
-    >
-      <div className="absolute left-9 -top-10">
+    <Layout title="HACK-R-PLAY" description="A hackathon hosted by ReactPlay">
+      <div className="absolute md:left-9 -top-10 left-5 z-0 md:w-32 md:h-32 w-24 h-24">
         <Image
           src={DottedAndFilledTriangle}
           alt="Dotted And Filled Triangle"
-          width={220}
-          height={220}
+          layout="responsive"
         />
       </div>
-      <div className="absolute -right-60 -top-48">
-        <Image src={Flower} alt="Flower" width={500} height={500} />
+      <div className="absolute md:-right-60 md:-top-48 -right-24 -top-14 z-0 md:w-2/5 md:h-2/5 w-1/2 h-1/2">
+        <Image src={Flower} alt="Flower" layout="responsive" />
       </div>
 
       <Hero />

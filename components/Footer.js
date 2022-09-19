@@ -18,7 +18,7 @@ const Footer = () => {
       <div className="flex flex-col justify-center items-center mx-auto ">
         <span className="text-gray-500 font-medium font-body">Hosted By</span>
         <Image src={ReactPlayLogo} alt="ReactPlay Logo" layout="fixed" />
-        <p className="mt-4 font-medium font-body text-gray-500">
+        <p className="mt-4 font-medium font-body text-gray-500 text-center">
           An open-source project made with ❤️ by Tapas Adhikary and friends.
         </p>
       </div>

@@ -5,9 +5,15 @@ import { FiCheckCircle } from "react-icons/fi";
 import { NHOST } from "@/services/nhost";
 import { useEffect, useState, forwardRef } from "react";
 import FormBuilder from "@/components/form-builder";
-import { FIELD_TEMPLATE } from "@/services/consts/registration-fields";
+import { FIELD_TEMPLATE } from "@/services/consts/registration-update-fields";
 import { getAllUsers } from "@/services/graphql/auth";
-import { assign_member, get_idea, insert_idea } from "@/services/graphql/ideas";
+import {
+  assign_member,
+  get_idea,
+  insert_idea,
+  update_ideas_demographic,
+  update_ideas_member,
+} from "@/services/graphql/ideas";
 import {
   PrimaryButton,
   SecondaryOutlinedButtonDark,
@@ -16,6 +22,8 @@ import { useRouter } from "next/router";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import { submit } from "json-graphql-parser/v2";
+import { list_statuses, update_ideas_status } from "@/services/graphql/status";
 
 const Alert = forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -37,18 +45,21 @@ export default function Home() {
   const initializeData = () => {
     if (Object.keys(storedIdeaData).length === 0) {
       setIsDataLoading(true);
-      const all_apis = [{ name: "users", method: getAllUsers }];
+      const all_apis = [
+        { name: "users", method: getAllUsers },
+        { name: "status", method: list_statuses },
+      ];
       const promises = [];
+
+      all_apis.forEach((api) => {
+        promises.push(api.method());
+      });
 
       promises.push(
         get_idea(id).then((r) => {
           prepare_idea_object(r);
         })
       );
-      all_apis.forEach((api) => {
-        promises.push(api.method());
-      });
-
       Promise.all(promises)
         .then((res) => {
           res.forEach((rApi, rApi_ind) => {
@@ -62,7 +73,7 @@ export default function Home() {
                 anyField[0].options = rApi;
               }
             } catch (err) {
-              // DO NOTHING
+              // IGNORE
             }
           });
 
@@ -75,18 +86,18 @@ export default function Home() {
   };
 
   const prepare_idea_object = (idea) => {
-    console.log(">>>>>>>>>>>>>>>>");
-    console.log(idea);
-    formData.id = idea.id;
-    formData.title = idea.title;
-    formData.description = idea.description;
-    formData.member = idea.idea_members_map;
-    if (userData.id !== formData.member.id) {
+    if (idea.idea_members_map) {
+      idea.users = idea.idea_members_map.user_id_map.id;
+    }
+    if (idea.idea_status_map) {
+      idea.status = idea.idea_status_map.status_id_map.id;
+    }
+    if (userData.id !== idea.idea_owner_map.id) {
       setAlertOpen(true);
       setPageDisabled(true);
     }
-    setFormData({ ...formData });
-    setStoredIdeaData({ ...formData });
+    setFormData({ ...idea });
+    setStoredIdeaData({ ...idea });
   };
 
   useEffect(() => {
@@ -148,27 +159,26 @@ export default function Home() {
 
   const onSubmit = () => {
     setIsSubmitting(true);
-    let idea_id = storedIdeaData.id;
-    let selected_users = storedIdeaData.users;
+
     const idea_object = (({ title, description }) => ({ title, description }))(
       storedIdeaData
     );
     idea_object.owner = userData.id;
-    if (!idea_id)
-      return insert_idea(idea_object).then((res) => {
-        idea_id = res.id;
-        if (selected_users && selected_users.length) {
-          const promises = [];
-          selected_users.forEach((user) => {
-            promises.push(assign_member(idea_id, user.id));
-          });
-          return Promise.all(promises).then((res) => {
-            setIsSubmitting(false);
-          });
-        } else {
-          setIsSubmitting(false);
-        }
-      });
+    const promises = [];
+
+    promises.push(update_ideas_demographic(formData));
+    promises.push(update_ideas_member(formData));
+    if (formData.status) {
+      promises.push(update_ideas_status(formData));
+    }
+
+    Promise.all(promises).then((res) => {
+      router.push("/ideas");
+    });
+  };
+
+  const onCancelClicked = () => {
+    router.push("/ideas");
   };
 
   return (
@@ -183,15 +193,11 @@ export default function Home() {
                 Registration
               </h2>
             </div>
-            <div className="flex flex-col flex-1 bg-white">
-              {pageDisabled ? (
-                <div className="absolute flex justify-center items-center w-full h-full z-[99] opacity-60 bg-slate-500">
-                  <Alert severity="error">You cannot edit this idea !</Alert>
-                </div>
-              ) : null}
+            <div className={`flex flex-col flex-1 bg-white`}>
               <div className="flex-1 px-10 py-8 overflow-auto">
                 <form>
                   <FormBuilder
+                    disabled={pageDisabled}
                     data={formData}
                     fields={FIELD_TEMPLATE}
                     onChange={(data) => onIdeaDataChanged(data)}
@@ -203,14 +209,17 @@ export default function Home() {
                 <div className="py-4 px-10 h-full flex justify-end">
                   <div className="p-2">
                     <div>
-                      <SecondaryOutlinedButtonDark>
+                      <SecondaryOutlinedButtonDark
+                        handleOnClick={() => onCancelClicked()}
+                      >
                         Cancel
                       </SecondaryOutlinedButtonDark>
                     </div>
                   </div>
                   <div className="p-2">
                     <PrimaryButton
-                      disabled={isFieldsAreInValid()}
+                      disabled={isFieldsAreInValid() || pageDisabled}
+                      handleOnClick={() => onSubmit()}
                       onClick={() => os()}
                     >
                       Update Idea
@@ -223,6 +232,11 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {alertOpen ? (
+        <div className="absolute flex justify-center items-center w-full h-full z-[99] opacity-60 bg-slate-500">
+          <Alert severity="error">You cannot edit this idea !</Alert>
+        </div>
+      ) : null}
     </LayoutWrapper>
   );
 }

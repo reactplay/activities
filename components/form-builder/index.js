@@ -3,11 +3,9 @@ import { useEffect, useState } from "react";
 import * as _ from "lodash";
 import dynamic from "next/dynamic";
 
-const FormBuilder = ({ fields, data, onChange }) => {
+const FormBuilder = ({ fields, data, onChange, disabled }) => {
   const [formData, setFormData] = useState({});
   useEffect(() => {
-    console.log("-------------");
-    console.log(data);
     setFormData({ ...data });
   }, [data]);
 
@@ -17,6 +15,13 @@ const FormBuilder = ({ fields, data, onChange }) => {
     if (onChange) {
       onChange(formData);
     }
+  };
+
+  const getSelectedItem = (options, value) => {
+    const item = options.find((opt) => {
+      if (opt.id === value) return opt;
+    });
+    return item || "";
   };
 
   const renderField = (field) => {
@@ -29,6 +34,7 @@ const FormBuilder = ({ fields, data, onChange }) => {
             value={formData[field.datafield]}
             size="small"
             className="w-full"
+            disabled={disabled}
             {...field}
             onChange={(e) => {
               onDataChanged(field.datafield, e.target.value);
@@ -45,25 +51,14 @@ const FormBuilder = ({ fields, data, onChange }) => {
             getOptionLabel={(option) =>
               option.name || option[field.fieldName] || option
             }
+            value={getSelectedItem(field.options, formData[field.datafield])}
+            disabled={disabled}
             filterSelectedOptions
             multiple={field.multiple}
             freeSolo={field.freeSolo}
             onChange={(e, newValue) => {
               let updatedval = newValue;
-              if (field.multiple) {
-                updatedval = [];
-                newValue.forEach((v) => {
-                  if (_.isObject(v)) {
-                    updatedval.push(v);
-                  } else {
-                    updatedval.push({
-                      [field.fieldName || "name"]: v,
-                      [field.fieldValue || "value"]: "",
-                    });
-                  }
-                });
-              }
-              onDataChanged(field.datafield, updatedval);
+              onDataChanged(field.datafield, updatedval.id);
             }}
             renderInput={(params) => (
               <TextField
@@ -80,10 +75,12 @@ const FormBuilder = ({ fields, data, onChange }) => {
             id={field.datafield}
             size="small"
             options={field.options || []}
+            disabled={disabled}
             getOptionLabel={(option) =>
               option.name || option[field.fieldName] || option
             }
             filterSelectedOptions
+            value={getSelectedItem(field.options, formData[field.datafield])}
             multiple={field.multiple}
             freeSolo={field.freeSolo}
             renderOption={(props, option) => (
@@ -104,20 +101,7 @@ const FormBuilder = ({ fields, data, onChange }) => {
             )}
             onChange={(e, newValue) => {
               let updatedval = newValue;
-              if (field.multiple) {
-                updatedval = [];
-                newValue.forEach((v) => {
-                  if (_.isObject(v)) {
-                    updatedval.push(v);
-                  } else {
-                    updatedval.push({
-                      [field.fieldName || "name"]: v,
-                      [field.fieldValue || "value"]: "",
-                    });
-                  }
-                });
-              }
-              onDataChanged(field.datafield, updatedval);
+              onDataChanged(field.datafield, updatedval.id);
             }}
             renderInput={(params) => (
               <div>

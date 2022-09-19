@@ -28,10 +28,11 @@ export default function SortButtons({ buttons, selected, onChange }) {
         setAllButtons([...allButtons]);
       }
     }
-  }, [buttons]);
+  }, []);
 
   const onButtonClicked = (button) => {
     const new_buttons = [];
+    const selectedButton = {};
     allButtons.forEach((b) => {
       if (b.field === button.field) {
         if (b.selected) {
@@ -40,16 +41,17 @@ export default function SortButtons({ buttons, selected, onChange }) {
           b.selected = true;
           b.asc = true;
         }
+        b.selected = true;
+        selectedButton = { ...b };
       } else {
         b.selected = false;
       }
       new_buttons.push({ ...b });
     });
     setAllButtons(new_buttons);
-    console.log(new_buttons);
 
     if (onChange) {
-      onChange(new_buttons.filter((b) => b.selected === true)[0]);
+      onChange({ ...selectedButton });
     }
   };
 
