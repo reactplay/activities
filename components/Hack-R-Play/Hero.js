@@ -48,7 +48,7 @@ const Hero = () => {
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum
           est ultricies integer quis. Iaculis urna id volutpat lacus laoreet.
         </p>
-        <div className="inline-flex justify-center items-center md:mt-8 mt-14">
+        <div className="inline-flex justify-center items-center md:mt-8 mt-14 z-10">
           <div className="md:mr-4 mr-2">
             <PrimaryButton>
               Register <FiCheckCircle className="ml-2 my-auto" size={20} />
@@ -64,7 +64,7 @@ const Hero = () => {
             </SecondaryOutlinedButton>
           </div>
         </div>
-        <div className="md:-mt-12 z-0 md:w-4/5 md:h-4/5 w-full h-full">
+        <div className="md:-mt-12 z-0 md:w-4/5 md:h-4/5 w-full h-full -z-10">
           <Image src={HeroCoders} alt="Hero Coders" layout="responsive" />
         </div>
       </div>
