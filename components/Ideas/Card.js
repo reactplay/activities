@@ -4,6 +4,7 @@ import { Grid, Card, Typography } from '@mui/material';
 import InProgress from '/public/Idea-List/inProgress.svg';
 import Complted from '/public/Idea-List/completed.svg';
 import NotStarted from '/public/Idea-List/notStart.svg';
+import { useEffect, useState } from 'react';
 
 const IdeaCard = ({ data }) => {
 
@@ -13,8 +14,10 @@ const IdeaCard = ({ data }) => {
       [NotStarted, '#FD6868'] :
       data.status === 'In Progress' ?
         [InProgress, '#FDC668'] : [null, null];
-
-
+  const [title, setTitle] = useState("");
+  useEffect(() => {
+    setTitle(`${data.title.substring(0, 40)}...`);
+  }, []);
   return (
     <Card className={styles.card} variant="outlined">
       <Grid container
@@ -26,7 +29,7 @@ const IdeaCard = ({ data }) => {
           <Typography variant='h5'
             className={`${styles.title} `}
             color="#00F2FE">
-            {data.title}
+            {title}
           </Typography>
         </Grid>
         <Grid item xs={1}
