@@ -47,7 +47,7 @@ const Header = ({ links, secondary = false }) => {
   return (
     <>
       {secondary ? (
-        <header className="pt-4 pb-2 md:px-10 px-5 inline-flex justify-between items-baseline bg-transparent font-primary text-white z-10 w-full">
+        <header className="pt-4 pb-2 md:px-10 px-5 inline-flex justify-between items-center bg-transparent font-primary text-white z-10 w-full">
           <div className="md:w-40 w-36 z-10">
             <Link href={`/`}>
               <a>
@@ -55,14 +55,12 @@ const Header = ({ links, secondary = false }) => {
               </a>
             </Link>
           </div>
-          <div className="inline-flex justify-center items-center z-10">
-            <PrimaryButton
-              handleOnClick={() => redirectToRegistration()}
-              small={true}
-            >
-              <span className="my-auto">Register Now</span>
-            </PrimaryButton>
-          </div>
+          <PrimaryButton
+            handleOnClick={() => redirectToRegistration()}
+            small={true}
+          >
+            Register Now
+          </PrimaryButton>
         </header>
       ) : (
         <header className="pt-5 pb-1 px-4 flex md:justify-center justify-end items-baseline bg-transparent font-primary text-white z-10">
