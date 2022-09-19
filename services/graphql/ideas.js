@@ -37,3 +37,90 @@ export const assign_member = (idea_id, user_id) => {
   };
   return submit(input_obj);
 };
+
+export const list_ideas = (
+  page_no,
+  sort_by = "created_at",
+  sort_key = "asc",
+  page_size = 10
+) => {
+  const input_obj = {
+    display: "List Ideas",
+    name: "hackathon_ideas",
+    function: "hackathon_ideas",
+    orders: [
+      {
+        field: sort_by,
+        value: sort_key,
+      },
+    ],
+    return: [
+      "description",
+      "title",
+      "id",
+      {
+        idea_status_map: {
+          status_id_map: ["label"],
+        },
+      },
+      {
+        "idea_members_map ": [
+          "id",
+          {
+            user_id_map: ["avatarUrl", "displayName"],
+          },
+        ],
+      },
+      {
+        idea_owner_map: ["avatarUrl", "displayName"],
+      },
+    ],
+    distinct: "id",
+  };
+  return submit(input_obj);
+};
+
+export const get_idea = (id) => {
+  const input_obj = {
+    display: "List Ideas",
+    name: "hackathon_ideas",
+    function: "hackathon_ideas",
+    where: {
+      clause: {
+        operator: "and",
+        conditions: [
+          {
+            field: "id",
+            operator: "eq",
+            value: id,
+          },
+        ],
+      },
+    },
+
+    return: [
+      "description",
+      "title",
+      "id",
+      {
+        idea_status_map: {
+          status_id_map: ["label"],
+        },
+      },
+      {
+        "idea_members_map ": [
+          "id",
+          {
+            user_id_map: ["avatarUrl", "displayName"],
+          },
+        ],
+      },
+      {
+        idea_owner_map: ["avatarUrl", "displayName"],
+      },
+    ],
+  };
+  return submit(input_obj).then((res) => {
+    return res[0];
+  });
+};

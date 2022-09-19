@@ -1,28 +1,25 @@
 import { useAuthenticationStatus, useUserData } from "@nhost/nextjs";
-import styles from "../styles/Home.module.css";
+import styles from "@/styles/Home.module.css";
 
-import Link from "next/link";
 import { FiCheckCircle } from "react-icons/fi";
-import { NHOST } from "../services/nhost";
-import { useEffect, useState } from "react";
+import { NHOST } from "@/services/nhost";
+import { useEffect, useState, forwardRef } from "react";
 import FormBuilder from "@/components/form-builder";
 import { FIELD_TEMPLATE } from "@/services/consts/registration-fields";
-import { Button } from "@mui/material";
 import { getAllUsers } from "@/services/graphql/auth";
-import { assign_member, insert_idea } from "@/services/graphql/ideas";
+import { assign_member, get_idea, insert_idea } from "@/services/graphql/ideas";
 import {
   PrimaryButton,
   SecondaryOutlinedButtonDark,
 } from "@/components/Buttons";
 import { useRouter } from "next/router";
-import Layout from "@/components/Layout";
-import GradientFlower from "../public/Hack-R-Play/GradientFlower.svg";
-import Flower from "../public/Hack-R-Play/Flower.svg";
-import GradientAndSmallTriangle from "../public/Hack-R-Play/GradientAndSmallTriangle.svg";
-import HeroLines from "../public/Hack-R-Play/HeroLines.svg";
-import RadialGradient from "../public/Hack-R-Play/RadialGradient.svg";
-import DottedAndFilledTriangle from "../public/Hack-R-Play/DottedAndFilledTriangle.svg";
-import Image from "next/image";
+import LayoutWrapper from "@/components/LayoutWrapper";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+
+const Alert = forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export default function Home() {
   const { isAuthenticated, isLoading } = useAuthenticationStatus();
@@ -30,15 +27,24 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [storedIdeaData, setStoredIdeaData] = useState({});
   const [formData, setFormData] = useState({});
-  const router = useRouter();
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [pageDisabled, setPageDisabled] = useState(false);
 
   const userData = useUserData();
+  const router = useRouter();
+  const { id } = router.query;
 
   const initializeData = () => {
     if (Object.keys(storedIdeaData).length === 0) {
       setIsDataLoading(true);
       const all_apis = [{ name: "users", method: getAllUsers }];
       const promises = [];
+
+      promises.push(
+        get_idea(id).then((r) => {
+          prepare_idea_object(r);
+        })
+      );
       all_apis.forEach((api) => {
         promises.push(api.method());
       });
@@ -46,21 +52,41 @@ export default function Home() {
       Promise.all(promises)
         .then((res) => {
           res.forEach((rApi, rApi_ind) => {
-            const api_obj = all_apis[rApi_ind];
-            storedIdeaData[api_obj.name] = rApi;
-            const anyField = FIELD_TEMPLATE.filter((field) => {
-              return field.datafield === api_obj.name;
-            });
-            if (anyField.length) {
-              anyField[0].options = rApi;
+            try {
+              const api_obj = all_apis[rApi_ind];
+              storedIdeaData[api_obj.name] = rApi;
+              const anyField = FIELD_TEMPLATE.filter((field) => {
+                return field.datafield === api_obj.name;
+              });
+              if (anyField.length) {
+                anyField[0].options = rApi;
+              }
+            } catch (err) {
+              // DO NOTHING
             }
           });
+
           setStoredIdeaData({ ...storedIdeaData });
         })
         .finally(() => {
           setIsDataLoading(false);
         });
     }
+  };
+
+  const prepare_idea_object = (idea) => {
+    console.log(">>>>>>>>>>>>>>>>");
+    console.log(idea);
+    formData.id = idea.id;
+    formData.title = idea.title;
+    formData.description = idea.description;
+    formData.member = idea.idea_members_map;
+    if (userData.id !== formData.member.id) {
+      setAlertOpen(true);
+      setPageDisabled(true);
+    }
+    setFormData({ ...formData });
+    setStoredIdeaData({ ...formData });
   };
 
   useEffect(() => {
@@ -116,6 +142,10 @@ export default function Home() {
     setStoredIdeaData({ ...data });
   };
 
+  const os = () => {
+    alert("here");
+  };
+
   const onSubmit = () => {
     setIsSubmitting(true);
     let idea_id = storedIdeaData.id;
@@ -142,23 +172,9 @@ export default function Home() {
   };
 
   return (
-    <Layout title="HACK-R-PLAY | Idea Registration">
-      <div className="absolute left-9 -top-10 z-[1] opacity-50">
-        <Image
-          src={DottedAndFilledTriangle}
-          alt="Dotted And Filled Triangle"
-          width={220}
-          height={220}
-        />
-      </div>
-      <div className="absolute -right-60 -top-48">
-        <Image src={Flower} alt="Flower" width={500} height={500} />
-      </div>
-      <div className="absolute left-44 -top-5">
-        <Image src={HeroLines} alt="Hero Lines" width={750} height={750} />
-      </div>
-      <div className="w-full h-full flex flex-col justify-center items-center create-plays-wrapper">
-        <div className="w-full h-full max-w-6xl flex shadow-md rounded mb-6">
+    <LayoutWrapper title="HACK-R-PLAY | Idea Registration">
+      <div className="w-full h-full flex flex-col justify-center items-center">
+        <div className="w-full h-full max-w-6xl flex shadow-md rounded mb-6 z-[9]">
           <div className="flex flex-col flex-1">
             <div className="h-14 p-16 flex  items-center justify-center">
               <h2
@@ -168,9 +184,15 @@ export default function Home() {
               </h2>
             </div>
             <div className="flex flex-col flex-1 bg-white">
+              {pageDisabled ? (
+                <div className="absolute flex justify-center items-center w-full h-full z-[99] opacity-60 bg-slate-500">
+                  <Alert severity="error">You cannot edit this idea !</Alert>
+                </div>
+              ) : null}
               <div className="flex-1 px-10 py-8 overflow-auto">
                 <form>
                   <FormBuilder
+                    data={formData}
                     fields={FIELD_TEMPLATE}
                     onChange={(data) => onIdeaDataChanged(data)}
                   />
@@ -189,9 +211,9 @@ export default function Home() {
                   <div className="p-2">
                     <PrimaryButton
                       disabled={isFieldsAreInValid()}
-                      onClick={() => onSubmit()}
+                      onClick={() => os()}
                     >
-                      Register Now -- {isFieldsAreInValid()}
+                      Update Idea
                       <FiCheckCircle className="ml-2 my-auto" size={20} />
                     </PrimaryButton>
                   </div>
@@ -201,6 +223,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </Layout>
+    </LayoutWrapper>
   );
 }

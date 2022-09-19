@@ -17,6 +17,9 @@ const Hero = () => {
   const redirectToRegistration = () => {
     router.push("/registration");
   };
+  const redirectToIdeListing = () => {
+    router.push("/ideas");
+  };
   return (
     <div className="relative flex py-4 px-8 justify-center items-center overflow-clip">
       <div className="absolute -left-12 top-36">
@@ -74,7 +77,9 @@ const Hero = () => {
             </PrimaryButton>
           </div>
           <div>
-            <SecondaryOutlinedButton>
+            <SecondaryOutlinedButton
+              handleOnClick={() => redirectToIdeListing()}
+            >
               View Submissions
               <BiRightArrowAlt
                 className="ml-2 my-auto text-[#00F2FE]"

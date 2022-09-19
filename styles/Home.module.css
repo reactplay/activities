@@ -138,14 +138,14 @@
 .page-title:after {
   position: absolute;
   content: '';
-  height: 2px;
+  height: 4px;
   bottom: -8px; 
 
   margin: 0 auto;
   left: 0;
   right: 0;
-  width: 30%;
-  background: #00F2FE;
+  width: 40%;
+  background: transparent linear-gradient(90deg, #00F2FE 0%, #68FDC6 100%) 0% 0% no-repeat padding-box;
     
   -o-transition:.5s;
   -ms-transition:.5s;

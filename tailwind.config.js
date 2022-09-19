@@ -13,6 +13,11 @@ module.exports = {
     letterSpacing: {
       wild: "0.3rem",
     },
+    extend: {
+      colors: {
+        "brand-hightlight": "#32f9e5",
+      },
+    },
   },
   plugins: [],
 };

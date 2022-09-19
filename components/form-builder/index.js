@@ -1,58 +1,13 @@
 import { TextField, FormControl, Autocomplete, Box } from "@mui/material";
-import InputUnstyled, {
-  ButtonUnstyledOwnerState,
-  ButtonUnstyledProps,
-} from "@mui/base/InputUnstyled";
 import { useEffect, useState } from "react";
 import * as _ from "lodash";
 import dynamic from "next/dynamic";
 
-import "react-quill/dist/quill.snow.css";
-
-const QuillNoSSRWrapper = dynamic(import("react-quill"), {
-  ssr: false,
-  loading: () => <p>Loading ...</p>,
-});
-
-const QuillFormats = [
-  "header",
-  "font",
-  "size",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-  "image",
-  "video",
-];
-
-const QuillModules = {
-  toolbar: [
-    [{ header: "1" }, { header: "2" }, { font: [] }],
-    [{ size: [] }],
-    ["bold", "italic", "underline", "strike", "blockquote"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["link", "image", "video"],
-    ["clean"],
-  ],
-  clipboard: {
-    // toggle to add extra line breaks when pasting HTML:
-    matchVisual: false,
-  },
-};
 const FormBuilder = ({ fields, data, onChange }) => {
   const [formData, setFormData] = useState({});
   useEffect(() => {
+    console.log("-------------");
+    console.log(data);
     setFormData({ ...data });
   }, [data]);
 
@@ -71,7 +26,7 @@ const FormBuilder = ({ fields, data, onChange }) => {
           <TextField
             id={field.id}
             label={field.plaeholder}
-            value={formData[field.datafields]}
+            value={formData[field.datafield]}
             size="small"
             className="w-full"
             {...field}
@@ -80,6 +35,7 @@ const FormBuilder = ({ fields, data, onChange }) => {
             }}
           />
         );
+
       case "select":
         return (
           <Autocomplete
@@ -173,21 +129,6 @@ const FormBuilder = ({ fields, data, onChange }) => {
               </div>
             )}
           />
-        );
-      case "rich":
-        return (
-          <div className="h-80 py-2">
-            <QuillNoSSRWrapper
-              placeholder={field.placeholder}
-              modules={QuillModules}
-              formats={QuillFormats}
-              theme="snow"
-              className="h-full"
-              onChange={(v) => {
-                onDataChanged(field.datafield, v);
-              }}
-            />
-          </div>
         );
       default:
         return <></>;
