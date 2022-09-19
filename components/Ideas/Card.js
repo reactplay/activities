@@ -4,7 +4,6 @@ import { Grid, Card, Typography } from '@mui/material';
 import InProgress from '/public/Idea-List/inProgress.svg';
 import Complted from '/public/Idea-List/completed.svg';
 import NotStarted from '/public/Idea-List/notStart.svg';
-import { useEffect, useState } from 'react';
 
 const IdeaCard = ({ data }) => {
 
