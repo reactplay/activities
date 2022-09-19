@@ -39,7 +39,11 @@ const Layout = ({ children, title, description }) => {
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
+        <meta
+          property="og:image"
+          content="https://hustles.reactplay.io/og-image.png"
+        />
       </Head>
       <Header links={links} secondary={secondaryNavbar} />
       <main>{children}</main>
