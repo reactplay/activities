@@ -3,10 +3,11 @@ import { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { PrimaryButton } from "./Buttons";
 import Image from "next/image";
-
 import NavbarLogo from "../public/Hack-R-Play/NavbarLogo.png";
 
-const MobileHeader = ({ links, setMobileActive, secondary }) => {
+import { useRouter } from "next/router";
+
+const MobileHeader = ({ links, setMobileActive }) => {
   return (
     <>
       <div className="fixed top-0 w-full h-screen block justify-center items-center bg-[#051630] z-50 overscroll-none font-primary text-white transition-all duration-200 ease-in-out">
@@ -19,32 +20,17 @@ const MobileHeader = ({ links, setMobileActive, secondary }) => {
           </button>
         </div>
 
-        {secondary && (
-          <div className="mt-14 pb-7 w-56 z-10 mx-auto">
-            <Link href={`/`}>
-              <a>
-                <Image src={NavbarLogo} alt="Navbar Logo" layout="responsive" />
-              </a>
-            </Link>
-          </div>
-        )}
-
-        <nav className="mt-6 w-full h-full flex flex-col justify-start items-center">
+        <nav className="mt-48 w-full h-full flex flex-col justify-start items-center">
           {links.map((link, index) => (
             <Link key={index} href={`${link.href}`} scroll={false}>
               <a
                 onClick={() => setMobileActive(false)}
-                className="uppercase mb-12 text-2xl tracking-widest"
+                className="uppercase mb-14 text-3xl tracking-widest"
               >
                 {link.name}
               </a>
             </Link>
           ))}
-          {secondary && (
-            <PrimaryButton>
-              <span className="my-auto">Register Now</span>
-            </PrimaryButton>
-          )}
         </nav>
       </div>
     </>
@@ -53,10 +39,15 @@ const MobileHeader = ({ links, setMobileActive, secondary }) => {
 
 const Header = ({ links, secondary = false }) => {
   const [mobileActive, setMobileActive] = useState(false);
+  const router = useRouter();
+  const redirectToRegistration = () => {
+    router.push("/registration");
+  };
+
   return (
     <>
       {secondary ? (
-        <header className="pt-4 pb-0 md:px-10 px-5 inline-flex justify-between items-baseline bg-transparent font-primary text-white z-10 w-full">
+        <header className="pt-4 pb-2 md:px-10 px-5 inline-flex justify-between items-center bg-transparent font-primary text-white z-10 w-full">
           <div className="md:w-40 w-36 z-10">
             <Link href={`/`}>
               <a>
@@ -64,24 +55,12 @@ const Header = ({ links, secondary = false }) => {
               </a>
             </Link>
           </div>
-          <div className="md:inline-flex hidden justify-center items-baseline z-10">
-            {links.map((link, index) => (
-              <Link key={index} href={`${link.href}`} scroll={false}>
-                <a className="uppercase mr-10 text-lg tracking-widest">
-                  {link.name}
-                </a>
-              </Link>
-            ))}
-            <PrimaryButton small={true}>
-              <span className="my-auto">Register Now</span>
-            </PrimaryButton>
-          </div>
-          <button
-            onClick={() => setMobileActive(true)}
-            className="md:hidden inline-flex justify-center items-center z-10"
+          <PrimaryButton
+            handleOnClick={() => redirectToRegistration()}
+            small={true}
           >
-            <AiOutlineMenu size={35} />
-          </button>
+            Register Now
+          </PrimaryButton>
         </header>
       ) : (
         <header className="pt-5 pb-1 px-4 flex md:justify-center justify-end items-baseline bg-transparent font-primary text-white z-10">
@@ -102,7 +81,7 @@ const Header = ({ links, secondary = false }) => {
           </button>
         </header>
       )}
-      {mobileActive && (
+      {!secondary && mobileActive && (
         <MobileHeader
           secondary={secondary}
           links={links}

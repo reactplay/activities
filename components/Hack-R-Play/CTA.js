@@ -2,8 +2,14 @@ import React from "react";
 import { SecondaryButton } from "../Buttons";
 import Image from "next/image";
 import CTAImage from "../../public/Hack-R-Play/CTAImage.svg";
+import { useRouter } from "next/router";
 
 const CTA = ({ title, description, image }) => {
+  const router = useRouter();
+  const redirectToRegistration = () => {
+    router.push("/registration");
+  };
+
   return (
     <section
       id="cta"
@@ -23,7 +29,9 @@ const CTA = ({ title, description, image }) => {
           </h1>
           <p className="md:mt-7 mt-4 font-body text-gray-600">{description}</p>
           <div className="mt-5">
-            <SecondaryButton>Register Now</SecondaryButton>
+            <SecondaryButton handleOnClick={() => redirectToRegistration()}>
+              Register Now
+            </SecondaryButton>
           </div>
         </div>
       </div>
