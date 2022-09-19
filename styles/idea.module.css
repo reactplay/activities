@@ -17,14 +17,22 @@ opacity: 1;
 }
 
 .title{
-  height: 57px;  
+  height: 70px;  
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  line-clamp: 2;
+  
 }
 
 .cardDescription{
   color: #FFFFFF99 !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
   overflow: hidden;
-  height: 100px;
-  text-overflow: ellipsis;  
+  line-clamp: 4; 
 }
 
 .cardAvatarSingle{

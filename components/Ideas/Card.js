@@ -14,14 +14,10 @@ const IdeaCard = ({ data }) => {
       [NotStarted, '#FD6868'] :
       data.status === 'In Progress' ?
         [InProgress, '#FDC668'] : [null, null];
-  const [title, setTitle] = useState("");
-  useEffect(() => {
-    setTitle(`${data.title.substring(0, 40)}...`);
-  }, []);
+
   return (
     <Card className={styles.card} variant="outlined">
       <Grid container
-
         columns={{ xs: 1 }}
         className={" pt-12 px-8 h-72"}
       >
@@ -29,7 +25,7 @@ const IdeaCard = ({ data }) => {
           <Typography variant='h5'
             className={`${styles.title} `}
             color="#00F2FE">
-            {title}
+            {data.title}
           </Typography>
         </Grid>
         <Grid item xs={1}
