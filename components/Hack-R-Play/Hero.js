@@ -10,7 +10,10 @@ import GradientAndSmallTriangle from "../../public/Hack-R-Play/GradientAndSmallT
 import HeroCoders from "../../public/Hack-R-Play/HeroCoders.svg";
 import HeroLines from "../../public/Hack-R-Play/HeroLines.svg";
 import RadialGradient from "../../public/Hack-R-Play/RadialGradient.svg";
+import BannerLogo from "../../public/Hack-R-Play/BannerLogo.png";
+
 import { useRouter } from "next/router";
+
 
 const Hero = () => {
   const router = useRouter();
@@ -22,58 +25,44 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative flex py-4 px-8 justify-center items-center overflow-clip">
-      <div className="absolute -left-12 top-36">
+    <section className="relative flex py-6 md:px-8 px-4 justify-center items-center overflow-clip">
+      <div className="absolute -left-12 md:top-36 top-80 md:w-40 md:h-40 w-24 h-24 z-0">
         <Image
           src={GradientFlower}
           alt="Hero Gradient Flower"
-          width={155}
-          height={155}
+          layout="responsive"
         />
       </div>
-      <div className="absolute right-36 top-96">
-        <Image src={Flower} alt="Small Flower" width={120} height={120} />
+      <div className="md:block hidden absolute md:right-36 md:top-96 top-44 md:w-24 md:h-24 w-12 h-12">
+        <Image src={Flower} alt="Small Flower" layout="responsive" />
       </div>
-      <div className="absolute -right-14 top-96">
+      <div className="md:block hidden absolute md:-right-14 md:top-96 md:w-44 md:h-44">
         <Image
           src={GradientAndSmallTriangle}
           alt="Gradient AndSmall Triangle"
-          width={200}
-          height={200}
+          layout="responsive"
         />
       </div>
-      <div className="absolute left-44 -top-5">
-        <Image src={HeroLines} alt="Hero Lines" width={750} height={750} />
+      <div className="md:block hidden absolute md:left-44 md:-top-5 md:w-4/6 md:h-4/6">
+        <Image src={HeroLines} alt="Hero Lines" layout="responsive" />
       </div>
-      <div className="absolute left-56 -top-16 z-0">
-        <Image
-          src={RadialGradient}
-          alt="Radial Gradient"
-          width={750}
-          height={750}
-        />
+      <div className="absolute z-0 sm:top-44 w-96 h-96">
+        <Image src={RadialGradient} alt="Radial Gradient" layout="responsive" />
       </div>
 
-      <div className="flex flex-col justify-center items-center mx-auto pt-16 max-w-3xl">
-        <h1 className="font-primary text-7xl tracking-wide text-white ">
-          H a c k<span className="text-[#00F2FE]">-r-</span>p l a y
-        </h1>
-        <div className="inline-flex justify-center items-center border border-[#68FDC6] text-[#68FDC6] font-primary tracking-widest text-lg leading-none -mt-1">
-          <span className="pt-2 pb-1 px-2">
-            100% React Event In the Universe
-          </span>
-          <span className="bg-[#68FDC6] text-[#051630] pt-2 pb-1 px-2">
-            Sep 14 - 16, 2022
-          </span>
+      <div className="flex flex-col justify-center items-center mx-auto pt-16 md:max-w-3xl z-10">
+        <div className="block md:w-1/2 md:h-1/2 w-11/12 h-11/12">
+          <Image src={BannerLogo} alt="Banner Logo" layout="responsive" />
         </div>
-        <p className="text-center text-gray-300 font-body mt-7 z-10">
+        <p className="text-center text-gray-300 font-body mt-7">
+
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum
           est ultricies integer quis. Iaculis urna id volutpat lacus laoreet.
         </p>
-        <div className="inline-flex justify-center items-center mt-8 z-10">
-          <div className="mr-4">
-            <PrimaryButton handleOnClick={() => redirectToRegistration()}>
+        <div className="inline-flex justify-center items-center md:mt-8 mt-14 z-10">
+          <div className="md:mr-4 mr-2">
+          <PrimaryButton handleOnClick={() => redirectToRegistration()}>
               Register <FiCheckCircle className="ml-2 my-auto" size={20} />
             </PrimaryButton>
           </div>
@@ -87,11 +76,11 @@ const Hero = () => {
             </SecondaryOutlinedButton>
           </div>
         </div>
-        <div className="-mt-48 z-0">
-          <Image src={HeroCoders} alt="Hero Coders" width={750} height={750} />
+        <div className="md:-mt-12 z-0 md:w-4/5 md:h-4/5 w-full h-full -z-10">
+          <Image src={HeroCoders} alt="Hero Coders" layout="responsive" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
