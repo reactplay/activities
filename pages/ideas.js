@@ -4,13 +4,11 @@ import { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import Image from "next/image";
 import { listIdea } from "../services/graphql/ideas";
-import Typography from '@mui/material/Typography';
+import Typography from "@mui/material/Typography";
 import { CTA } from "/components/Hack-R-Play";
 import DottedAndFilledTriangle from "/public/Hack-R-Play/DottedAndFilledTriangle.svg";
 import Flower from "/public/Hack-R-Play/Flower.svg";
-import styles from '/styles/idea.module.css'
-
-
+import styles from "/styles/idea.module.css";
 
 const IdeaListingPage = () => {
   const [ideas, setIdeas] = useState([]);
@@ -20,33 +18,35 @@ const IdeaListingPage = () => {
       const result = await listIdea();
       let tempData = [];
       for (const idea of result) {
-
         let interObj = {
           title: idea.title,
           description: idea.description,
-          avatarUrl: [idea.idea_members_map?.user_id_map.avatarUrl, idea.idea_owner_map?.avatarUrl],
-          tinkers: [idea.idea_members_map?.user_id_map.displayName, idea.dea_owner_map?.displayName],
-          status: idea.idea_status_map?.status_id_map?.label
+          avatarUrl: [
+            idea.idea_members_map?.user_id_map.avatarUrl,
+            idea.idea_owner_map?.avatarUrl,
+          ],
+          tinkers: [
+            idea.idea_members_map?.user_id_map.displayName,
+            idea.dea_owner_map?.displayName,
+          ],
+          status: idea.idea_status_map?.status_id_map?.label,
         };
 
         tempData.push(interObj);
       }
       setIdeas(tempData);
-    } catch (e) {
-
-    }
+    } catch (e) {}
   }
-
-
 
   useEffect(() => {
     dataFetcher();
-  }, [])
-
-
+  }, []);
 
   return (
-    <Layout title="HACK-R-PLAY" description="A hackathon hosted by ReactPlay">
+    <Layout
+      title="HACK-R-PLAY - Submissions"
+      description="A hackathon hosted by ReactPlay"
+    >
       <div className="absolute left-9 -top-10">
         <Image
           src={DottedAndFilledTriangle}
@@ -58,25 +58,20 @@ const IdeaListingPage = () => {
       <div className="absolute -right-60 -top-48">
         <Image src={Flower} alt="Flower" width={500} height={500} />
       </div>
-      <Grid container
+      <Grid
+        container
         columns={{ xs: 12, md: 12 }}
         alignItems={"center"}
         className="md:px-10 my-20 "
-        justifyContent={"center"}>
-        <Grid
-          xs={12}
-          md={12}
-
-          items container justifyContent={"center"}>
+        justifyContent={"center"}
+      >
+        <Grid xs={12} md={12} items container justifyContent={"center"}>
           <Grid item xs={12} md={12}>
             <Typography variant="h4" className="text-center" color={"#ffffff"}>
               SUBMISSIONS
             </Typography>
           </Grid>
-          <Grid item
-            container
-            justifyContent={"center"}
-            xs={12} md={12}>
+          <Grid item container justifyContent={"center"} xs={12} md={12}>
             <div className={`${styles.underLine} w-20 mt-2 `}></div>
           </Grid>
         </Grid>
@@ -84,15 +79,17 @@ const IdeaListingPage = () => {
         <Grid
           container
           item
-          xs={12} md={12}
-
+          xs={12}
+          md={12}
           spacing={2}
           rowSpacing={2}
           columns={{ xs: 12, md: 12, lg: 12 }}
-          className=" py-16 md:px-10">
+          className=" py-16 md:px-10"
+        >
           {ideas.map((value) => {
             return (
-              <Grid item
+              <Grid
+                item
                 container
                 justifyContent={"center"}
                 xs={12}
@@ -104,7 +101,6 @@ const IdeaListingPage = () => {
             );
           })}
         </Grid>
-
       </Grid>
       <CTA
         title="Be a part of the best react event"
@@ -112,12 +108,8 @@ const IdeaListingPage = () => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum
             est ultricies integer quis. Iaculis urna id volutpat lacus laoreet."
       />
-    </Layout >
+    </Layout>
   );
-
-
 };
-
-
 
 export default IdeaListingPage;

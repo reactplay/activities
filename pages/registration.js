@@ -129,7 +129,10 @@ export default function Home() {
   };
 
   return (
-    <Layout>
+    <Layout
+      title="HACK-R-PLAY - Registration"
+      description="A hackathon hosted by ReactPlay"
+    >
       <div className="w-full h-full flex flex-col justify-center items-center create-plays-wrapper">
         <div className="w-full h-full max-w-6xl flex shadow-md rounded mb-6">
           <div className="flex flex-col flex-1 bg-white">
