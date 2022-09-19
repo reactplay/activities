@@ -69,7 +69,7 @@ const IdeaListingPage = () => {
 
           items container justifyContent={"center"}>
           <Grid item xs={12} md={12}>
-            <Typography variant="h4" className="text-center" color={"#ffffff"}>
+            <Typography variant="h2" className={`${styles.pageTitle} text-center`} color={"#ffffff"}>
               SUBMISSIONS
             </Typography>
           </Grid>

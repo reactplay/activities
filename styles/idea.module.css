@@ -5,7 +5,9 @@
   padding: 1rem;
 }
 
-
+.pageTitle{
+  font-family: Bebas Neue !important;
+}
 
 .card{ 
 width: 320px;
@@ -22,6 +24,7 @@ opacity: 1;
   -webkit-box-orient: vertical;  
   overflow: hidden;
   line-clamp: 2;
+  font-family: Bebas Neue !important;
   
 }
 
@@ -32,6 +35,7 @@ opacity: 1;
   -webkit-box-orient: vertical;  
   overflow: hidden;
   line-clamp: 4; 
+  font-family: Roboto Mono !important;
 }
 
 .cardAvatarSingle{
@@ -47,6 +51,10 @@ opacity: 1;
 .cardAvatar2nd{
   border-radius: 50%;  
   border: 2px solid #707070 !important;
+}
+
+.cardStatus{
+  font-family: Roboto Mono, Regular !important;
 }
 
 .registerBtn{

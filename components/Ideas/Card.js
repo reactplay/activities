@@ -72,8 +72,8 @@ const IdeaCard = ({ data }) => {
                   : null
               }
 
-              <Typography variant={"body2"} color={color}>
-                {data.status}
+              <Typography variant={"body2"} color={color} className={styles.cardStatus}>
+                {data?.status?.toUpperCase()}
               </Typography>
 
             </Grid>
