@@ -28,7 +28,8 @@ const Judges = ({ judges }) => {
         {judges.map((judge) => (
           <div className="md:mr-8 md:mt-0 mt-4 p-2 flex flex-col justify-center items-start font-body">
             <div className="w-48 h-48 bg-gray-600 rounded-md rounded-tl-[4rem]">
-              {judge.image ? <Image src={judge.image} layout="fixed" /> : null}
+              {judge.twitter ? <Image src={`https://unavatar.io/twitter/${judge.twitter}`} layout="fixed" width={'100'}
+                      height={'100'}/> : null}
             </div>
             <span className="text-white">{judge.name}</span>
             <span className="text-gray-400">{judge.title}</span>

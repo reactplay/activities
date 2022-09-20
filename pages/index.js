@@ -16,17 +16,37 @@ import Flower from "../public/Hack-R-Play/Flower.svg";
 export default function Home() {
   const faqs = [
     {
-      question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      question: "Why should I perticipate in Hack-R-Play?",
       answer:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
     },
     {
-      question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      question: "Do I need to Register for Hack-R-Play?",
       answer:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
     },
     {
-      question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      question: "Does my Idea needs to follow a specific theme?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
+    },
+    {
+      question: "Can I use anything other than React?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
+    },
+    {
+      question: "What do I need to Submit?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
+    },
+    {
+      question: "When and How the Hack-R-Play result will be published?",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
+    },
+    {
+      question: "I have questions, where can I ask them?",
       answer:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
     },
@@ -34,16 +54,24 @@ export default function Home() {
 
   const judges = [
     {
-      name: "lorem ipsum dolor sit",
-      title: "lorem ipsum",
+      name: "Johan Eliasson",
+      twitter: "@elitasson",
+      title: "CEO Nhost"
     },
     {
-      name: "lorem ipsum dolor sit",
-      title: "lorem ipsum",
+      name: "Koustov Maitra",
+      twitter: "@koustov",
+      title: "Solution Architect, ReactPlay"
     },
     {
-      name: "lorem ipsum dolor sit",
-      title: "lorem ipsum",
+      name: "Pratim Bhosale",
+      twitter: "@BhosalePratim",
+      title: "Developer Advocate, Nhost",
+    },
+    {
+      name: "Tapas Adhikary",
+      twitter: "@tapasAdhikary",
+      title: "Founder, ReactPlay",
     },
   ];
 
