@@ -51,24 +51,11 @@ export const idea_count = () => {
   });
 };
 
-export const list_ideas = (
-  page_no,
-  sort_by = "created_at",
-  sort_key = "asc",
-  page_size = 12
-) => {
+export const list_ideas = (filter, current_user) => {
   const input_obj = {
     display: "List Ideas",
     name: "hackathon_ideas",
     function: "hackathon_ideas",
-    offset: (page_no - 1) * page_size,
-    limit: page_size,
-    orders: [
-      {
-        field: sort_by,
-        value: sort_key,
-      },
-    ],
     return: [
       "description",
       "title",
@@ -93,13 +80,50 @@ export const list_ideas = (
     ],
     distinct: "id",
   };
+  if (filter.pagesize) {
+    input_obj.limit = filter.pagesize;
+  }
+  if (filter.page) {
+    input_obj.offset = (filter.page - 1) * filter.pagesize;
+  }
+
+  if (filter.sort_col) {
+    input_obj.orders = [
+      {
+        field: filter.sort_col,
+        value:
+          filter.sort_asc === undefined || filter.sort_asc ? "asc" : "desc",
+      },
+    ];
+  }
+
+  if (filter.owner && filter.owner === "me" && current_user) {
+    input_obj.where = {
+      clause: {
+        operator: "and",
+        node: "idea_owner_map",
+        conditions: [
+          {
+            field: "id",
+            operator: "eq",
+            value: current_user,
+          },
+        ],
+      },
+    };
+  }
+
   return submit(input_obj).then((res) => {
-    const sorted = _.orderBy(
-      res,
-      [(element) => element[sort_by].toLowerCase()],
-      [sort_key]
-    );
-    return sorted;
+    if (filter.sort_col) {
+      console.log(filter);
+      const sorted = _.orderBy(
+        res,
+        [(element) => element[filter.sort_col].toLowerCase()],
+        [filter.sort_asc ? "asc" : "desc"]
+      );
+      return sorted;
+    }
+    return res;
   });
 };
 

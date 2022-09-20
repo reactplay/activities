@@ -56,3 +56,23 @@ export const SecondaryOutlinedButtonDark = ({ children, handleOnClick }) => {
     </button>
   );
 };
+
+export const ToolBarButton = ({
+  children,
+  handleOnClick,
+  disabled,
+  selected,
+}) => {
+  return (
+    <div className="px-2 flex justify-center items-center">
+      <button
+        disabled={disabled}
+        selected={selected}
+        className={`inline-flex justify-center items-center bg-transparent text-white disabled:opacity-50 disabled:cursor-not-allowed selected:text-green`}
+        onClick={handleOnClick}
+      >
+        {children}
+      </button>
+    </div>
+  );
+};

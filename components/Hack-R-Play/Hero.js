@@ -17,11 +17,11 @@ import { useRouter } from "next/router";
 const Hero = () => {
   const router = useRouter();
   const redirectToRegistration = () => {
-    router.push("/registration");
+    router.push("registration");
   };
 
   const redirectToSubmissions = () => {
-    router.push("/ideas");
+    router.push("ideas");
   };
 
   return (

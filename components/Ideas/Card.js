@@ -5,7 +5,7 @@ import InProgress from "/public/Idea-List/inProgress.svg";
 import Complted from "/public/Idea-List/completed.svg";
 import NotStarted from "/public/Idea-List/notStart.svg";
 
-const IdeaCard = ({ data }) => {
+const IdeaCard = ({ data, onClick }) => {
   const [image, color] =
     data.status === "Submitted"
       ? [Complted, "#68FDC6"]
@@ -16,7 +16,7 @@ const IdeaCard = ({ data }) => {
       : [NotStarted, "#FD6868"];
 
   return (
-    <Card className={styles.card} variant="outlined">
+    <Card className={styles.card} variant="outlined" onClick={() => onClick()}>
       <Grid container columns={{ xs: 1 }} className={" pt-12 px-8 h-72"}>
         <Grid item xs={1} className={""}>
           <Typography
@@ -48,6 +48,7 @@ const IdeaCard = ({ data }) => {
               {data.avatarUrl.map((value, index) => {
                 return (
                   <div
+                    key={index}
                     className={
                       !data.avatarUrl.includes(undefined) && index === 1
                         ? styles.cardParent

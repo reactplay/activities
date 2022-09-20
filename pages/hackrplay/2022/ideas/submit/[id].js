@@ -1,59 +1,103 @@
 import { useAuthenticationStatus, useUserData } from "@nhost/nextjs";
 import styles from "@/styles/Home.module.css";
 
-import Link from "next/link";
 import { FiCheckCircle } from "react-icons/fi";
 import { NHOST } from "@/services/nhost";
-import { useEffect, useState } from "react";
+import { useEffect, useState, forwardRef } from "react";
 import FormBuilder from "@/components/form-builder";
-import { FIELD_TEMPLATE } from "@/services/consts/registration-fields";
+import { FIELD_TEMPLATE } from "@/services/consts/submission-fields";
 import { getAllUsers } from "@/services/graphql/auth";
-import { assign_member, insert_idea } from "@/services/graphql/ideas";
+import {
+  assign_member,
+  get_idea,
+  insert_idea,
+  update_ideas_demographic,
+  update_ideas_member,
+} from "@/services/graphql/ideas";
 import {
   PrimaryButton,
   SecondaryOutlinedButtonDark,
 } from "@/components/Buttons";
 import { useRouter } from "next/router";
 import LayoutWrapper from "@/components/LayoutWrapper";
-import { update_ideas_status } from "@/services/graphql/status";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+import { submit } from "json-graphql-parser/v2";
+import { list_statuses, update_ideas_status } from "@/services/graphql/status";
 
-export default function Home() {
+const Alert = forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
+export default function SubmitIdea() {
   const { isAuthenticated, isLoading } = useAuthenticationStatus();
   const [isDataLoading, setIsDataLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [storedIdeaData, setStoredIdeaData] = useState({});
   const [formData, setFormData] = useState({});
-  const router = useRouter();
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [pageDisabled, setPageDisabled] = useState(false);
 
   const userData = useUserData();
+  const router = useRouter();
+  const { id } = router.query;
 
   const initializeData = () => {
     if (Object.keys(storedIdeaData).length === 0) {
       setIsDataLoading(true);
-      const all_apis = [{ name: "users", method: getAllUsers }];
+      const all_apis = [
+        { name: "users", method: getAllUsers },
+        { name: "status", method: list_statuses },
+      ];
       const promises = [];
+
       all_apis.forEach((api) => {
         promises.push(api.method());
       });
 
+      promises.push(
+        get_idea(id).then((r) => {
+          prepare_idea_object(r);
+        })
+      );
       Promise.all(promises)
         .then((res) => {
           res.forEach((rApi, rApi_ind) => {
-            const api_obj = all_apis[rApi_ind];
-            storedIdeaData[api_obj.name] = rApi;
-            const anyField = FIELD_TEMPLATE.filter((field) => {
-              return field.datafield === api_obj.name;
-            });
-            if (anyField.length) {
-              anyField[0].options = rApi;
+            try {
+              const api_obj = all_apis[rApi_ind];
+              storedIdeaData[api_obj.name] = rApi;
+              const anyField = FIELD_TEMPLATE.filter((field) => {
+                return field.datafield === api_obj.name;
+              });
+              if (anyField.length) {
+                anyField[0].options = rApi;
+              }
+            } catch (err) {
+              // IGNORE
             }
           });
+
           setStoredIdeaData({ ...storedIdeaData });
         })
         .finally(() => {
           setIsDataLoading(false);
         });
     }
+  };
+
+  const prepare_idea_object = (idea) => {
+    if (idea.idea_members_map) {
+      idea.users = idea.idea_members_map.user_id_map.id;
+    }
+    if (idea.idea_status_map) {
+      idea.status = idea.idea_status_map.status_id_map.id;
+    }
+    if (userData.id !== idea.idea_owner_map.id) {
+      setAlertOpen(true);
+      setPageDisabled(true);
+    }
+    setFormData({ ...idea });
+    setStoredIdeaData({ ...idea });
   };
 
   useEffect(() => {
@@ -109,35 +153,32 @@ export default function Home() {
     setStoredIdeaData({ ...data });
   };
 
+  const os = () => {
+    alert("here");
+  };
+
   const onSubmit = () => {
     setIsSubmitting(true);
-    let idea_id = storedIdeaData.id;
-    let selected_users = storedIdeaData.users;
+
     const idea_object = (({ title, description }) => ({ title, description }))(
       storedIdeaData
     );
     idea_object.owner = userData.id;
-    if (!idea_id)
-      return insert_idea(idea_object).then((res) => {
-        idea_id = res.id;
-        if (selected_users && selected_users.length) {
-          const promises = [];
-          console.log(storedIdeaData);
-          if (storedIdeaData.users) {
-            promises.push(assign_member(idea_id, storedIdeaData.users));
-          }
-          formData.status = "63c47cd7-f9c4-41e1-87b6-7ebe7b59f00e";
-          formData.id = idea_id;
-          promises.push(update_ideas_status(formData));
-          return Promise.all(promises).then((res) => {
-            router.push("/ideas");
-            setIsSubmitting(false);
-          });
-        } else {
-          router.push("/ideas");
-          setIsSubmitting(false);
-        }
-      });
+    const promises = [];
+
+    promises.push(update_ideas_demographic(formData));
+    promises.push(update_ideas_member(formData));
+    if (formData.status) {
+      promises.push(update_ideas_status(formData));
+    }
+
+    Promise.all(promises).then((res) => {
+      router.push("/ideas");
+    });
+  };
+
+  const onCancelClicked = () => {
+    router.push("/ideas");
   };
 
   return (
@@ -149,13 +190,18 @@ export default function Home() {
               <h2
                 className={`font-primary text-5xl uppercase text-white tracking-wide ${styles["page-title"]}`}
               >
-                Registration
+                Idea Submission
               </h2>
             </div>
-            <div className="flex flex-col flex-1 bg-white">
+            <div className={`flex flex-col flex-1 bg-white`}>
+              <div className="p-4">
+                Congratulations for completing your idea for HACK-R-PLAY
+              </div>
               <div className="flex-1 px-10 py-8 overflow-auto">
                 <form>
                   <FormBuilder
+                    disabled={pageDisabled}
+                    data={formData}
                     fields={FIELD_TEMPLATE}
                     onChange={(data) => onIdeaDataChanged(data)}
                   />
@@ -166,17 +212,20 @@ export default function Home() {
                 <div className="py-4 px-10 h-full flex justify-end">
                   <div className="p-2">
                     <div>
-                      <SecondaryOutlinedButtonDark>
+                      <SecondaryOutlinedButtonDark
+                        handleOnClick={() => onCancelClicked()}
+                      >
                         Cancel
                       </SecondaryOutlinedButtonDark>
                     </div>
                   </div>
                   <div className="p-2">
                     <PrimaryButton
-                      disabled={isFieldsAreInValid()}
+                      disabled={isFieldsAreInValid() || pageDisabled}
                       handleOnClick={() => onSubmit()}
+                      onClick={() => os()}
                     >
-                      {`Register Now`}
+                      Submit
                       <FiCheckCircle className="ml-2 my-auto" size={20} />
                     </PrimaryButton>
                   </div>
@@ -186,6 +235,11 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {alertOpen ? (
+        <div className="absolute flex justify-center items-center w-full h-full z-[99] opacity-60 bg-slate-500">
+          <Alert severity="error">You cannot edit this idea !</Alert>
+        </div>
+      ) : null}
     </LayoutWrapper>
   );
 }

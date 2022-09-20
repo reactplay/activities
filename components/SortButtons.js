@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Box from "@mui/material/Box";
 import { FiArrowUp, FiArrowDown } from "react-icons/fi";
+import { ToolBarButton } from "@/components/Buttons";
 
 export default function SortButtons({ buttons, selected, onChange }) {
   const [allButtons, setAllButtons] = useState([]);
@@ -56,29 +57,19 @@ export default function SortButtons({ buttons, selected, onChange }) {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        "& > *": {
-          m: 1,
-        },
-      }}
-    >
-      <ButtonGroup variant="text" aria-label="text button group">
-        {allButtons.map((b, bi) => {
-          return (
-            <Button
-              key={bi}
-              onClick={() => onButtonClicked(b)}
-              className={b.selected ? `text-brand-hightlight` : "text-grey-100"}
-            >
-              {b.label} {b.asc ? <FiArrowDown /> : <FiArrowUp />}
-            </Button>
-          );
-        })}
-      </ButtonGroup>
-    </Box>
+    <div className="flex">
+      {allButtons.map((b, bi) => {
+        return (
+          <ToolBarButton
+            key={bi}
+            selected={b.selected ? "1" : "0"}
+            handleOnClick={() => onButtonClicked(b)}
+            className={b.selected ? `text-brand-hightlight` : "text-grey-100"}
+          >
+            {b.label} {b.asc ? <FiArrowDown /> : <FiArrowUp />}
+          </ToolBarButton>
+        );
+      })}
+    </div>
   );
 }

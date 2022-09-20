@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Box from "@mui/material/Box";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { FiChevronsLeft, FiChevronsRight } from "react-icons/fi";
+import { ToolBarButton } from "./Buttons";
 
 export default function Pagination({ total, pagesize, onChange }) {
   const [current, setCurrent] = useState(1);
@@ -24,37 +25,24 @@ export default function Pagination({ total, pagesize, onChange }) {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        "& > *": {
-          m: 1,
-        },
-      }}
-    >
+    <div className="flex justify-center items-center">
       <ButtonGroup variant="text" aria-label="text button group">
-        <Button
-          onClick={() => onButtonClicked(current - 1)}
+        <ToolBarButton
+          handleOnClick={() => onButtonClicked(current - 1)}
           disabled={current === 1}
-          className={current === 1 ? `text-brand-hightlight` : "text-grey-100"}
         >
-          <FiChevronLeft />
-        </Button>
-        <Button className="text-white">
+          <FiChevronsLeft />
+        </ToolBarButton>
+        <div className="text-white">
           Page: {current} / {pageCount}
-        </Button>
-        <Button
-          onClick={() => onButtonClicked(current + 1)}
+        </div>
+        <ToolBarButton
+          handleOnClick={() => onButtonClicked(current + 1)}
           disabled={current === pageCount}
-          className={
-            current === pageCount ? `text-brand-hightlight` : "text-grey-100"
-          }
         >
-          <FiChevronRight />
-        </Button>
+          <FiChevronsRight />
+        </ToolBarButton>
       </ButtonGroup>
-    </Box>
+    </div>
   );
 }

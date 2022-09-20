@@ -8,6 +8,8 @@ import { Grid } from "@mui/material";
 import SortButtons from "@/components/SortButtons";
 import Pagination from "@/components/Pagination";
 import { useRouter } from "next/router";
+import IdeaFilters from "@/components/Hack-R-Play/IdeaFilter";
+import { useUserData } from "@nhost/nextjs";
 
 const PAGE_SIZE = 12;
 
@@ -16,27 +18,16 @@ const IdeaListingPage = () => {
   const [ideaCount, setIdeaCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const userData = useUserData();
 
   useEffect(() => {
     loadIdeas();
   }, []);
 
-  const loadIdeas = (button, pageno) => {
+  const loadIdeas = (filter) => {
     setIsLoading(true);
-    const prom = undefined;
     const promises = [];
-    if (button) {
-      promises.push(
-        list_ideas(
-          pageno || 1,
-          button.field,
-          button.asc ? "asc" : "desc",
-          PAGE_SIZE
-        )
-      );
-    } else {
-      promises.push(list_ideas(pageno || 1, "created_at", "asc", PAGE_SIZE));
-    }
+    promises.push(list_ideas(filter || { pagesize: PAGE_SIZE }, userData?.id));
     promises.push(idea_count());
 
     Promise.all(promises)
@@ -51,7 +42,7 @@ const IdeaListingPage = () => {
   };
 
   const onCardClicked = (id) => {
-    router.push(`/ideas/${id}`);
+    router.push(`ideas/${id}`);
   };
 
   const processResultData = (result) => {
@@ -92,7 +83,12 @@ const IdeaListingPage = () => {
           <div className="text-[#ffffff99] py-4"> Total: {ideaCount}</div>
         </div>
         <div className="flex justify-end">
-          <div>
+          <IdeaFilters
+            total={ideaCount}
+            pagesize={PAGE_SIZE}
+            onChange={(f) => loadIdeas(f)}
+          ></IdeaFilters>
+          {/* <div>
             <Pagination
               total={ideaCount}
               pagesize={PAGE_SIZE}
@@ -107,7 +103,7 @@ const IdeaListingPage = () => {
                 { label: "Name", field: "title" },
               ]}
             />
-          </div>
+          </div> */}
         </div>
 
         <Grid

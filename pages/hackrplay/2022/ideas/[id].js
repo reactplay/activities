@@ -5,7 +5,7 @@ import LayoutWrapper from "@/components/LayoutWrapper";
 import styles from "@/styles/Home.module.css";
 import { get_idea } from "@/services/graphql/ideas";
 import { Typography } from "@mui/material";
-import { FiPenTool } from "react-icons/fi";
+import { FiPenTool, FiDownload } from "react-icons/fi";
 import { PrimaryButton, SecondaryOutlinedButton } from "@/components/Buttons";
 import InProgress from "/public/Idea-List/inProgress.svg";
 import Complted from "/public/Idea-List/completed.svg";
@@ -51,7 +51,10 @@ export default function IdeaDetails(props) {
     return STAUS_MAP[status_labal.toLowerCase()];
   };
   const onEditClicked = (id) => {
-    router.push(`/registration/${id}`);
+    router.push(`../registration/${id}`);
+  };
+  const onSubmitClicked = (id) => {
+    router.push(`submit/${id}`);
   };
 
   const onCancelClicked = (id) => {
@@ -136,7 +139,16 @@ export default function IdeaDetails(props) {
                 </div>
                 <div>
                   <hr />
-                  <div className="py-4 h-full flex justify-end">
+                  <div className="py-4 h-full flex ">
+                    <div className="p-2 flex-1">
+                      <PrimaryButton
+                        handleOnClick={() => onSubmitClicked(idea.id)}
+                      >
+                        {`Submit`}
+                        <FiDownload className="ml-2 my-auto" size={20} />
+                      </PrimaryButton>
+                    </div>
+
                     <div className="p-2">
                       <div>
                         <SecondaryOutlinedButton
