@@ -16,39 +16,54 @@ import Flower from "../public/Hack-R-Play/Flower.svg";
 export default function Home() {
   const faqs = [
     {
-      question: "Why should I perticipate in Hack-R-Play?",
+      question: "Why should I perticipate in the Hack-R-Play?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
+        "Do you like learning while building something? How about a platform that provides you with an opportunity to build a full-stack application end-to-end, showcase it to the world, motivate you to create content about it, and help build networking? Hack-R-Play aims precisely the same. Join the Hackathon brought to you by ReactPlay and start building a cool project that we can't wait to see!",
     },
     {
       question: "Do I need to Register for Hack-R-Play?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
+        "Yes, you need to Register your idea for the Hack-R-Play hackathon. To do that, click on the REGISTER button at the top of the page and submit a few details to register your idea.",
+    },
+    {
+      question: "Can we participate as a team?",
+      answer:
+        "Yes, you can participate in a team of 2(max). You can select the other member's name when you register your idea for the event. If you are the only person registering for an idea, just skip selecting any member while registering.",
     },
     {
       question: "Does my Idea needs to follow a specific theme?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
+        "Not really! However, we suggest you build something valuable that you will keep building even after the Hack-R-Play Event. Rest is entirely up to you.",
     },
     {
       question: "Can I use anything other than React?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
+        "You can use anything related to React and its ecosystem. You can use Next.js, Gatsby, React Native, and even plain React!",
     },
     {
       question: "What do I need to Submit?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
+        "When you submit the project after completion, you submit three public links. Link to your project source code, link to your application, and link to the article that explains how you have used React/React-based library/framework with Nhost to build this application.",
+    },
+    {
+      question: "Is the blog article mandatory to submit?",
+      answer:
+        "Yes, very much! Please document your entire Hack-R-Play journey and publish them on the ReactPlay blog(blog.reactplay.io). Don't worry if you are not a seasoned blogger. We will help with reviews if you submit the blog article at least 3 days before the event's end date.",
     },
     {
       question: "When and How the Hack-R-Play result will be published?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
+        "Hack-R-Play 2022 results will be published on 22nd October. We will publish it on our website, and the Twitter handle(@reactplayio).",
+    },
+    {
+      question: "Do we get prizes?",
+      answer:
+        "Yes, we will select 5 best ideas to give the exciting prizes sponsored by Nhost.",
     },
     {
       question: "I have questions, where can I ask them?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendumest ultricies integer quis. Iaculis urna id volutpat lacus laoreet.",
+        "Got a question? Please join our Discord(the link is in the footer of this page). You can ask us anything in the hack-r-play channel.",
     },
   ];
 
