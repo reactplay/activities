@@ -55,9 +55,9 @@ const Hero = () => {
           <Image src={BannerLogo} alt="Banner Logo" layout="responsive" />
         </div>
         <p className="text-center text-gray-300 font-body mt-7">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum
-          est ultricies integer quis. Iaculis urna id volutpat lacus laoreet.
+          ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. 
+          Showcase your mindblowing ideas, build projects, and create content - there are also chances 
+          to win exciting prizes.
         </p>
         <div className="inline-flex justify-center items-center md:mt-8 mt-14 z-10">
           <div className="md:mr-4 mr-2">

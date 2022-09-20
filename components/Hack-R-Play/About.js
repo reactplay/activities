@@ -35,17 +35,17 @@ const About = () => {
       <div className="md:-mt-10 mt-8 md:-ml-36">
         <div className="w-fit h-fit border-2 border-[#68FDC6] rounded-tl-[6.5rem] flex justify-center items-center md:py-12 md:px-12 pt-12 pb-7 px-6 md:-ml-10">
           <p className=" text-[#68FDC6] font-primary md:text-3xl text-2xl mx-auto max-w-[8rem] max-h-32">
-            Ipsum dolor sit amet, conctetur
+            Build an Open Source App using React and Nhost
           </p>
         </div>
         <div className="w-fit h-fit border-2 border-white md:rounded-tr-[6.5rem] flex justify-center items-center md:py-14 md:px-12 py-7 px-6 md:ml-36 md:-mt-10">
           <p className=" text-white font-primary md:text-3xl text-2xl  mx-auto max-w-[8rem] max-h-32">
-            Ipsum dolor sit amet, conctetur
+            Write an article on ReactPlay Blog about it.
           </p>
         </div>
         <div className="w-fit h-fit border-2 border-[#00F2FE] rounded-br-[6.5rem] flex justify-center items-center md:py-14 md:px-12 py-7 px-6 md:ml-80 md:-mt-10">
           <p className=" text-[#00F2FE] font-primary md:text-3xl text-2xl mx-auto max-w-[8rem] max-h-32">
-            Ipsum dolor sit amet, conctetur
+            Submit the links to code, app, and article.
           </p>
         </div>
       </div>
