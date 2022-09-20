@@ -27,9 +27,12 @@ const Partners = () => {
           </a>
         </div>
         <p className="text-center text-gray-300 font-body mt-5 md:px-56">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum
-          est ultricies integer quis. Iaculis urna id volutpat lacus laoreet.
+          Nhost is the open source GraphQL backend (Firebase Alternative) and a development platform. 
+          Nhost is doing for the backend, what Netlify and Vercel are doing for the frontend.
+          
+          It make things easy to build and deploy this backend using our platform that takes care of 
+          configuration, security, and performance. Things just works and scale automatically so you 
+          can focus on your product and on your business.
         </p>
       </div>
     </section>
