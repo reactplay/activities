@@ -22,30 +22,36 @@ const About = () => {
             <span className="text-[#00F2FE]">About</span> this event
           </h2>
           <p className="mt-4 font-body text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum
-            est ultricies integer quis. Iaculis urna id volutpat lacus laoreet.
-            Mauris vitae ultricies leo integer malesuada. Ac odio tempor orci
-            dapibus ultrices in. Egestas diam in arcu cursus euismod. Dictum
-            fusce ut placerat orci nulla. Tincidunt ornare massa eget egestas
-            purus viverra accumsan in nisl. Tempor id eu nisl nunc mi
+            Developers are lifetime hackers!
+            <br /> <br />
+            <strong>Hack-R-Play</strong> is an initiative from the ReactPlay platform to help 
+            you hack, build, learn, and simultaneously contribute open source through #hacktoberfest.
           </p>
+          <ul>
+            All for it? Here are some rules you need to keep in mind:
+            <li>The app you build must use React/React-based library or framework and Nhost.</li>
+            <li>It must be an Open Source app with source code on GitHub.</li>
+            <li>You must deploy the app publicly.</li>
+            <li>You must write an article about your journey of building it and publish it on the ReactPlay blog.</li>
+          </ul>
+          
+          
         </div>
       </div>
       <div className="md:-mt-10 mt-8 md:-ml-36">
         <div className="w-fit h-fit border-2 border-[#68FDC6] rounded-tl-[6.5rem] flex justify-center items-center md:py-12 md:px-12 pt-12 pb-7 px-6 md:-ml-10">
           <p className=" text-[#68FDC6] font-primary md:text-3xl text-2xl mx-auto max-w-[8rem] max-h-32">
-            Build an Open Source App using React and Nhost
+            Build an App using React and Nhost
           </p>
         </div>
         <div className="w-fit h-fit border-2 border-white md:rounded-tr-[6.5rem] flex justify-center items-center md:py-14 md:px-12 py-7 px-6 md:ml-36 md:-mt-10">
           <p className=" text-white font-primary md:text-3xl text-2xl  mx-auto max-w-[8rem] max-h-32">
-            Write an article on ReactPlay Blog about it.
+            Write an article on ReactPlay Blog about it
           </p>
         </div>
         <div className="w-fit h-fit border-2 border-[#00F2FE] rounded-br-[6.5rem] flex justify-center items-center md:py-14 md:px-12 py-7 px-6 md:ml-80 md:-mt-10">
           <p className=" text-[#00F2FE] font-primary md:text-3xl text-2xl mx-auto max-w-[8rem] max-h-32">
-            Submit the links to code, app, and article.
+            Submit the links to code, app, and article
           </p>
         </div>
       </div>

@@ -77,7 +77,7 @@ const Hero = () => {
             </SecondaryOutlinedButton>
           </div>
         </div>
-        <div className="md:-mt-12 z-0 md:w-4/5 md:h-4/5 w-full h-full -z-10">
+        <div className="md:-mt-12 z-0 md:w-4/5 md:h-4/5 w-full h-full-z-10">
           <Image src={HeroCoders} alt="Hero Coders" layout="responsive" />
         </div>
       </div>
