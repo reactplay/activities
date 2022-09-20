@@ -45,3 +45,14 @@ export const SecondaryOutlinedButton = ({
     </button>
   );
 };
+
+export const SecondaryOutlinedButtonDark = ({ children, handleOnClick }) => {
+  return (
+    <button
+      className="inline-flex justify-center items-center py-4 px-7 uppercase bg-transparent text-grey-700 border border-grey-700 font-primary text-xl rounded-sm"
+      onClick={handleOnClick}
+    >
+      {children}
+    </button>
+  );
+};
