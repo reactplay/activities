@@ -38,7 +38,7 @@ const FAQs = ({ faqs }) => {
               onClick={() => toggleAnswer(index)}
               className="inline-flex justify-between items-center w-full"
             >
-              <h2 className="font-body font-bold text-white md:text-xl text-lg md:mr-40">
+              <h2 className="font-body text-left font-bold text-white md:text-xl text-lg md:mr-40">
                 {faq.question}
               </h2>
               {active === index ? (

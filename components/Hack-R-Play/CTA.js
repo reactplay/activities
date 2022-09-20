@@ -17,7 +17,7 @@ const CTA = ({ title, description, image }) => {
       className="relative flex flex-col -mt-14 py-16 md:px-28 px-10 justify-center items-center overflow-clip bg-[#00F2FE]"
     >
       <div className="inline-flex md:flex-row flex-col justify-center items-center mx-auto max-w-4xl md:px-11 px-6">
-        <div className="w-full h-full scale-150">
+        <div className="w-full h-full md:scale-150">
           <Image
             src={image ? image : CTAImage}
             alt="CTA Image"
