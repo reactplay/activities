@@ -18,7 +18,7 @@ const Partners = () => {
         />
       </div>
 
-      <h1 className="font-primary text-white text-5xl tracking-wider relative before:content[''] before:absolute before:w-1/4 before:h-1 before:-bottom-2 before:border-b-[3px] before:rounded-sm before:left-24 before:border-[#32F9E5]">
+      <h1 className="font-primary text-white text-5xl tracking-wider relative before:content[''] before:absolute before:w-1/4 before:h-1 before:-bottom-2 before:border-b-[3px] before:rounded-sm md:before:left-24 before:left-20 before:border-[#32F9E5]">
         Our Sponsors
       </h1>
       <div className="mt-5 flex flex-col justify-center items-center py-10 w-fit px-">
