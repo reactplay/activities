@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 
-const Layout = ({ children, title, description }) => {
+const Layout = ({ children, title }) => {
   const links = [
     {
       name: "About",
@@ -36,14 +36,6 @@ const Layout = ({ children, title, description }) => {
 
   return (
     <div className="relative bg-[#051630] overflow-clip">
-      <Head>
-        <meta name="description" content={description} />
-        <link rel="icon" href="/favicon.png" />
-        <meta
-          property="og:image"
-          content="https://hustles.reactplay.io/og-image.png"
-        />
-      </Head>
       <Head>
         <title>{title}</title>
 
