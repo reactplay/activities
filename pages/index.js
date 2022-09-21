@@ -109,9 +109,8 @@ export default function Home() {
       <Partners />
       <CTA
         title="Be a part of the best react event"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum
-            est ultricies integer quis. Iaculis urna id volutpat lacus laoreet."
+        description="Learning is a journey than a destination. We developers need avenues, motivations, and opportunities to keep going. Join the Hack-R-Play hackathon to experience it. It will allow you to build a full-stack app using React and Nhost. Why waiting? Register your idea today.
+        "
       />
       <FAQs faqs={faqs} />
     </Layout>
