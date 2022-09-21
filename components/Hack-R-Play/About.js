@@ -24,18 +24,27 @@ const About = () => {
           <p className="mt-4 font-body text-gray-300">
             Developers are lifetime hackers!
             <br /> <br />
-            <strong>Hack-R-Play</strong> is an initiative from the ReactPlay platform to help 
-            you hack, build, learn, and simultaneously contribute open source through #hacktoberfest.
+            <strong>Hack-R-Play</strong> is an initiative from the ReactPlay
+            platform to help you hack, build, learn, and simultaneously
+            contribute open source through #hacktoberfest.
           </p>
-          <ul>
+          <ul className="mt-2 font-body text-gray-300">
             All for it? Here are some rules you need to keep in mind:
-            <li>The app you build must use React/React-based library or framework and Nhost.</li>
-            <li>It must be an Open Source app with source code on GitHub.</li>
-            <li>You must deploy the app publicly.</li>
-            <li>You must write an article about your journey of building it and publish it on the ReactPlay blog.</li>
+            <li className="list-disc mt-1 ml-10">
+              The app you build must use React/React-based library or framework
+              and Nhost.
+            </li>
+            <li className="list-disc mt-1 ml-10">
+              It must be an Open Source app with source code on GitHub.
+            </li>
+            <li className="list-disc mt-1 ml-10">
+              You must deploy the app publicly.
+            </li>
+            <li className="list-disc mt-1 ml-10">
+              You must write an article about your journey of building it and
+              publish it on the ReactPlay blog.
+            </li>
           </ul>
-          
-          
         </div>
       </div>
       <div className="md:-mt-10 mt-8 md:-ml-36">
