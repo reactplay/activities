@@ -47,7 +47,7 @@ const About = () => {
           </ul>
         </div>
       </div>
-      <div className="md:-mt-10 mt-8 md:-ml-36">
+      <div className="md:-mt-7 mt-8">
         <div className="w-fit h-fit border-2 border-[#68FDC6] rounded-tl-[6.5rem] flex justify-center items-center md:py-12 md:px-12 pt-12 pb-7 px-6 md:-ml-10">
           <p className=" text-[#68FDC6] font-primary md:text-3xl text-2xl mx-auto max-w-[8rem] max-h-32">
             Build an App using React and Nhost
