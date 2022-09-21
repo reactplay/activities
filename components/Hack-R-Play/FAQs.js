@@ -34,8 +34,11 @@ const FAQs = ({ faqs }) => {
             key={index}
             className="w-full flex-col justify-center items-start my-2 py-3 border-b-2 border-gray-800"
           >
-            <div className="inline-flex justify-between items-center w-full">
-              <h2 className="font-body font-bold text-white md:text-xl text-lg md:mr-40">
+            <button
+              onClick={() => toggleAnswer(index)}
+              className="inline-flex justify-between items-center w-full"
+            >
+              <h2 className="font-body text-left font-bold text-white md:text-xl text-lg md:mr-40">
                 {faq.question}
               </h2>
               {active === index ? (
@@ -53,7 +56,7 @@ const FAQs = ({ faqs }) => {
                   <FiPlus />
                 </button>
               )}
-            </div>
+            </button>
 
             <p
               ref={contentRef}
