@@ -17,12 +17,19 @@ const Footer = () => {
         />
       </div>
       <div className="flex flex-col justify-center items-center mx-auto ">
-        <span className="text-gray-500 font-medium font-body">Hosted By</span>
+        <span className="mb-3 text-gray-400 font-medium font-body">Hosted By</span>
         <a href="https://reactplay.io" target="_blank" rel="noreferrer">
           <Image src={ReactPlayLogo} alt="ReactPlay Logo" layout="fixed" />
         </a>
-        <p className="mt-4 font-medium font-body text-gray-500 text-center">
+        <p className="mt-2 font-medium font-body text-gray-400 text-center">
           An open-source project made with ❤️ by Tapas Adhikary and friends.
+        </p>
+        <p className="mt-2 mb-2 font-medium font-body text-gray-400 text-center underline underline-offset-2 hover:text-gray-200">
+          <Link href={`/tech-credit`}>
+            <a>
+              Tech Stack and Credits
+            </a>
+          </Link>
         </p>
       </div>
       <div className="absolute opacity-40 -right-24 -bottom-28">
