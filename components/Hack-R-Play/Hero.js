@@ -51,7 +51,7 @@ const Hero = () => {
         <Image src={RadialGradient} alt="Radial Gradient" layout="responsive" />
       </div>
 
-      <div className="flex flex-col justify-center items-center mx-auto pt-16 md:max-w-3xl z-10">
+      <div className="flex flex-col justify-center items-center mx-auto md:pt-16 pt-8 md:max-w-3xl z-10">
         <div className="scale-110">
           <Image src={ReactPlayLogo} alt="ReactPlay Logo" layout="fixed" />
         </div>
@@ -64,13 +64,13 @@ const Hero = () => {
           learn from it. Showcase your mindblowing ideas, build projects, and
           create content - there are also chances to win exciting prizes.
         </p>
-        <div className="inline-flex justify-center items-center md:mt-8 mt-14 z-10">
-          <div className="md:mr-4 mr-2">
+        <div className="inline-flex md:flex-row flex-col justify-center items-center mt-8 z-10">
+          <div className="md:mr-4">
             <PrimaryButton handleOnClick={() => redirectToRegistration()}>
               Register <FiCheckCircle className="ml-2 my-auto" size={20} />
             </PrimaryButton>
           </div>
-          <div>
+          <div className="md:mt-0 mt-4">
             <SecondaryOutlinedButton
               handleOnClick={() => redirectToSubmissions()}
             >
