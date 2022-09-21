@@ -10,6 +10,9 @@ import Pagination from "@/components/Pagination";
 import { useRouter } from "next/router";
 import IdeaFilters from "@/components/Hack-R-Play/IdeaFilter";
 import { useUserData } from "@nhost/nextjs";
+import Link from "next/link";
+import { PrimaryButton } from "@/components/Buttons";
+import { get_latest_status } from "@/services/graphql/status";
 
 const PAGE_SIZE = 12;
 
@@ -45,6 +48,10 @@ const IdeaListingPage = () => {
     router.push(`ideas/${id}`);
   };
 
+  const redirectToRegistration = () => {
+    router.push("registration");
+  };
+
   const processResultData = (result) => {
     let tempData = [];
     for (const idea of result) {
@@ -60,12 +67,13 @@ const IdeaListingPage = () => {
           idea.idea_members_map?.user_id_map.displayName,
           idea.dea_owner_map?.displayName,
         ],
-        status: idea.idea_status_map?.status_id_map?.label,
+        status: get_latest_status(idea),
       };
 
       tempData.push(interObj);
     }
     setIdeas(tempData);
+    console.log(tempData);
   };
 
   return (
@@ -88,22 +96,6 @@ const IdeaListingPage = () => {
             pagesize={PAGE_SIZE}
             onChange={(f) => loadIdeas(f)}
           ></IdeaFilters>
-          {/* <div>
-            <Pagination
-              total={ideaCount}
-              pagesize={PAGE_SIZE}
-              onChange={(pageno) => loadIdeas(undefined, pageno)}
-            />
-          </div>
-          <div>
-            <SortButtons
-              onChange={(b) => loadIdeas(b)}
-              buttons={[
-                { label: "Date", field: "created_at" },
-                { label: "Name", field: "title" },
-              ]}
-            />
-          </div> */}
         </div>
 
         <Grid
@@ -116,30 +108,46 @@ const IdeaListingPage = () => {
           columns={{ xs: 12, md: 12, lg: 12 }}
           className=" py-16 md:px-10"
         >
-          {ideas.map((value, vi) => {
-            return (
-              <Grid
-                key={vi}
-                item
-                container
-                justifyContent={"center"}
-                xs={12}
-                sm={6}
-                md={6}
-                lg={4}
-                xl={3}
-                className="z-[9]"
-              >
-                <IdeaCard
-                  data={value}
-                  onClick={() => onCardClicked(value.id)}
-                />
-              </Grid>
-            );
-          })}
-          {/* <div className="py-4 flex items-center justify-center w-full">
-            <Pagination count={10} color="primary" />
-          </div> */}
+          {ideas.length === 0 ? (
+            <div className="w-full py-10 flex flex-col justify-center items-center z-[9] text-brand-hightlight">
+              <div className="text-3xl ">No idea has been added yet.</div>
+              <div className="text-grey py-4 flex justify-center items-center">
+                <div className="text-slate-300 pr-4">
+                  To register first idea click
+                </div>
+                <PrimaryButton
+                  handleOnClick={() => redirectToRegistration()}
+                  small={true}
+                >
+                  Register Now
+                </PrimaryButton>
+              </div>
+            </div>
+          ) : (
+            <>
+              {ideas.map((value, vi) => {
+                return (
+                  <Grid
+                    key={vi}
+                    item
+                    container
+                    justifyContent={"center"}
+                    xs={12}
+                    sm={6}
+                    md={6}
+                    lg={4}
+                    xl={3}
+                    className="z-[9]"
+                  >
+                    <IdeaCard
+                      data={value}
+                      onClick={() => onCardClicked(value.id)}
+                    />
+                  </Grid>
+                );
+              })}
+            </>
+          )}
         </Grid>
 
         <CTA

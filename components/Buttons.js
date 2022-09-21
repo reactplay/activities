@@ -1,11 +1,17 @@
-export const PrimaryButton = ({ children, handleOnClick, small = false }) => {
+export const PrimaryButton = ({
+  children,
+  handleOnClick,
+  small = false,
+  ...props
+}) => {
   const buttonSize = small
     ? "md:pt-1 md:pb-0 md:px-4 py-2 px-4 text-lg"
     : "md:py-4 md:px-7 py-3 px-5 text-xl";
 
   return (
     <button
-      className={`inline-flex justify-center items-center ${buttonSize} uppercase bg-gradient-to-br from-[#00F2FE] via-[#32F9E5] to-[#68FDC6] text-[#010326] font-primary rounded-sm`}
+      {...props}
+      className={`inline-flex justify-center items-center ${buttonSize} uppercase bg-gradient-to-br from-[#00F2FE] via-[#32F9E5] to-[#68FDC6] text-[#010326] font-primary rounded-sm disabled:opacity-50 disabled:cursor-not-allowed`}
       onClick={handleOnClick}
     >
       {children}

@@ -11,6 +11,7 @@ import {
   assign_member,
   get_idea,
   insert_idea,
+  insert_idea_submission,
   update_ideas_demographic,
   update_ideas_member,
 } from "@/services/graphql/ideas";
@@ -23,7 +24,11 @@ import LayoutWrapper from "@/components/LayoutWrapper";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { submit } from "json-graphql-parser/v2";
-import { list_statuses, update_ideas_status } from "@/services/graphql/status";
+import {
+  get_latest_status,
+  list_statuses,
+  update_ideas_status,
+} from "@/services/graphql/status";
 
 const Alert = forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -31,73 +36,26 @@ const Alert = forwardRef(function Alert(props, ref) {
 
 export default function SubmitIdea() {
   const { isAuthenticated, isLoading } = useAuthenticationStatus();
+  const [userId, setUserId] = useState("");
   const [isDataLoading, setIsDataLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [storedIdeaData, setStoredIdeaData] = useState({});
-  const [formData, setFormData] = useState({});
-  const [alertOpen, setAlertOpen] = useState(false);
-  const [pageDisabled, setPageDisabled] = useState(false);
+  const [ideaObject, setIdeaObject] = useState({});
 
   const userData = useUserData();
   const router = useRouter();
   const { id } = router.query;
 
   const initializeData = () => {
-    if (Object.keys(storedIdeaData).length === 0) {
-      setIsDataLoading(true);
-      const all_apis = [
-        { name: "users", method: getAllUsers },
-        { name: "status", method: list_statuses },
-      ];
-      const promises = [];
-
-      all_apis.forEach((api) => {
-        promises.push(api.method());
-      });
-
-      promises.push(
-        get_idea(id).then((r) => {
-          prepare_idea_object(r);
-        })
-      );
-      Promise.all(promises)
-        .then((res) => {
-          res.forEach((rApi, rApi_ind) => {
-            try {
-              const api_obj = all_apis[rApi_ind];
-              storedIdeaData[api_obj.name] = rApi;
-              const anyField = FIELD_TEMPLATE.filter((field) => {
-                return field.datafield === api_obj.name;
-              });
-              if (anyField.length) {
-                anyField[0].options = rApi;
-              }
-            } catch (err) {
-              // IGNORE
-            }
-          });
-
-          setStoredIdeaData({ ...storedIdeaData });
-        })
-        .finally(() => {
-          setIsDataLoading(false);
-        });
-    }
-  };
-
-  const prepare_idea_object = (idea) => {
-    if (idea.idea_members_map) {
-      idea.users = idea.idea_members_map.user_id_map.id;
-    }
-    if (idea.idea_status_map) {
-      idea.status = idea.idea_status_map.status_id_map.id;
-    }
-    if (userData.id !== idea.idea_owner_map.id) {
-      setAlertOpen(true);
-      setPageDisabled(true);
-    }
-    setFormData({ ...idea });
-    setStoredIdeaData({ ...idea });
+    setIsDataLoading(true);
+    get_idea(id).then((r) => {
+      const status = get_latest_status(r);
+      if (status.id === process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID) {
+        router.push("../../ideas");
+      } else {
+        setIdeaObject(r);
+        setIsDataLoading(false);
+      }
+    });
   };
 
   useEffect(() => {
@@ -141,7 +99,7 @@ export default function SubmitIdea() {
   const isFieldsAreInValid = () => {
     let res = false;
     FIELD_TEMPLATE.forEach((tmpl) => {
-      if (tmpl.required && (!formData || !formData[tmpl.datafield])) {
+      if (tmpl.required && (!ideaObject || !ideaObject[tmpl.datafield])) {
         res = true;
       }
     });
@@ -149,36 +107,20 @@ export default function SubmitIdea() {
   };
 
   const onIdeaDataChanged = (data) => {
-    setFormData({ ...data });
-    setStoredIdeaData({ ...data });
-  };
-
-  const os = () => {
-    alert("here");
+    setIdeaObject({ ...data });
   };
 
   const onSubmit = () => {
     setIsSubmitting(true);
-
-    const idea_object = (({ title, description }) => ({ title, description }))(
-      storedIdeaData
-    );
-    idea_object.owner = userData.id;
-    const promises = [];
-
-    promises.push(update_ideas_demographic(formData));
-    promises.push(update_ideas_member(formData));
-    if (formData.status) {
-      promises.push(update_ideas_status(formData));
-    }
-
-    Promise.all(promises).then((res) => {
-      router.push("/ideas");
+    ideaObject.status = process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID;
+    console.log(ideaObject);
+    insert_idea_submission(ideaObject).then((res) => {
+      router.push("../ideas");
     });
   };
 
   const onCancelClicked = () => {
-    router.push("/ideas");
+    router.push("../ideas");
   };
 
   return (
@@ -195,13 +137,13 @@ export default function SubmitIdea() {
             </div>
             <div className={`flex flex-col flex-1 bg-white`}>
               <div className="p-4">
-                Congratulations for completing your idea for HACK-R-PLAY
+                Congratulations <strong>{userData.displayName}</strong> for
+                completing your idea for HACK-R-PLAY
               </div>
               <div className="flex-1 px-10 py-8 overflow-auto">
                 <form>
                   <FormBuilder
-                    disabled={pageDisabled}
-                    data={formData}
+                    data={ideaObject}
                     fields={FIELD_TEMPLATE}
                     onChange={(data) => onIdeaDataChanged(data)}
                   />
@@ -221,7 +163,7 @@ export default function SubmitIdea() {
                   </div>
                   <div className="p-2">
                     <PrimaryButton
-                      disabled={isFieldsAreInValid() || pageDisabled}
+                      disabled={isFieldsAreInValid()}
                       handleOnClick={() => onSubmit()}
                       onClick={() => os()}
                     >
@@ -235,11 +177,6 @@ export default function SubmitIdea() {
           </div>
         </div>
       </div>
-      {alertOpen ? (
-        <div className="absolute flex justify-center items-center w-full h-full z-[99] opacity-60 bg-slate-500">
-          <Alert severity="error">You cannot edit this idea !</Alert>
-        </div>
-      ) : null}
     </LayoutWrapper>
   );
 }

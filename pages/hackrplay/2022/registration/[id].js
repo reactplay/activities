@@ -23,7 +23,12 @@ import LayoutWrapper from "@/components/LayoutWrapper";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { submit } from "json-graphql-parser/v2";
-import { list_statuses, update_ideas_status } from "@/services/graphql/status";
+import {
+  get_latest_status,
+  insert_ideas_status,
+  list_statuses,
+  update_ideas_status,
+} from "@/services/graphql/status";
 
 const Alert = forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -47,7 +52,11 @@ export default function RegistrationEdit() {
       setIsDataLoading(true);
       const all_apis = [
         { name: "users", method: getAllUsers },
-        { name: "status", method: list_statuses },
+        {
+          name: "status",
+          method: list_statuses,
+          post_method: remove_submitted_status,
+        },
       ];
       const promises = [];
 
@@ -57,7 +66,14 @@ export default function RegistrationEdit() {
 
       promises.push(
         get_idea(id).then((r) => {
-          prepare_idea_object(r);
+          const status = get_latest_status(r);
+          if (
+            status.id === process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID
+          ) {
+            router.push("../ideas");
+          } else {
+            prepare_idea_object(r);
+          }
         })
       );
       Promise.all(promises)
@@ -70,7 +86,9 @@ export default function RegistrationEdit() {
                 return field.datafield === api_obj.name;
               });
               if (anyField.length) {
-                anyField[0].options = rApi;
+                anyField[0].options = api_obj.post_method
+                  ? api_obj.post_method(rApi)
+                  : rApi;
               }
             } catch (err) {
               // IGNORE
@@ -85,12 +103,25 @@ export default function RegistrationEdit() {
     }
   };
 
+  const remove_submitted_status = (all_statuses) => {
+    return all_statuses.filter(
+      (s) => s.id !== process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID
+    );
+  };
+
   const prepare_idea_object = (idea) => {
     if (idea.idea_members_map) {
       idea.users = idea.idea_members_map.user_id_map.id;
     }
-    if (idea.idea_status_map) {
-      idea.status = idea.idea_status_map.status_id_map.id;
+    if (idea.idea_idea_status_map) {
+      idea.status = get_latest_status(idea);
+      const all_statuses = [];
+
+      idea.idea_idea_status_map.forEach((st) => {
+        all_statuses.push(st.idea_status_status_map);
+      });
+      const last_status = all_statuses[all_statuses.length - 1];
+      idea.status = last_status.id;
     }
     if (userData.id !== idea.idea_owner_map.id) {
       setAlertOpen(true);
@@ -153,10 +184,6 @@ export default function RegistrationEdit() {
     setStoredIdeaData({ ...data });
   };
 
-  const os = () => {
-    alert("here");
-  };
-
   const onSubmit = () => {
     setIsSubmitting(true);
 
@@ -169,16 +196,16 @@ export default function RegistrationEdit() {
     promises.push(update_ideas_demographic(formData));
     promises.push(update_ideas_member(formData));
     if (formData.status) {
-      promises.push(update_ideas_status(formData));
+      promises.push(insert_ideas_status(formData));
     }
 
     Promise.all(promises).then((res) => {
-      router.push("/ideas");
+      router.push("../ideas");
     });
   };
 
   const onCancelClicked = () => {
-    router.push("/ideas");
+    router.push("../ideas");
   };
 
   return (

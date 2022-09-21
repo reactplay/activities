@@ -1,5 +1,6 @@
 import { submit } from "@/services/request";
 import * as _ from "lodash";
+import { insert_ideas_status } from "./status";
 
 export const createIdeaQuery = {
   display: "Insert Idea",
@@ -62,8 +63,8 @@ export const list_ideas = (filter, current_user) => {
       "created_at",
       "id",
       {
-        idea_status_map: {
-          status_id_map: ["label"],
+        idea_idea_status_map: {
+          idea_status_status_map: ["label"],
         },
       },
       {
@@ -150,7 +151,10 @@ export const get_idea = (id) => {
       "title",
       "id",
       {
-        idea_status_map: ["id", { status_id_map: ["label", "id"] }],
+        idea_idea_status_map: [
+          "id",
+          { idea_status_status_map: ["label", "id"] },
+        ],
       },
       {
         "idea_members_map ": [
@@ -240,4 +244,25 @@ export const update_ideas_member = (idea_object) => {
   }
 
   return submit(insert_obj);
+};
+
+export const insert_idea_submission = (idea_object) => {
+  const insert_submission = {
+    display: "Insert Idea Submission",
+    name: "Insert_Hackathon_Idea_Submission_One",
+    function: "insert_hackathon_idea_submission_one",
+    write: true,
+    object: {
+      idea_id: idea_object.id,
+      repository_url: idea_object.repository,
+      blog_url: idea_object.blog,
+      comment: idea_object.comment,
+    },
+    return: ["id"],
+  };
+
+  return Promise.all([
+    submit(insert_submission),
+    insert_ideas_status(idea_object),
+  ]);
 };

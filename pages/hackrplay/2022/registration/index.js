@@ -130,7 +130,7 @@ export default function Registration() {
           formData.id = idea_id;
           promises.push(update_ideas_status(formData));
           return Promise.all(promises).then((res) => {
-            router.push("/ideas");
+            router.push("ideas");
             setIsSubmitting(false);
           });
         } else {

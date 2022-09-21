@@ -10,23 +10,32 @@ import { PrimaryButton, SecondaryOutlinedButton } from "@/components/Buttons";
 import InProgress from "/public/Idea-List/inProgress.svg";
 import Complted from "/public/Idea-List/completed.svg";
 import NotStarted from "/public/Idea-List/notStart.svg";
+import { get_latest_status } from "@/services/graphql/status";
 
-const STAUS_MAP = {
-  submitted: {
-    image: Complted,
-    label: "Submitted",
-    color: "#68FDC6",
-  },
-  "not started": {
-    image: NotStarted,
-    label: "Not Started",
-    color: "#FD6868",
-  },
-  "in progress": {
-    image: InProgress,
-    label: "In Progress",
-    color: "#FDC668",
-  },
+const get_status_style = (status) => {
+  const status_label = status.label || "";
+  console.log(status.label);
+  switch (status_label) {
+    case "Submitted":
+      console.log(1);
+      return {
+        image: Complted,
+        color: "#68FDC6",
+      };
+    case "In Progress":
+      console.log(2);
+      return {
+        image: InProgress,
+        color: "#FDC668",
+      };
+    case "Not Started":
+    default:
+      console.log(3);
+      return {
+        image: NotStarted,
+        color: "#FD6868",
+      };
+  }
 };
 
 export default function IdeaDetails(props) {
@@ -38,18 +47,12 @@ export default function IdeaDetails(props) {
   useEffect(() => {
     if (id) {
       get_idea(id).then((res) => {
+        res.status = get_latest_status(res);
         setIdea(res);
       });
     }
   }, [id]);
 
-  const getSatatus = (data) => {
-    const status_labal =
-      data.idea_status_map && data.idea_status_map.status_id_map
-        ? data.idea_status_map.status_id_map.label
-        : "not started";
-    return STAUS_MAP[status_labal.toLowerCase()];
-  };
   const onEditClicked = (id) => {
     router.push(`../registration/${id}`);
   };
@@ -79,14 +82,17 @@ export default function IdeaDetails(props) {
                   <h2>{idea.title}</h2>
                 </div>
                 <div className="flex items-center p-4">
-                  <Image src={getSatatus(idea).image} alt={`status `} />
+                  <Image
+                    src={get_status_style(idea.status).image}
+                    alt={`status `}
+                  />
 
                   <Typography
                     className="px-4"
                     variant={"body2"}
-                    color={getSatatus(idea).color}
+                    color={get_status_style(idea.status).color}
                   >
-                    {getSatatus(idea).label}
+                    {idea.status.label}
                   </Typography>
                 </div>
 
@@ -141,12 +147,15 @@ export default function IdeaDetails(props) {
                   <hr />
                   <div className="py-4 h-full flex ">
                     <div className="p-2 flex-1">
-                      <PrimaryButton
-                        handleOnClick={() => onSubmitClicked(idea.id)}
-                      >
-                        {`Submit`}
-                        <FiDownload className="ml-2 my-auto" size={20} />
-                      </PrimaryButton>
+                      {idea.status.id !==
+                      process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID ? (
+                        <PrimaryButton
+                          handleOnClick={() => onSubmitClicked(idea.id)}
+                        >
+                          {`Submit`}
+                          <FiDownload className="ml-2 my-auto" size={20} />
+                        </PrimaryButton>
+                      ) : null}
                     </div>
 
                     <div className="p-2">
@@ -158,14 +167,17 @@ export default function IdeaDetails(props) {
                         </SecondaryOutlinedButton>
                       </div>
                     </div>
-                    <div className="p-2">
-                      <PrimaryButton
-                        handleOnClick={() => onEditClicked(idea.id)}
-                      >
-                        {`Edit`}
-                        <FiPenTool className="ml-2 my-auto" size={20} />
-                      </PrimaryButton>
-                    </div>
+                    {idea.status.id !==
+                    process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID ? (
+                      <div className="p-2">
+                        <PrimaryButton
+                          handleOnClick={() => onEditClicked(idea.id)}
+                        >
+                          {`Edit`}
+                          <FiPenTool className="ml-2 my-auto" size={20} />
+                        </PrimaryButton>
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               </div>
