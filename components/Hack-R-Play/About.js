@@ -54,7 +54,7 @@ const About = () => {
           </p>
         </div>
         <div className="w-fit h-fit border-2 border-white md:rounded-tr-[6.5rem] flex justify-center items-center md:py-14 md:px-12 py-7 px-6 md:ml-36 md:-mt-10">
-          <p className=" text-white font-primary md:text-3xl text-2xl  mx-auto max-w-[8rem] max-h-32">
+          <p className=" text-white font-primary md:text-3xl text-2xl  mx-auto max-w-[8.3rem] max-h-32">
             Write an article on ReactPlay Blog about it
           </p>
         </div>
