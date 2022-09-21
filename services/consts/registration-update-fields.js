@@ -24,4 +24,13 @@ export const FIELD_TEMPLATE = [
     options: [],
     fieldName: "displayName",
   },
+  {
+    datafield: "status",
+    type: "select",
+    display: "Status",
+    placeholder: "Status",
+    options: [],
+    fieldName: "label",
+    fieldValue: "id",
+  },
 ];

@@ -1,3 +1,4 @@
+@import "form-control.css";
 .container {
   padding: 0 2rem;
 }
@@ -126,4 +127,29 @@
   .logo img {
     filter: invert(1);
   }
+}
+
+
+.page-title {
+  text-decoration: none; 
+  position: relative; 
+}   
+
+.page-title:after {
+  position: absolute;
+  content: '';
+  height: 4px;
+  bottom: -8px; 
+
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 40%;
+  background: transparent linear-gradient(90deg, #00F2FE 0%, #68FDC6 100%) 0% 0% no-repeat padding-box;
+    
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
 }

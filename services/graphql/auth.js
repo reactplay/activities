@@ -4,7 +4,7 @@ import * as _ from "lodash";
 export const getAllUsers = () => {
   return submit({
     display: "All Users",
-    name: "Fetch_Users",
+    name: "Users",
     function: "users",
     return: ["avatarUrl", "displayName", "id"],
   }).then((res) => {

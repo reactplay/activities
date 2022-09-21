@@ -1,16 +1,21 @@
 import { useAuthenticationStatus, useUserData } from "@nhost/nextjs";
-import styles from "../styles/Home.module.css";
+import styles from "@/styles/Home.module.css";
+
 import Link from "next/link";
-import { NHOST } from "../services/nhost";
+import { FiCheckCircle } from "react-icons/fi";
+import { NHOST } from "@/services/nhost";
 import { useEffect, useState } from "react";
 import FormBuilder from "@/components/form-builder";
 import { FIELD_TEMPLATE } from "@/services/consts/registration-fields";
-import { Button } from "@mui/material";
 import { getAllUsers } from "@/services/graphql/auth";
 import { assign_member, insert_idea } from "@/services/graphql/ideas";
-import { PrimaryButton, SecondaryButton } from "@/components/Buttons";
+import {
+  PrimaryButton,
+  SecondaryOutlinedButtonDark,
+} from "@/components/Buttons";
 import { useRouter } from "next/router";
-import Layout from "@/components/Layout";
+import LayoutWrapper from "@/components/LayoutWrapper";
+import { update_ideas_status } from "@/services/graphql/status";
 
 export default function Home() {
   const { isAuthenticated, isLoading } = useAuthenticationStatus();
@@ -111,61 +116,76 @@ export default function Home() {
     const idea_object = (({ title, description }) => ({ title, description }))(
       storedIdeaData
     );
+    idea_object.owner = userData.id;
     if (!idea_id)
       return insert_idea(idea_object).then((res) => {
         idea_id = res.id;
         if (selected_users && selected_users.length) {
           const promises = [];
-          selected_users.forEach((user) => {
-            promises.push(assign_member(idea_id, user.id));
-          });
+          console.log(storedIdeaData);
+          if (storedIdeaData.users) {
+            promises.push(assign_member(idea_id, storedIdeaData.users));
+          }
+          formData.status = "63c47cd7-f9c4-41e1-87b6-7ebe7b59f00e";
+          formData.id = idea_id;
+          promises.push(update_ideas_status(formData));
           return Promise.all(promises).then((res) => {
+            router.push("/ideas");
             setIsSubmitting(false);
           });
         } else {
+          router.push("/ideas");
           setIsSubmitting(false);
         }
       });
   };
 
   return (
-    <Layout title="HACK-R-PLAY - Registration">
-      <div className="w-full h-full flex flex-col justify-center items-center create-plays-wrapper">
-        <div className="w-full h-full max-w-6xl flex shadow-md rounded mb-6">
-          <div className="flex flex-col flex-1 bg-white">
-            <div className="h-14 p-8">
-              Welcome <strong>{userData.displayName}</strong>, log your idea
+    <LayoutWrapper title="HACK-R-PLAY | Idea Registration">
+      <div className="w-full h-full flex flex-col justify-center items-center">
+        <div className="w-full h-full max-w-6xl flex shadow-md rounded mb-6 z-[9]">
+          <div className="flex flex-col flex-1">
+            <div className="h-14 p-16 flex  items-center justify-center">
+              <h2
+                className={`font-primary text-5xl uppercase text-white tracking-wide ${styles["page-title"]}`}
+              >
+                Registration
+              </h2>
             </div>
-
-            <div className="flex-1 px-10 py-8 overflow-auto">
-              <form>
-                <FormBuilder
-                  fields={FIELD_TEMPLATE}
-                  onChange={(data) => onIdeaDataChanged(data)}
-                />
-              </form>
-            </div>
-            <div>
-              <hr />
-              <div className="p-8 h-full flex items-center">
-                <PrimaryButton
-                  disabled={isFieldsAreInValid()}
-                  onClick={() => onSubmit()}
-                >
-                  Log your idea{" "}
-                </PrimaryButton>
-                <div className="p-2">
-                  <Link href={"/"}>
-                    <a className="uppercase mr-16 text-lg tracking-widest">
-                      Cancel
-                    </a>
-                  </Link>
+            <div className="flex flex-col flex-1 bg-white">
+              <div className="flex-1 px-10 py-8 overflow-auto">
+                <form>
+                  <FormBuilder
+                    fields={FIELD_TEMPLATE}
+                    onChange={(data) => onIdeaDataChanged(data)}
+                  />
+                </form>
+              </div>
+              <div>
+                <hr />
+                <div className="py-4 px-10 h-full flex justify-end">
+                  <div className="p-2">
+                    <div>
+                      <SecondaryOutlinedButtonDark>
+                        Cancel
+                      </SecondaryOutlinedButtonDark>
+                    </div>
+                  </div>
+                  <div className="p-2">
+                    <PrimaryButton
+                      disabled={isFieldsAreInValid()}
+                      handleOnClick={() => onSubmit()}
+                    >
+                      {`Register Now`}
+                      <FiCheckCircle className="ml-2 my-auto" size={20} />
+                    </PrimaryButton>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </Layout>
+    </LayoutWrapper>
   );
 }

@@ -14,12 +14,12 @@ import BannerLogo from "../../public/Hack-R-Play/BannerLogo.png";
 
 import { useRouter } from "next/router";
 
-
 const Hero = () => {
   const router = useRouter();
   const redirectToRegistration = () => {
     router.push("/registration");
   };
+
   const redirectToSubmissions = () => {
     router.push("/ideas");
   };
@@ -55,19 +55,20 @@ const Hero = () => {
           <Image src={BannerLogo} alt="Banner Logo" layout="responsive" />
         </div>
         <p className="text-center text-gray-300 font-body mt-7">
-
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum
           est ultricies integer quis. Iaculis urna id volutpat lacus laoreet.
         </p>
         <div className="inline-flex justify-center items-center md:mt-8 mt-14 z-10">
           <div className="md:mr-4 mr-2">
-          <PrimaryButton handleOnClick={() => redirectToRegistration()}>
+            <PrimaryButton handleOnClick={() => redirectToRegistration()}>
               Register <FiCheckCircle className="ml-2 my-auto" size={20} />
             </PrimaryButton>
           </div>
           <div>
-            <SecondaryOutlinedButton handleOnClick={() => redirectToSubmissions()}>
+            <SecondaryOutlinedButton
+              handleOnClick={() => redirectToSubmissions()}
+            >
               View Submissions
               <BiRightArrowAlt
                 className="ml-2 my-auto text-[#00F2FE]"

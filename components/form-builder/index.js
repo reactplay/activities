@@ -3,50 +3,7 @@ import { useEffect, useState } from "react";
 import * as _ from "lodash";
 import dynamic from "next/dynamic";
 
-import "react-quill/dist/quill.snow.css";
-
-const QuillNoSSRWrapper = dynamic(import("react-quill"), {
-  ssr: false,
-  loading: () => <p>Loading ...</p>,
-});
-
-const QuillFormats = [
-  "header",
-  "font",
-  "size",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-  "image",
-  "video",
-];
-
-const QuillModules = {
-  toolbar: [
-    [{ header: "1" }, { header: "2" }, { font: [] }],
-    [{ size: [] }],
-    ["bold", "italic", "underline", "strike", "blockquote"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["link", "image", "video"],
-    ["clean"],
-  ],
-  clipboard: {
-    // toggle to add extra line breaks when pasting HTML:
-    matchVisual: false,
-  },
-};
-const FormBuilder = ({ fields, data, onChange }) => {
+const FormBuilder = ({ fields, data, onChange, disabled }) => {
   const [formData, setFormData] = useState({});
   useEffect(() => {
     setFormData({ ...data });
@@ -60,6 +17,13 @@ const FormBuilder = ({ fields, data, onChange }) => {
     }
   };
 
+  const getSelectedItem = (options, value) => {
+    const item = options.find((opt) => {
+      if (opt.id === value) return opt;
+    });
+    return item || "";
+  };
+
   const renderField = (field) => {
     switch (field.type) {
       case "input":
@@ -67,15 +31,17 @@ const FormBuilder = ({ fields, data, onChange }) => {
           <TextField
             id={field.id}
             label={field.plaeholder}
-            value={formData[field.datafields]}
+            value={formData[field.datafield]}
             size="small"
             className="w-full"
+            disabled={disabled}
             {...field}
             onChange={(e) => {
               onDataChanged(field.datafield, e.target.value);
             }}
           />
         );
+
       case "select":
         return (
           <Autocomplete
@@ -85,25 +51,14 @@ const FormBuilder = ({ fields, data, onChange }) => {
             getOptionLabel={(option) =>
               option.name || option[field.fieldName] || option
             }
+            value={getSelectedItem(field.options, formData[field.datafield])}
+            disabled={disabled}
             filterSelectedOptions
             multiple={field.multiple}
             freeSolo={field.freeSolo}
             onChange={(e, newValue) => {
               let updatedval = newValue;
-              if (field.multiple) {
-                updatedval = [];
-                newValue.forEach((v) => {
-                  if (_.isObject(v)) {
-                    updatedval.push(v);
-                  } else {
-                    updatedval.push({
-                      [field.fieldName || "name"]: v,
-                      [field.fieldValue || "value"]: "",
-                    });
-                  }
-                });
-              }
-              onDataChanged(field.datafield, updatedval);
+              onDataChanged(field.datafield, updatedval.id);
             }}
             renderInput={(params) => (
               <TextField
@@ -120,10 +75,12 @@ const FormBuilder = ({ fields, data, onChange }) => {
             id={field.datafield}
             size="small"
             options={field.options || []}
+            disabled={disabled}
             getOptionLabel={(option) =>
               option.name || option[field.fieldName] || option
             }
             filterSelectedOptions
+            value={getSelectedItem(field.options, formData[field.datafield])}
             multiple={field.multiple}
             freeSolo={field.freeSolo}
             renderOption={(props, option) => (
@@ -144,20 +101,7 @@ const FormBuilder = ({ fields, data, onChange }) => {
             )}
             onChange={(e, newValue) => {
               let updatedval = newValue;
-              if (field.multiple) {
-                updatedval = [];
-                newValue.forEach((v) => {
-                  if (_.isObject(v)) {
-                    updatedval.push(v);
-                  } else {
-                    updatedval.push({
-                      [field.fieldName || "name"]: v,
-                      [field.fieldValue || "value"]: "",
-                    });
-                  }
-                });
-              }
-              onDataChanged(field.datafield, updatedval);
+              onDataChanged(field.datafield, updatedval.id);
             }}
             renderInput={(params) => (
               <div>
@@ -169,21 +113,6 @@ const FormBuilder = ({ fields, data, onChange }) => {
               </div>
             )}
           />
-        );
-      case "rich":
-        return (
-          <div className="h-80 py-2">
-            <QuillNoSSRWrapper
-              placeholder={field.placeholder}
-              modules={QuillModules}
-              formats={QuillFormats}
-              theme="snow"
-              className="h-full"
-              onChange={(v) => {
-                onDataChanged(field.datafield, v);
-              }}
-            />
-          </div>
         );
       default:
         return <></>;

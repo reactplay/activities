@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 
-const Layout = ({ children, title }) => {
-  const links = [
+const Layout = ({ links, children, title, description }) => {
+  const home_links = [
     {
       name: "About",
       href: "#about",
@@ -73,8 +73,7 @@ const Layout = ({ children, title }) => {
           content="https://hustles.reactplay.io/og-image.png"
         />
       </Head>
-
-      <Header links={links} secondary={secondaryNavbar} />
+      <Header links={links || home_links} secondary={secondaryNavbar} />
       <main>{children}</main>
       <Footer />
     </div>
