@@ -24,7 +24,7 @@ const Judges = ({ judges }) => {
       <h1 className="font-primary text-white text-5xl tracking-wider relative before:content[''] before:absolute before:w-1/4 before:h-1 before:-bottom-2 before:border-b-[3px] before:rounded-sm before:left-28 before:border-[#32F9E5]">
         Judges & Mentors
       </h1>
-      <div className="inline-flex justify-center items-start md:mt-14 mt-6 py-3 z-10 mx-auto">
+      <div className="inline-flex md:flex-row flex-col justify-center items-start md:mt-14 mt-6 py-3 z-10 mx-auto">
         {judges.map((judge, index) => (
           <div
             key={index}
