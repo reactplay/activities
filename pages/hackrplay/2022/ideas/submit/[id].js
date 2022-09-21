@@ -70,7 +70,7 @@ export default function SubmitIdea() {
             ? `:${process.env.NEXT_PUBLIC_DEV_PORT}`
             : "";
           const external_path = NHOST.AUTH_URL(
-            `${protocol}://${host}${port}/registration``${protocol}://${host}${port}/hackrplay/2022/submit/${id}`
+            `${protocol}://${host}${port}/hackrplay/2022/submit/${id}`
           );
           window.location = external_path;
         }
