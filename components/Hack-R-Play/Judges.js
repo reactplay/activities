@@ -7,7 +7,7 @@ const Judges = ({ judges }) => {
   return (
     <section
       id="judges"
-      className="relative mt-16 bg-white bg-opacity-10 flex flex-col justify-center items-center py-24 md:px-16 px-6"
+      className="relative mt-16 bg-white bg-opacity-10 flex flex-col justify-center items-center py-24 px-6"
     >
       <div className="absolute md:-left-16 md:top-6 -left-20 top-3">
         <Image
@@ -24,9 +24,9 @@ const Judges = ({ judges }) => {
       <h1 className="font-primary text-white text-5xl tracking-wider relative before:content[''] before:absolute before:w-1/4 before:h-1 before:-bottom-2 before:border-b-[3px] before:rounded-sm before:left-28 before:border-[#32F9E5]">
         Judges & Mentors
       </h1>
-      <div className="inline-flex justify-center items-start md:mt-14 mt-6 py-3 px-7 z-10 mx-auto">
+      <div className="inline-flex justify-center items-start md:mt-14 mt-6 py-3 z-10 mx-auto">
         {judges.map((judge) => (
-          <div className="md:mr-11 md:mt-0 mt-4 p-2 flex flex-col justify-center items-start font-body">
+          <div className="md:mr-12 md:mt-0 mt-4 flex flex-col justify-center items-start font-body max-w-xs">
             {judge.twitter ? (
               <div className="w-48 h-48 bg-gray-600 rounded-md rounded-tl-[4rem]">
                 <Image
@@ -43,7 +43,7 @@ const Judges = ({ judges }) => {
               </div>
             ) : null}
             <span className="text-white mt-1">{judge.name}</span>
-            <span className="text-gray-400 line-clamp-1">{judge.title}</span>
+            <span className="text-gray-400 w-48">{judge.title}</span>
           </div>
         ))}
       </div>
