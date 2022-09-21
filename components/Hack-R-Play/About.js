@@ -7,10 +7,10 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative flex flex-col pt-14 md:px-8 px-4 md:justify-center md:items-center overflow-clip justify-start items-center"
+      className="relative flex flex-col pt-14 md:px-8 px-5 md:justify-center md:items-center overflow-clip justify-start items-center"
     >
       <div className="flex md:flex-row md:col-span-4 flex-col md:mx-auto md:px-28">
-        <div className="md:block hidden mr-14 -mt-4 w-72 h-72">
+        <div className="md:mr-14 md:-ml-0 -ml-9 -mt-4 md:w-72 md:h-72 w-40 h-40">
           <Image
             src={ReactPlayDotted}
             alt="React Play Dotted"
@@ -18,7 +18,7 @@ const About = () => {
           />
         </div>
         <div className="md:max-w-sm">
-          <h2 className="font-primary text-5xl uppercase text-white tracking-wide md:text-left text-center">
+          <h2 className="font-primary text-5xl uppercase text-white tracking-wide">
             <span className="text-[#00F2FE]">About</span> this event
           </h2>
           <p className="mt-4 font-body text-gray-300">
@@ -48,17 +48,17 @@ const About = () => {
         </div>
       </div>
       <div className="md:-mt-7 mt-8">
-        <div className="w-fit h-fit border-2 border-[#68FDC6] rounded-tl-[6.5rem] flex justify-center items-center md:py-12 md:px-12 pt-12 pb-7 px-6 md:-ml-10">
+        <div className="w-fit h-fit border-2 border-[#68FDC6] rounded-tl-[6.5rem] flex justify-center items-center md:py-12 md:px-12 pt-12 pb-7 px-9 md:-ml-10">
           <p className=" text-[#68FDC6] font-primary md:text-3xl text-2xl mx-auto max-w-[8rem] max-h-32">
             Build an App using React and Nhost
           </p>
         </div>
-        <div className="w-fit h-fit border-2 border-white md:rounded-tr-[6.5rem] flex justify-center items-center md:py-14 md:px-12 py-7 px-6 md:ml-36 md:-mt-10">
+        <div className="w-fit h-fit border-2 border-white rounded-tr-[6.5rem] flex justify-center items-center md:py-14 md:px-12 py-7 px-9 md:ml-36 md:-mt-10 ml-20 -mt-3">
           <p className=" text-white font-primary md:text-3xl text-2xl  mx-auto max-w-[8.3rem] max-h-32">
             Write an article on ReactPlay Blog about it
           </p>
         </div>
-        <div className="w-fit h-fit border-2 border-[#00F2FE] rounded-br-[6.5rem] flex justify-center items-center md:py-14 md:px-12 py-7 px-6 md:ml-80 md:-mt-10">
+        <div className="w-fit h-fit border-2 border-[#00F2FE] rounded-br-[6.5rem] flex justify-center items-center md:py-14 md:px-12 py-7 px-9 md:ml-80 md:-mt-10 -mt-3">
           <p className=" text-[#00F2FE] font-primary md:text-3xl text-2xl mx-auto max-w-[8rem] max-h-32">
             Submit the links to code, app, and article
           </p>
