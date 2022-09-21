@@ -11,6 +11,7 @@ import HeroCoders from "../../public/Hack-R-Play/HeroCoders.svg";
 import HeroLines from "../../public/Hack-R-Play/HeroLines.svg";
 import RadialGradient from "../../public/Hack-R-Play/RadialGradient.svg";
 import BannerLogo from "../../public/Hack-R-Play/BannerLogo.png";
+import ReactPlayLogo from "../../public/ReactPlayLogo.svg";
 
 import { useRouter } from "next/router";
 
@@ -51,13 +52,17 @@ const Hero = () => {
       </div>
 
       <div className="flex flex-col justify-center items-center mx-auto pt-16 md:max-w-3xl z-10">
-        <div className="block md:w-1/2 md:h-1/2 w-11/12 h-11/12">
+        <div className="scale-110">
+          <Image src={ReactPlayLogo} alt="ReactPlay Logo" layout="fixed" />
+        </div>
+
+        <div className="-mt-3 block md:w-1/2 md:h-1/2 w-11/12 h-11/12">
           <Image src={BannerLogo} alt="Banner Logo" layout="responsive" />
         </div>
         <p className="text-center text-gray-300 font-body mt-7">
-          ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. 
-          Showcase your mindblowing ideas, build projects, and create content - there are also chances 
-          to win exciting prizes.
+          ReactPlay brings you the opportunity to take part in the Hackathon and
+          learn from it. Showcase your mindblowing ideas, build projects, and
+          create content - there are also chances to win exciting prizes.
         </p>
         <div className="inline-flex justify-center items-center md:mt-8 mt-14 z-10">
           <div className="md:mr-4 mr-2">
