@@ -11,7 +11,7 @@ export const PrimaryButton = ({
   return (
     <button
       {...props}
-      className={`inline-flex justify-center items-center ${buttonSize} uppercase bg-gradient-to-br from-[#00F2FE] via-[#32F9E5] to-[#68FDC6] text-[#010326] font-primary rounded-sm disabled:opacity-50 disabled:cursor-not-allowed`}
+      className={`inline-flex justify-center items-center ${buttonSize} uppercase bg-gradient-to-br from-[#00F2FE] via-[#32F9E5] to-[#68FDC6] text-[#010326] font-primary rounded-sm disabled:opacity-50 disabled:cursor-not-allowed z-[9]`}
       onClick={handleOnClick}
     >
       {children}

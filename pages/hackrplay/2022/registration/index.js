@@ -68,7 +68,7 @@ export default function Registration() {
             ? `:${process.env.NEXT_PUBLIC_DEV_PORT}`
             : "";
           const external_path = NHOST.AUTH_URL(
-            `${protocol}://${host}${port}/registration`
+            `${protocol}://${host}${port}/hackrplay/2022/registration`
           );
           window.location = external_path;
         }
