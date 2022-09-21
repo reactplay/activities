@@ -43,10 +43,7 @@ const IdeaListingPage = () => {
   }, []);
 
   return (
-    <Layout
-      title="HACK-R-PLAY - Submissions"
-      description="A hackathon hosted by ReactPlay"
-    >
+    <Layout title="HACK-R-PLAY - Submissions">
       <div className="absolute left-9 -top-10">
         <Image
           src={DottedAndFilledTriangle}
@@ -67,7 +64,11 @@ const IdeaListingPage = () => {
       >
         <Grid xs={12} md={12} items container justifyContent={"center"}>
           <Grid item xs={12} md={12}>
-            <Typography variant="h2" className={`${styles.pageTitle} text-center`} color={"#ffffff"}>
+            <Typography
+              variant="h2"
+              className={`${styles.pageTitle} text-center`}
+              color={"#ffffff"}
+            >
               SUBMISSIONS
             </Typography>
           </Grid>
@@ -79,7 +80,8 @@ const IdeaListingPage = () => {
         <Grid
           container
           item
-          xs={12} md={12}
+          xs={12}
+          md={12}
           spacing={1}
           rowSpacing={4}
           columns={{ xs: 12, md: 12, lg: 12 }}
