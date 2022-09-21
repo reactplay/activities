@@ -26,7 +26,7 @@ const Judges = ({ judges }) => {
       </h1>
       <div className="inline-flex justify-center items-start md:mt-14 mt-6 py-3 z-10 mx-auto">
         {judges.map((judge) => (
-          <div className="md:mr-12 md:mt-0 mt-4 flex flex-col justify-center items-start font-body max-w-xs">
+          <div className="md:mr-12 md:last:mr-0 md:mt-0 mt-4 flex flex-col justify-center items-start font-body max-w-xs">
             {judge.twitter ? (
               <div className="w-48 h-48 bg-gray-600 rounded-md rounded-tl-[4rem]">
                 <Image
