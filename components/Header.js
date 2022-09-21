@@ -20,7 +20,7 @@ const MobileHeader = ({ links, setMobileActive }) => {
           </button>
         </div>
 
-        <nav className="mt-48 w-full h-full flex flex-col justify-start items-center">
+        <nav className="mt-16 w-full h-full flex flex-col justify-start items-center">
           {links.map((link, index) => (
             <Link key={index} href={`${link.href}`} scroll={false}>
               <a
@@ -31,6 +31,7 @@ const MobileHeader = ({ links, setMobileActive }) => {
               </a>
             </Link>
           ))}
+          <PrimaryButton>Register Now</PrimaryButton>
         </nav>
       </div>
     </>
@@ -75,9 +76,9 @@ const Header = ({ links, secondary = false }) => {
           </div>
           <button
             onClick={() => setMobileActive(true)}
-            className="md:hidden inline-flex justify-center items-center z-10"
+            className="md:hidden inline-flex justify-center items-center z-10 py-2 px-5 border border-gray-400 text-[#00F2FE]"
           >
-            <AiOutlineMenu size={35} />
+            <AiOutlineMenu size={23} />
           </button>
         </header>
       )}
