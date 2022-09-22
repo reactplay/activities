@@ -63,11 +63,11 @@ const Header = ({ links, secondary = false }) => {
           </PrimaryButton>
         </header>
       ) : (
-        <header className="pt-5 pb-1 px-4 flex md:justify-center justify-end items-baseline bg-transparent font-primary text-white z-10">
+        <header className="pt-6 pb-1 px-4 flex md:justify-center justify-end items-baseline bg-transparent font-primary text-white z-10">
           <div className="md:inline-flex hidden justify-center items-baseline mx-auto z-10">
             {links.map((link, index) => (
               <Link key={index} href={`${link.href}`} scroll={false}>
-                <a className="uppercase mr-16 text-lg tracking-widest">
+                <a className="uppercase mr-16 last:mr-0 text-lg tracking-widest">
                   {link.name}
                 </a>
               </Link>

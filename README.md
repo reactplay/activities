@@ -23,6 +23,7 @@ This is a [Next.js](https://nextjs.org/) project
     NEXT_PUBLIC_DEV_PORT=3000
     NEXT_PUBLIC_PROTOCOL=http
     NEXT_PUBLIC_HACKATHON_ID=e606ae64-7c92-4344-94ad-4d0684458bcf
+    NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID=ec1c0649-3b65-4809-92cf-9c4a6abdff1b
     ```
 3. Run the development server:
 
