@@ -42,7 +42,7 @@ const Header = ({ links, secondary = false }) => {
   const [mobileActive, setMobileActive] = useState(false);
   const router = useRouter();
   const redirectToRegistration = () => {
-    router.push("/registration");
+    router.push("registration");
   };
 
   return (

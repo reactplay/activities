@@ -46,3 +46,6 @@ jspm_packages
 # local env files
 .env*.local
 .env
+
+# DS Store
+.DS_STORE

@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Activities
+A `reactplay` hustle
+
+This is a [Next.js](https://nextjs.org/) project
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies 
+    ```bash
+    yarn
+    ```
+    **Note**: We do checkin yarn.lock file. So it's adviced to use `yarn` package manager. If you need to use any other package manager,remove `yarn.lock` file from local directory first. Also, do not check in any other lock file.
+2. Create a `.env` file at the root of your project folder with the following content,
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+    ```bash
+    NEXT_PUBLIC_NHOST_BACKEND_URL=https://rgkjmwftqtbpayoyolwh.nhost.run
+    NEXT_PUBLIC_NHOST_SUBDOMAIN=rgkjmwftqtbpayoyolwh
+    NEXT_PUBLIC_NHOST_REGION=ap-southeast-1
+    NEXT_PUBLIC_NHOST_PROTOCOL=https
+    NEXT_PUBLIC_NHOST_SERVER=rgkjmwftqtbpayoyolwh.nhost.run
+    NEXT_PUBLIC_NHOST_VERSION=v1
+    NEXT_PUBLIC_NHOST_ENDPOINT=graphql
+    NEXT_PUBLIC_DEV_PORT=3000
+    NEXT_PUBLIC_PROTOCOL=http
+    NEXT_PUBLIC_HACKATHON_ID=e606ae64-7c92-4344-94ad-4d0684458bcf
+    NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID=ec1c0649-3b65-4809-92cf-9c4a6abdff1b
+    ```
+3. Run the development server:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. See you application running
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
