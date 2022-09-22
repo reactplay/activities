@@ -11,6 +11,7 @@ import InProgress from '/public/Idea-List/inProgress.svg';
 import Complted from '/public/Idea-List/completed.svg';
 import NotStarted from '/public/Idea-List/notStart.svg';
 import { get_latest_status } from '@/services/graphql/status';
+import { unescape_new_line } from '@/services/util/string';
 
 const get_status_style = (status) => {
 	const final_status = status || { label: 'Not Started' };
@@ -44,6 +45,7 @@ export default function IdeaDetails(props) {
 		if (id) {
 			get_idea(id).then((res) => {
 				res.status = get_latest_status(res);
+				res.description = unescape_new_line(res.description);
 				setIdea(res);
 			});
 		}
@@ -96,7 +98,7 @@ export default function IdeaDetails(props) {
 									</Typography>
 								</div>
 
-								<div className='flex-1 px-4 py-8 text-[#ffffff99]'>
+								<div className='flex-1 px-4 py-8 text-[#ffffff99] whitespace-pre-wrap	'>
 									{idea.description}
 								</div>
 								<div className='flex'>

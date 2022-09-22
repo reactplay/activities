@@ -13,6 +13,7 @@ import { useUserData } from '@nhost/nextjs';
 import Link from 'next/link';
 import { PrimaryButton } from '@/components/Buttons';
 import { get_latest_status } from '@/services/graphql/status';
+import { unescape_new_line } from '@/services/util/string';
 
 const PAGE_SIZE = 12;
 
@@ -31,7 +32,16 @@ const IdeaListingPage = () => {
 		setIsLoading(true);
 		const promises = [];
 		promises.push(
-			list_ideas(filter || { pagesize: PAGE_SIZE }, userData?.id)
+			list_ideas(filter || { pagesize: PAGE_SIZE }, userData?.id).then(
+				(res) => {
+					if (res && res.length) {
+						res.forEach((i) => {
+							i.description = unescape_new_line(i.description);
+						});
+					}
+					return res;
+				}
+			)
 		);
 		promises.push(idea_count());
 

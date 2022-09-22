@@ -15,7 +15,8 @@ import {
 } from '@/components/Buttons';
 import { useRouter } from 'next/router';
 import LayoutWrapper from '@/components/LayoutWrapper';
-import { update_ideas_status } from '@/services/graphql/status';
+import { insert_ideas_status } from '@/services/graphql/status';
+import { escape_new_line } from '@/services/util/string';
 
 export default function Registration() {
 	const { isAuthenticated, isLoading } = useAuthenticationStatus();
@@ -91,7 +92,15 @@ export default function Registration() {
 	}
 
 	if (isDataLoading) {
-		return <div>Loading data information. Please wait...</div>;
+		return (
+			<div className={styles.container}>
+				<main className={styles.main}>
+					<h5 className={styles.title}>
+						Checking authentication status. Please wait.
+					</h5>
+				</main>
+			</div>
+		);
 	}
 
 	const isFieldsAreInValid = () => {
@@ -118,6 +127,7 @@ export default function Registration() {
 			description,
 		}))(storedIdeaData);
 		idea_object.owner = userData.id;
+		idea_object.description = escape_new_line(idea_object.description);
 		if (!idea_id)
 			return insert_idea(idea_object).then((res) => {
 				idea_id = res.id;
@@ -130,7 +140,7 @@ export default function Registration() {
 					}
 					formData.status = '63c47cd7-f9c4-41e1-87b6-7ebe7b59f00e';
 					formData.id = idea_id;
-					promises.push(update_ideas_status(formData));
+					promises.push(insert_ideas_status(formData));
 					return Promise.all(promises).then((res) => {
 						router.push('ideas');
 						setIsSubmitting(false);

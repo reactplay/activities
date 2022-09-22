@@ -29,6 +29,7 @@ import {
 	list_statuses,
 	update_ideas_status,
 } from '@/services/graphql/status';
+import { escape_new_line, unescape_new_line } from '@/services/util/string';
 
 const Alert = forwardRef(function Alert(props, ref) {
 	return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
@@ -67,6 +68,7 @@ export default function RegistrationEdit() {
 			promises.push(
 				get_idea(id).then((r) => {
 					const status = get_latest_status(r);
+					r.description = unescape_new_line(r.description);
 					if (
 						status &&
 						status.id ===
@@ -168,7 +170,15 @@ export default function RegistrationEdit() {
 	}
 
 	if (isDataLoading) {
-		return <div>Loading data information. Please wait...</div>;
+		return (
+			<div className={styles.container}>
+				<main className={styles.main}>
+					<h5 className={styles.title}>
+						Checking authentication status. Please wait.
+					</h5>
+				</main>
+			</div>
+		);
 	}
 
 	const isFieldsAreInValid = () => {
@@ -194,6 +204,9 @@ export default function RegistrationEdit() {
 			description,
 		}))(storedIdeaData);
 		idea_object.owner = userData.id;
+		formData.description = idea_object.description = escape_new_line(
+			idea_object.description
+		);
 		const promises = [];
 
 		promises.push(update_ideas_demographic(formData));
@@ -224,6 +237,12 @@ export default function RegistrationEdit() {
 						</div>
 						<div className={`flex flex-col flex-1 bg-white`}>
 							<div className='flex-1 px-10 py-8 overflow-auto'>
+								{' '}
+								{alertOpen ? (
+									<Alert severity='error'>
+										You cannot edit this idea !
+									</Alert>
+								) : null}
 								<form>
 									<FormBuilder
 										disabled={pageDisabled}
@@ -269,11 +288,6 @@ export default function RegistrationEdit() {
 					</div>
 				</div>
 			</div>
-			{alertOpen ? (
-				<div className='absolute flex justify-center items-center w-full h-full z-[99] opacity-60 bg-slate-500'>
-					<Alert severity='error'>You cannot edit this idea !</Alert>
-				</div>
-			) : null}
 		</LayoutWrapper>
 	);
 }
