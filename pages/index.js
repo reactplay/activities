@@ -110,7 +110,6 @@ export default function Home() {
       <div className="absolute md:-right-60 md:-top-48 -right-24 -top-14 z-0 md:w-2/5 md:h-2/5 w-1/2 h-1/2">
         <Image src={Flower} alt="Flower" layout="responsive" />
       </div>
-
       <Hero />
       <About />
       <Judges judges={judges} />
