@@ -261,6 +261,7 @@ export const insert_idea_submission = (idea_object) => {
 			idea_id: idea_object.id,
 			repository_url: idea_object.repository,
 			blog_url: idea_object.blog,
+			application: idea_object.application,
 			comment: idea_object.comment,
 		},
 		return: ['id'],
