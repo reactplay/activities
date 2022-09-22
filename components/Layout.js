@@ -26,9 +26,8 @@ const Layout = ({ links, children, title, description }) => {
 
 	const currentPath = useRouter().pathname;
 	const [secondaryNavbar, setSecondaryNavbar] = useState(false);
-
 	useEffect(() => {
-		if (currentPath === '/') {
+		if (currentPath === '/hackrplay/2022/home') {
 			setSecondaryNavbar(false);
 		} else {
 			setSecondaryNavbar(true);

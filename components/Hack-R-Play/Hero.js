@@ -11,6 +11,7 @@ import HeroCoders from "../../public/Hack-R-Play/HeroCoders.svg";
 import HeroLines from "../../public/Hack-R-Play/HeroLines.svg";
 import RadialGradient from "../../public/Hack-R-Play/RadialGradient.svg";
 import BannerLogo from "../../public/Hack-R-Play/BannerLogo.png";
+import ReactPlayLogo from "../../public/ReactPlayLogo.svg";
 
 import { useRouter } from "next/router";
 
@@ -50,22 +51,26 @@ const Hero = () => {
         <Image src={RadialGradient} alt="Radial Gradient" layout="responsive" />
       </div>
 
-      <div className="flex flex-col justify-center items-center mx-auto pt-16 md:max-w-3xl z-10">
-        <div className="block md:w-1/2 md:h-1/2 w-11/12 h-11/12">
+      <div className="flex flex-col justify-center items-center mx-auto md:pt-16 pt-8 md:max-w-3xl z-10">
+        <div className="scale-110">
+          <Image src={ReactPlayLogo} alt="ReactPlay Logo" layout="fixed" />
+        </div>
+
+        <div className="-mt-3 block md:w-1/2 md:h-1/2 w-11/12 h-11/12">
           <Image src={BannerLogo} alt="Banner Logo" layout="responsive" />
         </div>
         <p className="text-center text-gray-300 font-body mt-7">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum
-          est ultricies integer quis. Iaculis urna id volutpat lacus laoreet.
+          ReactPlay brings you the opportunity to take part in the Hackathon and
+          learn from it. Showcase your mindblowing ideas, build projects, and
+          create content - there are also chances to win exciting prizes.
         </p>
-        <div className="inline-flex justify-center items-center md:mt-8 mt-14 z-10">
-          <div className="md:mr-4 mr-2">
+        <div className="inline-flex md:flex-row flex-col justify-center items-center mt-8 z-10">
+          <div className="md:mr-4">
             <PrimaryButton handleOnClick={() => redirectToRegistration()}>
               Register <FiCheckCircle className="ml-2 my-auto" size={20} />
             </PrimaryButton>
           </div>
-          <div>
+          <div className="md:mt-0 mt-4">
             <SecondaryOutlinedButton
               handleOnClick={() => redirectToSubmissions()}
             >
@@ -77,7 +82,7 @@ const Hero = () => {
             </SecondaryOutlinedButton>
           </div>
         </div>
-        <div className="md:-mt-12 z-0 md:w-4/5 md:h-4/5 w-full h-full -z-10">
+        <div className="md:-mt-12 z-0 md:w-4/5 md:h-4/5 w-full h-full-z-10">
           <Image src={HeroCoders} alt="Hero Coders" layout="responsive" />
         </div>
       </div>

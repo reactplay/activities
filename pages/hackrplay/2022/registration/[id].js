@@ -240,7 +240,8 @@ export default function RegistrationEdit() {
 								{' '}
 								{alertOpen ? (
 									<Alert severity='error'>
-										You cannot edit this idea !
+										You cannot edit this idea. Only author
+										can edit an idea.
 									</Alert>
 								) : null}
 								<form>

@@ -21,7 +21,6 @@ const IdeaCard = ({ data, onClick }) => {
 				};
 			case 'Not Started':
 			default:
-				console.log(3);
 				return {
 					image: NotStarted,
 					color: '#FD6868',

@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import PartnersPolygon from "../../public/Hack-R-Play/PartnersPolygon.svg";
 import NhostLogo from "../../public/Hack-R-Play/NhostLogo.svg";
+import Link from "next/link";
 
 const Partners = () => {
   return (
@@ -17,7 +18,7 @@ const Partners = () => {
         />
       </div>
 
-      <h1 className="font-primary text-white text-5xl tracking-wider relative before:content[''] before:absolute before:w-1/4 before:h-1 before:-bottom-2 before:border-b-[3px] before:rounded-sm before:left-24 before:border-[#32F9E5]">
+      <h1 className="font-primary text-white text-5xl tracking-wider relative before:content[''] before:absolute before:w-1/4 before:h-1 before:-bottom-2 before:border-b-[3px] before:rounded-sm md:before:left-24 before:left-20 before:border-[#32F9E5]">
         Our Sponsors
       </h1>
       <div className="mt-5 flex flex-col justify-center items-center py-10 w-fit px-">
@@ -27,10 +28,18 @@ const Partners = () => {
           </a>
         </div>
         <p className="text-center text-gray-300 font-body mt-5 md:px-56">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum
-          est ultricies integer quis. Iaculis urna id volutpat lacus laoreet.
+          Nhost is the open source GraphQL backend (Firebase Alternative) and a
+          development platform. Nhost is doing for the backend, what Netlify and
+          Vercel are doing for the frontend. It make things easy to build and
+          deploy this backend using our platform that takes care of
+          configuration, security, and performance. Things just works and scale
+          automatically so you can focus on your product and on your business.
         </p>
+        <div className="text-[#32F9E5] font-body mt-5 md:px-56">
+          <a href="https://reactplay.io" rel="noreferrer" target="_blank">
+            Link placeholder
+          </a>
+        </div>
       </div>
     </section>
   );
