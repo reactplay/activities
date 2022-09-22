@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import ReactPlayDotted from "../../public/Hack-R-Play/ReactPlayLogoDotted.svg";
 import Flower from "../../public/Hack-R-Play/Flower.svg";
+import { FiExternalLink } from "react-icons/fi";
 
 const About = () => {
   return (
@@ -17,7 +18,7 @@ const About = () => {
             layout="responsive"
           />
         </div>
-        <div className="md:max-w-sm">
+        <div className="relative md:max-w-sm">
           <h2 className="font-primary text-5xl uppercase text-white tracking-wide">
             <span className="text-[#00F2FE]">About</span> this event
           </h2>
@@ -45,6 +46,14 @@ const About = () => {
               publish it on the ReactPlay blog.
             </li>
           </ul>
+          <a
+            className="absolute right-0 mt-4 inline-flex justify-center items-center font-body text-[#00F2FE] text-lg hover:text-[#68FDC6] transition-all duration-150"
+            href="https://blog.reactplay.io"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Read More <FiExternalLink className="ml-2" />
+          </a>
         </div>
       </div>
       <div className="md:-mt-7 mt-8">
