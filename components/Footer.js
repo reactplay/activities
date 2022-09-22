@@ -4,6 +4,7 @@ import FooterTriangles from "../public/FooterTriangles.svg";
 import ReactPlayLogo from "../public/ReactPlayLogo.svg";
 import FooterReactLogo from "../public/FooterReactLogo.svg";
 import { FaDiscord, FaTwitter, FaRss } from "react-icons/fa";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -17,7 +18,9 @@ const Footer = () => {
         />
       </div>
       <div className="flex flex-col justify-center items-center mx-auto ">
-        <span className="mb-3 text-gray-400 font-medium font-body">Hosted By</span>
+        <span className="mb-3 text-gray-400 font-medium font-body">
+          Hosted By
+        </span>
         <a href="https://reactplay.io" target="_blank" rel="noreferrer">
           <Image src={ReactPlayLogo} alt="ReactPlay Logo" layout="fixed" />
         </a>
@@ -26,9 +29,7 @@ const Footer = () => {
         </p>
         <p className="mt-2 mb-2 font-medium font-body text-gray-400 text-center underline underline-offset-2 hover:text-gray-200">
           <Link href={`/tech-credit`}>
-            <a>
-              Tech Stack and Credits
-            </a>
+            <a>Tech Stack and Credits</a>
           </Link>
         </p>
         <div className="mt-6 inline-flex justify-center items-center">
