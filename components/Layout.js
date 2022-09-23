@@ -38,7 +38,7 @@ const Layout = ({ links, children, title, description }) => {
     <div className="relative bg-[#051630] overflow-clip">
       <Head>
         <title>{title}</title>
-        <link rel="icon" href="/favicon.png" />        
+        <link rel="icon" href="/favicon.png" />
         <meta
           name="keywords"
           content="ReactPlay, HACK-R-PLAY, ReactJS, Hacakthon"
