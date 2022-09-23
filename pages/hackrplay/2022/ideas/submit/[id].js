@@ -7,14 +7,7 @@ import { useEffect, useState, forwardRef } from 'react';
 import FormBuilder from '@/components/form-builder';
 import { FIELD_TEMPLATE } from '@/services/consts/submission-fields';
 import { getAllUsers } from '@/services/graphql/auth';
-import {
-	assign_member,
-	get_idea,
-	insert_idea,
-	insert_idea_submission,
-	update_ideas_demographic,
-	update_ideas_member,
-} from '@/services/graphql/ideas';
+import { get_idea, insert_idea_submission } from '@/services/graphql/ideas';
 import {
 	PrimaryButton,
 	SecondaryOutlinedButtonDark,
@@ -25,10 +18,10 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import { submit } from 'json-graphql-parser/v2';
 import {
-	get_latest_status,
 	insert_ideas_status,
 	list_statuses,
 	update_ideas_status,
+	get_latest_status,
 } from '@/services/graphql/status';
 import { escape_new_line } from '@/services/util/string';
 
@@ -42,6 +35,8 @@ export default function SubmitIdea() {
 	const [isDataLoading, setIsDataLoading] = useState(true);
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [ideaObject, setIdeaObject] = useState({});
+	const [alertOpen, setAlertOpen] = useState(false);
+	const [pageDisabled, setPageDisabled] = useState(false);
 
 	const userData = useUserData();
 	const router = useRouter();
@@ -51,6 +46,10 @@ export default function SubmitIdea() {
 		setIsDataLoading(true);
 		get_idea(id).then((r) => {
 			const status = get_latest_status(r);
+			if (userData.id !== r.idea_owner_map.id) {
+				setAlertOpen(true);
+				setPageDisabled(true);
+			}
 			if (
 				status &&
 				status.id === process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID
@@ -131,8 +130,7 @@ export default function SubmitIdea() {
 		Promise.all([
 			insert_idea_submission(ideaObject),
 			insert_ideas_status(ideaObject),
-		]);
-		insert_idea_submission(ideaObject).then((res) => {
+		]).then((res) => {
 			router.push('..');
 		});
 	};
@@ -152,14 +150,29 @@ export default function SubmitIdea() {
 							</h2>
 						</div>
 						<div className={`flex flex-col flex-1 bg-white`}>
-							<div className='p-4'>
-								Congratulations{' '}
-								<strong>{userData.displayName}</strong> for
-								completing your idea for HACK-R-PLAY
-							</div>
-							<div className='flex-1 px-10 py-8 overflow-auto'>
+							{alertOpen ? (
+								<Alert severity='error'>
+									You cannot submit this idea. Only author can
+									edit an idea.
+								</Alert>
+							) : (
+								<div className='p-4'>
+									Congratulations{' '}
+									<strong>{userData.displayName}</strong> for
+									completing your idea for HACK-R-PLAY
+								</div>
+							)}
+
+							<div className='flex flex-col flex-1 px-10 py-4 overflow-auto'>
+								<div className='flex px-2'>
+									<div className='2xl'>
+										<strong>Idea Title</strong> :{' '}
+									</div>
+									<div> {ideaObject.title}</div>
+								</div>
 								<form>
 									<FormBuilder
+										disabled={pageDisabled}
 										data={ideaObject}
 										fields={FIELD_TEMPLATE}
 										onChange={(data) =>
@@ -183,9 +196,11 @@ export default function SubmitIdea() {
 									</div>
 									<div className='p-2'>
 										<PrimaryButton
-											disabled={isFieldsAreInValid()}
-											handleOnClick={() => onSubmit()}
-											onClick={() => os()}>
+											disabled={
+												isFieldsAreInValid() ||
+												pageDisabled
+											}
+											handleOnClick={() => onSubmit()}>
 											Submit
 											<FiCheckCircle
 												className='ml-2 my-auto'
