@@ -43,9 +43,9 @@ const IdeaCard = ({ data, onClick }) => {
 				</Grid>
 				<Grid item xs={1} className=''>
 					<div
-						className={`${styles.cardDescription}`}
-						dangerouslySetInnerHTML={{ __html: data.description }}
-					/>
+						className={`${styles.cardDescription} whitespace-pre-wrap `}>
+						{data.description}
+					</div>
 				</Grid>
 				<Grid item xs={1} alignSelf={'flex-end'}>
 					<Grid columns={12} container>

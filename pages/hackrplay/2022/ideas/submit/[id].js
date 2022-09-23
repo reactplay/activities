@@ -30,6 +30,7 @@ import {
 	list_statuses,
 	update_ideas_status,
 } from '@/services/graphql/status';
+import { escape_new_line } from '@/services/util/string';
 
 const Alert = forwardRef(function Alert(props, ref) {
 	return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
@@ -97,7 +98,15 @@ export default function SubmitIdea() {
 	}
 
 	if (isDataLoading) {
-		return <div>Loading data information. Please wait...</div>;
+		return (
+			<div className={styles.container}>
+				<main className={styles.main}>
+					<h5 className={styles.title}>
+						Checking authentication status. Please wait.
+					</h5>
+				</main>
+			</div>
+		);
 	}
 
 	const isFieldsAreInValid = () => {
@@ -117,17 +126,18 @@ export default function SubmitIdea() {
 	const onSubmit = () => {
 		setIsSubmitting(true);
 		ideaObject.status = process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID;
+		ideaObject.comment = escape_new_line(ideaObject.comment);
 		console.log(ideaObject);
 		Promise.all([
 			insert_idea_submission(ideaObject),
 			insert_ideas_status(ideaObject),
 		]);
 		insert_idea_submission(ideaObject).then((res) => {
-			router.push('../ideas');
+			router.push('..');
 		});
 	};
 	const onCancelClicked = () => {
-		router.push('../ideas');
+		router.push('..');
 	};
 
 	return (

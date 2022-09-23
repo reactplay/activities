@@ -5,18 +5,17 @@ import LayoutWrapper from '@/components/LayoutWrapper';
 import { CTA } from '@/components/Hack-R-Play';
 import gstyles from '@/styles/Home.module.css';
 import { Grid } from '@mui/material';
-import SortButtons from '@/components/SortButtons';
-import Pagination from '@/components/Pagination';
 import { useRouter } from 'next/router';
 import IdeaFilters from '@/components/Hack-R-Play/IdeaFilter';
-import { useUserData } from '@nhost/nextjs';
-import Link from 'next/link';
+import { useAuthenticationStatus, useUserData } from '@nhost/nextjs';
 import { PrimaryButton } from '@/components/Buttons';
 import { get_latest_status } from '@/services/graphql/status';
+import { unescape_new_line } from '@/services/util/string';
 
 const PAGE_SIZE = 12;
 
 const IdeaListingPage = () => {
+	const { isAuthenticated } = useAuthenticationStatus();
 	const [ideas, setIdeas] = useState([]);
 	const [ideaCount, setIdeaCount] = useState(0);
 	const [isLoading, setIsLoading] = useState(false);
@@ -30,10 +29,20 @@ const IdeaListingPage = () => {
 	const loadIdeas = (filter) => {
 		setIsLoading(true);
 		const promises = [];
+		console.log(filter);
 		promises.push(
-			list_ideas(filter || { pagesize: PAGE_SIZE }, userData?.id)
+			list_ideas(filter || { pagesize: PAGE_SIZE }, userData?.id).then(
+				(res) => {
+					if (res && res.length) {
+						res.forEach((i) => {
+							i.description = unescape_new_line(i.description);
+						});
+					}
+					return res;
+				}
+			)
 		);
-		promises.push(idea_count());
+		promises.push(idea_count(filter, userData?.id));
 
 		Promise.all(promises)
 			.then((res) => {
@@ -92,9 +101,10 @@ const IdeaListingPage = () => {
 						Total: {ideaCount}
 					</div>
 				</div>
-				<div className='flex justify-end'>
+				<div className='flex px-2'>
 					<IdeaFilters
 						total={ideaCount}
+						isAuthenticated={isAuthenticated}
 						pagesize={PAGE_SIZE}
 						onChange={(f) => loadIdeas(f)}></IdeaFilters>
 				</div>
