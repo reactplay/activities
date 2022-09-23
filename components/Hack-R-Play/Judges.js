@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import DottedPattern from "../../public/Hack-R-Play/DottedPattern.svg";
 import Lines from "../../public/Hack-R-Play/Lines.svg";
+import { FaTwitter } from "react-icons/fa";
 
 const Judges = ({ judges }) => {
   return (
@@ -47,6 +48,15 @@ const Judges = ({ judges }) => {
             ) : null}
             <span className="text-white mt-1">{judge.name}</span>
             <span className="text-gray-400 w-48">{judge.title}</span>
+            <a
+              className="mt-1 inline-flex justify-center items-center font-body text-[#00F2FE] hover:text-[#68FDC6] transition-all duration-150"
+              href={`https://twitter.com/${judge.twitter}`}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <FaTwitter className="mr-1" />
+              {judge.twitter}
+            </a>
           </div>
         ))}
       </div>
