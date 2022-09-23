@@ -15,12 +15,8 @@ import {
 } from '@/components/Buttons';
 import { useRouter } from 'next/router';
 import LayoutWrapper from '@/components/LayoutWrapper';
-<<<<<<< HEAD
 import { insert_ideas_status } from '@/services/graphql/status';
 import { escape_new_line } from '@/services/util/string';
-=======
-import { update_ideas_status } from '@/services/graphql/status';
->>>>>>> origin/main
 
 export default function Registration() {
 	const { isAuthenticated, isLoading } = useAuthenticationStatus();

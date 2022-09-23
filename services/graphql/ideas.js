@@ -39,13 +39,28 @@ export const assign_member = (idea_id, user_id) => {
 	return submit(input_obj);
 };
 
-export const idea_count = () => {
+export const idea_count = (filter, current_user) => {
 	const input_obj = {
 		display: 'Count Ideas',
 		name: 'Hackathon_Ideas_Aggregate',
 		function: 'hackathon_ideas_aggregate',
 		return: [{ aggregate: ['count'] }],
 	};
+	if (filter && filter.owner && filter.owner === 'me' && current_user) {
+		input_obj.where = {
+			clause: {
+				class: 'idea_owner_map',
+				operator: 'and',
+				conditions: [
+					{
+						field: 'id',
+						operator: 'eq',
+						value: current_user,
+					},
+				],
+			},
+		};
+	}
 
 	return submit(input_obj).then((res) => {
 		return res && res.aggregate ? res.aggregate.count : 0;
@@ -103,8 +118,8 @@ export const list_ideas = (filter, current_user) => {
 	if (filter.owner && filter.owner === 'me' && current_user) {
 		input_obj.where = {
 			clause: {
+				class: 'idea_owner_map',
 				operator: 'and',
-				node: 'idea_owner_map',
 				conditions: [
 					{
 						field: 'id',
