@@ -76,6 +76,12 @@ const Layout = ({ links, children, title, description }) => {
           name="twitter:image"
           content="https://hustles.reactplay.io/og-image.png"
         />
+        <script
+          async
+          defer
+          data-website-id="a2c1bc3e-5ee9-44f7-899b-36e51f993dd1"
+          src="https://analytics.reactplay.io/umami.js"
+        />
       </Head>
       <Header links={links || home_links} secondary={secondaryNavbar} />
       <main>{children}</main>
