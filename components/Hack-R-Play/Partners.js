@@ -36,8 +36,8 @@ const Partners = () => {
           automatically so you can focus on your product and on your business.
         </p>
         <div className="text-[#32F9E5] font-body mt-5 md:px-56">
-          <a href="https://reactplay.io" rel="noreferrer" target="_blank">
-            Link placeholder
+          <a href="https://docs.nhost.io/" rel="noreferrer" target="_blank">
+            Read Nhost Documentation
           </a>
         </div>
       </div>
