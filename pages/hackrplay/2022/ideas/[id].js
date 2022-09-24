@@ -52,8 +52,9 @@ export default function IdeaDetails(props) {
 				res.status = get_latest_status(res);
 				res.description = unescape_new_line(res.description);
 				if (
+					res.status &&
 					res.status.id ===
-					process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID
+						process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID
 				) {
 					get_idea_submission_info(res.id).then((sub) => {
 						const f_obj = { ...res, ...sub[0] };
@@ -176,9 +177,10 @@ export default function IdeaDetails(props) {
 										) : null}
 									</div>
 									<div className='flex-1 px-8'>
-										{idea.status.id ===
-										process.env
-											.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID ? (
+										{idea.status &&
+										idea.status.id ===
+											process.env
+												.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID ? (
 											<div>
 												{/* FaBloggerB, FaCommentDots, FaReact, FaGitAlt */}
 												<div className='flex items-center'>
