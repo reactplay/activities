@@ -48,7 +48,7 @@ const About = () => {
           </ul>
           <a
             className="absolute right-0 mt-4 inline-flex justify-center items-center font-body text-[#00F2FE] text-lg hover:text-[#68FDC6] transition-all duration-150"
-            href="https://blog.reactplay.io"
+            href="https://blog.reactplay.io/announcing-hack-r-play-hackathon-from-react-play"
             rel="noreferrer"
             target="_blank"
           >
