@@ -10,8 +10,13 @@ import { PrimaryButton, SecondaryOutlinedButton } from '@/components/Buttons';
 import InProgress from '/public/Idea-List/inProgress.svg';
 import Complted from '/public/Idea-List/completed.svg';
 import NotStarted from '/public/Idea-List/notStart.svg';
-import { get_latest_status } from '@/services/graphql/status';
+import {
+	get_idea_submission_info,
+	get_latest_status,
+} from '@/services/graphql/status';
 import { unescape_new_line } from '@/services/util/string';
+import { FaBloggerB, FaCommentDots, FaReact, FaGitAlt } from 'react-icons/fa';
+import Link from 'next/link';
 
 const get_status_style = (status) => {
 	const final_status = status || { label: 'Not Started' };
@@ -46,7 +51,18 @@ export default function IdeaDetails(props) {
 			get_idea(id).then((res) => {
 				res.status = get_latest_status(res);
 				res.description = unescape_new_line(res.description);
-				setIdea(res);
+				if (
+					res.status.id ===
+					process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID
+				) {
+					get_idea_submission_info(res.id).then((sub) => {
+						const f_obj = { ...res, ...sub[0] };
+						console.log(f_obj);
+						setIdea(f_obj);
+					});
+				} else {
+					setIdea(res);
+				}
 			});
 		}
 	}, [id]);
@@ -102,13 +118,13 @@ export default function IdeaDetails(props) {
 									{idea.description}
 								</div>
 								<div className='flex'>
-									<div className='flex-1 py-8 flex'>
+									<div className='py-8 flex'>
 										<div className='flex flex-col px-8'>
 											<div className='flex justify-center items-center'>
 												<Image
 													className='rounded-full'
-													height={80}
-													width={80}
+													height={40}
+													width={40}
 													layout={'fixed'}
 													src={
 														idea.idea_owner_map
@@ -118,7 +134,7 @@ export default function IdeaDetails(props) {
 													aria-label='user avatar'
 												/>
 											</div>
-											<div className='flex justify-center items-center text-2xl'>
+											<div className='flex justify-center items-center text-1xl'>
 												{
 													idea.idea_owner_map
 														.displayName
@@ -133,8 +149,8 @@ export default function IdeaDetails(props) {
 												<div className='rounded-[100px] flex  justify-center items-center'>
 													<Image
 														className='rounded-full'
-														height={80}
-														width={80}
+														height={40}
+														width={40}
 														layout={'fixed'}
 														src={
 															idea
@@ -146,7 +162,7 @@ export default function IdeaDetails(props) {
 														aria-label='user avatar'
 													/>
 												</div>
-												<div className='flex justify-center items-center text-2xl'>
+												<div className='flex justify-center items-center text-1xl'>
 													{
 														idea.idea_members_map
 															.user_id_map
@@ -155,6 +171,75 @@ export default function IdeaDetails(props) {
 												</div>
 												<div className='flex justify-center items-center text-xs'>
 													Member
+												</div>
+											</div>
+										) : null}
+									</div>
+									<div className='flex-1 px-8'>
+										{idea.status.id ===
+										process.env
+											.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID ? (
+											<div>
+												{/* FaBloggerB, FaCommentDots, FaReact, FaGitAlt */}
+												<div className='flex items-center'>
+													<span className='py-1 px-4'>
+														<FaReact />
+													</span>
+													<Link
+														href={
+															idea.application ||
+															''
+														}>
+														<a
+															target='blank'
+															className='mt-2 mb-2 font-medium font-body text-gray-400 text-center underline underline-offset-2 hover:text-gray-200 text-sm'>
+															{idea.application ||
+																'Not Found'}
+														</a>
+													</Link>
+												</div>
+												<div className='flex items-center'>
+													<span className='py-1 px-4'>
+														<FaGitAlt />
+													</span>
+													<Link
+														href={
+															idea.repository_url ||
+															''
+														}>
+														<a
+															target='blank'
+															className='mt-2 mb-2 font-medium font-body text-gray-400 text-center underline underline-offset-2 hover:text-gray-200 text-sm'>
+															{idea.repository_url ||
+																'Not Found'}
+														</a>
+													</Link>
+												</div>
+												<div className='flex items-center'>
+													<span className='py-1 px-4'>
+														<FaBloggerB />
+													</span>
+													<Link
+														href={
+															idea.blog_url || ''
+														}>
+														<a
+															target='blank'
+															className='mt-2 mb-2 font-medium font-body text-gray-400 text-center underline underline-offset-2 hover:text-gray-200 text-sm'>
+															{idea.blog_url ||
+																'Not Found'}
+														</a>
+													</Link>
+												</div>
+												<div className='flex items-center'>
+													<span className='py-1 px-4'>
+														<FaCommentDots />
+													</span>
+													<span className='whitespace-pre-wrap'>
+														{unescape_new_line(
+															idea.comment
+														) || 'Not Found'}
+													</span>
 												</div>
 											</div>
 										) : null}

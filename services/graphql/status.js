@@ -36,3 +36,25 @@ export const get_latest_status = (idea) => {
 	const last_status = all_statuses[all_statuses.length - 1];
 	return last_status;
 };
+
+export const get_idea_submission_info = (id) => {
+	const input_obj = {
+		display: 'List Ideas',
+		name: 'Hackathon_Idea_submission',
+		function: 'hackathon_idea_submission',
+		where: {
+			clause: {
+				operator: 'and',
+				conditions: [
+					{
+						field: 'idea_id',
+						operator: 'eq',
+						value: id,
+					},
+				],
+			},
+		},
+		return: ['application', 'blog_url', 'comment', 'repository_url'],
+	};
+	return submit(input_obj);
+};
