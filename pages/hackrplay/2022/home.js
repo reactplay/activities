@@ -52,7 +52,7 @@ export default function Home() {
 		},
 		{
 			question: 'Do we get prizes?',
-			answer: 'Yes, we will select 5 best ideas to give the exciting prizes sponsored by Nhost.',
+			answer: 'Yes, we will select 3 best ideas to give the exciting prizes sponsored by Nhost.',
 		},
 		{
 			question: 'I have questions, where can I ask them?',
