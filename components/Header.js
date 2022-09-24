@@ -59,6 +59,7 @@ const Header = ({ links, secondary = false }) => {
 						</Link>
 					</div>
 					<PrimaryButton
+					  className="umami--click--register"
 						handleOnClick={() => redirectToRegistration()}
 						small={true}>
 						Register Now

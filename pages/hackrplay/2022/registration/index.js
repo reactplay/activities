@@ -186,6 +186,7 @@ export default function Registration() {
 									</div>
 									<div className='p-2'>
 										<PrimaryButton
+										  className="umami--click--register"
 											disabled={isFieldsAreInValid()}
 											handleOnClick={() => onSubmit()}>
 											{`Register Now`}
