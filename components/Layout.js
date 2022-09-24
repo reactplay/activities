@@ -79,7 +79,7 @@ const Layout = ({ links, children, title, description }) => {
         <script
           async
           defer
-          data-website-id="a2c1bc3e-5ee9-44f7-899b-36e51f993dd1"
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_TRACK_ID}
           src="https://analytics.reactplay.io/umami.js"
         />
       </Head>
