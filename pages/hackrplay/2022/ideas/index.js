@@ -128,6 +128,7 @@ const IdeaListingPage = () => {
 									To register first idea click
 								</div>
 								<PrimaryButton
+								  className="umami--click--register"
 									handleOnClick={() =>
 										redirectToRegistration()
 									}

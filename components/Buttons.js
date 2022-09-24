@@ -1,6 +1,7 @@
 export const PrimaryButton = ({
 	children,
 	handleOnClick,
+	className,
 	small = false,
 	...props
 }) => {
@@ -11,21 +12,21 @@ export const PrimaryButton = ({
 	return (
 		<button
 			{...props}
-			className={`group inline-flex justify-center items-center ${buttonSize} uppercase bg-gradient-to-br from-[#00F2FE] via-[#32F9E5] to-[#68FDC6] text-[#010326] font-primary rounded-sm hover:bg-gradient-to-tl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-[9]`}
+			className={`group inline-flex justify-center items-center ${buttonSize} uppercase bg-gradient-to-br from-[#00F2FE] via-[#32F9E5] to-[#68FDC6] text-[#010326] font-primary rounded-sm hover:bg-gradient-to-tl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-[9] ${className}`}
 			onClick={handleOnClick}>
 			{children}
 		</button>
 	);
 };
 
-export const SecondaryButton = ({ children, handleOnClick, small = false }) => {
+export const SecondaryButton = ({ children, handleOnClick, className, small = false }) => {
 	const buttonSize = small
 		? 'md:py-3 md:px-5 py-2 px-4 text-lg'
 		: 'md:py-4 md:px-7 py-3 px-5 text-xl';
 
 	return (
 		<button
-			className={`group inline-flex justify-center items-center ${buttonSize} uppercase bg-white text-[#010326] font-primary rounded-sm border border-white hover:border-[#010326] hover:bg-transparent transition-all duration-300`}
+			className={`group inline-flex justify-center items-center ${buttonSize} uppercase bg-white text-[#010326] font-primary rounded-sm border border-white hover:border-[#010326] hover:bg-transparent transition-all duration-300 ${className}`}
 			onClick={handleOnClick}>
 			{children}
 		</button>

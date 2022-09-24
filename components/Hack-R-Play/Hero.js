@@ -66,7 +66,7 @@ const Hero = () => {
         </p>
         <div className="inline-flex md:flex-row flex-col justify-center items-center mt-8 z-10">
           <div className="md:mr-4">
-            <PrimaryButton handleOnClick={() => redirectToRegistration()}>
+            <PrimaryButton className="umami--click--register" handleOnClick={() => redirectToRegistration()}>
               Register <FiCheckCircle className="ml-2 my-auto" size={20} />
             </PrimaryButton>
           </div>

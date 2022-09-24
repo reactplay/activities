@@ -32,6 +32,7 @@ const CTA = ({ title, description, image }) => {
 					</p>
 					<div className='mt-7 md:mx-0 mx-auto'>
 						<SecondaryButton
+						  className="umami--click--register"
 							handleOnClick={() => redirectToRegistration()}>
 							Register Now
 							<FiPlus
