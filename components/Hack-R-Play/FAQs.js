@@ -57,7 +57,7 @@ const FAQs = ({ faqs }) => {
 							ref={contentRef}
 							className={
 								active === index
-									? `block mt-2 max-w-3xl font-body font-semibold text-sm text-gray-500`
+									? `block mt-2 max-w-3xl font-body font-semibold text-sm text-gray-300`
 									: `hidden`
 							}>
 							{faq.answer}
