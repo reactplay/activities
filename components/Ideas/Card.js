@@ -32,7 +32,7 @@ const IdeaCard = ({ data, onClick }) => {
 			className={styles.card}
 			variant='outlined'
 			onClick={() => onClick()}>
-			<Grid container columns={{ xs: 1 }} className={' pt-12 px-8 h-72'}>
+			<Grid container columns={{ xs: 1 }} className={'m-0 pt-12 px-8 h-72'}>
 				<Grid item xs={1} className={''}>
 					<Typography
 						variant='h5'
