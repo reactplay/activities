@@ -51,14 +51,15 @@ export default function IdeaFilters({
 	};
 
 	return (
-		<div className='flex flex-1 z-[9] border-slate-600 pb-3'>
-			<div className='flex-1'>
+		<div className='flex flex-1 z-[9] border-slate-600 pb-3 justify-center'>
+
 				{isAuthenticated ? (
-					<OwnerFilter
-						onChange={(r) => onOwnerChanged(r)}
-						selected={filter.owner}></OwnerFilter>
+					<div className='flex-1'>
+						<OwnerFilter
+							onChange={(r) => onOwnerChanged(r)}
+							selected={filter.owner}></OwnerFilter>
+					</div>
 				) : null}
-			</div>
 			<div className='flex border-b-2 '>
 				<Pagination
 					total={total}
