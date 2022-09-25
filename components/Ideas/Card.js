@@ -36,11 +36,30 @@ const IdeaCard = ({ data, onClick }) => {
 				<Grid item xs={1} className={''}>
 					<Typography
 						variant='h5'
-						className={`${styles.title} `}
+						className={`${styles.title}`}
 						color='#00F2FE'>
 						{data.title}
 					</Typography>
 				</Grid>
+				<div className='mb-2'>
+					<Grid
+						item
+						xs={1}
+						className='flex flex-row gap-2 items-center'>
+						<Image
+							src={get_status_style(data?.status).image}
+							alt={`status ${data.status?.label}`}
+						/>
+
+						<Typography
+							variant={'body2'}
+							color={get_status_style(data?.status).color}
+							className={styles.cardStatus}>
+							{data?.status?.label.toUpperCase() ||
+								'NOT STARTED'}
+						</Typography>
+					</Grid>
+				</div>
 				<Grid item xs={1} className=''>
 					<div
 						className={`${styles.cardDescription} whitespace-pre-wrap `}>
@@ -84,23 +103,6 @@ const IdeaCard = ({ data, onClick }) => {
 									</div>
 								);
 							})}
-						</Grid>
-						<Grid
-							item
-							xs={6}
-							className='flex flex-row justify-center gap-2 items-center '>
-							<Image
-								src={get_status_style(data?.status).image}
-								alt={`status ${data.status?.label}`}
-							/>
-
-							<Typography
-								variant={'body2'}
-								color={get_status_style(data?.status).color}
-								className={styles.cardStatus}>
-								{data?.status?.label.toUpperCase() ||
-									'NOT STARTED'}
-							</Typography>
 						</Grid>
 					</Grid>
 				</Grid>
