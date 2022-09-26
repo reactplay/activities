@@ -90,7 +90,7 @@ const IdeaListingPage = () => {
 		<LayoutWrapper
 			title='HACK-R-PLAY'
 			description='A hackathon hosted by ReactPlay'>
-			<div className='z-[9]'>
+			<div className='relative z-[9]'>
 				<div className='h-14 p-16 flex flex-col items-center justify-center'>
 					<h2
 						className={`font-primary text-5xl uppercase text-white tracking-wide ${gstyles['page-title']}`}>
@@ -101,70 +101,69 @@ const IdeaListingPage = () => {
 						Total: {ideaCount}
 					</div>
 				</div>
-				<div className='flex px-2'>
+				<div className='container mx-auto max-w-screen-xl mb-6'>
 					<IdeaFilters
 						total={ideaCount}
 						isAuthenticated={isAuthenticated}
 						pagesize={PAGE_SIZE}
 						onChange={(f) => loadIdeas(f)}></IdeaFilters>
 				</div>
-
-				<Grid
-					container
-					item
-					xs={12}
-					md={12}
-					spacing={2}
-					rowSpacing={2}
-					columns={{ xs: 12, md: 12, lg: 12 }}
-					className=' py-16 md:px-10'>
-					{ideas.length === 0 ? (
-						<div className='w-full py-10 flex flex-col justify-center items-center z-[9] text-brand-hightlight'>
-							<div className='text-3xl '>
-								No idea has been added yet.
-							</div>
-							<div className='text-grey py-4 flex justify-center items-center'>
-								<div className='text-slate-300 pr-4'>
-									To register first idea click
+				<div className='container mx-auto max-w-screen-xl z-2 pb-32 xl:px-0 px-8'>
+					<Grid
+						container
+						item
+						xs={12}
+						md={12}
+						spacing={0}
+						rowSpacing={3}
+						columns={{ xs: 12, md: 12, lg: 12 }}
+						className='md:px-10 container mx-auto max-w-screen-xl'>
+						{ideas.length === 0 ? (
+							<div className='w-full py-10 flex flex-col justify-center items-center z-[9] text-brand-hightlight'>
+								<div className='text-3xl '>
+									No idea has been added yet.
 								</div>
-								<PrimaryButton
-								  className="umami--click--register"
-									handleOnClick={() =>
-										redirectToRegistration()
-									}
-									small={true}>
-									Register Now
-								</PrimaryButton>
+								<div className='text-grey py-4 flex justify-center items-center'>
+									<div className='text-slate-300 pr-4'>
+										To register first idea click
+									</div>
+									<PrimaryButton
+									className="umami--click--register"
+										handleOnClick={() =>
+											redirectToRegistration()
+										}
+										small={true}>
+										Register Now
+									</PrimaryButton>
+								</div>
 							</div>
-						</div>
-					) : (
-						<>
-							{ideas.map((value, vi) => {
-								return (
-									<Grid
-										key={vi}
-										item
-										container
-										justifyContent={'center'}
-										xs={12}
-										sm={6}
-										md={6}
-										lg={4}
-										xl={3}
-										className='z-[9]'>
-										<IdeaCard
-											data={value}
-											onClick={() =>
-												onCardClicked(value.id)
-											}
-										/>
-									</Grid>
-								);
-							})}
-						</>
-					)}
-				</Grid>
-
+						) : (
+							<>
+								{ideas.map((value, vi) => {
+									return (
+										<Grid
+											key={vi}
+											item
+											xs={12}
+											sm={6}
+											md={6}
+											lg={4}
+											xl={3}
+											p={1}
+											>
+											<IdeaCard
+												data={value}
+												onClick={() =>
+													onCardClicked(value.id)
+												}
+											/>
+										</Grid>
+									);
+								})}
+							</>
+						)}
+					</Grid>
+				</div>
 				<CTA
 					title='Be a part of the best react event'
 					description='Learning is a journey than a destination. We developers need avenues, motivations, and opportunities to keep going. Join the Hack-R-Play hackathon to experience it. It will allow you to build a full-stack app using React and Nhost. Why waiting? Register your idea today.'

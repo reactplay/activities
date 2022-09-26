@@ -27,7 +27,7 @@ const FAQs = ({ faqs }) => {
 			<h1 className="font-primary text-white text-5xl tracking-wider relative before:content[''] before:absolute before:w-3/4 before:h-1 before:-bottom-2 before:border-b-[3px] before:rounded-sm before:left-2 before:border-[#32F9E5]">
 				FAQs
 			</h1>
-			<div className='p-10'>
+			<div className='container max-w-screen-xl'>
 				{faqs.map((faq, index) => (
 					<div
 						key={index}
@@ -57,7 +57,7 @@ const FAQs = ({ faqs }) => {
 							ref={contentRef}
 							className={
 								active === index
-									? `block mt-2 max-w-3xl font-body font-semibold text-sm text-gray-500`
+									? `block mt-2 max-w-3xl font-body font-semibold text-sm text-gray-300`
 									: `hidden`
 							}>
 							{faq.answer}

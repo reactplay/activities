@@ -29,7 +29,7 @@ const Judges = ({ judges }) => {
         {judges.map((judge, index) => (
           <div
             key={index}
-            className="md:mr-12 md:last:mr-0 md:mt-0 mt-4 flex flex-col justify-center items-start font-body max-w-xs"
+            className="md:mr-12 md:last:mr-0 md:mt-0 mt-4 flex mb-8 flex-col justify-center items-start font-body max-w-xs"
           >
             {judge.twitter ? (
               <div className="w-48 h-48 bg-gray-600 rounded-md rounded-tl-[4rem]">
@@ -46,10 +46,10 @@ const Judges = ({ judges }) => {
                 />
               </div>
             ) : null}
-            <span className="text-white mt-1">{judge.name}</span>
-            <span className="text-gray-400 w-48">{judge.title}</span>
+            <span className="text-white mt-2">{judge.name}</span>
+            <span className="text-gray-400 w-48 text-sm">{judge.title}</span>
             <a
-              className="mt-1 inline-flex justify-center items-center font-body text-[#00F2FE] hover:text-[#68FDC6] transition-all duration-150"
+              className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE] hover:underline  transition-all duration-150"
               href={`https://twitter.com/${judge.twitter}`}
               rel="noreferrer"
               target="_blank"
