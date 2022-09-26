@@ -129,12 +129,13 @@
   }
 }
 
-
+.text-title,
 .page-title {
   text-decoration: none; 
   position: relative; 
 }   
 
+.text-title:after,
 .page-title:after {
   position: absolute;
   content: '';
@@ -152,4 +153,8 @@
   -moz-transition:.5s;
   -webkit-transition:.5s;
   transition:.5s;
+}
+
+.text-title:after{
+  width: 100%;
 }

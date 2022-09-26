@@ -1,5 +1,6 @@
 import { submit } from '@/services/request';
 import * as _ from 'lodash';
+import { FaClosedCaptioning } from 'react-icons/fa';
 import { insert_ideas_status } from './status';
 
 export const createIdeaQuery = {
@@ -72,6 +73,7 @@ export const list_ideas = (filter, current_user) => {
 		display: 'List Ideas',
 		name: 'hackathon_ideas',
 		function: 'hackathon_ideas',
+		orders: [{ field: 'created_at', value: 'desc' }],
 		return: [
 			'description',
 			'title',
@@ -132,15 +134,16 @@ export const list_ideas = (filter, current_user) => {
 	}
 
 	return submit(input_obj).then((res) => {
-		if (filter.sort_col) {
-			const sorted = _.orderBy(
-				res,
-				[(element) => element[filter.sort_col].toLowerCase()],
-				[filter.sort_asc ? 'asc' : 'desc']
-			);
-			return sorted;
-		}
-		return res;
+		const s_col =
+			filter && filter.sort_col ? filter.sort_col : 'created_at';
+		const s_type = filter && filter.sort_asc ? filter.sort_asc : false;
+
+		const sorted = _.orderBy(
+			res,
+			[(element) => element[s_col].toLowerCase()],
+			[s_type ? 'asc' : 'desc']
+		);
+		return sorted;
 	});
 };
 

@@ -11,7 +11,7 @@ export default function Pagination({ total, pagesize, onChange }) {
 	const [pageCount, setPageCount] = useState(0);
 
 	useEffect(() => {
-		setPageCount(Math.ceil(total / pagesize));
+		setPageCount(Math.ceil(total / pagesize) || 1);
 		setCurrent(1);
 	}, [total]);
 	const onButtonClicked = (index) => {
