@@ -82,8 +82,8 @@ export default function IdeaDetails(props) {
 	return (
 		<LayoutWrapper title='HACK-R-PLAY | Idea Registration'>
 			{idea ? (
-				<div className='w-full h-full flex flex-col justify-center items-center'>
-					<div className='w-full h-full max-w-6xl flex shadow-md rounded mb-6  z-[9]'>
+				<div className='w-full h-full flex flex-col justify-center items-center  p-14'>
+					<div className='w-fit h-full max-w-6xl flex shadow-md rounded mb-6  z-[9] p-5'>
 						<div className='flex flex-col flex-1'>
 							<div className='h-14 p-16 flex  items-center justify-center text-white'>
 								<h2
@@ -91,7 +91,7 @@ export default function IdeaDetails(props) {
 									Idea
 								</h2>
 							</div>
-							<div className='flex flex-col flex-1 text-white border-2 border-sky-500 rounded-md p-8'>
+							<div className='flex flex-col flex-1 text-white border-2 border-sky-500 rounded-md pt-4'>
 								<div className='flex-1 px-4 py-8font-primary text-3xl text-[#00F2FE]'>
 									<h2>{idea.title}</h2>
 								</div>
