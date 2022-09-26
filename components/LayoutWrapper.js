@@ -29,7 +29,7 @@ export default function LayoutWrapper({ title, description, children }) {
 			<div className='absolute -right-60 -top-48'>
 				<Image src={Flower} alt='Flower' width={500} height={500} />
 			</div>
-			<div className='absolute left-44 -top-5'>
+			<div className='absolute left-44 -top-5 -z-1'>
 				<Image
 					src={HeroLines}
 					alt='Hero Lines'

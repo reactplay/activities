@@ -28,7 +28,7 @@ export default function Home() {
 		},
 		{
 			question: 'Can we participate as a team?',
-			answer: "Yes, you can participate in a team of 2(max). You can select the other member's name when you register your idea for the event. If you are the only person registering for an idea, just skip selecting any member while registering.",
+			answer: "Yes, you can participate in a team of 2(max). You can select the other member's name when you register your idea for the event. If you are the only person registering for an idea, just skip selecting any member while registering. If you liked an idea and want be part of it, please contact the idea creator.",
 		},
 		{
 			question: 'Does my Idea needs to follow a specific theme?',
@@ -52,7 +52,7 @@ export default function Home() {
 		},
 		{
 			question: 'Do we get prizes?',
-			answer: 'Yes, we will select 5 best ideas to give the exciting prizes sponsored by Nhost.',
+			answer: 'Yes, we will select 3 best ideas to give the exciting prizes sponsored by Nhost.',
 		},
 		{
 			question: 'I have questions, where can I ask them?',

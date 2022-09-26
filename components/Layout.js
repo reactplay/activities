@@ -39,6 +39,9 @@ const Layout = ({ links, children, title, description }) => {
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.png" />
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta
           name="keywords"
           content="ReactPlay, HACK-R-PLAY, ReactJS, Hacakthon"
@@ -75,6 +78,16 @@ const Layout = ({ links, children, title, description }) => {
         <meta
           name="twitter:image"
           content="https://hustles.reactplay.io/og-image.png"
+        />
+        <meta
+          name="twitter:site"
+          content="ReactPlayIO"
+        />
+        <script
+          async
+          defer
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_TRACK_ID}
+          src="https://analytics.reactplay.io/umami.js"
         />
       </Head>
       <Header links={links || home_links} secondary={secondaryNavbar} />
