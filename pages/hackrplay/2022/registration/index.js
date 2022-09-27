@@ -165,6 +165,13 @@ export default function Registration() {
 						</div>
 						<div className='flex flex-col flex-1 bg-white'>
 							<div className='flex-1 px-10 py-8 overflow-auto'>
+								<div className='text-xl pb-4'>
+									Welcome{' '}
+									<span className={`${styles['text-title']}`}>
+										{userData.displayName}
+									</span>
+									, register your idea
+								</div>
 								<form>
 									<FormBuilder
 										fields={FIELD_TEMPLATE}
@@ -186,7 +193,7 @@ export default function Registration() {
 									</div>
 									<div className='p-2'>
 										<PrimaryButton
-										  className="umami--click--register"
+											className='umami--click--register'
 											disabled={isFieldsAreInValid()}
 											handleOnClick={() => onSubmit()}>
 											{`Register Now`}

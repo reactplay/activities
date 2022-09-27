@@ -15,11 +15,11 @@ export default function SortButtons({ buttons, selected, onChange }) {
 				const b_obj = {
 					...b,
 					...{
-						asc: true,
+						asc: false,
 					},
 				};
 				if (b.field === selected) {
-					b.selected = true;
+					b.selected = false;
 				}
 				allButtons.push(b_obj);
 			});
