@@ -75,8 +75,8 @@ export default function IdeaDetails(props) {
 		router.push(`submit/${id}`);
 	};
 
-	const onCancelClicked = (id) => {
-		router.push(`/`);
+	const onCancelClicked = () => {
+		router.push(`../ideas`);
 	};
 
 	return (
