@@ -32,11 +32,13 @@ const About = () => {
           <p className="mt-4 font-body text-gray-300">All for it? Here are some rules you need to keep in mind:</p>
           <ul className="mt-6 font-body text-gray-300">
             <li className="list-disc mt-1 ml-6">
-              The app you build must use React/React-based library or framework
-              and Nhost.
+              It must be built in React Ecosystem. (eg - ReactJS, NextJS, RemixJS etc)
             </li>
             <li className="list-disc mt-1 ml-6">
-              It must be an Open Source app with source code on GitHub.
+              The app must use one or more service of Nhost backend. (https://nhost.io).
+            </li>
+            <li className="list-disc mt-1 ml-6">
+              Project source code must be open on github.
             </li>
             <li className="list-disc mt-1 ml-6">
               You must deploy the app publicly.
