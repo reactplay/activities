@@ -95,6 +95,16 @@ export const list_ideas = (filter, current_user) => {
 			{
 				idea_owner_map: ['avatarUrl', 'displayName'],
 			},
+			{
+				idea_comments_map_aggregate: {
+					aggregate: ['count'],
+				},
+			},
+			{
+				idea_like_map_aggregate: {
+					aggregate: ['count'],
+				},
+			},
 		],
 		distinct: 'id',
 	};
@@ -137,12 +147,20 @@ export const list_ideas = (filter, current_user) => {
 		const s_col =
 			filter && filter.sort_col ? filter.sort_col : 'created_at';
 		const s_type = filter && filter.sort_asc ? filter.sort_asc : false;
-
-		const sorted = _.orderBy(
+		let sorted = [];
+		// if (sort_col === 'liked') {
+		// 	sorted = _.orderBy(
+		// 		res,
+		// 		[(element) => element.idea_like_map_aggregate.aggregate.count],
+		// 		[s_type ? 'asc' : 'desc']
+		// 	);
+		// } else {
+		sorted = _.orderBy(
 			res,
 			[(element) => element[s_col].toLowerCase()],
 			[s_type ? 'asc' : 'desc']
 		);
+		// }
 		return sorted;
 	});
 };
@@ -171,7 +189,7 @@ export const get_idea = (id) => {
 			'id',
 			{
 				idea_idea_status_map: [
-					'id',
+					'date',
 					{ idea_status_status_map: ['label', 'id'] },
 				],
 			},
@@ -185,6 +203,26 @@ export const get_idea = (id) => {
 			},
 			{
 				idea_owner_map: ['avatarUrl', 'displayName', 'id'],
+			},
+			{
+				idea_comments_map_aggregate: {
+					aggregate: ['count'],
+				},
+			},
+			{
+				idea_like_map_aggregate: {
+					aggregate: ['count'],
+				},
+			},
+			{
+				idea_comments_map: [
+					'comment',
+					'date',
+					{ idea_comment_user_map: ['displayName', 'avatarUrl'] },
+				],
+			},
+			{
+				idea_like_map: ['user_id'],
 			},
 		],
 	};

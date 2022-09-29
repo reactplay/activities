@@ -70,6 +70,8 @@ const IdeaListingPage = () => {
 				title: idea.title,
 				description: idea.description,
 				id: idea.id,
+				comment_count: idea.idea_comments_map_aggregate.aggregate.count,
+				like_count: idea.idea_like_map_aggregate.aggregate.count,
 				avatarUrl: [
 					idea.idea_members_map?.user_id_map.avatarUrl,
 					idea.idea_owner_map?.avatarUrl,
@@ -128,7 +130,7 @@ const IdeaListingPage = () => {
 										To register first idea click
 									</div>
 									<PrimaryButton
-									className="umami--click--register"
+										className='umami--click--register'
 										handleOnClick={() =>
 											redirectToRegistration()
 										}
@@ -149,8 +151,7 @@ const IdeaListingPage = () => {
 											md={6}
 											lg={4}
 											xl={3}
-											p={1}
-											>
+											p={1}>
 											<IdeaCard
 												data={value}
 												onClick={() =>
