@@ -119,7 +119,7 @@ export default function IdeaDetails(props) {
 		<LayoutWrapper title='HACK-R-PLAY | Idea Registration'>
 			{idea ? (
 				<div className='w-full h-full flex flex-col justify-center items-center  p-14'>
-					<div className='w-fit h-full max-w-6xl flex shadow-md rounded mb-6  z-[9] p-5 lg:w-full'>
+					<div className='w-fit h-full max-w-6xl flex shadow-md rounded mb-6  z-[9] px-5 lg:w-full'>
 						<div className='flex flex-col flex-1'>
 							<div className='h-14 p-16 flex  items-center justify-center text-white'>
 								<h2
@@ -128,19 +128,28 @@ export default function IdeaDetails(props) {
 								</h2>
 							</div>
 							<div className='flex flex-col p-4 flex-1 text-white border-2 border-[#ffffff29] rounded-md pt-4'>
-								<div className='flex-1 flex px-4 py-8font-primary border-b border-sky-500 py-4'>
+								<div className='flex-1 px-4 py-8font-primary border-b border-sky-500 py-4'>
 									<div className='flex-1 text-[#00F2FE]  text-3xl'>
 										<h2>{idea.title}</h2>
 									</div>
-									<div className='flex  text-2xl justify-center items-center'>
-										<FiThumbsUp
-											className='mr-2 my-auto'
-											size={20}
-										/>
-										{
-											idea.idea_like_map_aggregate
-												.aggregate.count
-										}
+									<div className='flex py-2 text-sm text-brand-muted'>
+										<div className='pr-4 block md:hidden'>
+											{get_latest_status(idea).label}
+										</div>
+										<div className='pr-4'>
+											{
+												idea.idea_like_map_aggregate
+													.aggregate.count
+											}{' '}
+											likes
+										</div>
+										<div>
+											{
+												idea.idea_comments_map_aggregate
+													.aggregate.count
+											}{' '}
+											Comments
+										</div>
 									</div>
 								</div>
 
@@ -341,7 +350,7 @@ export default function IdeaDetails(props) {
 							</div>
 						</div>
 					</div>
-					<div className='w-fit h-full max-w-6xl flex shadow-md rounded mb-6  z-[9] p-5 lg:w-full'>
+					<div className='w-fit h-full max-w-6xl flex shadow-md rounded mb-6  z-[9] px-5 sm:w-full'>
 						<Interaction
 							data={idea}
 							doRefresh={() => refreshIdea()}

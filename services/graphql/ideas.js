@@ -147,12 +147,20 @@ export const list_ideas = (filter, current_user) => {
 		const s_col =
 			filter && filter.sort_col ? filter.sort_col : 'created_at';
 		const s_type = filter && filter.sort_asc ? filter.sort_asc : false;
-
-		const sorted = _.orderBy(
+		let sorted = [];
+		// if (sort_col === 'liked') {
+		// 	sorted = _.orderBy(
+		// 		res,
+		// 		[(element) => element.idea_like_map_aggregate.aggregate.count],
+		// 		[s_type ? 'asc' : 'desc']
+		// 	);
+		// } else {
+		sorted = _.orderBy(
 			res,
 			[(element) => element[s_col].toLowerCase()],
 			[s_type ? 'asc' : 'desc']
 		);
+		// }
 		return sorted;
 	});
 };
@@ -212,6 +220,9 @@ export const get_idea = (id) => {
 					'date',
 					{ idea_comment_user_map: ['displayName', 'avatarUrl'] },
 				],
+			},
+			{
+				idea_like_map: ['user_id'],
 			},
 		],
 	};

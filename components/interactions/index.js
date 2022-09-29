@@ -1,8 +1,12 @@
+import * as React from 'react';
+
 import { useAuthenticationStatus, useUserData } from '@nhost/nextjs';
 import { TextField } from '@mui/material';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 import Image from 'next/image';
 import styles from '@/styles/idea.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NHOST } from '@/services/nhost';
 import {
 	PrimaryButton,
@@ -14,17 +18,36 @@ import { time_since } from '@/services/util/time';
 import { FiThumbsUp } from 'react-icons/fi';
 import { escape_new_line, unescape_new_line } from '@/services/util/string';
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+	return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
+});
+
 const Interaction = ({ data, doRefresh }) => {
 	const { isAuthenticated, isLoading } = useAuthenticationStatus();
 	const [loading, setLoading] = useState();
 	const userData = useUserData();
 	const [commentText, setCommentText] = useState();
+	const [isLiked, setIsLiked] = useState(false);
+	const [alertOpen, setAlertOpen] = useState(false);
+	const [alertMsg, setAlertMsg] = useState('');
 
+	useEffect(() => {
+		if (userData) {
+			const filter_user = data.idea_like_map.filter(
+				(lm) => lm.user_id === userData.id
+			)[0];
+			if (filter_user) {
+				setIsLiked(true);
+			}
+		}
+	}, [userData, data]);
 	const onCommentSubmit = () => {
 		setLoading(true);
 		insert_comment(escape_new_line(commentText), data.id, userData.id).then(
 			(res) => {
 				setLoading(false);
+				setAlertMsg('Successfully posted your comment');
+				setAlertOpen(true);
 				setCommentText('');
 				if (doRefresh) {
 					doRefresh();
@@ -38,6 +61,8 @@ const Interaction = ({ data, doRefresh }) => {
 		like_idea(data.id, userData.id)
 			.then((res) => {
 				setLoading(false);
+				setAlertMsg('You liked this idea');
+				setAlertOpen(true);
 				if (doRefresh) {
 					doRefresh();
 				}
@@ -48,6 +73,14 @@ const Interaction = ({ data, doRefresh }) => {
 					doRefresh();
 				}
 			});
+	};
+
+	const handleClose = (event, reason) => {
+		if (reason === 'clickaway') {
+			return;
+		}
+
+		setAlertOpen(false);
 	};
 
 	const onAuthenticate = () => {
@@ -86,11 +119,23 @@ const Interaction = ({ data, doRefresh }) => {
 				</div>
 				<div>
 					{isAuthenticated ? (
-						<SecondaryOutlinedButton
-							handleOnClick={() => onLikeClicked()}
-							className='flex px-4 justify-center items-center text-white text-xl'>
-							Like This Idea
-						</SecondaryOutlinedButton>
+						<>
+							{isLiked ? (
+								<div className='flex  text-md justify-center items-center text-brand-muted px-4'>
+									<FiThumbsUp
+										className='mr-2 my-auto'
+										size={20}
+									/>
+									LIKED
+								</div>
+							) : (
+								<SecondaryOutlinedButton
+									handleOnClick={() => onLikeClicked()}
+									className='flex px-4 justify-center items-center text-white text-xl'>
+									Like It
+								</SecondaryOutlinedButton>
+							)}
+						</>
 					) : null}
 				</div>
 			</div>
@@ -103,7 +148,7 @@ const Interaction = ({ data, doRefresh }) => {
 					<div>
 						{data.idea_comments_map.map((comment, ci) => {
 							return (
-								<div className='	p-4' key={ci}>
+								<div className='px-4 py-2' key={ci}>
 									<div className='flex flex-col border-2 border-[#ffffff29] p-4'>
 										<div className='flex'>
 											<div className='flex justify-center items-center px-4 pl-8'>
@@ -199,6 +244,17 @@ const Interaction = ({ data, doRefresh }) => {
 					</button>
 				)}
 			</div>
+			<Snackbar
+				open={alertOpen}
+				autoHideDuration={2000}
+				onClose={handleClose}>
+				<Alert
+					onClose={handleClose}
+					severity='info'
+					sx={{ width: '100%' }}>
+					{alertMsg}
+				</Alert>
+			</Snackbar>
 		</div>
 	);
 };

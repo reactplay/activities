@@ -16,7 +16,7 @@ const StatusBar = ({ map, value }) => {
 					const current_value = value.filter((v) => v.label === o)[0];
 
 					return (
-						<li className={`${styles['tl-item']}`}>
+						<li key={oi} className={`${styles['tl-item']}`}>
 							<div
 								className={`${styles['item-title']} ${
 									current_value
@@ -26,11 +26,7 @@ const StatusBar = ({ map, value }) => {
 								{o}
 							</div>
 							<div
-								className={`${styles['item-detail']} ${
-									current_value
-										? 'text-white'
-										: 'text-grey-200'
-								}`}>
+								className={`text-brand-muted  ${styles['item-detail']} `}>
 								{' '}
 								{current_value
 									? moment(current_value.date).format(
@@ -47,50 +43,3 @@ const StatusBar = ({ map, value }) => {
 };
 
 export default StatusBar;
-
-{
-	/*     
-		// <div className='pt-10 px-10 w-full'>
-		// 	<ol className={styles['status-list']}>
-		// 		{Object.keys(map).map((o, oi) => {
-		// 			const val = map[o];
-		// 			return (
-		// 				<li
-		// 					key={oi}
-		// 					className={`${
-		// 						o.toLowerCase() === current.toLowerCase()
-		// 							? styles['active']
-		// 							: ''
-		// 					} 
-    //           ${styles['status-list-item']}
-    //           `}>
-		// 					<span className={styles['status-list-item-inner']}>
-		// 						<Image
-		// 							src={val.image}
-		// 							alt={`status `}
-		// 							className={`${
-		// 								o.toLowerCase() !==
-		// 								current.toLowerCase()
-		// 									? 'grayscale'
-		// 									: ''
-		// 							}`}
-		// 						/>
-
-		// 						<Typography
-		// 							className='px-4'
-		// 							variant={'body2'}
-		// 							color={
-		// 								o.toLowerCase() ===
-		// 								current.toLowerCase()
-		// 									? val.color
-		// 									: '#ffffff99'
-		// 							}>
-		// 							{val.label}
-		// 						</Typography>
-		// 					</span>
-		// 				</li>
-		// 			);
-		// 		})}
-		// 	</ol>
-		// </div> */
-}
