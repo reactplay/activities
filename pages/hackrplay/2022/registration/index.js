@@ -148,6 +148,9 @@ export default function Registration() {
 				});
 			});
 	};
+	const onCancelClicked = () => {
+		router.back();
+	};
 
 	return (
 		<LayoutWrapper title='HACK-R-PLAY | Idea Registration'>
@@ -183,7 +186,10 @@ export default function Registration() {
 								<div className='py-4 px-10 h-full flex justify-end'>
 									<div className='p-2'>
 										<div>
-											<SecondaryOutlinedButtonDark>
+											<SecondaryOutlinedButtonDark
+												handleOnClick={() =>
+													onCancelClicked()
+												}>
 												Cancel
 											</SecondaryOutlinedButtonDark>
 										</div>
