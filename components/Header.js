@@ -40,7 +40,7 @@ const Header = ({ links, secondary = false }) => {
 	const [mobileActive, setMobileActive] = useState(false);
 	const router = useRouter();
 	const redirectToRegistration = () => {
-		router.push('registration');
+		router.push('/hackrplay/2022/registration');
 	};
 
 	return (
@@ -59,7 +59,7 @@ const Header = ({ links, secondary = false }) => {
 						</Link>
 					</div>
 					<PrimaryButton
-					  className="umami--click--register"
+						className='umami--click--register'
 						handleOnClick={() => redirectToRegistration()}
 						small={true}>
 						Register Now

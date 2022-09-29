@@ -5,10 +5,10 @@ import LayoutWrapper from '@/components/LayoutWrapper';
 import styles from '@/styles/Home.module.css';
 import { get_idea } from '@/services/graphql/ideas';
 import { Typography } from '@mui/material';
-import { FiPenTool, FiDownload } from 'react-icons/fi';
+import { FiPenTool, FiDownload, FiThumbsUp } from 'react-icons/fi';
 import { PrimaryButton, SecondaryOutlinedButton } from '@/components/Buttons';
 import InProgress from '/public/Idea-List/inProgress.svg';
-import Complted from '/public/Idea-List/completed.svg';
+import Completed from '/public/Idea-List/completed.svg';
 import NotStarted from '/public/Idea-List/notStart.svg';
 import {
 	get_idea_submission_info,
@@ -17,13 +17,29 @@ import {
 import { unescape_new_line } from '@/services/util/string';
 import { FaBloggerB, FaCommentDots, FaReact, FaGitAlt } from 'react-icons/fa';
 import Link from 'next/link';
+import StatusBar from '@/components/status-bar/StatusBar';
+import Interaction from '@/components/interactions';
 
+const StatusMap = {
+	['Idea Submitted']: {
+		image: NotStarted,
+		color: '#FD6868',
+	},
+	['In Progress']: {
+		image: InProgress,
+		color: '#FDC668',
+	},
+	Completed: {
+		image: Completed,
+		color: '#68FDC6',
+	},
+};
 const get_status_style = (status) => {
-	const final_status = status || { label: 'Not Started' };
+	const final_status = status || { label: 'Idea Submitted' };
 	switch (final_status.label) {
-		case 'Submitted':
+		case 'Completed':
 			return {
-				image: Complted,
+				image: Completed,
 				color: '#68FDC6',
 			};
 		case 'In Progress':
@@ -31,7 +47,7 @@ const get_status_style = (status) => {
 				image: InProgress,
 				color: '#FDC668',
 			};
-		case 'Not Started':
+		case 'Idea Submitted':
 		default:
 			return {
 				image: NotStarted,
@@ -48,25 +64,39 @@ export default function IdeaDetails(props) {
 
 	useEffect(() => {
 		if (id) {
-			get_idea(id).then((res) => {
-				res.status = get_latest_status(res);
-				res.description = unescape_new_line(res.description);
-				if (
-					res.status &&
-					res.status.id ===
-						process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID
-				) {
-					get_idea_submission_info(res.id).then((sub) => {
-						const f_obj = { ...res, ...sub[0] };
-						console.log(f_obj);
-						setIdea(f_obj);
-					});
-				} else {
-					setIdea(res);
-				}
-			});
+			loadIdeaDetails(id);
 		}
 	}, [id]);
+
+	const loadIdeaDetails = (id) => {
+		get_idea(id).then((res) => {
+			const all_statuses = [];
+			console.log(res.idea_idea_status_map);
+			res.idea_idea_status_map.forEach((st) => {
+				all_statuses.push({
+					...st.idea_status_status_map,
+					...{ date: st.date },
+				});
+			});
+			res.status_history = all_statuses;
+			res.status = get_latest_status(res);
+			res.description = unescape_new_line(res.description);
+
+			if (
+				res.status &&
+				res.status.id ===
+					process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID
+			) {
+				get_idea_submission_info(res.id).then((sub) => {
+					const f_obj = { ...res, ...sub[0] };
+					console.log(f_obj);
+					setIdea(f_obj);
+				});
+			} else {
+				setIdea(res);
+			}
+		});
+	};
 
 	const onEditClicked = (id) => {
 		router.push(`../registration/${id}`);
@@ -79,11 +109,17 @@ export default function IdeaDetails(props) {
 		router.push(`/`);
 	};
 
+	const refreshIdea = () => {
+		loadIdeaDetails(id);
+	};
+
+	const onLikeClicked = () => {};
+
 	return (
 		<LayoutWrapper title='HACK-R-PLAY | Idea Registration'>
 			{idea ? (
 				<div className='w-full h-full flex flex-col justify-center items-center  p-14'>
-					<div className='w-fit h-full max-w-6xl flex shadow-md rounded mb-6  z-[9] p-5'>
+					<div className='w-fit h-full max-w-6xl flex shadow-md rounded mb-6  z-[9] p-5 lg:w-full'>
 						<div className='flex flex-col flex-1'>
 							<div className='h-14 p-16 flex  items-center justify-center text-white'>
 								<h2
@@ -91,32 +127,33 @@ export default function IdeaDetails(props) {
 									Idea
 								</h2>
 							</div>
-							<div className='flex flex-col flex-1 text-white border-2 border-sky-500 rounded-md pt-4'>
-								<div className='flex-1 px-4 py-8font-primary text-3xl text-[#00F2FE]'>
-									<h2>{idea.title}</h2>
-								</div>
-								<div className='flex items-center p-4'>
-									<Image
-										src={
-											get_status_style(idea.status).image
+							<div className='flex flex-col p-4 flex-1 text-white border-2 border-[#ffffff29] rounded-md pt-4'>
+								<div className='flex-1 flex px-4 py-8font-primary border-b border-sky-500 py-4'>
+									<div className='flex-1 text-[#00F2FE]  text-3xl'>
+										<h2>{idea.title}</h2>
+									</div>
+									<div className='flex  text-2xl justify-center items-center'>
+										<FiThumbsUp
+											className='mr-2 my-auto'
+											size={20}
+										/>
+										{
+											idea.idea_like_map_aggregate
+												.aggregate.count
 										}
-										alt={`status `}
-									/>
-
-									<Typography
-										className='px-4'
-										variant={'body2'}
-										color={
-											get_status_style(idea.status).color
-										}>
-										{idea.status
-											? idea.status.label
-											: 'NOT STARTED'}
-									</Typography>
+									</div>
 								</div>
 
-								<div className='flex-1 px-4 py-8 text-[#ffffff99] whitespace-pre-wrap	'>
-									{idea.description}
+								<div className='flex flex-1 px-4 py-8 text-[#ffffff99] whitespace-pre-wrap	'>
+									<div className='flex-1'>
+										{idea.description}
+									</div>
+									<div className='px-4 hidden md:block'>
+										<StatusBar
+											value={idea.status_history}
+											map={StatusMap}
+										/>
+									</div>
 								</div>
 								<div className='flex'>
 									<div className='py-8 flex'>
@@ -247,25 +284,29 @@ export default function IdeaDetails(props) {
 										) : null}
 									</div>
 								</div>
+								<hr />
 								<div>
-									<hr />
 									<div className='py-4 h-full flex '>
-										<div className='p-2 flex-1'>
-											{!idea.status ||
-											idea.status.id !==
-												process.env
-													.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID ? (
-												<PrimaryButton
-													handleOnClick={() =>
-														onSubmitClicked(idea.id)
-													}>
-													{`Submit`}
-													<FiDownload
-														className='ml-2 my-auto'
-														size={20}
-													/>
-												</PrimaryButton>
-											) : null}
+										<div className='flex-1 flex'>
+											<div className='p-2 '>
+												{!idea.status ||
+												idea.status.id !==
+													process.env
+														.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID ? (
+													<PrimaryButton
+														handleOnClick={() =>
+															onSubmitClicked(
+																idea.id
+															)
+														}>
+														{`Submit`}
+														<FiDownload
+															className='ml-2 my-auto'
+															size={20}
+														/>
+													</PrimaryButton>
+												) : null}
+											</div>
 										</div>
 
 										<div className='p-2'>
@@ -283,7 +324,7 @@ export default function IdeaDetails(props) {
 											process.env
 												.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID ? (
 											<div className='p-2'>
-												<PrimaryButton
+												<SecondaryOutlinedButton
 													handleOnClick={() =>
 														onEditClicked(idea.id)
 													}>
@@ -292,13 +333,19 @@ export default function IdeaDetails(props) {
 														className='ml-2 my-auto'
 														size={20}
 													/>
-												</PrimaryButton>
+												</SecondaryOutlinedButton>
 											</div>
 										) : null}
 									</div>
 								</div>
 							</div>
 						</div>
+					</div>
+					<div className='w-fit h-full max-w-6xl flex shadow-md rounded mb-6  z-[9] p-5 lg:w-full'>
+						<Interaction
+							data={idea}
+							doRefresh={() => refreshIdea()}
+						/>
 					</div>
 				</div>
 			) : null}

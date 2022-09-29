@@ -131,24 +131,21 @@ export default function Registration() {
 		if (!idea_id)
 			return insert_idea(idea_object).then((res) => {
 				idea_id = res.id;
+				const promises = [];
 				if (selected_users && selected_users.length) {
-					const promises = [];
 					if (storedIdeaData.users) {
 						promises.push(
 							assign_member(idea_id, storedIdeaData.users)
 						);
 					}
-					formData.status = '63c47cd7-f9c4-41e1-87b6-7ebe7b59f00e';
-					formData.id = idea_id;
-					promises.push(insert_ideas_status(formData));
-					return Promise.all(promises).then((res) => {
-						router.push('ideas');
-						setIsSubmitting(false);
-					});
-				} else {
+				}
+				formData.status = '63c47cd7-f9c4-41e1-87b6-7ebe7b59f00e';
+				formData.id = idea_id;
+				promises.push(insert_ideas_status(formData));
+				return Promise.all(promises).then((res) => {
 					router.push('ideas');
 					setIsSubmitting(false);
-				}
+				});
 			});
 	};
 

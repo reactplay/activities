@@ -95,6 +95,16 @@ export const list_ideas = (filter, current_user) => {
 			{
 				idea_owner_map: ['avatarUrl', 'displayName'],
 			},
+			{
+				idea_comments_map_aggregate: {
+					aggregate: ['count'],
+				},
+			},
+			{
+				idea_like_map_aggregate: {
+					aggregate: ['count'],
+				},
+			},
 		],
 		distinct: 'id',
 	};
@@ -171,7 +181,7 @@ export const get_idea = (id) => {
 			'id',
 			{
 				idea_idea_status_map: [
-					'id',
+					'date',
 					{ idea_status_status_map: ['label', 'id'] },
 				],
 			},
@@ -185,6 +195,23 @@ export const get_idea = (id) => {
 			},
 			{
 				idea_owner_map: ['avatarUrl', 'displayName', 'id'],
+			},
+			{
+				idea_comments_map_aggregate: {
+					aggregate: ['count'],
+				},
+			},
+			{
+				idea_like_map_aggregate: {
+					aggregate: ['count'],
+				},
+			},
+			{
+				idea_comments_map: [
+					'comment',
+					'date',
+					{ idea_comment_user_map: ['displayName', 'avatarUrl'] },
+				],
 			},
 		],
 	};
