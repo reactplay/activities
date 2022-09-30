@@ -35,7 +35,7 @@ const About = () => {
               It must be built in React Ecosystem. (eg - ReactJS, NextJS, RemixJS etc)
             </li>
             <li className="list-disc mt-1 ml-6">
-              The app must use one or more service of Nhost backend. (https://nhost.io).
+              The app must use one or more service of <a className="text-[#00F2FE] hover:underline" href="https://nhost.io" target="_blank" rel="noreferrer">Nhost backend</a>.
             </li>
             <li className="list-disc mt-1 ml-6">
               Project source code must be open on github.
