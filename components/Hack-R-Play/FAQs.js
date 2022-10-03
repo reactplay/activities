@@ -27,7 +27,7 @@ const FAQs = ({ faqs }) => {
 			<h1 className="font-primary text-white text-5xl tracking-wider relative before:content[''] before:absolute before:w-3/4 before:h-1 before:-bottom-2 before:border-b-[3px] before:rounded-sm before:left-2 before:border-[#32F9E5]">
 				FAQs
 			</h1>
-			<div className='container max-w-screen-xl px-2.5'>
+			<div className='container max-w-screen-xl px-2.5 mt-9'>
 				{faqs.map((faq, index) => (
 					<div
 						key={index}
