@@ -10,7 +10,6 @@ import moment from 'moment';
 const StatusBar = ({ map, value }) => {
 	return (
 		<div className={`${styles['history-tl-container']}`}>
-			// check
 			<ul className={`${styles['tl']}`}>
 				{Object.keys(map).map((o, oi) => {
 					const val = map[o];
