@@ -9,7 +9,7 @@ This is a [Next.js](https://nextjs.org/) project
     ```bash
     yarn
     ```
-    **Note**: We do checkin yarn.lock file. So it's adviced to use `yarn` package manager. If you need to use any other package manager,remove `yarn.lock` file from local directory first. Also, do not check in any other lock file.
+    **Note**: We do check in yarn.lock file. So it's advised to use `yarn` package manager. If you need to use any other package manager, remove `yarn.lock` file from the local directory first. Also, do not check in any other lock file.
 2. Create a `.env` file at the root of your project folder with the following content,
 
     ```bash
