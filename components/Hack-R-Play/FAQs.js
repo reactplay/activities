@@ -24,7 +24,7 @@ const FAQs = ({ faqs }) => {
 		<div
 			id='faqs'
 			className='relative mt-16 flex flex-col justify-center items-center py-24 md:px-16 px-0'>
-			<h1 className="font-primary text-white text-5xl tracking-wider relative before:content[''] before:absolute before:w-3/4 before:h-1 before:-bottom-2 before:border-b-[3px] before:rounded-sm before:left-2 before:border-[#32F9E5]">
+			<h1 className="mb-8 font-primary text-white text-5xl tracking-wider relative before:content[''] before:absolute before:w-3/4 before:h-1 before:-bottom-2 before:border-b-[3px] before:rounded-sm before:left-2 before:border-[#32F9E5]">
 				FAQs
 			</h1>
 			<div className='container max-w-screen-xl px-2.5 mt-9'>
