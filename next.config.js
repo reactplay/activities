@@ -1,15 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/hackrplay/2022/home',
-        permanent: false,
-      },
-    ]
-  },
-
   reactStrictMode: true,
   swcMinify: true,
   images: {
