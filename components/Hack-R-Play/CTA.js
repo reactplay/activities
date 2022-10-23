@@ -15,36 +15,25 @@ const CTA = ({ title, description, image }) => {
 		<section
 			id='cta'
 			className='relative flex flex-col -mt-14 py-24 md:px-28 px-5 justify-center items-center overflow-clip bg-[#00F2FE]'>
-				<div className='container mx-auto max-w-screen-xl'>
-					<div className='flex md:flex-row flex-col justify-center items-center mx-auto gap-16'>
-						<div className='md:w-5/12 w-10/12'>
-							<Image
-								src={image ? image : CTAImage}
-								alt='CTA Image'
-								layout='responsive'
-							/>
-						</div>
-						<div className='md:w-7/12 w-full flex flex-col items-start text-left'>
-							<h1 className='font-primary text-[#010326] text-4xl md:text-left text-center md:mx-0 mx-auto'>
-								{title}
-							</h1>
-							<p className='md:mt-7 mt-4 font-body text-gray-600 text-center md:text-left'>
-								{description}
-							</p>
-							<div className='mt-7 md:mx-0 mx-auto'>
-								<SecondaryButton
-								className="umami--click--register"
-									handleOnClick={() => redirectToRegistration()}>
-									Register Now
-									<FiPlus
-										className='ml-2 my-auto text-[#00F2FE] group-hover:text-[#010326] transition-all duration-300'
-										size={25}
-									/>
-								</SecondaryButton>
-							</div>
-						</div>
+			<div className='container mx-auto max-w-screen-xl'>
+				<div className='flex md:flex-row flex-col justify-center items-center mx-auto gap-16'>
+					<div className='md:w-5/12 w-10/12'>
+						<Image
+							src={image ? image : CTAImage}
+							alt='CTA Image'
+							layout='responsive'
+						/>
+					</div>
+					<div className='md:w-7/12 w-full flex flex-col items-start text-left'>
+						<h1 className='font-primary text-[#010326] text-4xl md:text-left text-center md:mx-0 mx-auto'>
+							{title}
+						</h1>
+						<p className='md:mt-7 mt-4 font-body text-gray-600 text-center md:text-left'>
+							{description}
+						</p>
 					</div>
 				</div>
+			</div>
 		</section>
 	);
 };
