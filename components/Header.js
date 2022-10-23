@@ -7,7 +7,7 @@ import NavbarLogo from '../public/Hack-R-Play/NavbarLogo.png';
 
 import { useRouter } from 'next/router';
 
-const MobileHeader = ({ links, setMobileActive,redirectToRegistration }) => {
+const MobileHeader = ({ links, setMobileActive, redirectToRegistration }) => {
 	return (
 		<>
 			<div className='fixed top-0 w-full h-screen block justify-center items-center bg-[#051630] z-50 overscroll-none font-primary text-white transition-all duration-200 ease-in-out'>
@@ -29,7 +29,6 @@ const MobileHeader = ({ links, setMobileActive,redirectToRegistration }) => {
 							</a>
 						</Link>
 					))}
-					<PrimaryButton handleOnClick={() => redirectToRegistration()} >Register Now</PrimaryButton>
 				</nav>
 			</div>
 		</>
@@ -58,12 +57,6 @@ const Header = ({ links, secondary = false }) => {
 							</a>
 						</Link>
 					</div>
-					<PrimaryButton
-						className='umami--click--register'
-						handleOnClick={() => redirectToRegistration()}
-						small={true}>
-						Register Now
-					</PrimaryButton>
 				</header>
 			) : (
 				<header className='pt-6 pb-1 px-4 flex md:justify-center justify-end items-baseline bg-transparent font-primary text-white z-10'>

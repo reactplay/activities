@@ -125,19 +125,6 @@ const IdeaListingPage = () => {
 								<div className='text-3xl '>
 									No idea has been added yet.
 								</div>
-								<div className='text-grey py-4 flex justify-center items-center'>
-									<div className='text-slate-300 pr-4'>
-										To register first idea click
-									</div>
-									<PrimaryButton
-										className='umami--click--register'
-										handleOnClick={() =>
-											redirectToRegistration()
-										}
-										small={true}>
-										Register Now
-									</PrimaryButton>
-								</div>
 							</div>
 						) : (
 							<>
