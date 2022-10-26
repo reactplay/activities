@@ -5,7 +5,7 @@ const nextConfig = {
       {
         source: '/',
         destination: '/hackrplay/2022/home',
-        permanent: false,
+        permanent: true,
       },
     ]
   },
