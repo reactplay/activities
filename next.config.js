@@ -16,6 +16,16 @@ const nextConfig = {
     });
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/hackrplay/2022/home',
+        permanent: true,
+      },
+    ]
+  },
+
 }
 
 module.exports = nextConfig
