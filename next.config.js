@@ -1,15 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/hackrplay/2022/home',
-        permanent: true,
-      },
-    ]
-  },
-
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -26,6 +16,16 @@ const nextConfig = {
     });
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/hackrplay/2022/home',
+        permanent: true,
+      },
+    ]
+  },
+
 }
 
 module.exports = nextConfig
