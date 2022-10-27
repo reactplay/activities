@@ -35,7 +35,7 @@ const Judges = ({ judges }) => {
               <div className="w-48 h-48 bg-gray-600 rounded-md rounded-tl-[4rem]">
                 <Image
                   alt={judge.name}
-                  src={`https://unavatar.io/twitter/${judge.twitter}`}
+                  src={judge.avatar}
                   layout="responsive"
                   width={`100%`}
                   height={`100%`}
