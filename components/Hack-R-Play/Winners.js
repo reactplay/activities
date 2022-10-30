@@ -54,10 +54,10 @@ const Winners = ({ winners, mentions }) => {
           >
             <div className={``}></div>
             <div className="absolute md:-top-16 md:-left-11 -top-20 -left-10 inline-flex justify-center items-start">
-              <span className="font-bold md:text-9xl text-[7rem] opacity-30">
+              <span className="font-bold md:text-9xl text-[7rem] opacity-70">
                 {winner.position}
               </span>
-              <span className="font-bold md:text-5xl text-4xl -ml-2 md:mt-2 mt-8 opacity-30">
+              <span className="font-bold md:text-5xl text-4xl -ml-2 md:mt-2 mt-8 opacity-70">
                 {winner.position === "1"
                   ? "st"
                   : winner.position === "2"
