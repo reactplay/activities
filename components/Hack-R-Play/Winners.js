@@ -10,7 +10,9 @@ const Winners = ({ winners, mentions }) => {
   useEffect(() => {
     const confettiSettings = {
       target: "winners-canvas",
-      max: "150",
+      max: "110",
+      size: "1.2",
+      rotate: true,
       colors: [
         [0, 242, 254],
         [104, 253, 198],
@@ -47,7 +49,7 @@ const Winners = ({ winners, mentions }) => {
         {winners.map((winner, index) => (
           <div
             key={index}
-            className="relative md:mr-32 md:last:mr-0 md:mt-0 mt-4 flex mb-8 flex-col justify-center items-start font-body max-w-xs first:text-[#ffd700] text-[#c0c0c0] last:text-[#cd7f32]"
+            className="relative md:mr-32 md:last:mr-0 md:mt-0 mt-11 flex mb-8 flex-col justify-center items-start font-body max-w-xs first:text-[#ffd700] text-[#c0c0c0] last:text-[#cd7f32]"
           >
             <div className={``}></div>
             <div className="absolute -top-14 -left-9 inline-flex justify-center items-start">
@@ -114,24 +116,24 @@ const Winners = ({ winners, mentions }) => {
             </a>
             <div className="inline-flex justify-start items-center">
               <a
-                className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150"
+                className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150 mr-5"
+                href={`${winner.projectSource}`}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <MdOutlineSource size={25} />
+              </a>
+              <a
+                className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150 mr-5"
                 href={`https://twitter.com/${winner.twitter}`}
                 rel="noreferrer"
                 target="_blank"
               >
-                <MdOutlineSource className="mr-5" size={25} />
+                <FaTwitter size={22} />
               </a>
               <a
                 className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150"
-                href={`https://twitter.com/${winner.twitter}`}
-                rel="noreferrer"
-                target="_blank"
-              >
-                <FaTwitter className="mr-5" size={22} />
-              </a>
-              <a
-                className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150"
-                href={`https://twitter.com/${winner.twitter}`}
+                href={`https://github.com/${winner.github}`}
                 rel="noreferrer"
                 target="_blank"
               >
@@ -179,24 +181,24 @@ const Winners = ({ winners, mentions }) => {
               </a>
               <div className="inline-flex justify-start items-center">
                 <a
-                  className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150"
+                  className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150 mr-5"
+                  href={`${mention.projectSource}`}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <MdOutlineSource size={23} />
+                </a>
+                <a
+                  className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150 mr-5"
                   href={`https://twitter.com/${mention.twitter}`}
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <MdOutlineSource className="mr-5" size={23} />
+                  <FaTwitter size={20} />
                 </a>
                 <a
                   className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150"
-                  href={`https://twitter.com/${mention.twitter}`}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <FaTwitter className="mr-5" size={20} />
-                </a>
-                <a
-                  className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150"
-                  href={`https://twitter.com/${mention.twitter}`}
+                  href={`https://github.com/${mention.github}`}
                   rel="noreferrer"
                   target="_blank"
                 >
