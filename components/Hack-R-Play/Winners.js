@@ -46,18 +46,18 @@ const Winners = ({ winners, mentions }) => {
       <h1 className="font-primary text-white text-6xl tracking-wider relative before:content[''] before:absolute before:w-3/5 before:h-1 before:-bottom-1 before:border-b-[3px] before:rounded-sm before:left-0 before:right-0 before:mx-auto before:border-[#32F9E5]">
         Winners
       </h1>
-      <div className="inline-flex md:flex-row flex-col justify-center items-start md:mt-16 mt-6 py-3 z-10 mx-auto">
+      <div className="inline-flex md:flex-row flex-col justify-center items-start md:mt-20 mt-6 py-3 z-10 mx-auto">
         {winners.map((winner, index) => (
           <div
             key={index}
-            className="relative md:mr-32 md:last:mr-0 md:mt-0 mt-12 flex mb-8 flex-col justify-center items-start font-body max-w-xs first:text-[#ffd700] text-[#c0c0c0] last:text-[#cd7f32]"
+            className="relative md:mr-32 md:last:mr-0 md:mt-0 mt-16 flex mb-8 flex-col justify-center items-start font-body max-w-xs first:text-[#ffd700] text-[#c0c0c0] last:text-[#cd7f32]"
           >
             <div className={``}></div>
-            <div className="absolute md:-top-14 md:-left-10 -top-[3.7rem] -left-11 inline-flex justify-center items-start">
-              <span className="font-bold text-9xl opacity-30">
+            <div className="absolute md:-top-16 md:-left-11 -top-20 -left-10 inline-flex justify-center items-start">
+              <span className="font-bold md:text-9xl text-[7rem] opacity-30">
                 {winner.position}
               </span>
-              <span className="font-bold text-5xl -ml-2 mt-2 opacity-30">
+              <span className="font-bold md:text-5xl text-4xl -ml-2 md:mt-2 mt-8 opacity-30">
                 {winner.position === "1"
                   ? "st"
                   : winner.position === "2"
