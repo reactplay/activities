@@ -13,6 +13,7 @@ import {
 
 import DottedAndFilledTriangle from "@/public/Hack-R-Play/DottedAndFilledTriangle.svg";
 import Flower from "@/public/Hack-R-Play/Flower.svg";
+import Winners from "@/components/Hack-R-Play/Winners";
 
 export default function Home() {
   const router = useRouter();
@@ -75,27 +76,99 @@ export default function Home() {
       name: "Johan Eliasson",
       twitter: "@elitasson",
       title: "CEO Nhost",
-      avatar: 'https://pbs.twimg.com/profile_images/1447184004558557193/agXMdsqe_400x400.jpg',
+      avatar:
+        "https://pbs.twimg.com/profile_images/1447184004558557193/agXMdsqe_400x400.jpg",
     },
     {
       name: "Koustov Maitra",
       twitter: "@koustov",
       title: "Solution Architect, ReactPlay",
-      avatar: 'https://pbs.twimg.com/profile_images/1443859238443360258/6_H-pDaM_400x400.jpg'
+      avatar:
+        "https://pbs.twimg.com/profile_images/1443859238443360258/6_H-pDaM_400x400.jpg",
     },
     {
       name: "Pratim Bhosale",
       twitter: "@BhosalePratim",
       title: "Developer Advocate, Nhost",
-      avatar: 'https://pbs.twimg.com/profile_images/1489130124792369154/-3M4AlrG_400x400.jpg',
+      avatar:
+        "https://pbs.twimg.com/profile_images/1489130124792369154/-3M4AlrG_400x400.jpg",
     },
     {
       name: "Tapas Adhikary",
       twitter: "@tapasAdhikary",
       title: "Founder, ReactPlay",
-      avatar: 'https://pbs.twimg.com/profile_images/1495457010598309888/zPrTNF4F_400x400.jpg',
+      avatar:
+        "https://pbs.twimg.com/profile_images/1495457010598309888/zPrTNF4F_400x400.jpg",
     },
   ];
+  const winners = [
+    {
+      name: "Winner's Name",
+      twitter: "@",
+      github: "",
+      avatar:
+        "https://pbs.twimg.com/profile_images/1495457010598309888/zPrTNF4F_400x400.jpg",
+      projectName: "project abcdefg",
+      projectLink: "",
+      article: "",
+      position: "1",
+    },
+    {
+      name: "Winner's Name",
+      twitter: "@",
+      github: "",
+      avatar:
+        "https://pbs.twimg.com/profile_images/1495457010598309888/zPrTNF4F_400x400.jpg",
+      projectName: "project abcdefg",
+      projectLink: "",
+      article: "",
+      position: "2",
+    },
+    {
+      name: "Winner's Name",
+      twitter: "@",
+      github: "",
+      avatar:
+        "https://pbs.twimg.com/profile_images/1495457010598309888/zPrTNF4F_400x400.jpg",
+      projectName: "project abcdefg",
+      projectLink: "",
+      article: "",
+      position: "3",
+    },
+  ];
+  const mentions = [
+    {
+      name: "Honourable Mentions's Name",
+      twitter: "@",
+      github: "",
+      avatar:
+        "https://pbs.twimg.com/profile_images/1495457010598309888/zPrTNF4F_400x400.jpg",
+      projectName: "",
+      projectLink: "",
+      article: "",
+    },
+    {
+      name: "Honourable Mentions's Name",
+      twitter: "@",
+      github: "",
+      avatar:
+        "https://pbs.twimg.com/profile_images/1495457010598309888/zPrTNF4F_400x400.jpg",
+      projectName: "",
+      projectLink: "",
+      article: "",
+    },
+    {
+      name: "Honourable Mentions's Name",
+      twitter: "@",
+      github: "",
+      avatar:
+        "https://pbs.twimg.com/profile_images/1495457010598309888/zPrTNF4F_400x400.jpg",
+      projectName: "",
+      projectLink: "",
+      article: "",
+    },
+  ];
+
   return (
     <Layout title="ReactPlay presents HACK-R-PLAY">
       <div className="absolute md:left-9 -top-10 left-5 z-0 md:w-32 md:h-32 w-24 h-24">
@@ -109,6 +182,7 @@ export default function Home() {
         <Image src={Flower} alt="Flower" layout="responsive" />
       </div>
       <Hero />
+      <Winners winners={winners} mentions={mentions} />
       <About />
       <Judges judges={judges} />
       <Partners />

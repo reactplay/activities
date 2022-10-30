@@ -15,6 +15,7 @@
     "@mui/material": "^5.10.4",
     "@nhost/nextjs": "^1.7.4",
     "@nhost/react": "^0.12.4",
+    "confetti-js": "^0.0.18",
     "graphql": "^16.6.0",
     "json-graphql-parser": "^0.1.7",
     "lodash": "^4.17.21",
