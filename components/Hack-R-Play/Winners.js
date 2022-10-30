@@ -126,7 +126,7 @@ const Winners = ({ winners, mentions }) => {
               </a>
               <a
                 className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150 mr-5"
-                href={`https://twitter.com/${winner.twitter}`}
+                href={`${winner.twitter}`}
                 rel="noreferrer"
                 target="_blank"
               >
@@ -134,7 +134,7 @@ const Winners = ({ winners, mentions }) => {
               </a>
               <a
                 className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150"
-                href={`https://github.com/${winner.github}`}
+                href={`${winner.github}`}
                 rel="noreferrer"
                 target="_blank"
               >
@@ -191,7 +191,7 @@ const Winners = ({ winners, mentions }) => {
                 </a>
                 <a
                   className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150 mr-5"
-                  href={`https://twitter.com/${mention.twitter}`}
+                  href={`${mention.twitter}`}
                   rel="noreferrer"
                   target="_blank"
                 >
@@ -199,7 +199,7 @@ const Winners = ({ winners, mentions }) => {
                 </a>
                 <a
                   className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150"
-                  href={`https://github.com/${mention.github}`}
+                  href={`${mention.github}`}
                   rel="noreferrer"
                   target="_blank"
                 >
