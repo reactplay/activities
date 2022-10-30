@@ -12,6 +12,7 @@ const Winners = ({ winners, mentions }) => {
       target: "winners-canvas",
       max: "110",
       size: "1.2",
+      clock: "30",
       rotate: true,
       colors: [
         [0, 242, 254],
@@ -49,10 +50,10 @@ const Winners = ({ winners, mentions }) => {
         {winners.map((winner, index) => (
           <div
             key={index}
-            className="relative md:mr-32 md:last:mr-0 md:mt-0 mt-11 flex mb-8 flex-col justify-center items-start font-body max-w-xs first:text-[#ffd700] text-[#c0c0c0] last:text-[#cd7f32]"
+            className="relative md:mr-32 md:last:mr-0 md:mt-0 mt-12 flex mb-8 flex-col justify-center items-start font-body max-w-xs first:text-[#ffd700] text-[#c0c0c0] last:text-[#cd7f32]"
           >
             <div className={``}></div>
-            <div className="absolute -top-14 -left-9 inline-flex justify-center items-start">
+            <div className="absolute md:-top-14 md:-left-10 -top-[3.7rem] -left-11 inline-flex justify-center items-start">
               <span className="font-bold text-9xl opacity-30">
                 {winner.position}
               </span>
