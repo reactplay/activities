@@ -13,6 +13,7 @@ import {
 
 import DottedAndFilledTriangle from "@/public/Hack-R-Play/DottedAndFilledTriangle.svg";
 import Flower from "@/public/Hack-R-Play/Flower.svg";
+import Winners from "@/components/Hack-R-Play/Winners";
 
 export default function Home() {
   const router = useRouter();
@@ -75,27 +76,110 @@ export default function Home() {
       name: "Johan Eliasson",
       twitter: "@elitasson",
       title: "CEO Nhost",
-      avatar: 'https://pbs.twimg.com/profile_images/1447184004558557193/agXMdsqe_400x400.jpg',
+      avatar:
+        "https://pbs.twimg.com/profile_images/1447184004558557193/agXMdsqe_400x400.jpg",
     },
     {
       name: "Koustov Maitra",
       twitter: "@koustov",
       title: "Solution Architect, ReactPlay",
-      avatar: 'https://pbs.twimg.com/profile_images/1443859238443360258/6_H-pDaM_400x400.jpg'
+      avatar:
+        "https://pbs.twimg.com/profile_images/1443859238443360258/6_H-pDaM_400x400.jpg",
     },
     {
       name: "Pratim Bhosale",
       twitter: "@BhosalePratim",
       title: "Developer Advocate, Nhost",
-      avatar: 'https://pbs.twimg.com/profile_images/1489130124792369154/-3M4AlrG_400x400.jpg',
+      avatar:
+        "https://pbs.twimg.com/profile_images/1489130124792369154/-3M4AlrG_400x400.jpg",
     },
     {
       name: "Tapas Adhikary",
       twitter: "@tapasAdhikary",
       title: "Founder, ReactPlay",
-      avatar: 'https://pbs.twimg.com/profile_images/1495457010598309888/zPrTNF4F_400x400.jpg',
+      avatar:
+        "https://pbs.twimg.com/profile_images/1495457010598309888/zPrTNF4F_400x400.jpg",
     },
   ];
+  const winners = [
+    {
+      name: "Chakri",
+      twitter: "https://twitter.com/geekyChakri",
+      github: "https://github.com/GeekyChakri",
+      avatar:
+        "https://pbs.twimg.com/profile_images/1532395278107435011/jBTuAENH_400x400.png",
+      projectName: "Classroom",
+      projectLink: "https://learnwithclassroom.vercel.app",
+      article:
+        "https://blog.reactplay.io/introducing-classroom-learning-with-youtube-made-exciting",
+      projectSource: "https://github.com/GeekyChakri/Classroom",
+
+      position: "1",
+    },
+    {
+      name: "Shyam Mahanta",
+      twitter: "https://twitter.com/ShyamMahanta2",
+      github: "https://github.com/Angryman18",
+      avatar: "https://avatars.githubusercontent.com/u/63530626?v=4",
+      projectName: "Papercode",
+      projectLink: "https://papercode.netlify.app/",
+      projectSource: "https://github.com/Angryman18/papercode",
+
+      article:
+        "https://blog.reactplay.io/tour-of-a-live-coding-playground-app-built-using-reactjs-nhost",
+      position: "2",
+    },
+    {
+      name: "Aashish Panthi",
+      twitter: "https://twitter.com/aashishpanthi11",
+      github: "https://github.com/aashishpanthi",
+      avatar: "https://avatars.githubusercontent.com/u/60884239?v=4",
+      projectName: "Mailsbe",
+      projectLink: "https://mailsbe.netlify.app/",
+      projectSource: "https://github.com/aashishpanthi/mailsbe",
+      article: "https://blog.reactplay.io/mailsbe-an-email-status-finder",
+      position: "3",
+    },
+  ];
+  const mentions = [
+    {
+      name: "Supriya M",
+      twitter: "https://twitter.com/supminn",
+      github: "https://github.com/supminn",
+      avatar: "https://avatars.githubusercontent.com/u/30731236?v=4",
+      projectName: "FinSaver",
+      projectLink: "https://finsaver.vercel.app/",
+      projectSource: "https://github.com/supminn/expense_tracker",
+
+      article: "https://blog.reactplay.io/building-finsaver-for-hack-r-play",
+    },
+    {
+      name: "Armaan Kazi",
+      twitter: "https://twitter.com/Armankazi111",
+      github: "https://github.com/Amyx000/",
+      avatar: "https://avatars.githubusercontent.com/u/104687128?v=4",
+      projectName: "React Resume Builder",
+      projectLink: "https://react--resume--builder.vercel.app/",
+      projectSource: "https://github.com/Amyx000/React-Resume-Builder",
+
+      article:
+        "https://blog.reactplay.io/react-resume-builder-with-react-and-nhost",
+    },
+    {
+      name: "Ammaar Aslam",
+      twitter: "https://twitter.com/itsammaar_7",
+      github: "https://github.com/ammaaraslam",
+      avatar:
+        "https://avatars.githubusercontent.com/u/96367405?s=400&u=cb1c3999b75b33502f3149fd47b251731be286e7&v=4",
+      projectName: "WriteOnce",
+      projectLink: "https://writeonce.vercel.app/",
+      projectSource: "https://github.com/ammaaraslam/write-once",
+
+      article:
+        "https://blog.reactplay.io/introducing-writeonce-a-markdown-editor-for-devs-who-blog",
+    },
+  ];
+
   return (
     <Layout title="ReactPlay presents HACK-R-PLAY">
       <div className="absolute md:left-9 -top-10 left-5 z-0 md:w-32 md:h-32 w-24 h-24">
@@ -109,6 +193,7 @@ export default function Home() {
         <Image src={Flower} alt="Flower" layout="responsive" />
       </div>
       <Hero />
+      <Winners winners={winners} mentions={mentions} />
       <About />
       <Judges judges={judges} />
       <Partners />
