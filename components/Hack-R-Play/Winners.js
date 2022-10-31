@@ -2,8 +2,8 @@ import Image from "next/image";
 import { useEffect, useRef, useCallback } from "react";
 import DottedPattern from "../../public/Hack-R-Play/DottedPattern.svg";
 import Lines from "../../public/Hack-R-Play/Lines.svg";
-import { FaRegFileCode, FaTwitter, FaGithub, FaBlogger } from "react-icons/fa";
-import { MdOutlineSource } from "react-icons/md";
+import { FaRegFileCode, FaTwitter, FaGithub } from "react-icons/fa";
+import { MdOutlineSource, MdOutlineArticle } from "react-icons/md";
 import ConfettiGenerator from "confetti-js";
 
 const Winners = ({ winners, mentions }) => {
@@ -122,16 +122,9 @@ const Winners = ({ winners, mentions }) => {
                 rel="noreferrer"
                 target="_blank"
               >
-                <FaBlogger size={22} />
+                <MdOutlineArticle size={25} />
               </a>
-              <a
-                className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150 mr-5"
-                href={`${winner.projectSource}`}
-                rel="noreferrer"
-                target="_blank"
-              >
-                <MdOutlineSource size={25} />
-              </a>
+
               <a
                 className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150 mr-5"
                 href={`${winner.twitter}`}
@@ -142,7 +135,7 @@ const Winners = ({ winners, mentions }) => {
               </a>
               <a
                 className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150"
-                href={`${winner.github}`}
+                href={`${winner.projectSource}`}
                 rel="noreferrer"
                 target="_blank"
               >
@@ -195,15 +188,7 @@ const Winners = ({ winners, mentions }) => {
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <FaBlogger size={20} />
-                </a>
-                <a
-                  className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150 mr-5"
-                  href={`${mention.projectSource}`}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <MdOutlineSource size={23} />
+                  <MdOutlineArticle size={23} />
                 </a>
                 <a
                   className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150 mr-5"
@@ -215,7 +200,7 @@ const Winners = ({ winners, mentions }) => {
                 </a>
                 <a
                   className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150"
-                  href={`${mention.github}`}
+                  href={`${mention.projectSource}`}
                   rel="noreferrer"
                   target="_blank"
                 >
