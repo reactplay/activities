@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useEffect, useRef, useCallback } from "react";
 import DottedPattern from "../../public/Hack-R-Play/DottedPattern.svg";
 import Lines from "../../public/Hack-R-Play/Lines.svg";
-import { FaRegFileCode, FaTwitter, FaGithub } from "react-icons/fa";
+import { FaRegFileCode, FaTwitter, FaGithub, FaBlogger } from "react-icons/fa";
 import { MdOutlineSource } from "react-icons/md";
 import ConfettiGenerator from "confetti-js";
 
@@ -118,6 +118,14 @@ const Winners = ({ winners, mentions }) => {
             <div className="inline-flex justify-start items-center">
               <a
                 className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150 mr-5"
+                href={`${winner.article}`}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <FaBlogger size={22} />
+              </a>
+              <a
+                className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150 mr-5"
                 href={`${winner.projectSource}`}
                 rel="noreferrer"
                 target="_blank"
@@ -181,6 +189,14 @@ const Winners = ({ winners, mentions }) => {
                 {mention.projectName}
               </a>
               <div className="inline-flex justify-start items-center">
+                <a
+                  className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150 mr-5"
+                  href={`${mention.article}`}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <FaBlogger size={20} />
+                </a>
                 <a
                   className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE]  transition-all duration-150 mr-5"
                   href={`${mention.projectSource}`}
