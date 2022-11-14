@@ -86,74 +86,73 @@
   opacity: 1;
 }
 
-
 /* Status Bar */
 
-
-.history-tl-container{
-  display:block;
-  position:relative;
+.history-tl-container {
+  display: block;
+  position: relative;
 }
-.history-tl-container .tl{
-    padding:0;
-    display:inline-block;
-
+.history-tl-container .tl {
+  padding: 0;
+  display: inline-block;
 }
-.history-tl-container .tl .tl-item{
-    list-style: none;
-    margin:auto;
-    min-height:50px;
-    border-left:1px dashed #86D6FF;
-    padding:0 0 50px 30px;
-    position:relative;
+.history-tl-container .tl .tl-item {
+  list-style: none;
+  margin: auto;
+  min-height: 50px;
+  border-left: 1px dashed #86d6ff;
+  padding: 0 0 50px 30px;
+  position: relative;
 }
-.history-tl-container .tl li:last-child{ border-left:0; padding-bottom: 0px;}
-.history-tl-container .tl li::before{
-    position: absolute;
-    left: -12px;
-    top: 5px;
-    content: " ";
-    border: 4px solid rgba(255, 255, 255, 0.84);
-    border-radius: 500%;
-    background: #258CC7;
-    height: 25px;
-    width: 25px;
-    transition: all 500ms ease-in-out;
-
+.history-tl-container .tl li:last-child {
+  border-left: 0;
+  padding-bottom: 0px;
 }
-.tl .tl-item .item-title{
+.history-tl-container .tl li::before {
+  position: absolute;
+  left: -12px;
+  top: 5px;
+  content: " ";
+  border: 4px solid rgba(255, 255, 255, 0.84);
+  border-radius: 500%;
+  background: #258cc7;
+  height: 25px;
+  width: 25px;
+  transition: all 500ms ease-in-out;
 }
-.tl .tl-item .item-detail{
-    font-size:12px;
+.tl .tl-item .item-title {
 }
-.tl .tl-item .timestamp{
-    color: #8D8D8D;
-    position: absolute;
-    width:100px;
-    left: -50%;
-    text-align: right;
-    font-size: 12px;
+.tl .tl-item .item-detail {
+  font-size: 12px;
+}
+.tl .tl-item .timestamp {
+  color: #8d8d8d;
+  position: absolute;
+  width: 100px;
+  left: -50%;
+  text-align: right;
+  font-size: 12px;
 }
 
 /* Comment */
 
-.arrow-box{
+.arrow-box {
   position: relative;
-  width:220px;
+  width: 220px;
   background: #fff;
-  height:100px;
+  height: 100px;
   line-height: 40px;
-  margin-bottom:30px; 
-  text-align:center;
-  color:#fff;
-  padding: 8px
+  margin-bottom: 30px;
+  text-align: center;
+  color: #fff;
+  padding: 8px;
 }
-.arrow-left:before{
+.arrow-left:before {
   content: "";
   position: absolute;
   left: -20px;
   top: 0;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  border-right: 20px solid #fff; 
+  border-right: 20px solid #fff;
 }
