@@ -13,6 +13,7 @@ export default function Pagination({ total, pagesize, onChange }) {
   useEffect(() => {
     setPageCount(Math.ceil(total / pagesize) || 1);
     setCurrent(1);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [total]);
   const onButtonClicked = (index) => {
     setCurrent(index);

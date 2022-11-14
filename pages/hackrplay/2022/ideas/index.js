@@ -24,6 +24,7 @@ const IdeaListingPage = () => {
 
   useEffect(() => {
     loadIdeas();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadIdeas = (filter) => {

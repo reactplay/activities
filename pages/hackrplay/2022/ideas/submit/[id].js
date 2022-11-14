@@ -82,6 +82,7 @@ export default function SubmitIdea() {
         initializeData();
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   if (isLoading) {

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { TextField, FormControl, Autocomplete, Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import * as _ from "lodash";

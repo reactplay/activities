@@ -29,6 +29,7 @@ export default function SortButtons({ buttons, selected, onChange }) {
         setAllButtons([...allButtons]);
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onButtonClicked = (button) => {
