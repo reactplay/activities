@@ -4,19 +4,19 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: [
-      'avatars.githubusercontent.com',
-      'unavatar.io', // Gravatar
-      'pbs.twimg.com',
+      "avatars.githubusercontent.com",
+      "unavatar.io", // Gravatar
+      "pbs.twimg.com",
     ],
   },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.(graphql|gql)$/,
       exclude: /node_modules/,
-      loader: 'graphql-tag/loader',
+      loader: "graphql-tag/loader",
     });
     return config;
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

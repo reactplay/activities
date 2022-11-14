@@ -1,0 +1,12 @@
+node_modules
+
+.next
+
+.env
+
+package.json
+package-lock.json
+
+*.md
+*.svg
+*.lock

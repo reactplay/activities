@@ -29,13 +29,25 @@ const About = () => {
             platform to help you hack, build, learn, and simultaneously
             contribute open source through #hacktoberfest.
           </p>
-          <p className="mt-4 font-body text-gray-300">All for it? Here are some rules you need to keep in mind:</p>
+          <p className="mt-4 font-body text-gray-300">
+            All for it? Here are some rules you need to keep in mind:
+          </p>
           <ul className="mt-6 font-body text-gray-300">
             <li className="list-disc mt-1 ml-6">
-              It must be built in React Ecosystem. (eg - ReactJS, NextJS, RemixJS etc)
+              It must be built in React Ecosystem. (eg - ReactJS, NextJS,
+              RemixJS etc)
             </li>
             <li className="list-disc mt-1 ml-6">
-              The app must use one or more service of <a className="text-[#00F2FE] hover:underline" href="https://nhost.io" target="_blank" rel="noreferrer">Nhost backend</a>.
+              The app must use one or more service of{" "}
+              <a
+                className="text-[#00F2FE] hover:underline"
+                href="https://nhost.io"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Nhost backend
+              </a>
+              .
             </li>
             <li className="list-disc mt-1 ml-6">
               Project source code must be open on github.
