@@ -97,17 +97,30 @@ const Winners = ({ winners, mentions }) => {
                   "
               `}
                 >
-                  <Image
-                    alt={winner.name}
-                    src={winner.avatar}
-                    layout="responsive"
-                    width={`100%`}
-                    height={`100%`}
-                    style={{
-                      borderRadius: "0.375rem",
-                      borderTopLeftRadius: "4rem",
-                    }}
-                  />
+                  <Link
+                    href={`https://reactplay.io/contributors/${email2Slug(
+                      winner.email
+                    )}/badges`}
+                    className="text-white mt-2 text-lg py-2"
+                  >
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white py-2"
+                    >
+                      <Image
+                        alt={winner.name}
+                        src={winner.avatar}
+                        layout="responsive"
+                        width={`100%`}
+                        height={`100%`}
+                        style={{
+                          borderRadius: "0.375rem",
+                          borderTopLeftRadius: "4rem",
+                        }}
+                      />
+                    </a>
+                  </Link>
                 </div>
               </>
             ) : null}
@@ -176,17 +189,30 @@ const Winners = ({ winners, mentions }) => {
                 <div
                   className={`w-52 h-52 bg-gradient-to-br ${mention.gradient} ${mention.shadow} rounded-md rounded-tl-[4rem] p-[3px]`}
                 >
-                  <Image
-                    alt={mention.name}
-                    src={mention.avatar}
-                    layout="responsive"
-                    width={`100%`}
-                    height={`100%`}
-                    style={{
-                      borderRadius: "0.375rem",
-                      borderTopLeftRadius: "4rem",
-                    }}
-                  />
+                  <Link
+                    href={`https://reactplay.io/contributors/${email2Slug(
+                      mention.email
+                    )}/badges`}
+                    className="text-white mt-2 text-lg py-2"
+                  >
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white py-2"
+                    >
+                      <Image
+                        alt={mention.name}
+                        src={mention.avatar}
+                        layout="responsive"
+                        width={`100%`}
+                        height={`100%`}
+                        style={{
+                          borderRadius: "0.375rem",
+                          borderTopLeftRadius: "4rem",
+                        }}
+                      />
+                    </a>
+                  </Link>
                 </div>
               ) : null}
               <Link
