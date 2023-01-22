@@ -9,17 +9,17 @@ import {
   Partners,
   CTA,
   FAQs,
-} from "@/components/Hack-R-Play";
+} from "@/components/2PlaysAMonth";
 
 import DottedAndFilledTriangle from "@/public/Hack-R-Play/DottedAndFilledTriangle.svg";
 import Flower from "@/public/Hack-R-Play/Flower.svg";
-import Winners from "@/components/Hack-R-Play/Winners";
+import Winners from "@/components/2PlaysAMonth/Winners";
 
 export default function Home() {
   const router = useRouter();
 
   return (
-    <Layout title="ReactPlay presents HACK-R-PLAY">
+    <Layout title="ReactPlay presents 2PlaysAMonth">
       <div className="absolute md:left-9 -top-10 left-5 z-0 md:w-32 md:h-32 w-24 h-24">
         <Image
           src={DottedAndFilledTriangle}

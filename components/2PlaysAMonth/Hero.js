@@ -60,17 +60,18 @@ const Hero = () => {
           <Image src={BannerLogo} alt="Banner Logo" layout="responsive" />
         </div>
         <p className="text-center text-gray-300 font-body mt-7">
-          ReactPlay brings you the opportunity to take part in the Hackathon and
-          learn from it. Showcase your mindblowing ideas, build projects, and
-          create content - there are also chances to win exciting prizes.
+        ReactPlay brings you an opportunity to participate in the month-long drive to 
+        learn and contribute to Open Source. Join the #2PlaysAMonth and build two projects(plays) 
+        in the month of February. You will learn from expert code reviews while contributing to 
+        Open Source - you may also win some exciting prizes.
         </p>
         <div className="inline-flex md:flex-row flex-col justify-center items-center mt-8 z-10">
-          <div className="md:mr-4 mr-0">
+          {/* <div className="md:mr-4 mr-0">
             <PrimaryButton handleOnClick={() => router.push("#winners")}>
               Winners
               <GiPartyPopper className="ml-2 -mt-1" size={25} />
             </PrimaryButton>
-          </div>
+          </div> */}
 
           <div className="md:mt-0 mt-4">
             <SecondaryOutlinedButton
