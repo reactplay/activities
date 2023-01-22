@@ -100,13 +100,13 @@ const faqs = [
 ];
 
 const judges = [
-  {
-    name: "Johan Eliasson",
-    twitter: "@elitasson",
-    title: "CEO Nhost",
-    avatar:
-      "https://pbs.twimg.com/profile_images/1447184004558557193/agXMdsqe_400x400.jpg",
-  },
+  // {
+  //   name: "Johan Eliasson",
+  //   twitter: "@elitasson",
+  //   title: "CEO Nhost",
+  //   avatar:
+  //     "https://pbs.twimg.com/profile_images/1447184004558557193/agXMdsqe_400x400.jpg",
+  // },
   {
     name: "Koustov Maitra",
     twitter: "@koustov",
@@ -114,13 +114,13 @@ const judges = [
     avatar:
       "https://pbs.twimg.com/profile_images/1443859238443360258/6_H-pDaM_400x400.jpg",
   },
-  {
-    name: "Pratim Bhosale",
-    twitter: "@BhosalePratim",
-    title: "Developer Advocate, Nhost",
-    avatar:
-      "https://pbs.twimg.com/profile_images/1489130124792369154/-3M4AlrG_400x400.jpg",
-  },
+  // {
+  //   name: "Pratim Bhosale",
+  //   twitter: "@BhosalePratim",
+  //   title: "Developer Advocate, Nhost",
+  //   avatar:
+  //     "https://pbs.twimg.com/profile_images/1489130124792369154/-3M4AlrG_400x400.jpg",
+  // },
   {
     name: "Tapas Adhikary",
     twitter: "@tapasAdhikary",
