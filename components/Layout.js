@@ -31,7 +31,7 @@ const Layout = ({ links, children, title, description }) => {
   const [secondaryNavbar, setSecondaryNavbar] = useState(false);
 
   useEffect(() => {
-    if (currentPath === "/hackrplay/2022/home") {
+    if (currentPath === "/hackrplay/2022/home" || currentPath === "/hackrplay/2023/home") {
       setSecondaryNavbar(false);
     } else {
       setSecondaryNavbar(true);
