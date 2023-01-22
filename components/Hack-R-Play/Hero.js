@@ -66,12 +66,12 @@ const Hero = () => {
         Open Source - you may also win some exciting prizes.
         </p>
         <div className="inline-flex md:flex-row flex-col justify-center items-center mt-8 z-10">
-          <div className="md:mr-4 mr-0">
+          {/* <div className="md:mr-4 mr-0">
             <PrimaryButton handleOnClick={() => router.push("#winners")}>
               Winners
               <GiPartyPopper className="ml-2 -mt-1" size={25} />
             </PrimaryButton>
-          </div>
+          </div> */}
 
           <div className="md:mt-0 mt-4">
             <SecondaryOutlinedButton
