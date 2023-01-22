@@ -37,7 +37,7 @@ export default function Home() {
       <Partners />
       <CTA
         title="Be a part of the best react event"
-        description="Learning is a journey than a destination. We developers need avenues, motivations, and opportunities to keep going. Join the Hack-R-Play hackathon to experience it. It will allow you to build a full-stack app using React and Nhost. Why waiting? Register your idea today.
+        description="Learning is a journey than a destination. We, developers, need avenues, motivations, and opportunities to keep going. Join the #2PlayAMonth initiative to experience it. It will allow you to build a ReactJS app using and learning from code reviews. Why waiting? Get started today.
         "
       />
       <FAQs faqs={faqs} />
@@ -48,9 +48,9 @@ export default function Home() {
 
 const faqs = [
   {
-    question: "Why should I perticipate in the Hack-R-Play?",
+    question: "Do I need to Register for #2PlaysAMonth?",
     answer:
-      "Do you like learning while building something? How about a platform that provides you with an opportunity to build a full-stack application end-to-end, showcase it to the world, motivate you to create content about it, and help build networking? Hack-R-Play aims precisely the same. Join the Hackathon brought to you by ReactPlay and start building a cool project that we can't wait to see!",
+      "Nope. You can create the play by following the criteria mentioned in this page's About(link it) section.",
   },
   {
     question: "Do I need to Register for Hack-R-Play?",
@@ -58,44 +58,59 @@ const faqs = [
       "Yes, you need to Register your idea for the Hack-R-Play hackathon. To do that, click on the REGISTER button at the top of the page and submit a few details to register your idea.",
   },
   {
-    question: "Can we participate as a team?",
+    question: "Is it mandatory to create 2 plays?",
     answer:
-      "Yes, you can participate in a team of 2(max). You can select the other member's name when you register your idea for the event. If you are the only person registering for an idea, just skip selecting any member while registering. If you liked an idea and want be part of it, please contact the idea creator.",
+      "Yes. That's one of the qualifying criteria. You must create and complete 2 plays.",
   },
   {
-    question: "Does my Idea needs to follow a specific theme?",
+    question: "What if my play review gets delayed?",
     answer:
-      "Not really! However, we suggest you build something valuable that you will keep building even after the Hack-R-Play Event. Rest is entirely up to you.",
+      "You must ensure you give the reviewers enough time to review your code and provide comments. We're looking forward to 4-5 days(based on how actively you respond to the comments) to complete the review process of a play. Try submitting your plays at least 7-10 days before the end date to avoid messy situations. If your review gets delayed by reviewers, we will ensure you the extra time, but that will be a rare case!",
+  },
+  {
+    question: "Can we participate as a team?",
+    answer:
+      "Nope. It's an individual event.",
   },
   {
     question: "Can I use anything other than React?",
     answer:
-      "You can use anything related to React and its ecosystem. You can use Next.js, Gatsby, React Native, and even plain React!",
+      "ReactPlay is a platform to help web developers learn ReactJs and build projects. For this initiative, RaectJs is a must.",
   },
   {
-    question: "What do I need to Submit?",
+    question: "Can I submit my old React project as a play?",
     answer:
-      "When you submit the project after completion, you submit three public links. Link to your project source code, link to your application, and link to the article that explains how you have used React/React-based library/framework with Nhost to build this application.",
+      "You can. However, could you please mention the old project in the play description? Also, the play should be something other than a 1-1 matching your existing project. You must bring some changes/ideas into it.",
   },
   {
-    question: "Is the blog article mandatory to submit?",
+    question: "Can I submit code/project of someone else?",
     answer:
-      "Yes, very much! Please document your entire Hack-R-Play journey and publish them on the ReactPlay blog(blog.reactplay.io). Don't worry if you are not a seasoned blogger. We will help with reviews if you submit the blog article at least 3 days before the event's end date.",
+      "You shouldn't. Be authentic and ethical. It's an event to learn, not alone to win.",
   },
   {
-    question: "When and How the Hack-R-Play result will be published?",
+    question: "Is creating an issue for my PR a must?",
     answer:
-      "Hack-R-Play 2022 results will be published on 30th October. We will publish it on our website, and the Twitter handle(@reactplayio).",
+      "Yes. We will disqualify the play submission that doesn't have an associated issue.",
   },
   {
-    question: "Do we get prizes?",
+    question: "Is sharing my journey on Twitter and LinkedIn of the #2PlaysAMonth a must?",
     answer:
-      "Yes, we will select 3 best ideas to give the exciting prizes sponsored by Nhost.",
+      "Yes, we encourage you to build and learn publicly. Make sure you add the tag #2playsamonth and ReactPlay handle when you post them on social media.",
   },
   {
-    question: "I have questions, where can I ask them?",
+    question: "When and How the #2PlaysAMonth result will be published?",
     answer:
-      "Got a question? Please join our Discord(the link is in the footer of this page). You can ask us anything in the hack-r-play channel.",
+      "The result will be published on 15th March. We will publish it on our website, blog, and Twitter handle(@reactplayio).",
+  },
+  {
+    question: "Do I get prizes?",
+    answer:
+      "We will publish 3 winners and 3 special mentions based on our judging criteria. All winners, special mentions, and participants who completed the target will receive digital badges. We are working with our sponsors to decide the prizes for the winners.",
+  },
+  {
+    question: " I have questions. Where can I ask them?",
+    answer:
+      "Got a question? Please join our Discord(https://discord.gg/UfYj4MvW9A). You can ask us anything in the activities channel.",
   },
 ];
 

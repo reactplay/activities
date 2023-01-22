@@ -23,7 +23,6 @@ const Partners = () => {
       </h1>
       <div className="container max-w-screen-xl">
         <div className="mt-5 flex flex-col justify-center items-center py-10 w-fit">
-          Coming Soon.
           {/* <div className="md:w-2/5 md:h-2/5 w-1/2 h-1/2">
             <a href="https://nhost.io" target="_blank" rel="noreferrer">
               <Image src={NhostLogo} alt="Nhost Logo" layout="responsive" />
