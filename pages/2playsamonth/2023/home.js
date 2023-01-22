@@ -18,6 +18,32 @@ import Winners from "@/components/Hack-R-Play/Winners";
 export default function Home() {
   const router = useRouter();
 
+  return (
+    <Layout title="ReactPlay presents HACK-R-PLAY">
+      <div className="absolute md:left-9 -top-10 left-5 z-0 md:w-32 md:h-32 w-24 h-24">
+        <Image
+          src={DottedAndFilledTriangle}
+          alt="Dotted And Filled Triangle"
+          layout="responsive"
+        />
+      </div>
+      <div className="absolute md:-right-60 md:-top-48 -right-24 -top-14 z-0 md:w-2/5 md:h-2/5 w-1/2 h-1/2">
+        <Image src={Flower} alt="Flower" layout="responsive" />
+      </div>
+      <Hero />
+      {/* <Winners winners={winners} mentions={mentions} /> */}
+      <About />
+      <Judges judges={judges} />
+      <Partners />
+      <CTA
+        title="Be a part of the best react event"
+        description="Learning is a journey than a destination. We developers need avenues, motivations, and opportunities to keep going. Join the Hack-R-Play hackathon to experience it. It will allow you to build a full-stack app using React and Nhost. Why waiting? Register your idea today.
+        "
+      />
+      <FAQs faqs={faqs} />
+    </Layout>
+  );
+
   const faqs = [
     {
       question: "Why should I perticipate in the Hack-R-Play?",
@@ -180,29 +206,5 @@ export default function Home() {
     },
   ];
 
-  return (
-    <Layout title="ReactPlay presents HACK-R-PLAY">
-      <div className="absolute md:left-9 -top-10 left-5 z-0 md:w-32 md:h-32 w-24 h-24">
-        <Image
-          src={DottedAndFilledTriangle}
-          alt="Dotted And Filled Triangle"
-          layout="responsive"
-        />
-      </div>
-      <div className="absolute md:-right-60 md:-top-48 -right-24 -top-14 z-0 md:w-2/5 md:h-2/5 w-1/2 h-1/2">
-        <Image src={Flower} alt="Flower" layout="responsive" />
-      </div>
-      <Hero />
-      <Winners winners={winners} mentions={mentions} />
-      <About />
-      <Judges judges={judges} />
-      <Partners />
-      <CTA
-        title="Be a part of the best react event"
-        description="Learning is a journey than a destination. We developers need avenues, motivations, and opportunities to keep going. Join the Hack-R-Play hackathon to experience it. It will allow you to build a full-stack app using React and Nhost. Why waiting? Register your idea today.
-        "
-      />
-      <FAQs faqs={faqs} />
-    </Layout>
-  );
+
 }
