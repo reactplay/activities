@@ -11,8 +11,8 @@ import {
   FAQs,
 } from "@/components/Hack-R-Play";
 
-import DottedAndFilledTriangle from "@/public/Hack-R-Play/DottedAndFilledTriangle.svg";
-import Flower from "@/public/Hack-R-Play/Flower.svg";
+import DottedAndFilledTriangle from "@/public/common/DottedAndFilledTriangle.svg";
+import Flower from "@/public/common/Flower.svg";
 import Winners from "@/components/Hack-R-Play/Winners";
 
 export default function Home() {

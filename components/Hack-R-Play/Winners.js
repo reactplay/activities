@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useCallback } from "react";
-import DottedPattern from "../../public/Hack-R-Play/DottedPattern.svg";
-import Lines from "../../public/Hack-R-Play/Lines.svg";
+import DottedPattern from "../../public/common/DottedPattern.svg";
+import Lines from "../../public/common/Lines.svg";
 import { FaRegFileCode, FaTwitter, FaGithub } from "react-icons/fa";
 import { MdOutlineSource, MdOutlineArticle } from "react-icons/md";
 import ConfettiGenerator from "confetti-js";

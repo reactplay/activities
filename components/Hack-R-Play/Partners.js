@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import PartnersPolygon from "../../public/Hack-R-Play/PartnersPolygon.svg";
+import PartnersPolygon from "../../public/common/PartnersPolygon.svg";
 import NhostLogo from "../../public/Hack-R-Play/NhostLogo.svg";
 import Link from "next/link";
 

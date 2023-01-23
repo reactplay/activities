@@ -4,12 +4,12 @@ import { PrimaryButton, SecondaryOutlinedButton } from "../Buttons";
 import { FiCheckCircle } from "react-icons/fi";
 import { BiRightArrowAlt } from "react-icons/bi";
 
-import GradientFlower from "../../public/Hack-R-Play/GradientFlower.svg";
-import Flower from "../../public/Hack-R-Play/Flower.svg";
-import GradientAndSmallTriangle from "../../public/Hack-R-Play/GradientAndSmallTriangle.svg";
+import GradientFlower from "../../public/common/GradientFlower.svg";
+import Flower from "../../public/common/Flower.svg";
+import GradientAndSmallTriangle from "../../public/common/GradientAndSmallTriangle.svg";
 import HeroCoders from "../../public/Hack-R-Play/HeroCoders.svg";
-import HeroLines from "../../public/Hack-R-Play/HeroLines.svg";
-import RadialGradient from "../../public/Hack-R-Play/RadialGradient.svg";
+import HeroLines from "../../public/common/HeroLines.svg";
+import RadialGradient from "../../public/common/RadialGradient.svg";
 import BannerLogo from "../../public/Hack-R-Play/BannerLogo.png";
 import ReactPlayLogo from "../../public/ReactPlayLogo.svg";
 import { GiPartyPopper } from "react-icons/gi";

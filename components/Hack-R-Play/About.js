@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import ReactPlayDotted from "../../public/Hack-R-Play/ReactPlayLogoDotted.svg";
-import Flower from "../../public/Hack-R-Play/Flower.svg";
+import ReactPlayDotted from "../../public/common/ReactPlayLogoDotted.svg";
+import Flower from "../../public/common/Flower.svg";
 import { FiExternalLink } from "react-icons/fi";
 
 const About = () => {
