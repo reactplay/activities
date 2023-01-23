@@ -5,28 +5,6 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 const Layout = ({ links, children, title, description }) => {
-  const home_links = [
-    {
-      name: "Winners",
-      href: "#winners",
-    },
-    {
-      name: "About",
-      href: "#about",
-    },
-    {
-      name: "Sponsors",
-      href: "#sponsors",
-    },
-    {
-      name: "Judges",
-      href: "#judges",
-    },
-    {
-      name: "Faqs",
-      href: "#faqs",
-    },
-  ];
   const currentPath = useRouter().pathname;
   const [secondaryNavbar, setSecondaryNavbar] = useState(false);
 

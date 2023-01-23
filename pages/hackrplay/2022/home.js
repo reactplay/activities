@@ -186,8 +186,31 @@ export default function Home() {
     },
   ];
 
+  const home_links = [
+    {
+      name: "Winners",
+      href: "#winners",
+    },
+    {
+      name: "About",
+      href: "#about",
+    },
+    {
+      name: "Sponsors",
+      href: "#sponsors",
+    },
+    {
+      name: "Judges",
+      href: "#judges",
+    },
+    {
+      name: "Faqs",
+      href: "#faqs",
+    },
+  ];
+
   return (
-    <Layout title="ReactPlay presents HACK-R-PLAY">
+    <Layout title="ReactPlay presents HACK-R-PLAY" links={home_links}>
       <div className="absolute md:left-9 -top-10 left-5 z-0 md:w-32 md:h-32 w-24 h-24">
         <Image
           src={DottedAndFilledTriangle}
