@@ -69,7 +69,7 @@ const Layout = ({ links, children, title, description }) => {
           src="https://analytics.reactplay.io/umami.js"
         />
       </Head>
-      <Header links={links || home_links} secondary={secondaryNavbar} />
+      <Header links={links} secondary={secondaryNavbar} />
       <main>{children}</main>
       <Footer />
     </div>
