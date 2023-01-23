@@ -138,6 +138,8 @@ export default function Home() {
     },
   ];
 
+
+
   return (
     <Layout title="ReactPlay presents #2Plays-A-Month" links={home_links}>
       <div className="absolute md:left-9 -top-10 left-5 z-0 md:w-32 md:h-32 w-24 h-24">
@@ -157,8 +159,7 @@ export default function Home() {
       <Partners />
       <CTA
         title="Be a part of the best react event"
-        description="Learning is a journey than a destination. We developers need avenues, motivations, and opportunities to keep going. Join the Hack-R-Play hackathon to experience it. It will allow you to build a full-stack app using React and Nhost. Why waiting? Register your idea today.
-        "
+        description="Learning is a journey than a destination. We, developers, need avenues, motivations, and opportunities to keep going. Join the #2PlayAMonth initiative to experience it. It will allow you to build a ReactJS app using and learning from code reviews. Why waiting? Get started today."
       />
       <FAQs faqs={faqs} />
     </Layout>
