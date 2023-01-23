@@ -13,6 +13,7 @@ import {
 
 import DottedAndFilledTriangle from "@/public/common/DottedAndFilledTriangle.svg";
 import Flower from "@/public/common/Flower.svg";
+import BannerLogo2playsamonth from "../../../public/Hack-R-Play/BannerLogo.png";
 // import Winners from "@/components/common/Winners";
 
 export default function Home() {
@@ -41,8 +42,7 @@ export default function Home() {
     },
     {
       question: "Can we participate as a team?",
-      answer:
-        "Nope. It's an individual event.",
+      answer: "Nope. It's an individual event.",
     },
     {
       question: "Can I use anything other than React?",
@@ -65,7 +65,8 @@ export default function Home() {
         "Yes. We will disqualify the play submission that doesn't have an associated issue.",
     },
     {
-      question: "Is sharing my journey on Twitter and LinkedIn of the #2PlaysAMonth a must?",
+      question:
+        "Is sharing my journey on Twitter and LinkedIn of the #2PlaysAMonth a must?",
       answer:
         "Yes, we encourage you to build and learn publicly. Make sure you add the tag #2playsamonth and ReactPlay handle when you post them on social media.",
     },
@@ -138,7 +139,12 @@ export default function Home() {
     },
   ];
 
-
+  const hero = {
+    logo: BannerLogo2playsamonth,
+    description:
+      "ReactPlay brings you an opportunity to participate in the month-long drive to learn and contribute to Open Source. Join the #2PlaysAMonth and build two projects(plays) in the month of February. You will learn from expert code reviews while contributing to Open Source - you may also win some exciting prizes.",
+      resultannounced: false,
+  };
 
   return (
     <Layout title="ReactPlay presents #2Plays-A-Month" links={home_links}>
@@ -152,7 +158,7 @@ export default function Home() {
       <div className="absolute md:-right-60 md:-top-48 -right-24 -top-14 z-0 md:w-2/5 md:h-2/5 w-1/2 h-1/2">
         <Image src={Flower} alt="Flower" layout="responsive" />
       </div>
-      <Hero />
+      <Hero hero={hero} />
       {/*<Winners winners={winners} mentions={mentions} />*/}
       <About />
       <Judges judges={judges} />

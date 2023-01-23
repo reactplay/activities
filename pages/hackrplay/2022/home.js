@@ -14,6 +14,7 @@ import {
 import DottedAndFilledTriangle from "@/public/common/DottedAndFilledTriangle.svg";
 import Flower from "@/public/common/Flower.svg";
 import Winners from "@/components/common/Winners";
+import BannerLogohackrplay from "../../../public/Hack-R-Play/BannerLogo.png";
 
 export default function Home() {
   const router = useRouter();
@@ -209,6 +210,13 @@ export default function Home() {
     },
   ];
 
+  const hero = {
+    logo: BannerLogohackrplay,
+    description:
+      "ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes ",
+    resultannounced: true,
+  };
+
   return (
     <Layout title="ReactPlay presents HACK-R-PLAY" links={home_links}>
       <div className="absolute md:left-9 -top-10 left-5 z-0 md:w-32 md:h-32 w-24 h-24">
@@ -221,7 +229,7 @@ export default function Home() {
       <div className="absolute md:-right-60 md:-top-48 -right-24 -top-14 z-0 md:w-2/5 md:h-2/5 w-1/2 h-1/2">
         <Image src={Flower} alt="Flower" layout="responsive" />
       </div>
-      <Hero />
+      <Hero hero={hero} />
       <Winners winners={winners} mentions={mentions} />
       <About />
       <Judges judges={judges} />

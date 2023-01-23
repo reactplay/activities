@@ -15,7 +15,7 @@ import ReactPlayLogo from "../../public/ReactPlayLogo.svg";
 import { GiPartyPopper } from "react-icons/gi";
 import { useRouter } from "next/router";
 
-const Hero = () => {
+const Hero = ({ hero }) => {
   const router = useRouter();
   const redirectToRegistration = () => {
     router.push("registration");
@@ -60,16 +60,18 @@ const Hero = () => {
           <Image src={BannerLogo} alt="Banner Logo" layout="responsive" />
         </div>
         <p className="text-center text-gray-300 font-body mt-7">
-          ReactPlay brings you the opportunity to take part in the Hackathon and
-          learn from it. Showcase your mindblowing ideas, build projects, and
-          create content - there are also chances to win exciting prizes.
+          {hero.description}
         </p>
         <div className="inline-flex md:flex-row flex-col justify-center items-center mt-8 z-10">
           <div className="md:mr-4 mr-0">
-            <PrimaryButton handleOnClick={() => router.push("#winners")}>
-              Winners
-              <GiPartyPopper className="ml-2 -mt-1" size={25} />
-            </PrimaryButton>
+            {hero.resultannounced ? (
+              <PrimaryButton handleOnClick={() => router.push("#winners")}>
+                Winners
+                <GiPartyPopper className="ml-2 -mt-1" size={25} />
+              </PrimaryButton>
+            ) : (
+              <PrimaryButton>REGISTRE NOW</PrimaryButton>
+            )}
           </div>
 
           <div className="md:mt-0 mt-4">
