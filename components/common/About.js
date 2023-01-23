@@ -4,7 +4,7 @@ import ReactPlayDotted from "../../public/common/ReactPlayLogoDotted.svg";
 import Flower from "../../public/common/Flower.svg";
 import { FiExternalLink } from "react-icons/fi";
 
-const About = () => {
+const About = ({ about = aboutSectionDetails }) => {
   return (
     <section
       id="about"
@@ -23,34 +23,24 @@ const About = () => {
             <span className="text-[#00F2FE]">About</span> this event
           </h2>
           <p className="mt-4 font-body text-gray-300">
-            Developers are lifetime hackers!
+            {about.title}
             <br /> <br />
-            <strong>Hack-R-Play</strong> is an initiative from the ReactPlay
-            platform to help you hack, build, learn, and simultaneously
-            contribute open source through #hacktoberfest.
+            <strong>{about.programme}</strong> {about.extract}
           </p>
-          <p className="mt-4 font-body text-gray-300">All for it? Here are some rules you need to keep in mind:</p>
+          <p className="mt-4 font-body text-gray-300">{about.rulesTitle}</p>
           <ul className="mt-6 font-body text-gray-300">
-            <li className="list-disc mt-1 ml-6">
-              It must be built in React Ecosystem. (eg - ReactJS, NextJS, RemixJS etc)
-            </li>
-            <li className="list-disc mt-1 ml-6">
-              The app must use one or more service of <a className="text-[#00F2FE] hover:underline" href="https://nhost.io" target="_blank" rel="noreferrer">Nhost backend</a>.
-            </li>
-            <li className="list-disc mt-1 ml-6">
-              Project source code must be open on github.
-            </li>
-            <li className="list-disc mt-1 ml-6">
-              You must deploy the app publicly.
-            </li>
-            <li className="list-disc mt-1 ml-6">
-              You must write an article about your journey of building it and
-              publish it on the ReactPlay blog.
-            </li>
+            {
+              about.rules.map((rule, index) => {
+                return <li className="list-disc mt-1 ml-6" key={about.programme + "rules" + index}>
+                  {/* {`${rule}`} */}
+                  <div dangerouslySetInnerHTML={{ __html: rule }} />
+                </li>
+              })
+            }
           </ul>
           <a
             className=" mt-4 inline-flex justify-center items-center font-body text-[#00F2FE] text-lg hover:underline transition-all duration-150"
-            href="https://blog.reactplay.io/announcing-hack-r-play-hackathon-from-react-play"
+            href={about.rulesLink}
             rel="noreferrer"
             target="_blank"
           >
@@ -58,20 +48,21 @@ const About = () => {
           </a>
         </div>
       </div>
+
       <div className="md:-mt-32 mt-8">
         <div className="w-fit h-fit border-2 border-[#68FDC6] rounded-tl-[6.5rem] flex justify-center items-center md:py-12 md:px-12 pt-12 pb-7 px-9 md:-ml-10">
           <p className=" text-[#68FDC6] font-primary md:text-3xl text-2xl mx-auto max-w-[8rem] max-h-32">
-            Build an App using React and Nhost
+            {about.steps[0]}
           </p>
         </div>
         <div className="w-fit h-fit border-2 border-white rounded-tr-[6.5rem] flex justify-center items-center md:py-14 md:px-12 py-7 px-9 md:ml-36 md:-mt-10 ml-20 -mt-3">
           <p className=" text-white font-primary md:text-3xl text-2xl  mx-auto max-w-[8.3rem] max-h-32">
-            Write an article on ReactPlay Blog about it
+            {about.steps[1]}
           </p>
         </div>
         <div className="w-fit h-fit border-2 border-[#00F2FE] rounded-br-[6.5rem] flex justify-center items-center md:py-14 md:px-12 py-7 px-9 md:ml-80 md:-mt-10 -mt-3">
           <p className=" text-[#00F2FE] font-primary md:text-3xl text-2xl mx-auto max-w-[8rem] max-h-32">
-            Submit the links to code, app, and article
+            {about.steps[2]}
           </p>
         </div>
       </div>
@@ -83,3 +74,24 @@ const About = () => {
 };
 
 export default About;
+
+const aboutSectionDetails = {
+  programme: "Hack-R-Play",
+  title: "Developers are lifetime hackers! 1",
+  extract: "is an initiative from the ReactPlay  platform to help you hack, build, learn, and simultaneously  contribute open source through #hacktoberfest.",
+  rulesTitle: "All for it? Here are some rules you need to keep in mind:",
+  rules: [
+    "It must be built in React Ecosystem. (eg - ReactJS, NextJS, RemixJS etc)",
+    "The app must use one or more service of <a className='text - [#00F2FE] hover: underline' href='https://nhost.io' target='_blank' rel='noreferrer'>Nhost backend</a>.",
+    "Project source code must be open on github.",
+    "You must deploy the app publicly.",
+    "You must write an article about your journey of building it and publish it on the ReactPlay blog."
+  ],
+  rulesLink: "https://blog.reactplay.io/announcing-hack-r-play-hackathon-from-react-play",
+  steps: [
+    "Build an App using React and Nhost",
+    "Write an article on ReactPlay Blog about it",
+    "Submit the links to code, app, and article",
+  ]
+
+}
