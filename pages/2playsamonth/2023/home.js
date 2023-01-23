@@ -13,7 +13,7 @@ import {
 
 import DottedAndFilledTriangle from "@/public/common/DottedAndFilledTriangle.svg";
 import Flower from "@/public/common/Flower.svg";
-import Winners from "@/components/Hack-R-Play/Winners";
+import Winners from "@/components/common/Winners";
 
 export default function Home() {
   const router = useRouter();

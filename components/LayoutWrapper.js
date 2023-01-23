@@ -1,6 +1,6 @@
 import Layout from '@/components/Layout';
-import Flower from '../public/Hack-R-Play/Flower.svg';
-import HeroLines from '../public/Hack-R-Play/HeroLines.svg';
+import Flower from '../public/common/Flower.svg';
+import HeroLines from '../public/common/HeroLines.svg';
 import DottedAndFilledTriangle from '../public/common/DottedAndFilledTriangle.svg';
 import Image from 'next/image';
 
