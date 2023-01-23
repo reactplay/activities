@@ -14,6 +14,7 @@ import BannerLogo from "../../public/Hack-R-Play/BannerLogo.png";
 import ReactPlayLogo from "../../public/ReactPlayLogo.svg";
 import { GiPartyPopper } from "react-icons/gi";
 import { useRouter } from "next/router";
+import { FaRegCheckCircle } from "react-icons/fa";
 
 const Hero = ({ hero }) => {
   const router = useRouter();
@@ -57,7 +58,7 @@ const Hero = ({ hero }) => {
         </div>
 
         <div className="-mt-3 block md:w-1/2 md:h-1/2 w-11/12 h-11/12">
-          <Image src={BannerLogo} alt="Banner Logo" layout="responsive" />
+          <Image src={hero.logo} alt="Banner Logo" layout="responsive" />
         </div>
         <p className="text-center text-gray-300 font-body mt-7">
           {hero.description}
@@ -70,7 +71,10 @@ const Hero = ({ hero }) => {
                 <GiPartyPopper className="ml-2 -mt-1" size={25} />
               </PrimaryButton>
             ) : (
-              <PrimaryButton>REGISTRE NOW</PrimaryButton>
+              <PrimaryButton>
+                REGISTRE NOW
+                <FaRegCheckCircle className="ml-2 -mt-1" size={25} />
+              </PrimaryButton>
             )}
           </div>
 

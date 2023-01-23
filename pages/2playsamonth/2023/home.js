@@ -143,8 +143,10 @@ export default function Home() {
     logo: BannerLogo2playsamonth,
     description:
       "ReactPlay brings you an opportunity to participate in the month-long drive to learn and contribute to Open Source. Join the #2PlaysAMonth and build two projects(plays) in the month of February. You will learn from expert code reviews while contributing to Open Source - you may also win some exciting prizes.",
-      resultannounced: false,
+    resultannounced: false,
   };
+
+  const partners = null;
 
   return (
     <Layout title="ReactPlay presents #2Plays-A-Month" links={home_links}>
@@ -162,7 +164,7 @@ export default function Home() {
       {/*<Winners winners={winners} mentions={mentions} />*/}
       <About />
       <Judges judges={judges} />
-      <Partners />
+      <Partners partners={partners} />
       <CTA
         title="Be a part of the best react event"
         description="Learning is a journey than a destination. We, developers, need avenues, motivations, and opportunities to keep going. Join the #2PlayAMonth initiative to experience it. It will allow you to build a ReactJS app using and learning from code reviews. Why waiting? Get started today."
