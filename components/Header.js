@@ -61,7 +61,7 @@ const Header = ({ links, secondary = false }) => {
 			) : (
 				<header className='pt-6 pb-1 px-4 flex md:justify-center justify-end items-baseline bg-transparent font-primary text-white z-10'>
 					<div className='md:inline-flex hidden justify-center items-baseline mx-auto z-10'>
-						{links.map((link, index) => (
+						{links && links.map((link, index) => (
 							<Link
 								key={index}
 								href={`${link.href}`}
