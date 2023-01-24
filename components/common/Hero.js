@@ -4,9 +4,7 @@ import { PrimaryButton, SecondaryOutlinedButton } from "../Buttons";
 import { FiCheckCircle } from "react-icons/fi";
 import { BiRightArrowAlt } from "react-icons/bi";
 
-import GradientFlower from "../../public/common/GradientFlower.svg";
 import Flower from "../../public/common/Flower.svg";
-import GradientAndSmallTriangle from "../../public/common/GradientAndSmallTriangle.svg";
 import HeroCoders from "../../public/Hack-R-Play/HeroCoders.svg";
 import HeroLines from "../../public/common/HeroLines.svg";
 import RadialGradient from "../../public/common/RadialGradient.svg";
@@ -18,9 +16,7 @@ import { useEffect } from "react";
 const Hero = ({ metainfo }) => {
   const router = useRouter();
 
-  useEffect(() => {
-    console.error(metainfo);
-  }, [metainfo]);
+  useEffect(() => {}, [metainfo]);
   const redirectToRegistration = () => {
     router.push("registration");
   };
@@ -35,7 +31,7 @@ const Hero = ({ metainfo }) => {
         <section className="relative flex py-6 md:px-8 px-4 justify-center items-center overflow-clip">
           <div className="absolute -left-12 md:top-36 top-80 md:w-40 md:h-40 w-24 h-24 z-0">
             <Image
-              src={GradientFlower}
+              src={require(`/public/${metainfo.name}/GradientFlower.svg`)}
               alt="Hero Gradient Flower"
               layout="responsive"
             />
@@ -45,7 +41,7 @@ const Hero = ({ metainfo }) => {
           </div>
           <div className="md:block hidden absolute md:-right-14 md:top-96 md:w-44 md:h-44">
             <Image
-              src={GradientAndSmallTriangle}
+              src={require(`public/${metainfo.name}/GradientAndSmallTriangle.svg`)}
               alt="Gradient AndSmall Triangle"
               layout="responsive"
             />

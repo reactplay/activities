@@ -1,11 +1,6 @@
 import Image from "next/image";
 
-// import PartnersPolygon from "../../public/common/PartnersPolygon.svg";
-
 const Partners = ({ metainfo }) => {
-  if (!metainfo || !metainfo.name) {
-    return null;
-  }
   return (
     <section
       id="sponsors"
@@ -13,7 +8,7 @@ const Partners = ({ metainfo }) => {
     >
       <div className="absolute right-1 top-0 md:w-44 md:h-44 w-20 h-20 ">
         <Image
-          src={PartnersPolygon}
+          src={require(`/public/${metainfo.name}/PartnersPolygon.svg`)}
           alt="Partners Polygon"
           layout="responsive"
         />
@@ -23,32 +18,40 @@ const Partners = ({ metainfo }) => {
         Our Sponsors
       </h1>
       <div className="container max-w-screen-xl">
-        {metainfo.partners.map((p, p_i) => {
-          return (
-            <div
-              className="mt-5 flex flex-col justify-center items-center py-10 w-fit"
-              key={p_i}
-            >
-              <div className="md:w-2/5 md:h-2/5 w-1/2 h-1/2">
-                <a href="https://nhost.io" target="_blank" rel="noreferrer">
-                  <Image
-                    src={require(`/public/${metainfo.name}/${p.logo}`)}
-                    alt={`${p.display} logo`}
-                    layout="responsive"
-                  />
-                </a>
-              </div>
-              <p className="text-center text-gray-300 font-body mt-5">
-                {p.text}
-              </p>
-              <div className="text-[#00F2FE] hover:underline font-body mt-5 md:px-56">
-                <a href={`${p.link}`} rel="noreferrer" target="_blank">
-                  Read {p.display} Documentation
-                </a>
-              </div>
-            </div>
-          );
-        })}
+        {metainfo ? (
+          <>
+            {metainfo.partners.map((p, p_i) => {
+              const imageLink = "/public/twoplaysamonth/partner0.svg"; //`/public/${metainfo.name}/${p.image}`;
+              return (
+                <div
+                  className="mt-5 flex flex-col justify-center items-center py-10"
+                  key={p_i}
+                >
+                  <div className="md:w-2/5 md:h-2/5 w-1/2 h-1/2">
+                    <a href={`${p.link}`} target="_blank" rel="noreferrer">
+                      {/* <Image
+                        // src={require(imageLink)}
+                        src={require(`/public/${metainfo.name}/${p.logo}`)}
+                        // alt={`${p.display} logo`}
+                        layout="responsive"
+                      /> */}
+                    </a>
+                  </div>
+                  <p className="text-center text-gray-300 font-body mt-5">
+                    {p.text}
+                  </p>
+                  <div className="text-[#00F2FE] hover:underline font-body mt-5 md:px-56">
+                    <a href={`${p.link}`} rel="noreferrer" target="_blank">
+                      Read {p.display} Documentation
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </>
+        ) : null}
+
+        {/*  */}
       </div>
     </section>
   );

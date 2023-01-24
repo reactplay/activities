@@ -129,10 +129,10 @@ export const Config = {
   },
   partners: [
     {
-      logo: "partner_o.png",
-      text: "Al hibibi, cha khabi ki",
-      display: "StackStream",
-      link: "https://www.stack-stream.com/",
+      logo: "NhostLogo.svg",
+      text: "Nhost is the open source GraphQL backend (Firebase Alternative) and a development platform. Nhost is doing for the backend, what Netlify and Vercel are doing for the frontend. It make things easy to build and deploy this backend using our platform that takes care of configuration, security, and performance. Things just works andscale automatically so you can focus on your product and on your business.",
+      display: "NHost",
+      link: "https://docs.nhost.io/",
     },
   ],
 };

@@ -7,7 +7,7 @@ import { useTheme } from "next-themes";
 import About from "@/components/common/About";
 import Judges from "@/components/common/Judges";
 import Hero from "@/components/common/Hero";
-// import Partners from "@/components/common/Partners";
+import Partners from "@/components/common/Partners";
 import CTA from "@/components/common/CTA";
 import FAQs from "@/components/common/FAQs";
 
@@ -48,7 +48,7 @@ export default function Home() {
       ) : null}
       <About metainfo={Config} />
       <Judges metainfo={Config} />
-      {/* {Config.partners ? <Partners metainfo={Config} /> : null} */}
+      {Config.partners ? <Partners metainfo={Config} /> : null}
       {Config.cta ? <CTA metainfo={Config} /> : null}
 
       {Config.faqs ? <FAQs metainfo={Config} /> : null}
