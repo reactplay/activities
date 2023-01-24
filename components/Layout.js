@@ -7,11 +7,15 @@ import Header from "./Header";
 const Layout = ({ links, children, title, description }) => {
   const currentPath = useRouter().pathname;
   const [secondaryNavbar, setSecondaryNavbar] = useState(false);
+  const [header, setHeader]=useState()
 
   useEffect(() => {
     if (currentPath === "/hackrplay/2022/home" || currentPath === "/2playsamonth/2023/home") {
       setSecondaryNavbar(false);
-    } else {
+    }else if(currentPath === '/'){
+      setHeader(false)
+    }
+     else {
       setSecondaryNavbar(true);
     }
   }, []);
@@ -69,7 +73,7 @@ const Layout = ({ links, children, title, description }) => {
           src="https://analytics.reactplay.io/umami.js"
         />
       </Head>
-      <Header links={links} secondary={secondaryNavbar} />
+     { header && <Header links={links} secondary={secondaryNavbar} />}
       <main>{children}</main>
       <Footer />
     </div>

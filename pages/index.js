@@ -2,32 +2,28 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
 import BannerLogo from "../public/Hack-R-Play/BannerLogo.png";
-import Banner from "@/components/Banner";
+import Banner from "@/components/CurrentInitiatives";
 import PastInitialives from "@/components/PastInitialives";
+import CurrentInitiatives from "@/components/CurrentInitiatives";
 
 
 export default function Home() {
 	const router = useRouter();
-	// useEffect(() => {
-	// 	router.push('/hackrplay/2022/home');
-	// }, []);
-	const recentEvent={
-		name: '#2PlaysAMonth',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, debitis?'
-	}
+
 	const pastEvents = [
 		{
 			name: "Hack-R-Play",
 			description: 'ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes.',
 			image: BannerLogo,
-			link: `/hackrplay/2022/home`
+			link: `/hackrplay/2022/home`,
+			inProgess: false
 		},
 		
 	];
 	const EventLayout = () => {
 		return (
 			<div>
-				<Banner recentEvent={recentEvent}/>
+				<CurrentInitiatives />
 				<PastInitialives pastEvents={pastEvents}/>
 			</div>
 		);
@@ -35,7 +31,7 @@ export default function Home() {
 	
 
 	return (
-		<Layout title="ReactPlay presents HACK-R-PLAY">
+		<Layout title="Initiatives by ReactPlay">
 			<EventLayout/>
 		</Layout>
 	);
