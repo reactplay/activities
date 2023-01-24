@@ -1,3 +1,4 @@
+import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 
 import { NhostNextProvider, NhostClient } from "@nhost/nextjs";
@@ -9,9 +10,11 @@ const nhost = new NhostClient({
 
 function MyApp({ Component, pageProps }) {
   return (
-    <NhostNextProvider nhost={nhost} initial={pageProps.nhostSession}>
-      <Component {...pageProps} />
-    </NhostNextProvider>
+    <ThemeProvider>
+      <NhostNextProvider nhost={nhost} initial={pageProps.nhostSession}>
+        <Component {...pageProps} />
+      </NhostNextProvider>
+    </ThemeProvider>
   );
 }
 

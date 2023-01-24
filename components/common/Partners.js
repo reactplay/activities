@@ -1,10 +1,11 @@
 import Image from "next/image";
 
-import PartnersPolygon from "../../public/common/PartnersPolygon.svg";
-import NhostLogo from "../../public/Hack-R-Play/NhostLogo.svg";
-import Link from "next/link";
+// import PartnersPolygon from "../../public/common/PartnersPolygon.svg";
 
-const Partners = () => {
+const Partners = ({ metainfo }) => {
+  if (!metainfo || !metainfo.name) {
+    return null;
+  }
   return (
     <section
       id="sponsors"
@@ -22,26 +23,32 @@ const Partners = () => {
         Our Sponsors
       </h1>
       <div className="container max-w-screen-xl">
-        <div className="mt-5 flex flex-col justify-center items-center py-10 w-fit">
-          <div className="md:w-2/5 md:h-2/5 w-1/2 h-1/2">
-            <a href="https://nhost.io" target="_blank" rel="noreferrer">
-              <Image src={NhostLogo} alt="Nhost Logo" layout="responsive" />
-            </a>
-          </div>
-          <p className="text-center text-gray-300 font-body mt-5">
-            Nhost is the open source GraphQL backend (Firebase Alternative) and a
-            development platform. Nhost is doing for the backend, what Netlify and
-            Vercel are doing for the frontend. It make things easy to build and
-            deploy this backend using our platform that takes care of
-            configuration, security, and performance. Things just works and scale
-            automatically so you can focus on your product and on your business.
-          </p>
-          <div className="text-[#00F2FE] hover:underline font-body mt-5 md:px-56">
-            <a href="https://docs.nhost.io/" rel="noreferrer" target="_blank">
-              Read Nhost Documentation
-            </a>
-          </div>
-        </div>
+        {metainfo.partners.map((p, p_i) => {
+          return (
+            <div
+              className="mt-5 flex flex-col justify-center items-center py-10 w-fit"
+              key={p_i}
+            >
+              <div className="md:w-2/5 md:h-2/5 w-1/2 h-1/2">
+                <a href="https://nhost.io" target="_blank" rel="noreferrer">
+                  <Image
+                    src={require(`/public/${metainfo.name}/${p.logo}`)}
+                    alt={`${p.display} logo`}
+                    layout="responsive"
+                  />
+                </a>
+              </div>
+              <p className="text-center text-gray-300 font-body mt-5">
+                {p.text}
+              </p>
+              <div className="text-[#00F2FE] hover:underline font-body mt-5 md:px-56">
+                <a href={`${p.link}`} rel="noreferrer" target="_blank">
+                  Read {p.display} Documentation
+                </a>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
