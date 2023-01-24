@@ -14,6 +14,8 @@ import {
 import DottedAndFilledTriangle from "@/public/common/DottedAndFilledTriangle.svg";
 import Flower from "@/public/common/Flower.svg";
 import Winners from "@/components/common/Winners";
+import BannerLogohackrplay from "../../../public/Hack-R-Play/BannerLogo.png";
+import NhostLogo from "../../../public/Hack-R-Play/NhostLogo.svg";
 
 export default function Home() {
   const router = useRouter();
@@ -209,6 +211,21 @@ export default function Home() {
     },
   ];
 
+  const hero = {
+    logo: BannerLogohackrplay,
+    description:
+      "ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes ",
+    resultannounced: true,
+  };
+
+  const partners = {
+    partnerName: "Nhost",
+    partnerLogo: NhostLogo,
+    partnerdescription:
+      "Nhost is the open source GraphQL backend (Firebase Alternative) and a development platform. Nhost is doing for the backend, what Netlify and Vercel are doing for the frontend. It make things easy to build and deploy this backend using our platform that takes care of configuration, security, and performance. Things just works and scale automatically so you can focus on your product and on your business.",
+    partnerdocs: "https://docs.nhost.io/",
+  };
+
   return (
     <Layout title="ReactPlay presents HACK-R-PLAY" links={home_links}>
       <div className="absolute md:left-9 -top-10 left-5 z-0 md:w-32 md:h-32 w-24 h-24">
@@ -221,11 +238,11 @@ export default function Home() {
       <div className="absolute md:-right-60 md:-top-48 -right-24 -top-14 z-0 md:w-2/5 md:h-2/5 w-1/2 h-1/2">
         <Image src={Flower} alt="Flower" layout="responsive" />
       </div>
-      <Hero />
+      <Hero hero={hero} />
       <Winners winners={winners} mentions={mentions} />
       <About />
       <Judges judges={judges} />
-      <Partners />
+      <Partners partners={partners} />
       <CTA
         title="Be a part of the best react event"
         description="Learning is a journey than a destination. We developers need avenues, motivations, and opportunities to keep going. Join the Hack-R-Play hackathon to experience it. It will allow you to build a full-stack app using React and Nhost. Why waiting? Register your idea today.
