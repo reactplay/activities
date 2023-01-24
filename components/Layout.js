@@ -7,7 +7,7 @@ import Header from "./Header";
 const Layout = ({ links, children, title, description }) => {
   const currentPath = useRouter().pathname;
   const [secondaryNavbar, setSecondaryNavbar] = useState(false);
-  const [header, setHeader]=useState()
+  const [header, setHeader]=useState(true)
 
   useEffect(() => {
     if (currentPath === "/hackrplay/2022/home" || currentPath === "/2playsamonth/2023/home") {
