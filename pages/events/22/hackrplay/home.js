@@ -14,8 +14,8 @@ import Layout from '@/components/Layout';
 // import DottedAndFilledTriangle from '@/public/common/DottedAndFilledTriangle.svg';
 // import Flower from '@/public/common/Flower.svg';
 // import Winners from '@/components/common/Winners';
-import BannerLogohackrplay from '../../../public/Hack-R-Play/BannerLogo.png';
-import NhostLogo from '../../../public/Hack-R-Play/NhostLogo.svg';
+// import BannerLogohackrplay from '../../../public/Hack-R-Play/BannerLogo.png';
+// import NhostLogo from '../../../public/Hack-R-Play/NhostLogo.svg';
 
 export default function Home() {
 	const router = useRouter();
