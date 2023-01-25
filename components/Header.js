@@ -43,8 +43,6 @@ const Header = ({ links, metainfo, secondary = false }) => {
   const redirectToRegistration = () => {
     router.push("/hackrplay/2022/registration");
   };
-  console.error(links);
-  console.error(secondary);
 
   return (
     <>
