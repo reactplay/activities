@@ -4,10 +4,7 @@ import ReactPlayDotted from "../../public/common/ReactPlayLogoDotted.svg";
 import Flower from "../../public/common/Flower.svg";
 import { FiExternalLink } from "react-icons/fi";
 import { ThemeConfig } from "@/services/consts/theme";
-<<<<<<< 2-plays-a-month-link
 import { LinkLabel } from "../LinkLabel";
-=======
->>>>>>> main
 
 const About = ({ metainfo }) => {
   return (
