@@ -23,12 +23,6 @@ const Partners = ({ metainfo }) => {
 				{metainfo ? (
 					<>
 						{metainfo.partners.map((p, p_i) => {
-							console.error(
-								`/public/${metainfo.name}/PartnersPolygon.svg`
-							);
-							console.error(
-								`/public/${metainfo.name}/${p.image}`
-							);
 							return (
 								<div
 									className='mt-5 flex flex-col justify-center items-center py-10'
@@ -38,17 +32,11 @@ const Partners = ({ metainfo }) => {
 											href={`${p.link}`}
 											target='_blank'
 											rel='noreferrer'>
-											{/* <Image
+											<Image
 												src={require(`/public/${metainfo.name}/partner0.jpg`)}
 												alt={`${p.display} logo`}
 												layout='responsive'
 											/>
-											<Image
-												// src={require(imageLink)}
-												src={require(`/public/${metainfo.name}/${p.image}`)}
-												alt={`${p.display} logo`}
-												layout='responsive'
-											/> */}
 										</a>
 									</div>
 									<p className='text-center text-gray-300 font-body mt-5'>
