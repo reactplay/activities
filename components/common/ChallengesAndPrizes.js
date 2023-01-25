@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import GradientAndSmallTriangle from "../../public/Hack-R-Play/GradientAndSmallTriangle.svg";
+import GradientAndSmallTriangle from "../../public/common/GradientAndSmallTriangle.svg";
 
 const ChallengesAndPrizes = () => {
   return (

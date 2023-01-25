@@ -1,14 +1,15 @@
 import Image from "next/image";
 
-import DottedPattern from "../../public/Hack-R-Play/DottedPattern.svg";
-import Lines from "../../public/Hack-R-Play/Lines.svg";
+import DottedPattern from "../../public/common/DottedPattern.svg";
+import Lines from "../../public/common/Lines.svg";
 import { FaTwitter } from "react-icons/fa";
+import { ThemeConfig } from "@/services/consts/theme";
 
-const Judges = ({ judges }) => {
+const Judges = ({ metainfo }) => {
   return (
     <section
       id="judges"
-      className="relative mt-16 bg-white bg-opacity-10 flex flex-col justify-center items-center py-24 px-6"
+      className={`relative mt-16 bg-brand-primary-highlight bg-opacity-10 flex flex-col justify-center items-center py-24 px-6`}
     >
       <div className="absolute md:-left-16 md:top-6 -left-20 top-3">
         <Image
@@ -26,7 +27,7 @@ const Judges = ({ judges }) => {
         Judges & Mentors
       </h1>
       <div className="inline-flex md:flex-row flex-col justify-center items-start md:mt-14 mt-6 py-3 z-10 mx-auto">
-        {judges.map((judge, index) => (
+        {metainfo.judges.map((judge, index) => (
           <div
             key={index}
             className="md:mr-12 md:last:mr-0 md:mt-0 mt-4 flex mb-8 flex-col justify-center items-start font-body max-w-xs"

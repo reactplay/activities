@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require("tailwindcss/plugin");
 module.exports = {
-  darkMode: "class",
+  darkMode: false,
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -19,6 +19,10 @@ module.exports = {
         "brand-hightlight": "#32f9e5",
         "brand-title": "#00F2FE",
         "brand-muted": "#ffffff99",
+        "brand-bg": "var(--color-brand-bg)",
+        "brand-white": "var(--color-brand-white)",
+        "brand-highlight": "var(--color-brand-highlight)",
+        "brand-primary-highlight": "var(--color-brand-primary-highlight)",
       },
       keyframes: {
         shimmer: {

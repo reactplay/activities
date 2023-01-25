@@ -5,6 +5,31 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html,
+body {
+  height: 100%;
+  display: grid;
   scroll-behavior: smooth;
 }
+
+#__next {
+  height: 100%;
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+}
+
+
+  
+  [data-theme="hackrplay"] {
+    --color-brand-bg: #051630;
+    --color-brand-highlight: #00F2FE;
+    --color-brand-primary-highlight: #4831D4;
+    --color-brand-white: #FFFFFF
+  }
+
+  [data-theme="twoplaysamonth"] {
+    --color-brand-bg: #1D1455;
+    --color-brand-highlight: #CCF381;
+    --color-brand-primary-highlight: #684EFF;
+    --color-brand-white: #FFFFFF
+  }

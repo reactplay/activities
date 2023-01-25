@@ -1,7 +1,7 @@
 import Layout from '@/components/Layout';
-import Flower from '../public/Hack-R-Play/Flower.svg';
-import HeroLines from '../public/Hack-R-Play/HeroLines.svg';
-import DottedAndFilledTriangle from '../public/Hack-R-Play/DottedAndFilledTriangle.svg';
+import Flower from '../public/common/Flower.svg';
+import HeroLines from '../public/common/HeroLines.svg';
+import DottedAndFilledTriangle from '../public/common/DottedAndFilledTriangle.svg';
 import Image from 'next/image';
 
 const links = [
@@ -15,7 +15,7 @@ const links = [
 	},
 ];
 
-export default function LayoutWrapper({ title, description, children }) {
+export default function LayoutWrapper({ title, description, children}) {
 	return (
 		<Layout links={links} title={title} description={description}>
 			<div className='absolute left-9 -top-10 opacity-50'>
