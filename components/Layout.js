@@ -12,8 +12,8 @@ const Layout = ({ children, title, description, metainfo }) => {
 
   useEffect(() => {
     if (
-      currentPath === "/hackrplay/2022/home" ||
-      currentPath === "/2playsamonth/2023/home"
+      currentPath === "/events/23/hackrplay/2022/home" ||
+      currentPath === "/events/23/twoplaysamonth"
     ) {
       setSecondaryNavbar(false);
     } else {
