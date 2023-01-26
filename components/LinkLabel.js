@@ -13,7 +13,7 @@ export const LinkLabel = ({ value, cclass, lclass }) => {
         .replace(/\r\n|\r|\n/gim, "<br>") // linebreaks
         .replace(
           /\[([^\[]+)\](\(([^)]*))\)/gim,
-          `<a class='${lclass}' tarrget="_blank" href="$3"><span className='${lclass}'>$1</span></a>`
+          `<a class='${lclass}' target="_blank" rel="noreferrer" href="$3"><span className='${lclass}'>$1</span></a>`
         ); // anchor tags
       setHtmlValue(html);
     }

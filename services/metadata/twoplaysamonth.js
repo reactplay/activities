@@ -97,7 +97,7 @@ export const Config = {
     },
     {
       question: "Can we participate as a team?",
-      answer: "Nope. It's an individual event.",
+      answer: "Nope. It's an individual event. However, feel free to collaborate with others.",
     },
     {
       question: "Can I use anything other than React?",
@@ -123,7 +123,7 @@ export const Config = {
       question:
         "Is sharing my journey on Twitter and LinkedIn of the #2PlaysAMonth a must?",
       answer:
-        "Yes, we encourage you to build and learn publicly. Make sure you add the tag #2playsamonth and ReactPlay handle when you post them on social media.",
+        "Yes, we encourage you to build and learn publicly. Make sure you add the tag #2PlaysAMonth and ReactPlay handle when you post them on social media.",
     },
     {
       question: "When and How the #2PlaysAMonth result will be published?",
@@ -144,7 +144,7 @@ export const Config = {
   cta: {
     title: "Be a part of the best react event",
     description:
-      "Learning is a journey than a destination. We, developers, need avenues, motivations, and opportunities to keep going. Join the #2PlayAMonth initiative to experience it. It will allow you to build a ReactJS app using and learning from code reviews. Why waiting? Get started today.",
+      "Learning is a journey than a destination. We, developers, need avenues, motivations, and opportunities to keep going. Join the #2PlaysAMonth initiative to experience it. It will allow you to build a ReactJS app using and learning from code reviews. Why waiting? Get started today.",
   },
   partners: [
     {
