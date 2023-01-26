@@ -144,7 +144,7 @@ export const Config = {
   cta: {
     title: "Be a part of the best react event",
     description:
-      "Learning is a journey than a destination. We, developers, need avenues, motivations, and opportunities to keep going. Join the #2PlayAMonth initiative to experience it. It will allow you to build a ReactJS app using and learning from code reviews. Why waiting? Get started today.",
+      "Learning is a journey than a destination. We, developers, need avenues, motivations, and opportunities to keep going. Join the #2PlaysAMonth initiative to experience it. It will allow you to build a ReactJS app using and learning from code reviews. Why waiting? Get started today.",
   },
   partners: [
     {
