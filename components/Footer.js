@@ -25,7 +25,7 @@ const Footer = () => {
           <Image src={ReactPlayLogo} alt="ReactPlay Logo" layout="fixed" />
         </a>
         <p className="mt-2 font-medium font-body text-gray-400 text-center">
-          An open-source project made with ❤️ by Tapas Adhikary and friends.
+          An open-source project made with ❤️ by folks dedicated to give back to the developer community.
         </p>
         <p className="mt-2 mb-2 font-medium font-body text-gray-400 text-center underline underline-offset-2 hover:text-gray-200">
           <Link href={`/tech-credit`}>
