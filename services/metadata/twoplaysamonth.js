@@ -22,7 +22,7 @@ export const Config = {
     },
   ],
   subtitle:
-    "ReactPlay brings you an opportunity to participate in the month-long drive to learn and contribute to Open Source. Join the #2PlaysAMonth and build two projects(plays) in the month of February. You will learn from expert code reviews while contributing to Open Source - you may also win some exciting prizes",
+    "ReactPlay brings you an opportunity to participate in the month-long drive to learn and contribute to Open Source. Join the #2PlaysAMonth and build two projects(plays) in the month of February. You will learn from expert code reviews while contributing to Open Source - you may also win some exciting prizes.",
   about: {
     texts: [
       "#2PlaysAMonth is an initiative from the RaectPlay community to help you learn, build, and simultaneously contribute to open source throughout the month of February.",
@@ -33,10 +33,10 @@ export const Config = {
       "You must follow the [Create a Play](https://github.com/reactplay/react-play/blob/main/CREATE-PLAY.md) steps to create the play. Please [create an issue](https://github.com/reactplay/react-play/issues/new/choose) on the ReactPlay repository for each pull request.",
       "Your play must have `#2PlaysAMonth` tag added to it while creating.",
       "You can build any play of your choice. If you are looking for ideas, [here are some you can get inspired by](https://reactplay.io/ideas).",
-      "Share a Tweet and/or LinkedIn Post announcing your participation and PR merge with the hashtag `#2PlaysAMonth` and tag ReactPlay's handle(@ReactPlayIO)",
       "You must register on [stackstream](https://www.stack-stream.com/).",
-      "Create a demo on [stackstream](https://www.stack-stream.com/) explaining your work and add the recording link into your project readme file.",
-      "Additionally, if you spend at least 5 hours streaming on [stackstream](https://www.stack-stream.com/) in the February month, you qualify for additional bonus points to redeem from stackstream."
+      "Create a demo on [stackstream](https://www.stack-stream.com/) explaining your work and add the recording link to your play by editing it.",
+      "Additionally, if you spend at least 5 hours streaming on [stackstream](https://www.stack-stream.com/) in the February month, you qualify for additional bonus points(karma) to win.",
+      "Share a Tweet and/or LinkedIn Post announcing your participation and PR merge with the hashtag `#2PlaysAMonth` and tag ReactPlay's handle(@ReactPlayIO)",
     ],
     footer:
       "Please join the [ReactPlay discord server](https://discord.gg/UfYj4MvW9A) to get any help while you are building. Also, check the [FAQ](https://hustles.reactplay.io/events/23/twoplaysamonth#faqs) section for more details.",
@@ -137,7 +137,7 @@ export const Config = {
       question:
         "What about the 5 hours of streaming a month and bonus points?",
       answer:
-        "You can use the stackstream platform for free in the entire duration of #2PlaysAMonth challenge. You can collaborate, share your learnings, demo, etc. If you cross 5 hours of streaming on the platform, you earn bonus points as karma which you can redeem to win additional prizes.",
+        "There is a chance to win bonus points if you spend at least 5 hours streaming on stackstream in the February month. For each  hour, you will get a  bonus point(karma). You can use the stackstream platform for free in the entire duration of the #2PlaysAMonth challenge. You can collaborate, share your learnings, demo, etc. Based on your Karma points you got from your streaming and engagement , you can also win something (even if  you couldn't finish your play). Top 3 highest karma point holder will get 3 exciting prizes from stackstream (the threshold is 100 karma points).",
     },
     {
       question: "When and How the #2PlaysAMonth result will be published?",
