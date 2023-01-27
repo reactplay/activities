@@ -34,6 +34,7 @@ export const Config = {
       "Your play must have `#2PlaysAMonth` tag added to it while creating.",
       "You can build any play of your choice. If you are looking for ideas, [here are some you can get inspired by](https://reactplay.io/ideas).",
       "Share a Tweet and/or LinkedIn Post announcing your participation and PR merge with the hashtag `#2PlaysAMonth` and tag ReactPlay's handle(@ReactPlayIO)",
+      "You must register on [stackstream](https://www.stack-stream.com/).",
       "Create a demo on [stackstream](https://www.stack-stream.com/) explaining your work and add the recording link into your project readme file.",
       "Additionally, if you spend at least 5 hours streaming on [stackstream](https://www.stack-stream.com/) in the February month, you qualify for additional bonus points to redeem from stackstream."
     ],
