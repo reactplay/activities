@@ -49,11 +49,11 @@ const Layout = ({ children, title, description, metainfo }) => {
             <meta name="twitter:card" content="summary_large_image" />
             <meta
               name="description"
-              content="ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes."
+              content={metainfo.description}
             />
             <meta
               property="og:description"
-              content="ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes."
+              content={metainfo.description}
             />
             <meta property="og:title" content={title} />
             <meta
@@ -62,13 +62,13 @@ const Layout = ({ children, title, description, metainfo }) => {
             />
             <meta
               property="og:image:alt"
-              content="ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes."
+              content={metainfo.description}
             />
             <meta property="og:url" content="https://hustles.reactplay.io" />
             <meta name="twitter:title" content={title} />
             <meta
               name="twitter:description"
-              content="ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes."
+              content={metainfo.description}
             />
             <meta
               name="twitter:image"

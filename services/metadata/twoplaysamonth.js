@@ -29,19 +29,20 @@ export const Config = {
       "Would you be up for it? Here are a few things to keep in mind before you get started:",
     ],
     bullets: [
-      "You have to complete two plays(React Projects) in ReactPlay between February 1st to February 28th 2023. By complete, we mean the play Pull Requests must be merged by the community reviewers.",
-      "You must follow the [Create a Play](https://github.com/reactplay/react-play/blob/main/CREATE-PLAY.md) steps to create the play.",
-      "Your play must have at least `#2plays1month` tag added to it while creating.",
+      "You must complete two plays(React Projects) in ReactPlay between February 1st to February 28th 2023.",
+      "You must follow the [Create a Play](https://github.com/reactplay/react-play/blob/main/CREATE-PLAY.md) steps to create the play. Please [create an issue](https://github.com/reactplay/react-play/issues/new/choose) on the ReactPlay repository for each pull request.",
+      "Your play must have `#2PlaysAMonth` tag added to it while creating.",
       "You can build any play of your choice. If you are looking for ideas, [here are some you can get inspired by](https://reactplay.io/ideas).",
-      "You must share a weekly Tweet and/or LinkedIn Post about your journey with the hashtag `#2plays1month` and tag ReactPlay's handle(@ReactPlayIO)",
-      "You must [create an issue](https://github.com/reactplay/react-play/issues/new/choose) on the ReactPlay repository for each pull request.",
+      "Share a Tweet and/or LinkedIn Post announcing your participation and PR merge with the hashtag `#2PlaysAMonth` and tag ReactPlay's handle(@ReactPlayIO)",
+      "Create a demo on [stackstream](https://www.stack-stream.com/) explaining your work and add the recording link into your project readme file.",
+      "Additionally, if you spend at least 5 hours streaming on [stackstream](https://www.stack-stream.com/) in the February month, you qualify for additional bonus points to redeem from stackstream."
     ],
     footer:
-      "Please join the [ReactPlay discord server](https://discord.gg/UfYj4MvW9A) to get any help while you are building.",
+      "Please join the [ReactPlay discord server](https://discord.gg/UfYj4MvW9A) to get any help while you are building. Also, check the [FAQ](https://hustles.reactplay.io/events/23/twoplaysamonth#faqs) section for more details.",
     highlights: [
-      "Create 2 Plays using React",
-      "Share your journey publicly",
-      "Get the plays reviewed and merged",
+      "Complete 2 Plays using ReactJS",
+      "Demo your work",
+      "Win badges, prizes, and bonus points",
     ],
   },
   judges: [
@@ -121,9 +122,21 @@ export const Config = {
     },
     {
       question:
-        "Is sharing my journey on Twitter and LinkedIn of the #2PlaysAMonth a must?",
+        "Is accouncing my particpation and progress on the social medis a must?",
       answer:
-        "Yes, we encourage you to build and learn publicly. Make sure you add the tag #2PlaysAMonth and ReactPlay handle when you post them on social media.",
+        "No. However, we encourage you to build and learn publicly. Make sure you add the tag #2PlaysAMonth and ReactPlay handle when you post them on social media.",
+    },
+    {
+      question:
+        "Is recording a Demo of my work on stackstream a must?",
+      answer:
+        "Yes, we encourage you to share your work publicly and at the same time, get better at public speaking. Please register on stackstream and create your streams for free. Don't forget to add the stream recording link into the readme file of the related play.",
+    },
+    {
+      question:
+        "What about the 5 hours of streaming a month and bonus points?",
+      answer:
+        "You can use the stackstream platform for free in the entire duration of #2PlaysAMonth challenge. You can collaborate, share your learnings, demo, etc. If you cross 5 hours of streaming on the platform, you earn bonus points as karma which you can redeem to win additional prizes.",
     },
     {
       question: "When and How the #2PlaysAMonth result will be published?",
