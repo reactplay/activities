@@ -125,7 +125,7 @@ export const Config = {
     },
     {
       question:
-        "Is accouncing my particpation and progress on the social medis a must?",
+        "Is announcing my participation and progress on the social media a must?",
       answer:
         "No. However, we encourage you to build and learn publicly. Make sure you add the tag #2PlaysAMonth and ReactPlay handle when you post them on social media.",
     },
