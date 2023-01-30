@@ -56,7 +56,7 @@ const Judges = ({ metainfo }) => {
               target="_blank"
             >
               <FaTwitter className="mr-1" />
-              {judge.twitter}
+              @{judge.twitter}
             </a>
           </div>
         ))}
