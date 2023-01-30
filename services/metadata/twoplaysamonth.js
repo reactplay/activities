@@ -51,28 +51,28 @@ export const Config = {
   judges: [
     {
       name: "Harshit Jain",
-      twitter: "@jain_harshit",
+      twitter: "jain_harshit",
       title: "SDE3, Intuit",
       avatar:
         "https://pbs.twimg.com/profile_images/1523150875153567744/zpRDym_L_400x400.jpg",
     },
     {
       name: "Kapeel Kokane",
-      twitter: "@kokaneka",
+      twitter: "kokaneka",
       title: "SDE2, Microsoft",
       avatar:
         "https://pbs.twimg.com/profile_images/1372919009939652612/E9s309tH_400x400.jpg",
     },
     {
       name: "Koustov Maitra",
-      twitter: "@koustov",
+      twitter: "koustov",
       title: "Architect, ReactPlay",
       avatar:
         "https://pbs.twimg.com/profile_images/1443859238443360258/6_H-pDaM_400x400.jpg",
     },
     {
       name: "Tapas Adhikary",
-      twitter: "@tapasAdhikary",
+      twitter: "tapasAdhikary",
       title: "Founder, ReactPlay",
       avatar:
         "https://pbs.twimg.com/profile_images/1495457010598309888/zPrTNF4F_400x400.jpg",
