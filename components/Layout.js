@@ -39,7 +39,7 @@ const Layout = ({ children, title, description, metainfo }) => {
             />
             <meta
               name="keywords"
-              content="ReactPlay, HACK-R-PLAY, ReactJS, Hacakthon"
+              content={metainfo.keywords}
             />
             <meta property="og:type" content="website" />
             <meta property="og:site_name" content="ReactPlay Events" />
@@ -58,7 +58,7 @@ const Layout = ({ children, title, description, metainfo }) => {
             <meta property="og:title" content={title} />
             <meta
               property="og:image"
-              content="https://hustles.reactplay.io/og-image.png"
+              content={`https://hustles.reactplay.io/${metainfo.name}/og-image.png`}
             />
             <meta
               property="og:image:alt"
@@ -72,7 +72,7 @@ const Layout = ({ children, title, description, metainfo }) => {
             />
             <meta
               name="twitter:image"
-              content="https://hustles.reactplay.io/og-image.png"
+              content={`https://hustles.reactplay.io/${metainfo.name}/og-image.png`}
             />
             <meta name="twitter:site" content="ReactPlayIO" />
             <script
