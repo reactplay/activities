@@ -194,18 +194,6 @@ export default function Registration() {
 											</SecondaryOutlinedButtonDark>
 										</div>
 									</div>
-									<div className='p-2'>
-										<PrimaryButton
-											className='umami--click--register'
-											disabled={isFieldsAreInValid()}
-											handleOnClick={() => onSubmit()}>
-											{`Register Now`}
-											<FiCheckCircle
-												className='ml-2 my-auto'
-												size={20}
-											/>
-										</PrimaryButton>
-									</div>
 								</div>
 							</div>
 						</div>

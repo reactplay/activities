@@ -15,11 +15,13 @@
     "@mui/material": "^5.10.4",
     "@nhost/nextjs": "^1.7.4",
     "@nhost/react": "^0.12.4",
+    "confetti-js": "^0.0.18",
     "graphql": "^16.6.0",
     "json-graphql-parser": "^0.1.7",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "next": "12.2.5",
+    "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0"

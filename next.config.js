@@ -6,6 +6,7 @@ const nextConfig = {
     domains: [
       'avatars.githubusercontent.com',
       'unavatar.io', // Gravatar
+      'pbs.twimg.com',
     ],
   },
   webpack: (config) => {

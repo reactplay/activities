@@ -1,9 +1,9 @@
-import Hero from "./Hero";
-import About from "./About";
-import ChallengesAndPrizes from "./ChallengesAndPrizes";
-import Judges from "./Judges";
-import Partners from "./Partners";
-import CTA from "./CTA";
-import FAQs from "./FAQs";
+import Hero from "../common/Hero";
+import About from "../common/About";
+import ChallengesAndPrizes from "../common/ChallengesAndPrizes";
+import Judges from "../common/Judges";
+import Partners from "../common/Partners";
+import CTA from "../common/CTA";
+import FAQs from "../common/FAQs";
 
 export { Hero, About, ChallengesAndPrizes, Judges, Partners, CTA, FAQs };
