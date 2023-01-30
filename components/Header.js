@@ -3,7 +3,6 @@ import { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { PrimaryButton } from "./Buttons";
 import Image from "next/image";
-import NavbarLogo from "../public/Hack-R-Play/NavbarLogo.png";
 
 import { useRouter } from "next/router";
 

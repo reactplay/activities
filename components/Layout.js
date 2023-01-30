@@ -58,7 +58,7 @@ const Layout = ({ children, title, description, metainfo }) => {
             <meta property="og:title" content={title} />
             <meta
               property="og:image"
-              content={`https://hustles.reactplay.io/og-image-${metainfo.name}.png`}
+              content={`https://hustles.reactplay.io/${metainfo.name}/og-image.png`}
             />
             <meta
               property="og:image:alt"
@@ -72,7 +72,7 @@ const Layout = ({ children, title, description, metainfo }) => {
             />
             <meta
               name="twitter:image"
-              content={`https://hustles.reactplay.io/og-image-${metainfo.name}.png`}
+              content={`https://hustles.reactplay.io/${metainfo.name}/og-image.png`}
             />
             <meta name="twitter:site" content="ReactPlayIO" />
             <script
