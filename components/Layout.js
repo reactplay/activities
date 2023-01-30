@@ -55,8 +55,9 @@ const Layout = ({ children, title, description, metainfo }) => {
               property="og:description"
               content={metainfo.description}
             />
-            <meta property="og:title" content={title} />
+            <meta name="title" property="og:title" content={title} />
             <meta
+              name="image"
               property="og:image"
               content={`https://hustles.reactplay.io/${metainfo.name}/og-image.png`}
             />
@@ -74,7 +75,7 @@ const Layout = ({ children, title, description, metainfo }) => {
               name="twitter:image"
               content={`https://hustles.reactplay.io/${metainfo.name}/og-image.png`}
             />
-            <meta name="twitter:site" content="ReactPlayIO" />
+            <meta name="twitter:site" content="@ReactPlayIO" />
             <script
               async
               defer
