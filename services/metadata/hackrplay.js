@@ -1,6 +1,8 @@
 export const Config = {
 	name: 'hackrplay',
 	display: 'Hack-R-Play',
+	description: "Hack-R-Play is a Hackathon by ReactPlay for the ReactJs community to collaborate and build. Join us to experience the best open source hackathon.",
+	keywords: "ReactPlay, hack-r-play, ReactJS",
 	completed: false,
 	subtitle:
 		'ReactPlay brings you an opportunity to participate in the month-long drive to learn and contribute to Open Source. Join the #2PlaysAMonth and build two projects(plays) in the month of February. You will learn from expert code reviews while contributing to Open Source - you may also win some exciting prizes',
