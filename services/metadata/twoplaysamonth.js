@@ -27,7 +27,7 @@ export const Config = {
     "ReactPlay brings you an opportunity to participate in the month-long drive to learn and contribute to Open Source. Join the #2PlaysAMonth and build two projects(plays) in the month of February. You will learn from expert code reviews while contributing to Open Source - you may also win some exciting prizes.",
   about: {
     texts: [
-      "#2PlaysAMonth is an initiative from the RaectPlay community to help you learn, build, and simultaneously contribute to open source throughout the month of February.",
+      "#2PlaysAMonth is an initiative from the ReactPlay community to help you learn, build, and simultaneously contribute to open source throughout the month of February.",
       "Would you be up for it? Here are a few things to keep in mind before you get started:",
     ],
     bullets: [
@@ -154,7 +154,7 @@ export const Config = {
     {
       question: "I have questions, where can I ask them?",
       answer:
-        "Got a question? Please join our Discord(the link is in the footer of this page). You can ask us anything in the hack-r-play channel.",
+        "Got a question? Please join our Discord(the link is in the footer of this page). You can ask us anything in the #2PlaysAMonth channel.",
     },
   ],
   cta: {
