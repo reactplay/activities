@@ -32,7 +32,7 @@ export const Config = {
     ],
     bullets: [
       "You must complete two plays(React Projects) in ReactPlay between February 1st to February 28th 2023.",
-      "You must follow the [Create a Play](https://github.com/reactplay/react-play/blob/main/CREATE-PLAY.md) steps to create the play. Please [create an issue](https://github.com/reactplay/react-play/issues/new/choose) on the ReactPlay repository for each pull request.",
+      "You must follow the [Create a Play](https://github.com/reactplay/react-play/blob/main/CREATE-PLAY.md) steps to create the play. Please [create an issue](https://github.com/reactplay/react-play/issues/new?assignees=&labels=%232PlaysAMonth&template=%232PlaysAMonth.yml&title=%5B%232PlaysAMonth%5D%3A+) on the ReactPlay repository for each pull request.",
       "Your play must have `#2PlaysAMonth` tag added to it while creating.",
       "You can build any play of your choice. If you are looking for ideas, [here are some you can get inspired by](https://reactplay.io/ideas).",
       "You must register on [stackstream](https://www.stack-stream.com/).",
