@@ -13,15 +13,15 @@ import FAQs from "@/components/common/FAQs";
 
 import DottedAndFilledTriangle from "@/public/common/DottedAndFilledTriangle.svg";
 import Flower from "@/public/common/Flower.svg";
-import { Config } from "@/services/metadata/twoplaysamonth";
+import { Config } from "@/services/metadata/hackrplay";
 import Winners from "@/components/common/Winners";
 
 export default function Home() {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme("twoplaysamonth");
+  const { theme, setTheme } = useTheme("hackrplay");
   useEffect(() => {
-    setTheme("twoplaysamonth");
+    setTheme("hackrplay");
     setMounted(true);
   }, []);
 
@@ -31,7 +31,7 @@ export default function Home() {
   if (!mounted) return null;
 
   return (
-    <Layout title="ReactPlay : #2Plays-A-Month" metainfo={Config}>
+    <Layout title="ReactPlay : Hack-R-Play" metainfo={Config}>
       <div className="absolute md:left-9 -top-10 left-5 z-0 md:w-32 md:h-32 w-24 h-24">
         <Image
           src={DottedAndFilledTriangle}
@@ -44,7 +44,7 @@ export default function Home() {
       </div>
       <Hero metainfo={Config} />
       {Config.completed ? (
-        <Winners winners={winners} mentions={mentions} />
+        <Winners winners={Config.winners} mentions={Config.mentions} />
       ) : null}
       <About metainfo={Config} />
       <Judges metainfo={Config} />

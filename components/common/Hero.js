@@ -21,7 +21,7 @@ const Hero = ({ metainfo }) => {
   };
 
   const redirectToSubmissions = () => {
-    router.push("ideas");
+    router.push(metainfo.submissionurl);
   };
 
   return (

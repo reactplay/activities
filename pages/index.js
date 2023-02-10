@@ -8,5 +8,5 @@ export default function Home() {
     router.push("events/23/twoplaysamonth");
   }, []);
 
-  return <Layout title='ReactPlay : #2Plays-A-Month'></Layout>;
+  return <Layout title="ReactPlay : #2Plays-A-Month"></Layout>;
 }
