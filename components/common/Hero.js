@@ -5,7 +5,6 @@ import { FiCheckCircle } from "react-icons/fi";
 import { BiRightArrowAlt } from "react-icons/bi";
 
 import Flower from "../../public/common/Flower.svg";
-import HeroCoders from "../../public/Hack-R-Play/HeroCoders.svg";
 import HeroLines from "../../public/common/HeroLines.svg";
 import RadialGradient from "../../public/common/RadialGradient.svg";
 import ReactPlayLogo from "../../public/ReactPlayLogo.svg";
@@ -22,7 +21,7 @@ const Hero = ({ metainfo }) => {
   };
 
   const redirectToSubmissions = () => {
-    router.push("ideas");
+    router.push(metainfo.submissionurl);
   };
 
   return (

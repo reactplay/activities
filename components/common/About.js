@@ -4,6 +4,7 @@ import ReactPlayDotted from "../../public/common/ReactPlayLogoDotted.svg";
 import Flower from "../../public/common/Flower.svg";
 import { FiExternalLink } from "react-icons/fi";
 import { ThemeConfig } from "@/services/consts/theme";
+import { LinkLabel } from "../LinkLabel";
 
 const About = ({ metainfo }) => {
   return (
@@ -36,13 +37,19 @@ const About = ({ metainfo }) => {
                 {metainfo.about.bullets.map((b, b_i) => {
                   return (
                     <li className="list-disc mt-1 ml-6" key={b_i}>
-                      {b}
+                      <LinkLabel
+                        value={b}
+                        lclass="font-body text-[#00F2FE] hover:underline transition-all duration-150"
+                      />
                     </li>
                   );
                 })}
               </ul>
               <p className="mt-4 font-body text-gray-300">
-                {metainfo.about.footer}
+                <LinkLabel
+                  value={metainfo.about.footer}
+                  lclass="font-body  text-[#00F2FE] hover:underline transition-all duration-150"
+                />
               </p>
               {/* <a
                 className=" mt-4 inline-flex justify-center items-center font-body text-[#00F2FE] text-lg hover:underline transition-all duration-150"

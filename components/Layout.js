@@ -47,32 +47,20 @@ const Layout = ({ children, title, description, metainfo }) => {
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="628" />
             <meta name="twitter:card" content="summary_large_image" />
-            <meta
-              name="description"
-              content="ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes."
-            />
-            <meta
-              property="og:description"
-              content="ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes."
-            />
+            <meta name="description" content={metainfo.description} />
+            <meta property="og:description" content={metainfo.description} />
             <meta property="og:title" content={title} />
             <meta
               property="og:image"
-              content="https://hustles.reactplay.io/og-image.png"
+              content={`https://hustles.reactplay.io/${metainfo.name}/og-image.png`}
             />
-            <meta
-              property="og:image:alt"
-              content="ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes."
-            />
+            <meta property="og:image:alt" content={metainfo.description} />
             <meta property="og:url" content="https://hustles.reactplay.io" />
             <meta name="twitter:title" content={title} />
-            <meta
-              name="twitter:description"
-              content="ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes."
-            />
+            <meta name="twitter:description" content={metainfo.description} />
             <meta
               name="twitter:image"
-              content="https://hustles.reactplay.io/og-image.png"
+              content={`https://hustles.reactplay.io/${metainfo.name}/og-image.png`}
             />
             <meta name="twitter:site" content="ReactPlayIO" />
             <script
