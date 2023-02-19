@@ -1,11 +1,11 @@
 # Activities
 A `reactplay` hustle
 
-This is a [Next.js](https://nextjs.org/) project
+This is a [Next.js](https://nextjs.org/) project.
 
 ## Getting Started
 
-1. Install dependencies 
+1. Install dependencies
     ```bash
     yarn
     ```
@@ -33,5 +33,5 @@ This is a [Next.js](https://nextjs.org/) project
     yarn dev
     ```
 
-4. See you application running
+4. See your application running
     Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
