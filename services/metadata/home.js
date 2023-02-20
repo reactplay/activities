@@ -59,11 +59,33 @@ export const Config = {
     ],
    twitterLinks:[
       {
-        title: 'UX, Design Systems, OSS, React and more',
-        hostedBy: 'Nikhil',
-        date: '3rd August',
-              spearkers: []
+        title: 'Catch up with Nikhil- UX, Design Systems, OSS, React and more',
+        host: 'niksharma1997',
+        date: '3rd August, 2022',
+        avatar: 'https://pbs.twimg.com/profile_images/1516502854416343040/PTZjiXw8_400x400.jpg',
+        link: 'https://twitter.com/i/spaces/1OdKrBXaBrOKX'
       },
+      {
+        title: 'Catch up with Shruti- CSS, Design, Tailwind and more',
+        host: 'shrutibalasa',
+        date: '9th February, 2022',
+        avatar: 'https://pbs.twimg.com/profile_images/1329475394714537986/MXGt0d_h_400x400.jpg',
+        link: 'https://twitter.com/i/spaces/1zqJVPQobgnKB'
+      },
+      {
+        title: 'Catch up with Swapna- Content, Career, DSA and more',
+        host: 'swapnakpanda',
+        date: '13th October, 2022',
+        avatar: 'https://pbs.twimg.com/profile_images/1621910730227449856/iW8AGVCr_400x400.jpg',
+        link: 'https://twitter.com/i/spaces/1djxXljXOpVxZ'
+      },
+      // {
+      //   title: 'Catch up with Aakansha- Side hustles, open-source and more',
+      //   hostedBy: 'swapnakpanda',
+      //   date: '13th October, 2022',
+      //   avatar: 'https://pbs.twimg.com/profile_images/1516502854416343040/PTZjiXw8_400x400.jpg',
+      //   link: 'https://twitter.com/i/spaces/1djxXljXOpVxZ'
+      // },
       
     ]
 }

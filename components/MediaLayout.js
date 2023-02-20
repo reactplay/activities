@@ -1,6 +1,34 @@
-import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { FaTwitter } from "react-icons/fa";
 
 const MediaLayout = ({ videoLinks, twitterLinks, title, id }) => {
+const TwitterSpaces=({el})=>{
+	return(
+		<article className="bg-slate-900 max-w-[300px] p-4 rounded cursor-pointer hover:scale-125 transition-all duration-150">
+			<h2 className="text-xl font-primary">{el.title}</h2>
+			<p className="text-gray-400 text-xs">{el.date}</p>
+			<div className="flex  items-center justify-between">
+			<a
+              className="mt-3 inline-flex justify-center items-center font-body text-[#00F2FE] hover:underline  transition-all duration-150"
+              href={`https://twitter.com/${el.host}`}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <FaTwitter className="mr-1" />
+              @{el.host}
+            </a>
+			<Image className="rounded-full" alt={el.host}
+                  src={el.avatar}
+                //   layout="responsive"
+                  width='50'
+                  height='50'
+                  />
+			</div>
+		</article>
+	)
+}
+
 	return (
 		<section id={id} className="text-white flex items-center justify-center my-28 w-full md:w-[80%] mx-auto px-4">
 			{/* wrapper */}
@@ -20,7 +48,7 @@ const MediaLayout = ({ videoLinks, twitterLinks, title, id }) => {
 								allowfullscreen
 							></iframe>
 						))}
-					{twitterLinks && twitterLinks.map((el, i)=><div className="w-80 h-28 bg-slate-600 rounded">{el.name}</div>)}
+					{twitterLinks && twitterLinks.map((el, i)=><a key={i}  target="_blank" href={el.link}><TwitterSpaces el={el}/></a>)}
 				</div>
 				<button className="mt-12 font-body text-cyan-400 hover:underline transition-shadow">
 					<a href={videoLinks ? "https://www.youtube.com/playlist?list=PLIJrr73KDmRxqfDS58ZC3MoianOjcm__Y" : ""} target="_blank">
