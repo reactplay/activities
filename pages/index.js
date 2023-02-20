@@ -8,46 +8,8 @@ import Image from "next/image";
 import MediaLayout from "@/components/MediaLayout";
 
 export default function Home() {
-	const pastEvents = [
-		{
-			name: "Hack-R-Play",
-			description:
-				"ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes.",
-			image: HackerPlayLogo,
-			link: `/events/23/hackrplay/2022/home`,
-		},
-		{
-			name: "2PlaysaMonth",
-			description:
-				"ReactPlay brings you an opportunity to participate in the month-long drive to learn and contribute to Open Source. Join the #2PlaysAMonth and build two projects(plays) in the month of February. You will learn from expert code reviews while contributing to Open Source - you may also win some exciting prizes..",
-			image: twoPlaysaMonthLogo,
-			link: `/events/23/twoplaysamonth`,
-		},
-		
-	];
-
-	const videoLinks=[
-		{
-			src: 'https://www.youtube.com/embed/1qfDkmtuWqg'
-		},
-		{
-			src: 'https://www.youtube.com/embed/b0eas9xxD-E'
-		},
-		{
-			src: 'https://www.youtube.com/embed/w0nd4ASTDdg'
-		},
-	]
-	const twitterLinks=[
-		{
-			name: 'twitterSpaces'
-		},
-		{
-			name: 'twitterSpaces'
-		},
-		{
-			name: 'twitterSpaces'
-		},
-	]
+	
+	
 	const PastInitiatives = ({ pastEvents }) => {
 		return (
 			<section id='events' className="text-white flex items-center justify-center my-28 md:w-[80%] w-full mx-auto px-4">
@@ -76,9 +38,9 @@ export default function Home() {
 		return (
 			<div className="w-full">
 				<Banner />
-				<PastInitiatives pastEvents={pastEvents} />
-				<MediaLayout videoLinks={videoLinks} title='ReactPlay Live' id='live'/>
-				<MediaLayout twitterLinks={twitterLinks} title='ReactPlay Twitter Spaces' id='spaces'/>
+				<PastInitiatives pastEvents={Config.pastEvents} />
+				<MediaLayout videoLinks={Config.videoLinks} title='ReactPlay Live' id='live'/>
+				<MediaLayout twitterLinks={Config.twitterLinks} title='ReactPlay Twitter Spaces' id='spaces'/>
 			</div>
 		);
 	};
