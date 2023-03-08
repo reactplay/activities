@@ -1,20 +1,19 @@
+import { useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { BiRightArrowAlt } from "react-icons/bi";
+import { GiPartyPopper } from "react-icons/gi";
 
 import {
   PrimaryButton,
   SecondaryLink,
   SecondaryOutlinedButton,
 } from "../Buttons";
-import { FiCheckCircle } from "react-icons/fi";
-import { BiRightArrowAlt } from "react-icons/bi";
 
 import Flower from "../../public/common/Flower.svg";
 import HeroLines from "../../public/common/HeroLines.svg";
 import RadialGradient from "../../public/common/RadialGradient.svg";
 import ReactPlayLogo from "../../public/ReactPlayLogo.svg";
-import { GiPartyPopper } from "react-icons/gi";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 const Hero = ({ metainfo }) => {
   const router = useRouter();

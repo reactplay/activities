@@ -1,26 +1,21 @@
 import { useAuthenticationStatus, useUserData } from '@nhost/nextjs';
-import styles from '@/styles/Home.module.css';
-
-import { FiCheckCircle } from 'react-icons/fi';
-import { NHOST } from '@/services/nhost';
 import { useEffect, useState, forwardRef } from 'react';
-import FormBuilder from '@/components/form-builder';
+import { FiCheckCircle } from 'react-icons/fi';
+import { useRouter } from 'next/router';
+import MuiAlert from '@mui/material/Alert';
+
+import styles from '@/styles/Home.module.css';
+import { NHOST } from '@/services/nhost';
 import { FIELD_TEMPLATE } from '@/services/consts/submission-fields';
-import { getAllUsers } from '@/services/graphql/auth';
 import { get_idea, insert_idea_submission } from '@/services/graphql/ideas';
+import FormBuilder from '@/components/form-builder';
 import {
 	PrimaryButton,
 	SecondaryOutlinedButtonDark,
 } from '@/components/Buttons';
-import { useRouter } from 'next/router';
 import LayoutWrapper from '@/components/LayoutWrapper';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
-import { submit } from 'json-graphql-parser/v2';
 import {
 	insert_ideas_status,
-	list_statuses,
-	update_ideas_status,
 	get_latest_status,
 } from '@/services/graphql/status';
 import { escape_new_line } from '@/services/util/string';

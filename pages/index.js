@@ -1,10 +1,11 @@
+import Link from "next/link";
+import Image from "next/image";
+
 import Layout from "@/components/Layout";
 import HackerPlayLogo from "../public/hackrplay/BannerLogo.png";
 import twoPlaysaMonthLogo from "../public/twoplaysamonth/NavbarLogo.png"
 import Banner from "@/components/Banner";
 import { Config } from "../services/metadata/home";
-import Link from "next/link";
-import Image from "next/image";
 import MediaLayout from "@/components/MediaLayout";
 
 export default function Home() {

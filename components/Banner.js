@@ -1,5 +1,6 @@
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
+
 import bannerLogo from '../public/twoplaysamonth/NavbarLogo.png'
 
 const Banner = () => {

@@ -1,4 +1,5 @@
 import { ThemeProvider } from "next-themes";
+
 import "../styles/globals.css";
 
 import { NhostNextProvider, NhostClient } from "@nhost/nextjs";
