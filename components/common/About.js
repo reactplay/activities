@@ -1,9 +1,6 @@
 import Image from "next/image";
 
-import ReactPlayDotted from "../../public/common/ReactPlayLogoDotted.svg";
 import Flower from "../../public/common/Flower.svg";
-import { FiExternalLink } from "react-icons/fi";
-import { ThemeConfig } from "@/services/consts/theme";
 import { LinkLabel } from "../LinkLabel";
 
 const About = ({ metainfo }) => {

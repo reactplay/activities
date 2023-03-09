@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-
 import { FiPlus, FiMinus } from "react-icons/fi";
 
 const FAQs = ({ metainfo }) => {

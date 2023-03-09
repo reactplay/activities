@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Layout from "@/components/Layout";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-// import { Hero, About, Judges, CTA, FAQs } from "@/components/common";
+
+import Layout from "@/components/Layout";
 import About from "@/components/common/About";
 import Judges from "@/components/common/Judges";
 import Hero from "@/components/common/Hero";

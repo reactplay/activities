@@ -1,9 +1,9 @@
 import Image from "next/image";
+import { FaTwitter } from "react-icons/fa";
 
 import DottedPattern from "../../public/common/DottedPattern.svg";
 import Lines from "../../public/common/Lines.svg";
-import { FaTwitter } from "react-icons/fa";
-import { ThemeConfig } from "@/services/consts/theme";
+
 
 const Judges = ({ metainfo }) => {
   return (

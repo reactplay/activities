@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaBloggerB, FaCommentDots, FaReact, FaGitAlt } from 'react-icons/fa';
+
 import LayoutWrapper from '@/components/LayoutWrapper';
 import styles from '@/styles/Home.module.css';
 import { get_idea } from '@/services/graphql/ideas';
-import { Typography } from '@mui/material';
-import { FiPenTool, FiDownload, FiThumbsUp } from 'react-icons/fi';
-import { PrimaryButton, SecondaryOutlinedButton } from '@/components/Buttons';
+import { SecondaryOutlinedButton } from '@/components/Buttons';
 import InProgress from '/public/Idea-List/inProgress.svg';
 import Completed from '/public/Idea-List/completed.svg';
 import NotStarted from '/public/Idea-List/notStart.svg';
@@ -15,8 +16,6 @@ import {
 	get_latest_status,
 } from '@/services/graphql/status';
 import { unescape_new_line } from '@/services/util/string';
-import { FaBloggerB, FaCommentDots, FaReact, FaGitAlt } from 'react-icons/fa';
-import Link from 'next/link';
 import StatusBar from '@/components/status-bar/StatusBar';
 import Interaction from '@/components/interactions';
 

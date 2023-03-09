@@ -1,9 +1,7 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Box from '@mui/material/Box';
+import React, { useState, useEffect } from 'react';
 import { FiChevronsLeft, FiChevronsRight } from 'react-icons/fi';
+import ButtonGroup from '@mui/material/ButtonGroup';
+
 import { ToolBarButton } from './Buttons';
 
 export default function Pagination({ total, pagesize, onChange }) {

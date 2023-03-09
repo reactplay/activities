@@ -1,14 +1,14 @@
-import IdeaCard from '@/components/Ideas/Card';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useAuthenticationStatus, useUserData } from '@nhost/nextjs';
+import { Grid } from '@mui/material';
+
 import { idea_count, list_ideas } from '@/services/graphql/ideas';
 import LayoutWrapper from '@/components/LayoutWrapper';
 import { CTA } from '@/components/Hack-R-Play';
+import IdeaCard from '@/components/Ideas/Card';
 import gstyles from '@/styles/Home.module.css';
-import { Grid } from '@mui/material';
-import { useRouter } from 'next/router';
 import IdeaFilters from '@/components/Hack-R-Play/IdeaFilter';
-import { useAuthenticationStatus, useUserData } from '@nhost/nextjs';
-import { PrimaryButton } from '@/components/Buttons';
 import { get_latest_status } from '@/services/graphql/status';
 import { unescape_new_line } from '@/services/util/string';
 

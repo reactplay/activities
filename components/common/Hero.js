@@ -1,16 +1,19 @@
+import { useEffect } from "react";
 import Image from "next/image";
-
-import { PrimaryButton, SecondaryOutlinedButton } from "../Buttons";
-import { FiCheckCircle } from "react-icons/fi";
+import { useRouter } from "next/router";
 import { BiRightArrowAlt } from "react-icons/bi";
+import { GiPartyPopper } from "react-icons/gi";
+
+import {
+  PrimaryButton,
+  SecondaryLink,
+  SecondaryOutlinedButton,
+} from "../Buttons";
 
 import Flower from "../../public/common/Flower.svg";
 import HeroLines from "../../public/common/HeroLines.svg";
 import RadialGradient from "../../public/common/RadialGradient.svg";
 import ReactPlayLogo from "../../public/ReactPlayLogo.svg";
-import { GiPartyPopper } from "react-icons/gi";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 const Hero = ({ metainfo }) => {
   const router = useRouter();
@@ -79,6 +82,19 @@ const Hero = ({ metainfo }) => {
                     <GiPartyPopper className="ml-2 -mt-1" size={25} />
                   </PrimaryButton>
                 ) : null}
+                {metainfo.result_links ? (
+                  <div className="flex">
+                    {metainfo.result_links.map((link, link_i) => {
+                      return (
+                        <div className="p-4">
+                          <SecondaryLink link={link.link} target={link.target}>
+                            {link.name}
+                          </SecondaryLink>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : null}
               </div>
 
               {metainfo.started ? (
@@ -95,7 +111,7 @@ const Hero = ({ metainfo }) => {
                 </div>
               ) : null}
             </div>
-            <div className="md:-mt-12 z-0 md:w-4/5 md:h-4/5 w-full h-full-z-10">
+            <div className="z-0 md:w-4/5 md:h-4/5 w-full h-full-z-10">
               <Image
                 src={require(`/public/${metainfo.name}/HeroCoders.svg`)}
                 alt="Hero Coders"

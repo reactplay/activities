@@ -1,7 +1,8 @@
 export const Config = {
   name: "twoplaysamonth",
   display: "#2PlaysAMonth",
-  description: "#2PlaysAMonth is an event by ReactPlay for the ReactJs community to learn, build, share in public. Join us.",
+  description:
+    "#2PlaysAMonth is an event by ReactPlay for the ReactJs community to learn, build, share in public. Join us.",
   keywords: "ReactPlay, #2PlaysAMonth, ReactJS",
   completed: false,
   started: false,
@@ -23,7 +24,20 @@ export const Config = {
       href: "#faqs",
     },
   ],
-  subtitle: "ReactPlay brings you an opportunity to participate in the month-long drive to learn and contribute to Open Source. Join the #2PlaysAMonth and build two projects(plays) in the month of February. You will learn from expert code reviews while contributing to Open Source - you may also win some exciting prizes.",
+  result_links: [
+    {
+      link: "https://github.com/reactplay/react-play/issues?q=is%3Aissue+label%3A%232PlaysAMonth+",
+      name: "Ideas",
+      target: "_blank",
+    },
+    {
+      link: "https://github.com/reactplay/react-play/pulls?q=is%3Apr+label%3A%232PlaysAMonth+",
+      name: "Submissions",
+      target: "_blank",
+    },
+  ],
+  subtitle:
+    "ReactPlay brings you an opportunity to participate in the month-long drive to learn and contribute to Open Source. Join the #2PlaysAMonth and build two projects(plays) in the month of February. You will learn from expert code reviews while contributing to Open Source - you may also win some exciting prizes.",
   about: {
     texts: [
       "#2PlaysAMonth is an initiative from the ReactPlay community to help you learn, build, and simultaneously contribute to open source throughout the month of February.",
@@ -39,7 +53,8 @@ export const Config = {
       "Additionally, if you spend at least 5 hours streaming on [stackstream](https://www.stack-stream.com/) in the February month, you qualify for additional bonus points(karma) to win.",
       "Share a Tweet and/or LinkedIn Post announcing your participation and PR merge with the hashtag `#2PlaysAMonth` and tag ReactPlay's handle(@ReactPlayIO)",
     ],
-    footer: "Please join the [ReactPlay discord server](https://discord.gg/UfYj4MvW9A) to get any help while you are building. Also, check the [FAQ](https://hustles.reactplay.io/events/23/twoplaysamonth#faqs) section for more details.",
+    footer:
+      "Please join the [ReactPlay discord server](https://discord.gg/UfYj4MvW9A) to get any help while you are building. Also, check the [FAQ](https://hustles.reactplay.io/events/23/twoplaysamonth#faqs) section for more details.",
     highlights: [
       "Complete 2 Plays using ReactJS",
       "Demo your work",

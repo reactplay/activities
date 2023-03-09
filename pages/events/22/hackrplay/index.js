@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Layout from "@/components/Layout";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-// import { Hero, About, Judges, CTA, FAQs } from "@/components/common";
+
 import About from "@/components/common/About";
 import Judges from "@/components/common/Judges";
 import Hero from "@/components/common/Hero";
 import Partners from "@/components/common/Partners";
 import CTA from "@/components/common/CTA";
 import FAQs from "@/components/common/FAQs";
-
+import Layout from "@/components/Layout";
 import DottedAndFilledTriangle from "@/public/common/DottedAndFilledTriangle.svg";
 import Flower from "@/public/common/Flower.svg";
 import { Config } from "@/services/metadata/hackrplay";

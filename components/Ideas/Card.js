@@ -1,11 +1,12 @@
-import styles from '../../styles/idea.module.css';
 import Image from 'next/image';
-import { Grid, Card, Typography } from '@mui/material';
-import InProgress from '/public/Idea-List/inProgress.svg';
-import Complted from '/public/Idea-List/completed.svg';
-import NotStarted from '/public/Idea-List/notStart.svg';
 import { FiThumbsUp } from 'react-icons/fi';
 import { BiComment } from 'react-icons/bi';
+import { Grid, Card, Typography } from '@mui/material';
+
+import NotStarted from '/public/Idea-List/notStart.svg';
+import InProgress from '/public/Idea-List/inProgress.svg';
+import Complted from '/public/Idea-List/completed.svg';
+import styles from '../../styles/idea.module.css';
 
 const IdeaCard = ({ data, onClick }) => {
 	const get_status_style = (status) => {
