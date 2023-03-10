@@ -1,11 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FaTwitter } from "react-icons/fa";
 
 const MediaLayout = ({ videoLinks, twitterLinks, title, id }) => {
 const TwitterSpaces=({el})=>{
 	return(
-		<article className="bg-slate-900 max-w-[300px] p-4 rounded cursor-pointer hover:scale-125 transition-all duration-150">
+		<article className="bg-slate-900 max-w-[300px] p-4 rounded cursor-pointer hover:scale-110 transition-all duration-150">
 			<h2 className="text-xl font-primary">{el.title}</h2>
 			<p className="text-gray-400 text-xs">{el.date}</p>
 			<div className="flex  items-center justify-between">
@@ -33,7 +32,7 @@ const TwitterSpaces=({el})=>{
 		<section id={id} className="text-white flex items-center justify-center my-28 w-full md:w-[80%] mx-auto px-4">
 			{/* wrapper */}
 			<div className="flex flex-col w-full">
-				<h1 className="md:text-2xl  text-start mb-16 uppercase font-primary">{title}</h1>
+				<h1 className="bg-clip-text text-transparent font-extrabold text-3xl md:text-4xl bg-gradient-to-r from-[#43d9fe] to-[#1D1455] mb-8">{title}</h1>
 				<div className="flex flex-col md:flex-row w-full  mx-auto justify-center items-center gap-6  px-3 md:px-0 flex-wrap">
 					{videoLinks &&
 						videoLinks.map((el, i) => (
