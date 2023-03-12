@@ -25,16 +25,26 @@ export const Config = {
     },
   ],
   result_links: [
-    {
-      link: "https://github.com/reactplay/react-play/issues?q=is%3Aissue+label%3A%232PlaysAMonth+",
-      name: "Ideas",
-      target: "_blank",
-    },
-    {
-      link: "https://github.com/reactplay/react-play/pulls?q=is%3Apr+label%3A%232PlaysAMonth+",
-      name: "Submissions",
-      target: "_blank",
-    },
+    [
+      {
+        link: "https://reactplay.io/plays?tags=f86a69e3-6528-4761-b56c-19fa95960b09",
+        name: "#2PlaysAMonth Plays",
+        target: "_blank",
+        type: "primary",
+      },
+    ],
+    [
+      {
+        link: "https://github.com/reactplay/react-play/issues?q=is%3Aissue+label%3A%232PlaysAMonth+",
+        name: "Ideas",
+        target: "_blank",
+      },
+      {
+        link: "https://github.com/reactplay/react-play/pulls?q=is%3Apr+label%3A%232PlaysAMonth+",
+        name: "Submissions",
+        target: "_blank",
+      },
+    ],
   ],
   subtitle:
     "ReactPlay brings you an opportunity to participate in the month-long drive to learn and contribute to Open Source. Join the #2PlaysAMonth and build two projects(plays) in the month of February. You will learn from expert code reviews while contributing to Open Source - you may also win some exciting prizes.",

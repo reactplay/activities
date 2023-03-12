@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import {
   PrimaryButton,
+  PrimaryLink,
   SecondaryLink,
   SecondaryOutlinedButton,
 } from "../Buttons";
@@ -84,13 +85,38 @@ const Hero = ({ metainfo }) => {
                   </PrimaryButton>
                 ) : null}
                 {metainfo.result_links ? (
-                  <div className="flex">
-                    {metainfo.result_links.map((link, link_i) => {
+                  <div>
+                    {metainfo.result_links.map((row, row_i) => {
                       return (
-                        <div className="p-4">
-                          <SecondaryLink link={link.link} target={link.target}>
-                            {link.name}
-                          </SecondaryLink>
+                        <div className="flex border-1" key={row_i}>
+                          {row.map((link, link_i) => {
+                            return (
+                              <>
+                                {link.type === "primary" ? (
+                                  <div
+                                    className="p-4 flex items-center justify-center w-full"
+                                    ley={link_i}
+                                  >
+                                    <PrimaryLink
+                                      link={link.link}
+                                      target={link.target}
+                                    >
+                                      {link.name}
+                                    </PrimaryLink>
+                                  </div>
+                                ) : (
+                                  <div className="p-4" ley={link_i}>
+                                    <SecondaryLink
+                                      link={link.link}
+                                      target={link.target}
+                                    >
+                                      {link.name}
+                                    </SecondaryLink>
+                                  </div>
+                                )}
+                              </>
+                            );
+                          })}
                         </div>
                       );
                     })}
