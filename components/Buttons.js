@@ -20,6 +20,30 @@ export const PrimaryButton = ({
   );
 };
 
+export const PrimaryLink = ({
+  children,
+  link,
+  className,
+  target,
+  small = false,
+  ...props
+}) => {
+  const buttonSize = small
+    ? "md:pt-1 md:pb-0 md:px-4 py-2 px-4 text-lg"
+    : "md:py-4 md:px-7 py-3 px-5 text-xl";
+
+  return (
+    <a
+      {...props}
+      className={`group inline-flex justify-center items-center ${buttonSize} uppercase bg-gradient-to-br from-[#00F2FE] via-[#32F9E5] to-[#68FDC6] text-[#010326] font-primary rounded-sm hover:bg-gradient-to-tl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-[9] ${className}`}
+      href={link}
+      target={target}
+    >
+      {children}
+    </a>
+  );
+};
+
 export const SecondaryButton = ({
   children,
   handleOnClick,
@@ -53,7 +77,7 @@ export const SecondaryLink = ({
 
   return (
     <a
-      className={`group inline-flex justify-center items-center ${buttonSize} uppercase bg-white text-[#010326] font-primary rounded-sm border border-white hover:text-white hover:border-white hover:bg-transparent transition-all duration-300 ${className}`}
+      className={`group inline-flex justify-center items-center ${buttonSize} uppercase text-white font-primary rounded-sm border border-white hover:text-[#010326] hover:bg-white hover:border-white hover:bg-transparent transition-all duration-300 ${className}`}
       href={link}
       target={target}
     >
