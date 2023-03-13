@@ -1,13 +1,11 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Box from '@mui/material/Box';
+import React, { useState, useEffect } from 'react';
 import { FiArrowUp, FiArrowDown } from 'react-icons/fi';
+
 import { ToolBarButton } from '@/components/Buttons';
 
 export default function SortButtons({ buttons, selected, onChange }) {
 	const [allButtons, setAllButtons] = useState([]);
+	
 	useEffect(() => {
 		if (buttons.length) {
 			allButtons.length = 0;

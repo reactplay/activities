@@ -1,6 +1,7 @@
-import Layout from "../components/Layout";
 import Image from "next/image";
 import Link from "next/link";
+
+import Layout from "../components/Layout";
 import TailWindLogo from "../public/tailwindcss-logotype.svg";
 import NextJsLogo from "../public/Nextjs-logo.png";
 

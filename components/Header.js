@@ -1,10 +1,9 @@
-import Link from "next/link";
 import { useState } from "react";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { PrimaryButton } from "./Buttons";
+import Link from "next/link";
 import Image from "next/image";
-
 import { useRouter } from "next/router";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+
 
 const MobileHeader = ({ links, setMobileActive, redirectToRegistration }) => {
   return (

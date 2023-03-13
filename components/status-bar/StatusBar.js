@@ -1,9 +1,4 @@
-import { TextField, FormControl, Autocomplete, Box } from '@mui/material';
-import { useEffect, useState } from 'react';
 import * as _ from 'lodash';
-import { useUserData } from '@nhost/nextjs';
-import Image from 'next/image';
-import { Typography } from '@mui/material';
 import styles from '@/styles/idea.module.css';
 import moment from 'moment';
 
