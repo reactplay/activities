@@ -1,10 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
+import { FaDiscord, FaTwitter, FaRss } from "react-icons/fa";
 
 import FooterTriangles from "../public/FooterTriangles.svg";
 import ReactPlayLogo from "../public/ReactPlayLogo.svg";
 import FooterReactLogo from "../public/FooterReactLogo.svg";
-import { FaDiscord, FaTwitter, FaRss } from "react-icons/fa";
-import Link from "next/link";
 
 const Footer = () => {
   return (

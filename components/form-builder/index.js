@@ -1,7 +1,7 @@
-import { TextField, FormControl, Autocomplete, Box } from '@mui/material';
 import { useEffect, useState } from 'react';
-import * as _ from 'lodash';
+import { TextField, FormControl, Autocomplete, Box } from '@mui/material';
 import { useUserData } from '@nhost/nextjs';
+import * as _ from 'lodash';
 
 const FormBuilder = ({ fields, data, onChange, disabled }) => {
 	const userData = useUserData();

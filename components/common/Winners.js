@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect} from "react";
 import DottedPattern from "../../public/common/DottedPattern.svg";
 import Lines from "../../public/common/Lines.svg";
-import { FaRegFileCode, FaTwitter, FaGithub } from "react-icons/fa";
-import { MdOutlineSource, MdOutlineArticle } from "react-icons/md";
+import {  FaTwitter, FaGithub } from "react-icons/fa";
+import {  MdOutlineArticle } from "react-icons/md";
 import ConfettiGenerator from "confetti-js";
 import Link from "next/link";
 

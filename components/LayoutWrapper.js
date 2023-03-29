@@ -1,8 +1,9 @@
+import Image from 'next/image';
+
 import Layout from '@/components/Layout';
 import Flower from '../public/common/Flower.svg';
 import HeroLines from '../public/common/HeroLines.svg';
 import DottedAndFilledTriangle from '../public/common/DottedAndFilledTriangle.svg';
-import Image from 'next/image';
 
 const links = [
 	{

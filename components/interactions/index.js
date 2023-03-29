@@ -1,21 +1,19 @@
-import * as React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { useAuthenticationStatus, useUserData } from '@nhost/nextjs';
 import { TextField } from '@mui/material';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import Image from 'next/image';
+import { FiThumbsUp } from 'react-icons/fi';
+
 import styles from '@/styles/idea.module.css';
-import { useEffect, useState } from 'react';
 import { NHOST } from '@/services/nhost';
 import {
 	PrimaryButton,
-	SecondaryButton,
 	SecondaryOutlinedButton,
 } from '../Buttons';
 import { insert_comment, like_idea } from '@/services/graphql/interactions';
 import { time_since } from '@/services/util/time';
-import { FiThumbsUp } from 'react-icons/fi';
 import { escape_new_line, unescape_new_line } from '@/services/util/string';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
