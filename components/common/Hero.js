@@ -134,7 +134,7 @@ const Hero = ({ metainfo, theHustleHomePage }) => {
         ) : null
       ) : // this portion executes when the Hero component is referenced from the Banner component of 'pages/index.js' component
       metainfo.name ? (
-        <section className="relative flex py-6 md:px-8 px-4 justify-center items-center overflow-clip">
+        <section className="relative bg-brand-bg flex py-6 md:px-8 px-4 justify-center items-center overflow-clip">
           <div className="absolute -left-12 md:top-36 top-80 md:w-40 md:h-40 w-24 h-24 z-0">
             <Image
               src={require(`/public/${metainfo.name}/GradientFlower.svg`)}

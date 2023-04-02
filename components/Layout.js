@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import Footer from "./Footer";
 import Header from "./Header";
+import Script from "next/script";
 
 const Layout = ({ children, title, description, metainfo }) => {
   const currentPath = useRouter().pathname;
@@ -12,8 +13,9 @@ const Layout = ({ children, title, description, metainfo }) => {
 
   useEffect(() => {
     if (
-      currentPath === "/events/23/hackrplay/2022/home" ||
-      currentPath === "/events/23/twoplaysamonth"
+      currentPath === "/events/22/hackrplay" ||
+      currentPath === "/events/23/twoplaysamonth" ||
+      currentPath === "/"
     ) {
       setSecondaryNavbar(false);
     } else {
@@ -27,7 +29,11 @@ const Layout = ({ children, title, description, metainfo }) => {
   return (
     <>
       {!loading ? (
-        <div className={`relative bg-brand-bg overflow-clip`}>
+        <div
+          className={`relative ${
+            currentPath != "/" && "bg-brand-bg"
+          } overflow-clip`}
+        >
           <Head>
             <title>{title}</title>
             <link rel="icon" href="/favicon.png" />
@@ -62,7 +68,7 @@ const Layout = ({ children, title, description, metainfo }) => {
               content={`https://hustles.reactplay.io/${metainfo.name}/og-image.png`}
             />
             <meta name="twitter:site" content="@ReactPlayIO" />
-            <script
+            <Script
               async
               defer
               data-website-id={process.env.NEXT_PUBLIC_UMAMI_TRACK_ID}
@@ -75,7 +81,7 @@ const Layout = ({ children, title, description, metainfo }) => {
             metainfo={metainfo}
           />
           <main>{children}</main>
-          <Footer />
+          <Footer currentPath={currentPath} />
         </div>
       ) : null}
     </>

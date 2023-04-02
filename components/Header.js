@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
-
 const MobileHeader = ({ links, setMobileActive, redirectToRegistration }) => {
   return (
     <>
@@ -59,7 +58,7 @@ const Header = ({ links, metainfo, secondary = false }) => {
           </div>
         </header>
       ) : (
-        <header className="pt-6 pb-1 px-4 flex md:justify-center justify-end items-baseline bg-transparent font-primary text-white z-10">
+        <header className="pt-6 pb-1 px-4 flex md:justify-center justify-end items-baseline bg-brand-bg font-primary text-white z-10">
           <div className="md:inline-flex hidden justify-center items-baseline mx-auto z-10">
             {links &&
               links.map((link, index) => (
