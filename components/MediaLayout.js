@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { HiArrowNarrowRight } from "react-icons/hi";
 
 const MediaLayout = ({ events, videoLinks, twitterLinks, title, id }) => {
   return (
@@ -9,12 +10,19 @@ const MediaLayout = ({ events, videoLinks, twitterLinks, title, id }) => {
         events && "bg-gray-50"
       } ${twitterLinks && "bg-cyan-400/10"} ${videoLinks && "bg-slate-900"}`}
     >
-      <h1
-        className={`text-5xl py-16 font-primary ${videoLinks && "text-white"}`}
-      >
-        {title}
+      <h1 className={`text-5xl py-16 font-sans ${videoLinks && "text-white"}`}>
+        {!title.split(" ")[1] ? (
+          <span className="font-black">{title}</span>
+        ) : (
+          <div>
+            <span>{title.split(" ")[0]}</span>{" "}
+            <span className="font-black underline decoration-cyan-400">
+              {title.split(" ")[1]}
+            </span>
+          </div>
+        )}
       </h1>
-      <div className="flex flex-col lg:grid lg:grid-cols-3 justify-center items-center gap-10">
+      <div className="flex flex-col lg:grid lg:grid-cols-3 justify-center items-center gap-10 lg:gap-20">
         {events?.map((event) => (
           <Link key={event.id} href={event.link}>
             <article className="w-full mb-10 rounded text-sm text-gray-300 sm:h-[21rem] md:h-[20rem] flex flex-col gap-5 bg-cyan-800 max-w-[350px] px-6 py-8 cursor-pointer hover:scale-105 transition-all">
@@ -52,7 +60,11 @@ const MediaLayout = ({ events, videoLinks, twitterLinks, title, id }) => {
       </div>
 
       {/* link to rest of the media */}
-      <button className="font-body text-xl py-16 text-cyan-400 underline transition-shadow">
+      <button
+        className={`font-sans font-black text-2xl py-16 decoration-cyan-400 underline transition-shadow ${
+          videoLinks && "text-white"
+        }`}
+      >
         <a
           href={
             videoLinks
@@ -61,7 +73,10 @@ const MediaLayout = ({ events, videoLinks, twitterLinks, title, id }) => {
           }
           target="_blank"
         >
-          {videoLinks ? "Show All ReactPlay Lives" : "Show All Twitter Spaces"}
+          View all{" "}
+          <span className="inline-block text-lg text-cyan-400">
+            <HiArrowNarrowRight />
+          </span>
         </a>
       </button>
     </section>
