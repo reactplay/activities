@@ -16,16 +16,8 @@ const ExtendedFooter = () => {
             <Image alt="Logo of ReactPlay" src={LogoLight} />
           </h3>
           <p className="text-lg lg:text-2xl">
-            An open-source project made with ❤️ by{" "}
-            <a
-              className="underline font-normal text-gray-800"
-              href="https://tapasadhikary.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Tapas Adhikary
-            </a>{" "}
-            and friends.
+            An open-source project made with ❤️ by folks dedicated to give back
+            to the developer community.
           </p>
           <div className="mt-8">
             <p>
