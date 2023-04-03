@@ -177,8 +177,9 @@ const ExtendedFooter = () => {
             Show love
           </h3>
           <p className="mb-4 text-gray-600 lg:text-base">
-            Enjoying ReactPlay? Please help us spreading the word You can share
-            about ReactPlay on any of your favorite social media platforms.
+            Enjoying ReactPlay? Please help us in spreading the word. You can
+            share about ReactPlay on any of your favorite social media
+            platforms.
           </p>
           <button
             href="#"
