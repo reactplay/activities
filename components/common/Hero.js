@@ -18,7 +18,6 @@ import ReactPlayLogo from "../../public/ReactPlayLogo.svg";
 const Hero = ({ metainfo, theHustleHomePage }) => {
   const router = useRouter();
 
-  useEffect(() => {}, [metainfo]);
   const redirectToRegistration = () => {
     router.push("registration");
   };
