@@ -16,12 +16,12 @@ export default function Home() {
         <Banner />
         <MediaLayout events={Config.events} title="Events" id="events" />
         <MediaLayout
-          videoLinks={reactPlayLive}
+          reactPlayLive={reactPlayLive}
           title="ReactPlay Live"
           id="live"
         />
         <MediaLayout
-          twitterLinks={Config.twitterSpaces}
+          twitterSpaces={Config.twitterSpaces}
           title="Twitter Spaces"
           id="spaces"
         />
