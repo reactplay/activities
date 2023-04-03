@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -18,18 +19,16 @@ body {
   grid-column: 1/-1;
 }
 
+[data-theme="hackrplay"] {
+  --color-brand-bg: #051630;
+  --color-brand-highlight: #00f2fe;
+  --color-brand-primary-highlight: #4831d4;
+  --color-brand-white: #ffffff;
+}
 
-  
-  [data-theme="hackrplay"] {
-    --color-brand-bg: #051630;
-    --color-brand-highlight: #00F2FE;
-    --color-brand-primary-highlight: #4831D4;
-    --color-brand-white: #FFFFFF
-  }
-
-  [data-theme="twoplaysamonth"] {
-    --color-brand-bg: #1D1455;
-    --color-brand-highlight: #CCF381;
-    --color-brand-primary-highlight: #684EFF;
-    --color-brand-white: #FFFFFF
-  }
+[data-theme="twoplaysamonth"] {
+  --color-brand-bg: #1d1455;
+  --color-brand-highlight: #ccf381;
+  --color-brand-primary-highlight: #684eff;
+  --color-brand-white: #ffffff;
+}

@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const plugin = require("tailwindcss/plugin");
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   darkMode: false,
   content: [
@@ -15,6 +16,9 @@ module.exports = {
       wild: "0.3rem",
     },
     extend: {
+      fontFamily: {
+        sans: ["Raleway", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         "brand-hightlight": "#32f9e5",
         "brand-title": "#00F2FE",
