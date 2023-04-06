@@ -63,9 +63,19 @@ const Header = ({ links, metainfo, secondary = false }) => {
             {links &&
               links.map((link, index) => (
                 <Link key={index} href={`${link.href}`} scroll={false}>
-                  <a className="uppercase mr-16 last:mr-0 text-lg tracking-widest">
-                    {link.name}
-                  </a>
+                  {link.href.includes("http") ? (
+                    <a
+                      className="uppercase mr-16 last:mr-0 text-lg tracking-widest"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <a className="uppercase mr-16 last:mr-0 text-lg tracking-widest">
+                      {link.name}
+                    </a>
+                  )}
                 </Link>
               ))}
           </div>

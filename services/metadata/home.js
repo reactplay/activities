@@ -8,7 +8,7 @@ export const Config = {
     {
       id: 0,
       name: "Plays",
-      href: "",
+      href: "https://reactplay.io/plays",
     },
     {
       id: 1,
