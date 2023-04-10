@@ -33,7 +33,7 @@ const MediaLayout = ({ events, reactPlayLive, twitterSpaces, title, id }) => {
           <Link key={event.id} href={event.link} scroll={false}>
             {event.link.includes("http") ? (
               <a
-                className="w-full mb-10 rounded text-sm text-gray-300 sm:h-[21rem] md:h-[20rem] flex flex-col gap-5 bg-cyan-800 max-w-[350px] px-6 py-8 cursor-pointer hover:scale-105 transition-all"
+                className="w-full mb-10 rounded-lg text-sm text-gray-300 sm:h-[21rem] md:h-[20rem] flex flex-col gap-5 bg-cyan-800 max-w-[350px] px-6 py-8 cursor-pointer hover:scale-105 transition-all"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -47,7 +47,7 @@ const MediaLayout = ({ events, reactPlayLive, twitterSpaces, title, id }) => {
                 <p className="">{event.description}</p>
               </a>
             ) : (
-              <a className="w-full mb-10 rounded text-sm text-gray-300 sm:h-[21rem] md:h-[20rem] flex flex-col gap-5 bg-cyan-800 max-w-[350px] px-6 py-8 cursor-pointer hover:scale-105 transition-all">
+              <a className="w-full mb-10 rounded-lg text-sm text-gray-300 sm:h-[21rem] md:h-[20rem] flex flex-col gap-5 bg-cyan-800 max-w-[350px] px-6 py-8 cursor-pointer hover:scale-105 transition-all">
                 <div>
                   <Image
                     src={require(`/public/${event.image}.png`)}
@@ -65,7 +65,7 @@ const MediaLayout = ({ events, reactPlayLive, twitterSpaces, title, id }) => {
             key={el.id}
             width="360"
             height="320"
-            className="mb-10"
+            className="mb-10 rounded-lg"
             src={el.src}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
