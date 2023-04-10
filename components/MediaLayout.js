@@ -30,17 +30,34 @@ const MediaLayout = ({ events, reactPlayLive, twitterSpaces, title, id }) => {
       </h1>
       <div className="flex flex-col lg:grid lg:grid-cols-3 justify-center items-center gap-10 lg:gap-20">
         {events?.map((event) => (
-          <Link key={event.id} href={event.link}>
-            <article className="w-full mb-10 rounded text-sm text-gray-300 sm:h-[21rem] md:h-[20rem] flex flex-col gap-5 bg-cyan-800 max-w-[350px] px-6 py-8 cursor-pointer hover:scale-105 transition-all">
-              <div>
-                <Image
-                  src={require(`/public/${event.image}.png`)}
-                  alt="Banner Logo"
-                  layout="responsive"
-                />
-              </div>
-              <p className="">{event.description}</p>
-            </article>
+          <Link key={event.id} href={event.link} scroll={false}>
+            {event.link.includes("http") ? (
+              <a
+                className="w-full mb-10 rounded text-sm text-gray-300 sm:h-[21rem] md:h-[20rem] flex flex-col gap-5 bg-cyan-800 max-w-[350px] px-6 py-8 cursor-pointer hover:scale-105 transition-all"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div>
+                  <Image
+                    src={require(`/public/${event.image}.png`)}
+                    alt="Banner Logo"
+                    layout="responsive"
+                  />
+                </div>
+                <p className="">{event.description}</p>
+              </a>
+            ) : (
+              <a className="w-full mb-10 rounded text-sm text-gray-300 sm:h-[21rem] md:h-[20rem] flex flex-col gap-5 bg-cyan-800 max-w-[350px] px-6 py-8 cursor-pointer hover:scale-105 transition-all">
+                <div>
+                  <Image
+                    src={require(`/public/${event.image}.png`)}
+                    alt="Banner Logo"
+                    layout="responsive"
+                  />
+                </div>
+                <p className="">{event.description}</p>
+              </a>
+            )}
           </Link>
         ))}
         {reactPlayLive?.map((el) => (
