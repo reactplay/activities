@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Script from "next/script";
 
-const Layout = ({ children, title, description, metainfo }) => {
+const Layout = ({ children, title, description, metainfo, hustleHomePage }) => {
   const currentPath = useRouter().pathname;
   const [secondaryNavbar, setSecondaryNavbar] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -79,6 +79,7 @@ const Layout = ({ children, title, description, metainfo }) => {
             links={metainfo.links}
             secondary={secondaryNavbar}
             metainfo={metainfo}
+            hustleHomePage={hustleHomePage}
           />
           <main>{children}</main>
           <Footer currentPath={currentPath} />

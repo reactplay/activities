@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import ReactPlayLogo from "@/public/ReactPlayLogo.svg";
 
 const MobileHeader = ({ links, setMobileActive, redirectToRegistration }) => {
   return (
@@ -34,7 +35,7 @@ const MobileHeader = ({ links, setMobileActive, redirectToRegistration }) => {
   );
 };
 
-const Header = ({ links, metainfo, secondary = false }) => {
+const Header = ({ links, metainfo, secondary = false, hustleHomePage }) => {
   const [mobileActive, setMobileActive] = useState(false);
   const router = useRouter();
   const redirectToRegistration = () => {
@@ -58,21 +59,40 @@ const Header = ({ links, metainfo, secondary = false }) => {
           </div>
         </header>
       ) : (
-        <header className="pt-6 pb-1 px-4 flex md:justify-center justify-end items-baseline bg-brand-bg font-primary text-white z-10">
-          <div className="md:inline-flex hidden justify-center items-baseline mx-auto z-10">
+        <header
+          className={`${
+            hustleHomePage
+              ? "justify-end sm:justify-between items-center px-4 xl:px-16 py-4 bg-slate-900"
+              : "pt-6 pb-1 px-4 md:justify-center justify-end items-baseline bg-brand-bg "
+          } flex font-primary text-white z-10`}
+        >
+          {hustleHomePage && (
+            <Link href="/">
+              <div className="hidden sm:block cursor-pointer">
+                <Image src={ReactPlayLogo} alt="Logo" />
+              </div>
+            </Link>
+          )}
+          <div
+            className={`${
+              hustleHomePage
+                ? "hidden md:inline-flex"
+                : "md:inline-flex hidden justify-center items-baseline mx-auto z-10"
+            }`}
+          >
             {links &&
               links.map((link, index) => (
                 <Link key={index} href={link.href} scroll={false}>
                   {link.href.includes("http") ? (
                     <a
-                      className="uppercase mr-16 last:mr-0 text-lg tracking-widest"
+                      className="uppercase mr-12 lg:mr-16 last:mr-0 text-lg tracking-widest"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       {link.name}
                     </a>
                   ) : (
-                    <a className="uppercase mr-16 last:mr-0 text-lg tracking-widest">
+                    <a className="uppercase mr-12 lg:mr-16 last:mr-0 text-lg tracking-widest">
                       {link.name}
                     </a>
                   )}

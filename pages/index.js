@@ -30,7 +30,11 @@ export default function Home() {
   };
 
   return (
-    <Layout title="The Hustle Home page" metainfo={Config}>
+    <Layout
+      hustleHomePage={true}
+      title="The Hustle Home page"
+      metainfo={Config}
+    >
       <EventLayout />
     </Layout>
   );
