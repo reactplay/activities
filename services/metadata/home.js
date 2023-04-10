@@ -47,18 +47,18 @@ export const Config = {
       name: "2PlaysaMonth",
       description:
         "ReactPlay brings you an opportunity to participate in the month-long drive to learn and contribute to Open Source. Join the #2PlaysAMonth and build two projects(plays) in the month of February. You will learn from expert code reviews while contributing to Open Source - you may also win some exciting prize",
-      image: "twoplaysamonth/NavbarLogo",
+      image: "twoplaysamonth/twoplaysamonth",
       link: `/events/23/twoplaysamonth`,
       isCompleted: true,
       isCurrent: false,
     },
     {
       id: 2,
-      name: "2PlaysaMonth",
+      name: "WebDev Basics 101",
       description:
-        "ReactPlay brings you an opportunity to participate in the month-long drive to learn and contribute to Open Source. Join the #2PlaysAMonth and build two projects(plays) in the month of February. You will learn from expert code reviews while contributing to Open Source - you may also win some exciting prize",
-      image: "twoplaysamonth/NavbarLogo",
-      link: `/events/23/twoplaysamonth`,
+        "This bootcamp was presented by Pritesh Kiri in association with ReactPlay. It deals with the fundamental concepts of web development to help beginners develop a solid foundation. It also provided hands-on experience through practical exercises and projects that aimed to impart a comprehensive knowledge on web development.",
+      image: "webdev101/webdev101",
+      link: `https://www.showwcase.com/series/11592/web-development-bootcamp-101`,
       isCompleted: true,
       isCurrent: false,
     },
