@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import Banner from "@/components/Banner";
 import { Config } from "../services/metadata/home";
 import MediaLayout from "@/components/MediaLayout";
+import EventSection from "@/components/event/EventSection";
 
 export default function Home() {
   const reactPlayLive = [
@@ -14,7 +15,8 @@ export default function Home() {
     return (
       <div className="w-full">
         <Banner />
-        <MediaLayout events={Config.events} title="Events" id="events" />
+        <EventSection events={Config.events} />
+        {/* <MediaLayout events={Config.events} title="Events" id="events" /> */}
         <MediaLayout
           reactPlayLive={reactPlayLive}
           title="ReactPlay Live"
