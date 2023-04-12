@@ -3,6 +3,7 @@ import Image from "next/image";
 import ReactPlayLogo from "../public/ReactPlayLogo.svg";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { BiPlay } from "react-icons/bi";
+import EventCard from "./event/EventCard";
 
 const MediaLayout = ({ events, reactPlayLive, twitterSpaces, title, id }) => {
   return (
@@ -18,7 +19,7 @@ const MediaLayout = ({ events, reactPlayLive, twitterSpaces, title, id }) => {
         className={`text-5xl py-16 font-sans ${reactPlayLive && "text-white"}`}
       >
         {!title.split(" ")[1] ? (
-          <span className="font-black">{title}</span>
+          <span className="font-black font-body">{title}</span>
         ) : (
           <div>
             <span>{title.split(" ")[0]}</span>{" "}
@@ -30,19 +31,9 @@ const MediaLayout = ({ events, reactPlayLive, twitterSpaces, title, id }) => {
       </h1>
       <div className="flex flex-col lg:grid lg:grid-cols-3 justify-center items-center gap-10 lg:gap-20">
         {events?.map((event) => (
-          <Link key={event.id} href={event.link}>
-            <article className="w-full mb-10 rounded text-sm text-gray-300 sm:h-[21rem] md:h-[20rem] flex flex-col gap-5 bg-cyan-800 max-w-[350px] px-6 py-8 cursor-pointer hover:scale-105 transition-all">
-              <div>
-                <Image
-                  src={require(`/public/${event.image}.png`)}
-                  alt="Banner Logo"
-                  layout="responsive"
-                />
-              </div>
-              <p className="">{event.description}</p>
-            </article>
-          </Link>
+          <EventCard key={`event_key-${event.id}`} event={event} />
         ))}
+
         {reactPlayLive?.map((el) => (
           <iframe
             key={el.id}
