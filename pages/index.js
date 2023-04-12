@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     const getPlayListData = async () => {
       const response = await fetch(
-        `https://www.googleapis.com/youtube/v3/playlistItems?key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}&part=id,snippet&maxResults=10&playlistId=${REACT_PLAYLIST_ID}`
+        `https://www.googleapis.com/youtube/v3/playlistItems?key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}&part=id,snippet&maxResults=5&playlistId=${REACT_PLAYLIST_ID}`
       );
       const json = await response.json();
       const urls = json?.items?.map((item, index) => ({
