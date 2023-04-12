@@ -18,7 +18,7 @@ function EventSection({ events }) {
             <EventCard key={`event_key-${event.id}`} event={event} />
           ))}
         </div>
-        <button className="font-sans font-black text-2xl py-16 decoration-cyan-400 underline transition-shadow">
+        <button className="font-sans font-black text-2xl py-16 decoration-cyan-400 underline transition-shadow text-[#010326]">
           <a href={""} target="_blank">
             View all{" "}
             <span className="inline-block text-lg text-cyan-400">
