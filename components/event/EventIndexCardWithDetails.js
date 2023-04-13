@@ -1,12 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
-function EventCard({ event }) {
+export default function EventIndexCardWithDetails({event}) {
   return (
     <Link href={event.link}>
       <article className="w-[360px] cursor-pointer hover:scale-105 transition-all">
-        <div className="bg-[#010426] py-28 px-8 rounded-3xl h-[300px] w-[360px]">
+        <div className="bg-[#010426] py-12 px-8 rounded-3xl min-h-[300px] w-[360px]">
           <Image
             src={require(`/public/${event.image}.png`)}
             alt={`${event.name} Banner Logo`}
@@ -20,10 +19,11 @@ function EventCard({ event }) {
               OCT 1-22,2022
             </div>
           </div>
+          
+          <p className='text-white pt-4'>{event.description}</p>
+          
         </div>
       </article>
     </Link>
-  );
+  )
 }
-
-export default EventCard
