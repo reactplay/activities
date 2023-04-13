@@ -16,7 +16,6 @@ export default function Home() {
       <div className="w-full">
         <Banner />
         <EventSection events={Config.events} />
-        {/* <MediaLayout events={Config.events} title="Events" id="events" /> */}
         <MediaLayout
           reactPlayLive={reactPlayLive}
           title="ReactPlay Live"

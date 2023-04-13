@@ -3,15 +3,12 @@ import Image from "next/image";
 import ReactPlayLogo from "../public/ReactPlayLogo.svg";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { BiPlay } from "react-icons/bi";
-import EventCard from "./event/EventCard";
 
-const MediaLayout = ({ events, reactPlayLive, twitterSpaces, title, id }) => {
+const MediaLayout = ({ reactPlayLive, twitterSpaces, title, id }) => {
   return (
     <section
       id={id}
-      className={`flex flex-col items-center justify-center w-full mx-auto px-4 ${
-        events && "bg-gray-50"
-      } ${twitterSpaces && "bg-cyan-400/10"} ${
+      className={`flex flex-col items-center justify-center w-full mx-auto px-4 ${twitterSpaces && "bg-cyan-400/10"} ${
         reactPlayLive && "bg-slate-900"
       }`}
     >
@@ -30,10 +27,6 @@ const MediaLayout = ({ events, reactPlayLive, twitterSpaces, title, id }) => {
         )}
       </h1>
       <div className="flex flex-col lg:grid lg:grid-cols-3 justify-center items-center gap-10 lg:gap-20">
-        {events?.map((event) => (
-          <EventCard key={`event_key-${event.id}`} event={event} />
-        ))}
-
         {reactPlayLive?.map((el) => (
           <iframe
             key={el.id}
