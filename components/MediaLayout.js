@@ -16,7 +16,7 @@ const MediaLayout = ({ reactPlayLive, twitterSpaces, title, id }) => {
         className={`text-5xl py-16 font-sans ${reactPlayLive && "text-white"}`}
       >
         {!title.split(" ")[1] ? (
-          <span className="font-black font-body">{title}</span>
+          <span className="font-black">{title}</span>
         ) : (
           <div>
             <span>{title.split(" ")[0]}</span>{" "}
