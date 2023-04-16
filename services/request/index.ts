@@ -19,7 +19,7 @@ export const submit_multi = (requests, url, reqheder) => {
  * @param {object}           reqheder Optional.
  * @returns {Promise} single promise
  */
-export const submit = (request, url, reqheder) => {
+export const submit = (request, url?: string, reqheder?: string) => {
     return gsubmit(request, BACKEND_URL);
 };
 
