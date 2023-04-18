@@ -45,11 +45,7 @@ const Banner = ({ events }) => {
             </div>
           </div>
         </section>
-      ) : (
-        <div className="-z-0 inset-0 h-5/6">
-          <Image src={HeroBanner} />
-        </div>
-      )}
+      ) : null}
     </>
   );
 };

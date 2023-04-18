@@ -3,8 +3,10 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 import Footer from "./Footer";
-import Header from "./Header";
+
 import Script from "next/script";
+
+import Hero from "./Hero";
 
 const Layout = ({ children, title, description, metainfo, hustleHomePage }) => {
   const currentPath = useRouter().pathname;
@@ -75,13 +77,13 @@ const Layout = ({ children, title, description, metainfo, hustleHomePage }) => {
               src="https://analytics.reactplay.io/umami.js"
             />
           </Head>
-          <Header
-            links={metainfo.links}
-            secondary={secondaryNavbar}
+          <Hero
             metainfo={metainfo}
+            secondaryNavbar={secondaryNavbar}
             hustleHomePage={hustleHomePage}
-          />
-          <main>{children}</main>
+          >
+            {children}
+          </Hero>
           <Footer currentPath={currentPath} />
         </div>
       ) : null}

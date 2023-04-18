@@ -45,7 +45,7 @@ const Header = ({ links, metainfo, secondary = false, hustleHomePage }) => {
   return (
     <>
       {secondary ? (
-        <header className="pt-4 pb-2 md:px-10 px-5 inline-flex justify-between items-center bg-transparent font-primary text-white z-10 w-full">
+        <header className="pt-4 pb-2 md:px-10 px-5 inline-flex justify-between items-center bg-transparent font-primary text-white z-10 fixed max-w-full">
           <div className="md:w-40 w-36 z-10">
             <Link href={`/`}>
               <a>
@@ -62,9 +62,9 @@ const Header = ({ links, metainfo, secondary = false, hustleHomePage }) => {
         <header
           className={`${
             hustleHomePage
-              ? "justify-end sm:justify-between items-center px-4 xl:px-16 py-4 bg-slate-900"
+              ? "justify-end sm:justify-between items-center px-4 xl:px-16 py-4 "
               : "pt-6 pb-1 px-4 md:justify-center justify-end items-baseline bg-brand-bg "
-          } flex font-primary text-white z-10`}
+          } flex font-primary text-white z-10 fixed max-w-full`}
         >
           {hustleHomePage && (
             <Link href="/">
