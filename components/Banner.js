@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // icons
-import { HiArrowNarrowDown } from "react-icons/hi";
+import { HiArrowNarrowDown, HiArrowNarrowRight } from "react-icons/hi";
 
 // image
 import HeroCoders from "@/public/twoplaysamonth/HeroCoders.svg";
@@ -10,7 +10,7 @@ import TwoPlaysAMonthGen from "@/public/2plays-a-month/twoplaysamonthgen.png";
 
 const Banner = ({ events }) => {
   const currentEvent = events.filter((event) => event.isCurrent);
-  console.log(currentEvent);
+  console.log(currentEvent.link);
 
   return (
     <>
@@ -20,20 +20,22 @@ const Banner = ({ events }) => {
             {/* primary section */}
             <div className="md:w-1/2 text-gray-200">
               <div className="w-72">
-                {/*TODO: change to corresponding image */}
-                <Image src={TwoPlaysAMonthGen} alt="Logo" />
+                <Image
+                  src={require(`/public/${currentEvent[0].image}.png`)}
+                  alt="Logo"
+                />
               </div>
               <h3 className="text-5xl font-black tracking-wide leading-snug font-sans py-8">
                 {currentEvent[0].name}
               </h3>
               <p>{currentEvent[0].description}</p>
-              {/* TODO: change href */}
               <a
-                href="#"
+                href={currentEvent[0].link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 my-8 px-6 rounded-full bg-neutral-100 text-sky-900 py-3"
               >
-                {/* TODO: change text here */}
-                View Plays{" "}
+                Join{" "}
                 <span className="inline-block text-base text-cyan-400">
                   <HiArrowNarrowRight />
                 </span>
@@ -62,12 +64,10 @@ const Banner = ({ events }) => {
                 asperiores temporibus voluptatem odio excepturi corporis,
                 assumenda doloremque quisquam?
               </p>
-              {/* TODO: change href */}
               <a
                 href="#events"
                 className="inline-flex items-center gap-2 my-8 px-6 rounded-full bg-neutral-100 text-sky-900 py-3"
               >
-                {/* TODO: change text here */}
                 Explore{" "}
                 <span className="inline-block text-base text-cyan-400">
                   <HiArrowNarrowDown />
