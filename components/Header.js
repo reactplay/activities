@@ -64,7 +64,7 @@ const Header = ({ links, metainfo, secondary = false, hustleHomePage }) => {
             hustleHomePage
               ? "justify-end sm:justify-between items-center px-4 xl:px-16 py-4 "
               : "pt-6 pb-1 px-4 md:justify-center justify-end items-baseline bg-brand-bg "
-          } flex font-primary text-white z-10 fixed max-w-full`}
+          } flex font-primary text-white z-10 fixed w-full`}
         >
           {hustleHomePage && (
             <Link href="/">
