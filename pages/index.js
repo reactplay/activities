@@ -14,6 +14,7 @@ export default function Home() {
         `https://www.googleapis.com/youtube/v3/playlistItems?key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}&part=id,snippet&maxResults=3&playlistId=${REACT_PLAYLIST_ID}`
       );
       const json = await response.json();
+      console.log(json);
       const urls = json?.items?.map((item, index) => ({
         id: index,
         src: `https://www.youtube.com/embed/${item.snippet?.resourceId?.videoId}`,

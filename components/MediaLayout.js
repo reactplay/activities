@@ -47,7 +47,7 @@ const MediaLayout = ({ events, reactPlayLive, twitterSpaces, title, id }) => {
           <iframe
             key={el.id}
             width="360"
-            height="320"
+            height="230"
             className="mb-10"
             src={el.src}
             title="YouTube video player"
