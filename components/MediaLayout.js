@@ -48,7 +48,7 @@ const MediaLayout = ({ events, reactPlayLive, twitterSpaces, title, id }) => {
             key={el.id}
             width="360"
             height="230"
-            className="mb-10"
+            className="mb-10 b-10 rounded-lg"
             src={el.src}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
