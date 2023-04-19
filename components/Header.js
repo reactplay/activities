@@ -62,7 +62,7 @@ const Header = ({ links, metainfo, secondary = false }) => {
           <div className="md:inline-flex hidden justify-center items-baseline mx-auto z-10">
             {links &&
               links.map((link, index) => (
-                <Link key={index} href={`${link.href}`} scroll={false}>
+                <Link key={index} href={link.href} scroll={false}>
                   {link.href.includes("http") ? (
                     <a
                       className="uppercase mr-16 last:mr-0 text-lg tracking-widest"
