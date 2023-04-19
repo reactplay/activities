@@ -16,8 +16,7 @@ const ExtendedFooter = () => {
             <Image alt="Logo of ReactPlay" src={LogoLight} />
           </h3>
           <p className="text-lg lg:text-2xl">
-            An open-source project made with ❤️ by folks dedicated to give back
-            to the developer community.
+            An open-source project made with ❤️ by team ReactPlay.
           </p>
           <div className="mt-8">
             <p>
@@ -113,7 +112,7 @@ const ExtendedFooter = () => {
           <div className="flex flex-wrap gap-1">
             <a
               className="border-solid border-2 bg-cyan-400 font-semibold text-sm inline-flex items-center justify-center mr-2 gap-2 py-3 px-6 no-underline rounded-3xl w group border-transparent hover:bg-gray-100 text-slate-900 transition-all ease-in-out duration-100"
-              href="https://github.com/reactplay/react-play/blob/main/CREATE-PLAY.md"
+              href="https://docs.reactplay.io/How-To-Guides/how-to-create-play"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -137,7 +136,7 @@ const ExtendedFooter = () => {
             <div className="mt-2">
               <a
                 className="underline decoration-2 decoration-cyan-400 underline-offset-4"
-                href="https://reactplay.io/ideas"
+                href="https://docs.reactplay.io/"
                 target="_blank"
               >
                 <span className="text-gray-700 inline-flex items-center gap-1 group">
