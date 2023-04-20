@@ -5,7 +5,7 @@ export default function EventIndexCardWithDetails({event}) {
   return (
     <Link href={event.link}>
       <article className="w-[360px] cursor-pointer hover:scale-105 transition-all">
-        <div className="bg-[#010426] py-12 px-8 rounded-3xl min-h-[300px] w-[360px]">
+        <div className="bg-[#010426] py-12 px-8 rounded-3xl w-[360px]">
           <Image
             src={require(`/public/${event.image}.png`)}
             alt={`${event.name} Banner Logo`}

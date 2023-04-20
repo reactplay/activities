@@ -6,16 +6,18 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Script from "next/script";
 
-const Layout = ({ children, title, description, metainfo }) => {
+// eventNavbar will be true if this layout will be using from an event page.
+// If any other page it's value will not present and default to false
+const Layout = ({ children, title, description, metainfo, eventNavbar = false }) => {
   const currentPath = useRouter().pathname;
-  const [secondaryNavbar, setSecondaryNavbar] = useState(false);
+  const [secondaryNavbar, setSecondaryNavbar] = useState(!eventNavbar);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (
-      currentPath === "/events/22/hackrplay" ||
-      currentPath === "/events/23/twoplaysamonth" ||
-      currentPath === "/"
+      // currentPath === "/events/22/hackrplay" ||
+      // currentPath === "/events/23/twoplaysamonth" ||
+      currentPath === "/" || eventNavbar === true
     ) {
       setSecondaryNavbar(false);
     } else {

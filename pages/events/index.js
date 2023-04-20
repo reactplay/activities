@@ -10,11 +10,11 @@ function index() {
           id="events"
           className="flex flex-col items-center justify-center w-full mx-auto px-4 py-16 min-h-screen bg-gray-50"
         >
-          <h1 className="text-5xl font-raleway">
+          <h1 className="text-5xl font-raleway mb-16">
             <span className="font-black font-body text-[#010326]">Events</span>
           </h1>
-
-          <div className="flex flex-col pt-16 lg:grid lg:grid-cols-3 justify-center items-center gap-10 lg:gap-20">
+          {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-20"> */}
+          <div className="grid grid-cols-3 gap-20">
             {Config.events?.map((event) => (
               <EventIndexCardWithDetails key={`event_key-${event.id}`} event={event} />
             ))}
