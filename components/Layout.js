@@ -3,10 +3,12 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 import Footer from "./Footer";
-import Header from "./Header";
+
 import Script from "next/script";
 
-const Layout = ({ children, title, description, metainfo }) => {
+import Hero from "./Hero";
+
+const Layout = ({ children, title, description, metainfo, hustleHomePage }) => {
   const currentPath = useRouter().pathname;
   const [secondaryNavbar, setSecondaryNavbar] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -75,12 +77,13 @@ const Layout = ({ children, title, description, metainfo }) => {
               src="https://analytics.reactplay.io/umami.js"
             />
           </Head>
-          <Header
-            links={metainfo.links}
-            secondary={secondaryNavbar}
+          <Hero
             metainfo={metainfo}
-          />
-          <main>{children}</main>
+            secondaryNavbar={secondaryNavbar}
+            hustleHomePage={hustleHomePage}
+          >
+            {children}
+          </Hero>
           <Footer currentPath={currentPath} />
         </div>
       ) : null}
