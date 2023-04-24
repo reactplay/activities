@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -42,6 +42,31 @@ const Header = ({ links, metainfo, secondary = false, hustleHomePage }) => {
     router.push("/hackrplay/2022/registration");
   };
 
+  const [show, setShow] = useState(true);
+
+  const controlNavbar = () => {
+    if (typeof window !== "undefined") {
+      if (window.scrollY > 100) {
+        // if scroll down hide the navbar
+        setShow(false);
+      } else {
+        // if scroll up show the navbar
+        setShow(true);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", controlNavbar);
+
+      // cleanup function
+      return () => {
+        window.removeEventListener("scroll", controlNavbar);
+      };
+    }
+  }, [window.scrollY]);
+
   return (
     <>
       {secondary ? (
@@ -64,7 +89,9 @@ const Header = ({ links, metainfo, secondary = false, hustleHomePage }) => {
             hustleHomePage
               ? "justify-end sm:justify-between items-center px-4 xl:px-16 py-4 "
               : "pt-6 pb-1 px-4 md:justify-center justify-end items-baseline bg-brand-bg "
-          } flex font-primary text-white z-10 fixed w-full`}
+          } flex font-primary text-white z-10 w-full ${
+            show ? "fixed" : "hidden"
+          } transition-all ease-in`}
         >
           {hustleHomePage && (
             <Link href="/">
