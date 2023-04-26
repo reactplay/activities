@@ -1,26 +1,20 @@
-import React from "react";
+// import React from "react";
 
-import Header from "./Header";
-import HeroBanner from "@/public/hustleHomePage/HeroBanner@2x.png";
 import Image from "next/image";
+import Link from "next/link";
+
+import HeroBanner from "@/public/hustleHomePage/HeroBanner@2x.png";
 import { Config } from "@/services/metadata/home";
 
 import { HiArrowNarrowRight } from "react-icons/hi";
-import Link from "next/link";
 
-const Hero = ({ metainfo, secondaryNavbar, hustleHomePage, children }) => {
+const Hero = ({ hustleHomePage }) => {
   const currentEvent = Config.events.filter((event) => event.isCurrent);
 
   return (
-    <div>
-      {currentEvent.length === 0 ? (
+    <>
+      {currentEvent.length === 0 && hustleHomePage && (
         <>
-          <Header
-            links={metainfo.links}
-            secondary={secondaryNavbar}
-            metainfo={metainfo}
-            hustleHomePage={hustleHomePage}
-          />
           <div className="-z-0 inset-0 relative w-full h-[80vh] lg:h-[85vh]">
             <Image className="-z-10" src={HeroBanner} layout="fill" />
           </div>
@@ -44,20 +38,9 @@ const Hero = ({ metainfo, secondaryNavbar, hustleHomePage, children }) => {
               </div>
             </Link>
           </div>
-          <main>{children}</main>
-        </>
-      ) : (
-        <>
-          <Header
-            links={metainfo.links}
-            secondary={secondaryNavbar}
-            metainfo={metainfo}
-            hustleHomePage={hustleHomePage}
-          />
-          <main>{children}</main>
         </>
       )}
-    </div>
+    </>
   );
 };
 

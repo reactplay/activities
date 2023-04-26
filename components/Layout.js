@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import Script from "next/script";
 
 import Hero from "./Hero";
+import Header from "./Header";
 
 const Layout = ({ children, title, description, metainfo, hustleHomePage }) => {
   const currentPath = useRouter().pathname;
@@ -77,13 +78,14 @@ const Layout = ({ children, title, description, metainfo, hustleHomePage }) => {
               src="https://analytics.reactplay.io/umami.js"
             />
           </Head>
-          <Hero
+          <Header
+            links={metainfo.links}
+            secondary={secondaryNavbar}
             metainfo={metainfo}
-            secondaryNavbar={secondaryNavbar}
             hustleHomePage={hustleHomePage}
-          >
-            {children}
-          </Hero>
+          />
+          <Hero hustleHomePage={hustleHomePage} />
+          <main>{children}</main>
           <Footer currentPath={currentPath} />
         </div>
       ) : null}
