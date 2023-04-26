@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function EventIndexCardWithDetails({event}) {
-  console.log(event);
   return (
     <Link href={`/events/${event.id}/${event.name}`}>
       <article className="w-[360px] cursor-pointer hover:scale-105 transition-all">
