@@ -6,7 +6,7 @@ import { events } from "@/services/metadata/events";
 
 function index() {
     return (
-      <Layout title="The Hustle Home page" metainfo={Config}>
+      <Layout title="The Hustle Home page" metainfo={Config} eventNavbar={false}>
         <section
           id="events"
           className="flex flex-col items-center justify-center w-full mx-auto px-4 py-16 min-h-screen bg-gray-50"

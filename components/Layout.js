@@ -10,19 +10,9 @@ import Script from "next/script";
 // If any other page it's value will not present and default to false
 const Layout = ({ children, title, description, metainfo, eventNavbar = false }) => {
   const currentPath = useRouter().pathname;
-  const [secondaryNavbar, setSecondaryNavbar] = useState(!eventNavbar);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (
-      // currentPath === "/events/22/hackrplay" ||
-      // currentPath === "/events/23/twoplaysamonth" ||
-      currentPath === "/" || eventNavbar === true
-    ) {
-      setSecondaryNavbar(false);
-    } else {
-      setSecondaryNavbar(true);
-    }
     if (metainfo?.name) {
       setLoading(false);
     }
@@ -79,7 +69,7 @@ const Layout = ({ children, title, description, metainfo, eventNavbar = false })
           </Head>
           <Header
             links={metainfo.links}
-            secondary={secondaryNavbar}
+            secondary={eventNavbar}
             metainfo={metainfo}
           />
           <main>{children}</main>

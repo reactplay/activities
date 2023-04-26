@@ -56,7 +56,7 @@ function EventPage({ event }) {
     <Layout
       title="ReactPlay : Hack-R-Play"
       metainfo={event}
-      eventNavbar={true}
+      eventNavbar={false}
     >
       <div className="absolute md:left-9 -top-10 left-5 z-0 md:w-32 md:h-32 w-24 h-24">
         <Image
