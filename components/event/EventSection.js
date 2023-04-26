@@ -21,7 +21,7 @@ function EventSection({ events }) {
         </div>
         <button className="font-sans font-black text-2xl py-16 decoration-cyan-400 underline transition-shadow text-[#010326]">
           <Link href="/events">
-            <a  target="_blank">
+            <a>
               View all{" "}
               <span className="inline-block text-lg text-cyan-400">
                 <HiArrowNarrowRight />

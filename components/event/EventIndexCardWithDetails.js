@@ -4,6 +4,7 @@ import Link from 'next/link'
 export default function EventIndexCardWithDetails({event}) {
   return (
     <Link href={`/events/${event.id}/${event.name}`}>
+    <a target="_blank">
       <article className="w-[360px] cursor-pointer hover:scale-105 transition-all">
         <div className="bg-[#010426] py-12 px-8 rounded-3xl w-[360px]">
           <Image
@@ -27,6 +28,7 @@ export default function EventIndexCardWithDetails({event}) {
           
         </div>
       </article>
+      </a>
     </Link>
   )
 }
