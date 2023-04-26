@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import EventIndexCardWithDetails from "@/components/event/EventIndexCardWithDetails";
 import { Config } from "@/services/metadata/home";
+import { events } from "@/services/metadata/events";
 
 
 function index() {
@@ -15,7 +16,7 @@ function index() {
           </h1>
           {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-20"> */}
           <div className="grid grid-cols-3 gap-20">
-            {Config.events?.map((event) => (
+            {events?.map((event) => (
               <EventIndexCardWithDetails key={`event_key-${event.id}`} event={event} />
             ))}
           </div>

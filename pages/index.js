@@ -5,6 +5,7 @@ import MediaLayout from "@/components/MediaLayout";
 import EventSection from "@/components/event/EventSection";
 import { useEffect, useState } from "react";
 import { REACT_PLAYLIST_ID } from "config";
+import { events } from "@/services/metadata/events";
 
 export default function Home() {
   const [reactPlayLive, setReactPlayLive] = useState([]);
@@ -29,7 +30,7 @@ export default function Home() {
     return (
       <div className="w-full">
         <Banner />
-        <EventSection events={Config.events} />
+        <EventSection events={events} />
         <MediaLayout
           reactPlayLive={reactPlayLive}
           title="ReactPlay Live"
