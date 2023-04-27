@@ -8,7 +8,7 @@ import Script from "next/script";
 
 // eventNavbar will be true if this layout will be using from an event page.
 // If any other page it's value will not present and default to false
-const Layout = ({ children, title, metainfo, eventNavbar = false, links }) => {
+const Layout = ({ children, title, metainfo, eventNavbar = false, links=[] }) => {
   const currentPath = useRouter().pathname;
   const [loading, setLoading] = useState(true);
 
