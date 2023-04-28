@@ -15,10 +15,10 @@ const Hero = ({ hustleHomePage }) => {
     <>
       {currentEvent.length === 0 && hustleHomePage && (
         <>
-          <div className="-z-0 inset-0 relative w-full h-[80vh] lg:h-[85vh]">
-            <Image className="-z-10" src={HeroBanner} layout="fill" />
+          <div className="relative w-full h-[80vh] lg:h-[85vh]">
+            <Image src={HeroBanner} layout="fill" />
           </div>
-          <div className="z-20 flex items-center flex-col gap-4 font-sans absolute left-1/2 -translate-x-1/2 text-center px-4 w-full lg:w-2/4 top-48">
+          <div className="flex items-center flex-col gap-4 font-sans absolute left-1/2 -translate-x-1/2 text-center px-4 w-full lg:w-2/4 top-48">
             <h3 className="text-4xl lg:text-5xl font-black text-cyan-400">
               An unusual place for{" "}
               <span className="underline text-white">Extraordinary React</span>{" "}
