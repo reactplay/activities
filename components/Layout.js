@@ -3,12 +3,13 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 import Footer from "./Footer";
-import Header from "./Header";
+
 import Script from "next/script";
 
 // eventNavbar will be true if this layout will be using from an event page.
 // If any other page it's value will not present and default to false
 const Layout = ({ children, title, metainfo, eventNavbar = false, links=[] }) => {
+
   const currentPath = useRouter().pathname;
   const [loading, setLoading] = useState(true);
 
@@ -71,7 +72,9 @@ const Layout = ({ children, title, metainfo, eventNavbar = false, links=[] }) =>
             links={links.length ==0 ? metainfo.links : links}
             secondary={eventNavbar}
             metainfo={metainfo}
+            hustleHomePage={hustleHomePage}
           />
+          <Hero hustleHomePage={hustleHomePage} />
           <main>{children}</main>
           <Footer currentPath={currentPath} />
         </div>

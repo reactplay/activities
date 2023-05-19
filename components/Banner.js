@@ -1,11 +1,53 @@
-// components
-import Hero from "@/components/common/Hero";
+import Image from "next/image";
 
-// services
-import { Config } from "@/services/metadata/twoplaysamonth";
+// icons
+import { HiArrowNarrowRight } from "react-icons/hi";
 
-const Banner = () => {
-  return <Hero metainfo={Config} theHustleHomePage />;
+// image
+import HeroCoders from "@/public/twoplaysamonth/HeroCoders.svg";
+
+const Banner = ({ events }) => {
+  console.log(events);
+  const currentEvent = events.filter((event) => event.isCurrent);
+
+  return (
+    <>
+      {currentEvent.length ? (
+        <section className="bg-slate-900">
+          <div className="flex max-w-7xl px-4 mx-auto py-20 justify-between">
+            {/* primary section */}
+            <div className="md:w-1/2 mt-10 px-4 md:px-2 text-gray-200">
+              <div className="w-72">
+                <Image
+                  src={require(`/public/${currentEvent[0].image}.png`)}
+                  alt="Logo"
+                />
+              </div>
+              <h3 className="text-5xl font-black tracking-wide leading-snug font-sans py-8">
+                {currentEvent[0].name}
+              </h3>
+              <p>{currentEvent[0].description}</p>
+              <a
+                href={currentEvent[0].link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 my-8 px-6 rounded-full bg-neutral-100 text-sky-900 py-3"
+              >
+                Join{" "}
+                <span className="inline-block text-base text-cyan-400">
+                  <HiArrowNarrowRight />
+                </span>
+              </a>
+            </div>
+            {/* image section*/}
+            <div className="hidden md:block">
+              <Image src={HeroCoders} width={350} />
+            </div>
+          </div>
+        </section>
+      ) : null}
+    </>
+  );
 };
 
 export default Banner;

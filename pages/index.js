@@ -8,23 +8,11 @@ import { REACT_PLAYLIST_ID } from "config";
 import { events } from "@/services/metadata/events";
 
 export default function Home() {
-  const [reactPlayLive, setReactPlayLive] = useState([]);
-
-  useEffect(() => {
-    const getPlayListData = async () => {
-      const response = await fetch(
-        `https://www.googleapis.com/youtube/v3/playlistItems?key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}&part=id,snippet&maxResults=3&playlistId=${REACT_PLAYLIST_ID}`
-      );
-      const json = await response.json();
-      console.log(json);
-      const urls = json?.items?.map((item, index) => ({
-        id: index,
-        src: `https://www.youtube.com/embed/${item.snippet?.resourceId?.videoId}`,
-      }));
-      setReactPlayLive(urls);
-    };
-    getPlayListData();
-  }, []);
+  const reactPlayLive = [
+    { id: 0, src: "https://www.youtube.com/embed/1qfDkmtuWqg" },
+    { id: 1, src: "https://www.youtube.com/embed/b0eas9xxD-E" },
+    { id: 2, src: "https://www.youtube.com/embed/w0nd4ASTDdg" },
+  ];
 
   const EventLayout = () => {
     return (
@@ -46,7 +34,11 @@ export default function Home() {
   };
 
   return (
-    <Layout title="The Hustle Home page" metainfo={Config}>
+    <Layout
+      hustleHomePage={true}
+      title="The Hustle Home page"
+      metainfo={Config}
+    >
       <EventLayout />
     </Layout>
   );
