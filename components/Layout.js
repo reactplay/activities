@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Footer from "./Footer";
 
 import Script from "next/script";
+import Header from "./Header";
 
 // eventNavbar will be true if this layout will be using from an event page.
 // If any other page it's value will not present and default to false
