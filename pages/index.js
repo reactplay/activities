@@ -17,7 +17,7 @@ export default function Home() {
   const EventLayout = () => {
     return (
       <div className="w-full">
-        <Banner />
+        <Banner events={events} />
         <EventSection events={events} />
         <MediaLayout
           reactPlayLive={reactPlayLive}
