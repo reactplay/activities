@@ -1,13 +1,9 @@
 import Image from "next/image";
 
-// icons
-import { HiArrowNarrowRight } from "react-icons/hi";
-
-// image
-import HeroCoders from "@/public/twoplaysamonth/HeroCoders.svg";
+import { HiArrowNarrowRight } from "react-icons/hi";  // icons
+import HeroCoders from "@/public/twoplaysamonth/HeroCoders.svg";// image
 
 const Banner = ({ events }) => {
-  console.log(events);
   const currentEvent = events.filter((event) => event.isCurrent);
 
   return (

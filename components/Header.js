@@ -84,29 +84,20 @@ const Header = ({ links, metainfo, secondary = false, hustleHomePage }) => {
           </div>
         </header>
       ) : (
-        <header
-          className={`${
-            hustleHomePage
-              ? "justify-end sm:justify-between items-center px-4 xl:px-16 py-4 "
-              : "pt-6 pb-1 px-4 md:justify-center justify-end items-baseline bg-brand-bg "
-          } flex font-primary text-white z-50 w-full fixed ${
-            scroll && hustleHomePage && "bg-slate-900"
-          } transition-all ease-in`}
-        >
-          {hustleHomePage && (
-            <Link href="/">
-              <div className="hidden sm:block cursor-pointer">
-                <Image src={ReactPlayLogo} alt="Logo" />
-              </div>
+        <header className="pt-6 pb-1 px-4 flex md:justify-center justify-end items-baseline bg-brand-bg font-primary text-white z-10">
+          <div className="md:w-40 w-36 z-10 absolute left-0 -mt-6 ml-4">
+            <Link href={`/`}>
+              <a>
+                <Image
+                  src={require(`/public/ReactPlayLogo.svg`)}
+                  alt="Navbar Logo"
+                  layout="responsive"
+                />
+              </a>
             </Link>
-          )}
-          <div
-            className={`${
-              hustleHomePage
-                ? "hidden md:inline-flex"
-                : "md:inline-flex hidden justify-center items-baseline mx-auto z-10"
-            }`}
-          >
+          </div>
+
+          <div className="md:inline-flex hidden justify-center items-baseline mx-auto z-10">
             {links &&
               links.map((link, index) => (
                 <Link key={index} href={link.href} scroll={false}>

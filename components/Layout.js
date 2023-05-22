@@ -5,25 +5,17 @@ import { useRouter } from "next/router";
 import Footer from "./Footer";
 
 import Script from "next/script";
-
-import Hero from "./Hero";
 import Header from "./Header";
+import Hero from "./Hero";
 
-const Layout = ({ children, title, description, metainfo, hustleHomePage }) => {
+// eventNavbar will be true if this layout will be using from an event page.
+// If any other page it's value will not present and default to false
+const Layout = ({ children, title, metainfo, eventNavbar = false, links=[],hustleHomePage }) => {
+
   const currentPath = useRouter().pathname;
-  const [secondaryNavbar, setSecondaryNavbar] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (
-      currentPath === "/events/22/hackrplay" ||
-      currentPath === "/events/23/twoplaysamonth" ||
-      currentPath === "/"
-    ) {
-      setSecondaryNavbar(false);
-    } else {
-      setSecondaryNavbar(true);
-    }
     if (metainfo?.name) {
       setLoading(false);
     }
@@ -79,8 +71,8 @@ const Layout = ({ children, title, description, metainfo, hustleHomePage }) => {
             />
           </Head>
           <Header
-            links={metainfo.links}
-            secondary={secondaryNavbar}
+            links={links.length ==0 ? metainfo.links : links}
+            secondary={eventNavbar}
             metainfo={metainfo}
             hustleHomePage={hustleHomePage}
           />

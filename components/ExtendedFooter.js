@@ -8,7 +8,7 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 
 const ExtendedFooter = () => {
   return (
-    <footer className="pt-12 pb-6 px-8 text-sm font-light text-zinc-500 border-t border-solid border-zinc-200">
+    <footer className="bg-white pt-12 pb-6 px-8 text-sm font-light text-zinc-500 border-t border-solid border-zinc-200">
       <div className=" flex flex-wrap  lg:grid w-[85%] mt-0 mx-auto mb-4 lg:grid-cols-[1fr_1.2fr_0.8fr] gap-16">
         {/* ReactPlay intro and social icons */}
         <div className="w-full">
@@ -81,11 +81,11 @@ const ExtendedFooter = () => {
               <p>
                 <a
                   className="underline text-gray-800 font-normal"
-                  href="mailto:contact@reactplay.io"
+                  href="mailto:hello@reactplay.io"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  contact@reactplay.io
+                  hello@reactplay.io
                 </a>
               </p>
             </div>
