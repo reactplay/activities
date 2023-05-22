@@ -4,7 +4,7 @@ import React from "react";
 
 function EventCard({ event }) {
   return (
-    <Link href={event.link || `/events/${event.id}/${event.link}`}>
+    <Link href={event.link || `/events/${event.id}/${event.name}`}>
       <a target={event.external ? "_blank" : undefined}>
         <article className="w-[360px] cursor-pointer hover:scale-105 transition-all">
           <div className="bg-[#010426] py-28 px-8 rounded-3xl h-[300px] w-[360px]">

@@ -26,7 +26,7 @@ const MediaLayout = ({ reactPlayLive, twitterSpaces, title, id }) => {
           </div>
         )}
       </h1>
-      <div className="flex flex-col lg:grid lg:grid-cols-3 justify-center items-center gap-10 lg:gap-20">
+      <div className="flex flex-col lg:grid lg:grid-cols-3 justify-center items-center gap-10 lg:gap-20 py-8">
         {reactPlayLive?.map((el) => (
           <iframe
             key={el.id}
@@ -71,7 +71,7 @@ const MediaLayout = ({ reactPlayLive, twitterSpaces, title, id }) => {
       {/* link to rest of the media */}
       {twitterSpaces && twitterSpaces.length ? null : (
         <button
-          className={`font-sans font-black text-2xl py-16 decoration-cyan-400 underline transition-shadow ${
+          className={`font-sans font-black text-2xl py-8 decoration-cyan-400 underline transition-shadow ${
             reactPlayLive && "text-white"
           }`}
         >
