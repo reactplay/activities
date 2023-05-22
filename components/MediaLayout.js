@@ -8,9 +8,9 @@ const MediaLayout = ({ reactPlayLive, twitterSpaces, title, id }) => {
   return (
     <section
       id={id}
-      className={`flex flex-col items-center justify-center w-full mx-auto px-4 ${twitterSpaces && "bg-cyan-400/10"} ${
-        reactPlayLive && "bg-slate-900"
-      }`}
+      className={`flex flex-col items-center justify-center w-full mx-auto px-4 ${
+        twitterSpaces && "bg-cyan-400/10"
+      } ${reactPlayLive && "bg-slate-900"}`}
     >
       <h1
         className={`text-5xl py-16 font-sans ${reactPlayLive && "text-white"}`}
@@ -69,25 +69,27 @@ const MediaLayout = ({ reactPlayLive, twitterSpaces, title, id }) => {
       </div>
 
       {/* link to rest of the media */}
-      <button
-        className={`font-sans font-black text-2xl py-16 decoration-cyan-400 underline transition-shadow ${
-          reactPlayLive && "text-white"
-        }`}
-      >
-        <a
-          href={
-            reactPlayLive
-              ? "https://www.youtube.com/playlist?list=PLIJrr73KDmRxqfDS58ZC3MoianOjcm__Y"
-              : ""
-          }
-          target="_blank"
+      {twitterSpaces && twitterSpaces.length ? null : (
+        <button
+          className={`font-sans font-black text-2xl py-16 decoration-cyan-400 underline transition-shadow ${
+            reactPlayLive && "text-white"
+          }`}
         >
-          View all{" "}
-          <span className="inline-block text-lg text-cyan-400">
-            <HiArrowNarrowRight />
-          </span>
-        </a>
-      </button>
+          <a
+            href={
+              reactPlayLive
+                ? "https://www.youtube.com/playlist?list=PLIJrr73KDmRxqfDS58ZC3MoianOjcm__Y"
+                : ""
+            }
+            target="_blank"
+          >
+            View all{" "}
+            <span className="inline-block text-lg text-cyan-400">
+              <HiArrowNarrowRight />
+            </span>
+          </a>
+        </button>
+      )}
     </section>
   );
 };

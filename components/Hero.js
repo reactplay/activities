@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import HeroBanner from "@/public/hustleHomePage/HeroBanner@2x.png";
+import HeroBanner from "@/public/hustleHomePage/HeroBanner.jpg";
 import { Config } from "@/services/metadata/home";
 
 import { HiArrowNarrowRight } from "react-icons/hi";

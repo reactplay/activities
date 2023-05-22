@@ -3,16 +3,16 @@ export const events = [
     id: 23,
     name: "twoplaysamonth",
     display: "#2PlaysAMonth",
-    logo:"logo-2plays.png",
-    slogan:{
-      title:"100% React event in the universe",
-      backgroundColor:"#66fec9",
-      borderColor:"#66fec9",
-      textColor:"#66fec9",
+    logo: "logo-2plays.png",
+    slogan: {
+      title: "100% React event in the universe",
+      backgroundColor: "#66fec9",
+      borderColor: "#66fec9",
+      textColor: "#66fec9",
     },
-    duration:"Feb 1-23, 2023",
+    duration: "Feb 1-23, 2023",
     description:
-        "ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes.",
+      "ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes.",
     keywords: "ReactPlay, #2PlaysAMonth, ReactJS",
     completed: false,
     started: false,
@@ -198,16 +198,16 @@ export const events = [
     id: 22,
     name: "hackrplay",
     display: "Hack-R-Play",
-    logo:"logo-hack2play.png",
-    slogan:{
-      title:"100% React event in the universe",
-      backgroundColor:"#66fec9",
-      borderColor:"#66fec9",
-      textColor:"#66fec9",
+    logo: "logo-hack2play.png",
+    slogan: {
+      title: "100% React event in the universe",
+      backgroundColor: "#66fec9",
+      borderColor: "#66fec9",
+      textColor: "#66fec9",
     },
     description:
-        "ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes.",
-    duration:"Feb 1-23, 2023",
+      "ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes.",
+    duration: "Feb 1-23, 2023",
     completed: true,
     links: [
       {
@@ -434,18 +434,20 @@ export const events = [
   },
   {
     id: 21,
-    name: "hackrplay",
-    display: "Hack-R-Play",
-    logo:"logo-bootcamp-2.png",
-    slogan:{
-      title:"100% React event in the universe",
-      backgroundColor:"#66fec9",
-      borderColor:"#66fec9",
-      textColor:"#66fec9",
+    name: "bootcamp101",
+    display: "Bootcamp 101",
+    link: "https://www.showwcase.com/series/11592/web-development-bootcamp-101",
+    external: true,
+    logo: "logo-bootcamp-2.png",
+    slogan: {
+      title: "100% React event in the universe",
+      backgroundColor: "#66fec9",
+      borderColor: "#66fec9",
+      textColor: "#66fec9",
     },
     description:
-        "ReactPlay brings you the opportunity to take part in the Hackathon and learn from it. Showcase your mindblowing ideas, build projects, and create content - there are also chances to win exciting prizes.",
-    duration:"Feb 1-23, 2023",
+      "This bootcamp emphaizes on the fundamental concepts of web development to help beginners gain a foundational understanding of the subject",
+    duration: "Feb 1-23, 2023",
     completed: true,
     links: [
       {

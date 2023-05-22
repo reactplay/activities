@@ -9,9 +9,9 @@ import { events } from "@/services/metadata/events";
 
 export default function Home() {
   const reactPlayLive = [
-    { id: 0, src: "https://www.youtube.com/embed/1qfDkmtuWqg" },
-    { id: 1, src: "https://www.youtube.com/embed/b0eas9xxD-E" },
-    { id: 2, src: "https://www.youtube.com/embed/w0nd4ASTDdg" },
+    { id: 0, src: "https://www.youtube.com/embed/d36eeq0w1ug" },
+    { id: 1, src: "https://www.youtube.com/embed/ECQhkGweF90" },
+    { id: 2, src: "https://www.youtube.com/embed/9OVKqxvOsfY" },
   ];
 
   const EventLayout = () => {
@@ -20,6 +20,7 @@ export default function Home() {
         <Banner events={events} />
         <EventSection events={events} />
         <MediaLayout
+          aLayout
           reactPlayLive={reactPlayLive}
           title="ReactPlay Live"
           id="live"

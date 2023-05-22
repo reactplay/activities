@@ -1,7 +1,7 @@
 # Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via [issue](https://github.com/reactplay/activities/issues),
-[email](mailto:contact@reactplay.io), or any other method with the owners of this repository before making a change. 
+[email](mailto:hello@reactplay.io), or any other method with the owners of this repository before making a change. 
 
 Please note we have a [Code of Conduct](https://github.com/reactplay/activities/blob/main/CODE_OF_CONDUCT.md), please follow it in all your interactions with the project.
 
@@ -73,7 +73,7 @@ further defined and clarified by project maintainers.
 ### Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at [contact@reactplay.io](mailto:contact@reactplay.io). All
+reported by contacting the project team at [hello@reactplay.io](mailto:hello@reactplay.io). All
 complaints will be reviewed and investigated and will result in a response that
 is deemed necessary and appropriate to the circumstances. The project team is
 obligated to maintain confidentiality with regard to the reporter of an incident.

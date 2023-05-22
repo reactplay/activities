@@ -81,11 +81,11 @@ const ExtendedFooter = () => {
               <p>
                 <a
                   className="underline text-gray-800 font-normal"
-                  href="mailto:contact@reactplay.io"
+                  href="mailto:hello@reactplay.io"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  contact@reactplay.io
+                  hello@reactplay.io
                 </a>
               </p>
             </div>
