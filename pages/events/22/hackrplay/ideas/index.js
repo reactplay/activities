@@ -85,7 +85,7 @@ const IdeaListingPage = () => {
 
 			tempData.push(interObj);
 		}
-		setIdeas(tempData);
+		setIdeas([...tempData]);
 	};
 
 	return (

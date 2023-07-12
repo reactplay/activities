@@ -1,7 +1,7 @@
 export const Config = {
   name: "hackrplay",
   display: "Hack-R-Play",
-  completed: true,
+  completed: false,
   links: [
     {
       name: "About",

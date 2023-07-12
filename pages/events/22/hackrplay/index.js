@@ -15,7 +15,7 @@ import DottedAndFilledTriangle from "@/public/common/DottedAndFilledTriangle.svg
 import Flower from "@/public/common/Flower.svg";
 import { Config } from "@/services/metadata/hackrplay";
 import Winners from "@/components/common/Winners";
-
+import Link from "next/link";
 export default function Home() {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
@@ -45,7 +45,15 @@ export default function Home() {
       <Hero metainfo={Config} />
       {Config.completed ? (
         <Winners winners={Config.winners} mentions={Config.mentions} />
-      ) : null}
+      ) : (<Link
+        href={`/events/22/hackrplay/ideas`}
+        className="text-white mt-2 text-lg py-2">
+          <a
+            className="text-white py-2">
+            Ideas
+          </a>
+        </Link>)
+      }
       <About metainfo={Config} />
       <Judges metainfo={Config} />
       {Config.partners ? <Partners metainfo={Config} /> : null}
