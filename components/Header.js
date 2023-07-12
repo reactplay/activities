@@ -40,7 +40,7 @@ const Header = ({ links, metainfo, secondary = false }) => {
   const [mobileActive, setMobileActive] = useState(false);
   const router = useRouter();
   const redirectToRegistration = () => {
-    router.push("/hackrplay/2022/registration");
+    router.push("events/22/hackrplay/registration");
   };
 
   return (

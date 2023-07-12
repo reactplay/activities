@@ -19,6 +19,7 @@ import { FaBloggerB, FaCommentDots, FaReact, FaGitAlt } from 'react-icons/fa';
 import Link from 'next/link';
 import StatusBar from '@/components/status-bar/StatusBar';
 import Interaction from '@/components/interactions';
+import { Config } from '@/services/metadata/hackrplay';
 
 const StatusMap = {
 	['Idea Submitted']: {
@@ -116,7 +117,7 @@ export default function IdeaDetails(props) {
 	const onLikeClicked = () => {};
 
 	return (
-		<LayoutWrapper title='HACK-R-PLAY | Idea Registration'>
+		<LayoutWrapper title='HACK-R-PLAY | Idea Registration' metainfo={Config}>
 			{idea ? (
 				<div className='w-full h-full flex flex-col justify-center items-center  p-14'>
 					<div className='w-fit h-full max-w-6xl flex shadow-md rounded mb-6  z-[9] px-5 lg:w-full'>
