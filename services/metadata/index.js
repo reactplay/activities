@@ -1,7 +1,7 @@
-import { Config as tp_config } from './twoplaysamonth';
-import { Config as hrp_config } from './hackrplay';
+import { Config as tp_config } from "./twoplaysamonth";
+import { Config as hrp_config } from "./hackrplay22";
 
 export const MetaConfigs = {
-	twoplaysamonth: tp_config,
-	hackrplay: hrp_config,
+  twoplaysamonth: tp_config,
+  hackrplay: hrp_config,
 };

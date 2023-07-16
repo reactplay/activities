@@ -13,7 +13,7 @@ import FAQs from "@/components/common/FAQs";
 
 import DottedAndFilledTriangle from "@/public/common/DottedAndFilledTriangle.svg";
 import Flower from "@/public/common/Flower.svg";
-import { Config } from "@/services/metadata/hackrplay22";
+import { Config } from "@/services/metadata/hackrplay23";
 import Winners from "@/components/common/Winners";
 import Link from "next/link";
 import { PrimaryButton } from "@/components/Buttons";

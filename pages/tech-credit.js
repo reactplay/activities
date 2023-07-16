@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import TailWindLogo from "../public/tailwindcss-logotype.svg";
 import NextJsLogo from "../public/Nextjs-logo.png";
-import { Config } from "@/services/metadata/hackrplay";
+import { Config } from "@/services/metadata/hackrplay22";
 
 const TechCreditPage = () => {
   return (

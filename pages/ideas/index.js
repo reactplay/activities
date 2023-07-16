@@ -11,7 +11,7 @@ import { useAuthenticationStatus, useUserData } from "@nhost/nextjs";
 import { PrimaryButton } from "@/components/Buttons";
 import { get_latest_status } from "@/services/graphql/status";
 import { unescape_new_line } from "@/services/util/string";
-import { Config } from "@/services/metadata/hackrplay";
+import { Config } from "@/services/metadata/hackrplay22";
 
 const PAGE_SIZE = 12;
 
