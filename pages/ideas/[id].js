@@ -135,7 +135,7 @@ export default function IdeaDetails(props) {
                   </div>
                   <div className="flex py-2 text-sm text-brand-muted">
                     <div className="pr-4 block md:hidden">
-                      {get_latest_status(idea).label}
+                      {get_latest_status(idea)?.label}
                     </div>
                     <div className="pr-4">
                       {idea.idea_like_map_aggregate.aggregate.count} likes
