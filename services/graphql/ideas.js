@@ -100,8 +100,6 @@ export const idea_count = (filter, current_user) => {
     });
   }
 
-  console.error(input_obj);
-
   return submit(input_obj).then((res) => {
     return res && res.aggregate ? res.aggregate.count : 0;
   });
