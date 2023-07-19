@@ -79,6 +79,29 @@ export const idea_count = (filter, current_user) => {
     };
   }
 
+  if (!input_obj.where) {
+    input_obj.where = {
+      clause: {
+        operator: "and",
+        conditions: [
+          {
+            field: "hackathon_id",
+            operator: "eq",
+            value: process.env.NEXT_PUBLIC_HACKATHON_ID,
+          },
+        ],
+      },
+    };
+  } else {
+    input_obj.where.clause.conditions.push({
+      field: "hackathon_id",
+      operator: "eq",
+      value: process.env.NEXT_PUBLIC_HACKATHON_ID,
+    });
+  }
+
+  console.error(input_obj);
+
   return submit(input_obj).then((res) => {
     return res && res.aggregate ? res.aggregate.count : 0;
   });
@@ -122,6 +145,18 @@ export const list_ideas = (filter, current_user) => {
         },
       },
     ],
+    where: {
+      clause: {
+        operator: "and",
+        conditions: [
+          {
+            field: "hackathon_id",
+            operator: "eq",
+            value: process.env.NEXT_PUBLIC_HACKATHON_ID,
+          },
+        ],
+      },
+    },
     distinct: "id",
   };
   if (filter.pagesize) {
