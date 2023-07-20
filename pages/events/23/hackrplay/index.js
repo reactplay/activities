@@ -32,7 +32,7 @@ export default function Home() {
   if (!mounted) return null;
 
   return (
-    <Layout title="ReactPlay : Hack-R-Play" metainfo={Config}>
+    <Layout title="ReactPlay : Hack-R-Play 2.0" metainfo={Config}>
       <div className="absolute md:left-9 -top-10 left-5 z-0 md:w-32 md:h-32 w-24 h-24">
         <Image
           src={DottedAndFilledTriangle}
@@ -57,7 +57,7 @@ export default function Home() {
           </PrimaryButton>
           <PrimaryButton
             handleOnClick={() => {
-              router.push("hackrplay/registration");
+              router.push("/registration");
             }}
           >
             {`Register now`}
