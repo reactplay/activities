@@ -151,6 +151,15 @@ const IdeaListingPage = () => {
               </>
             )}
           </Grid>
+        <div className="flex justify-center mt-4">
+        <PrimaryButton
+            handleOnClick={() => {
+              router.push("/registration");
+            }}
+          >
+            {`Register now`}
+          </PrimaryButton>
+        </div>
         </div>
         <CTA
           title="Be a part of the best react event"
