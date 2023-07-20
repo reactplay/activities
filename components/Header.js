@@ -51,7 +51,7 @@ const Header = ({ links, metainfo, secondary = false }) => {
             <Link href={`/`}>
               <a>
                 <Image
-                  src={require(`/public/${metainfo.name}/NavbarLogo.png`)}
+                  src={require(`/public/${metainfo.name}/BannerLogo.svg`)}
                   alt="Navbar Logo"
                   layout="responsive"
                 />
