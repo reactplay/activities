@@ -27,6 +27,9 @@ export const insert_ideas_status = (idea_object) => {
 	return submit(insert_obj);
 };
 
+export const update_ideas_status = (data) => {
+	console.log(data)
+}
 export const get_latest_status = (idea) => {
 	const all_statuses = [];
 
