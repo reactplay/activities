@@ -46,14 +46,14 @@ export const Config = {
       "Learn, Share, and Win",
     ],
   },
-  judges: [],
-  /*judges: [
+  // judges: [],
+  judges: [
     {
-      name: "Johan Eliasson",
-      twitter: "elitasson",
-      title: "CEO Nhost",
+      name: "Sumit Saha",
+      twitter: "sumit_analyzen",
+      title: "Founder of Analyzen, Founder of Learn with Sumit",
       avatar:
-        "https://pbs.twimg.com/profile_images/1447184004558557193/agXMdsqe_400x400.jpg",
+        "https://pbs.twimg.com/profile_images/1633586293539221506/XD20mte7_400x400.jpg",
     },
     {
       name: "Koustov Maitra",
@@ -63,28 +63,28 @@ export const Config = {
         "https://pbs.twimg.com/profile_images/1443859238443360258/6_H-pDaM_400x400.jpg",
     },
     {
-      name: "Pratim Bhosale",
-      twitter: "BhosalePratim",
-      title: "Developer Advocate, Nhost",
+      name: "Harshit Jain",
+      twitter: "jain_harshit",
+      title: "Tech Lead at at Intuit",
       avatar:
-        "https://pbs.twimg.com/profile_images/1489130124792369154/-3M4AlrG_400x400.jpg",
+        "https://pbs.twimg.com/profile_images/1523150875153567744/zpRDym_L_400x400.jpg",
     },
     {
       name: "Tapas Adhikary",
       twitter: "tapasAdhikary",
-      title: "Founder, ReactPlay",
+      title: "Founder of ReactPlay",
       avatar:
         "https://pbs.twimg.com/profile_images/1495457010598309888/zPrTNF4F_400x400.jpg",
     },
-  ],*/
+  ],
   faqs: [
     {
-      question: "Why should I perticipate in the Hack-R-Play 2.0?",
+      question: "Why should I participate in the Hack-R-Play 2.0?",
       answer:
         "Do you like learning while building something? How about a platform that provides you with an opportunity to build applications end-to-end, showcase it to the world, motivate you to create content about it, and help build networking? Hack-R-Play aims precisely the same. Join the Hackathon brought to you by ReactPlay and start building a cool project that we can't wait to see!",
     },
     {
-      question: "Do I need to Register for Hack-R-Play?",
+      question: "Is registration required to take part in Hack-R-Play?",
       answer:
         "Yes, you need to Register your idea for the Hack-R-Play hackathon. To do that, click on the REGISTER button at the top of the page and submit a few details to register your idea.",
     },
@@ -100,28 +100,27 @@ export const Config = {
     },
     {
       question: "Is Mandatory to use React?",
-      answer:
-        "Nope, the technology choice is up to YOU!",
+      answer: "Nope, the technology choice is up to YOU!",
     },
     {
       question: "What do I need to Submit?",
       answer:
-        "When you submit the project after completion, you submit three public links. Link to your project source code, link to your application, and link to the content that explains your journey in building this application.",
+        "When you submit the project after completion, you submit three public links. Link to your project source code, link to your application, and link to the content that explains your journey in building this application. The content can be anything like a blog, youtube video or any social media post",
     },
     {
-      question: "When and How the Hack-R-Play 2.0 result will be published?",
+      question: "When and how the Hack-R-Play 2.0 result will be published?",
       answer:
         "Hack-R-Play 2.0 results will be published on 15th August 2023. We will publish it on our website, discord, and our social media handles.",
     },
     {
-      question: "Do we get prizes?",
+      question: "Are there any prizes?",
       answer:
         "Yes, we will select 3 best ideas to give the exciting prizes sponsored by Bugfender. We will also give prizes to 2 special mention projects.",
     },
     {
-      question: "I have questions, where can I ask them?",
+      question: "If I have questions, where can I ask them?",
       answer:
-        "Got a question? Please join our Discord(the link is in the footer of this page). You can ask us anything in the hack-r-play channel.",
+        "Got a question? Please join our Discord(the link is in the footer of this page). You can ask us anything in the hack-r-play 2.0 channel.",
     },
   ],
   cta: {
@@ -137,10 +136,6 @@ export const Config = {
       link: "https://bugfender.com/",
     },
   ],
-  winners: [
-    
-  ],
-  mentions: [
-    
-  ],
+  winners: [],
+  mentions: [],
 };

@@ -104,6 +104,17 @@ const IdeaListingPage = () => {
           </h2>
           <div className="text-[#ffffff99] py-4"> Total: {ideaCount}</div>
         </div>
+
+          <div className="flex justify-center mt-2 mb-12">
+            <PrimaryButton
+              handleOnClick={() => {
+                router.push("/registration");
+              }}
+            >
+              {`Register now`}
+            </PrimaryButton>
+          </div>
+
         <div className="container mx-auto max-w-screen-xl mb-6">
           <IdeaFilters
             total={ideaCount}
@@ -151,15 +162,15 @@ const IdeaListingPage = () => {
               </>
             )}
           </Grid>
-        <div className="flex justify-center mt-4">
-        <PrimaryButton
-            handleOnClick={() => {
-              router.push("/registration");
-            }}
-          >
-            {`Register now`}
-          </PrimaryButton>
-        </div>
+          <div className="flex justify-center mt-4">
+            <PrimaryButton
+              handleOnClick={() => {
+                router.push("/registration");
+              }}
+            >
+              {`Register now`}
+            </PrimaryButton>
+          </div>
         </div>
         <CTA
           title="Be a part of the best react event"

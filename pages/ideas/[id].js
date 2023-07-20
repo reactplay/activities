@@ -71,6 +71,7 @@ export default function IdeaDetails(props) {
 
   const loadIdeaDetails = (id) => {
     get_idea(id).then((res) => {
+   
       const all_statuses = [];
       console.log(res.idea_idea_status_map);
       res.idea_idea_status_map.forEach((st) => {
@@ -89,7 +90,6 @@ export default function IdeaDetails(props) {
       ) {
         get_idea_submission_info(res.id).then((sub) => {
           const f_obj = { ...res, ...sub[0] };
-          console.log(f_obj);
           setIdea(f_obj);
         });
       } else {
