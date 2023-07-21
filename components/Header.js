@@ -3,7 +3,7 @@ import { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { PrimaryButton } from "./Buttons";
 import Image from "next/image";
-
+import { useUserData } from "@nhost/nextjs";
 import { useRouter } from "next/router";
 
 const MobileHeader = ({ links, setMobileActive, redirectToRegistration }) => {
@@ -43,10 +43,12 @@ const Header = ({ links, metainfo, secondary = false }) => {
     router.push("events/22/hackrplay/registration");
   };
 
+  const userData = useUserData();
+
   return (
     <>
       {secondary ? (
-        <header className="pt-4 pb-2 md:px-10 px-5 inline-flex justify-between items-center bg-transparent font-primary text-white z-10 w-full">
+        <header className="pt-8 pb-2 md:px-10 px-5 inline-flex justify-between items-center bg-transparent font-primary text-white z-10 w-full">
           <div className="md:w-40 w-36 z-10">
             <Link href={`/`}>
               <a>
@@ -57,6 +59,22 @@ const Header = ({ links, metainfo, secondary = false }) => {
                 />
               </a>
             </Link>
+          </div>
+
+          <div className="md:w-48 w-48 z-10 flex gap-4 items-center">
+            <Image
+              className="rounded-full"
+              height={40}
+              width={40}
+              layout={"fixed"}
+              src={userData?.avatarUrl}
+              alt={"user avatar"}
+              aria-label="user avatar"
+            />
+            <div>
+              <h4 className="text-[#00f2fe]">{userData?.displayName}</h4>
+              <p>{userData?.email}</p>
+            </div>
           </div>
         </header>
       ) : (
