@@ -17,7 +17,7 @@ import { useRouter } from "next/router";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import { update_ideas_status } from "@/services/graphql/status";
 import { Config } from "@/services/metadata/hackrplay22";
-
+import { cleanHTMLInput } from "@/components/common/FormatDesc";
 export default function Home() {
   const { isAuthenticated, isLoading } = useAuthenticationStatus();
   const [isDataLoading, setIsDataLoading] = useState(true);
@@ -109,14 +109,32 @@ export default function Home() {
     setFormData({ ...data });
     setStoredIdeaData({ ...data });
   };
+  function processInput(inputStr) {
+    // Step 1: Remove all special characters except for "\n"
+    const allowedCharacters = /[a-zA-Z0-9\n]/g;
+    const cleanedStr = inputStr.replace(allowedCharacters, "");
 
+    // Step 2: Replace "\n" sequences with actual newlines
+    const processedStr = cleanedStr.replace(/\\n/g, "\n");
+
+    return processedStr;
+  }
   const onSubmit = () => {
     setIsSubmitting(true);
     let idea_id = storedIdeaData.id;
     let selected_users = storedIdeaData.users;
-    const idea_object = (({ title, description }) => ({ title, description }))(
-      storedIdeaData
-    );
+    let updated_desc = cleanHTMLInput(storedIdeaData.description);
+
+    // const idea_object = (({ title, updated_desc }) => ({ title, description }))(
+    //   storedIdeaData
+    // );
+
+    const idea_object = {
+      title: storedIdeaData?.title,
+      description: updated_desc,
+    };
+
+    console.log("descp", idea_object, updated_desc);
     idea_object.owner = userData.id;
     if (!idea_id)
       return insert_idea(idea_object).then((res) => {
