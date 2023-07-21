@@ -55,19 +55,19 @@ export const Config = {
       avatar:
         "https://pbs.twimg.com/profile_images/1633586293539221506/XD20mte7_400x400.jpg",
     },
-    /*{
-      name: "Koustov Maitra",
-      twitter: "koustov",
-      title: "Solution Architect, ReactPlay",
-      avatar:
-        "https://pbs.twimg.com/profile_images/1443859238443360258/6_H-pDaM_400x400.jpg",
-    },*/
     {
       name: "Harshit Jain",
       twitter: "jain_harshit",
       title: "Tech Lead at at Intuit",
       avatar:
         "https://pbs.twimg.com/profile_images/1523150875153567744/zpRDym_L_400x400.jpg",
+    },
+    {
+      name: "Koustov Maitra",
+      twitter: "koustov",
+      title: "Solution Architect, ReactPlay",
+      avatar:
+        "https://pbs.twimg.com/profile_images/1443859238443360258/6_H-pDaM_400x400.jpg",
     },
     {
       name: "Tapas Adhikary",
