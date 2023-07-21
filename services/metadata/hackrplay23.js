@@ -58,7 +58,7 @@ export const Config = {
     {
       name: "Harshit Jain",
       twitter: "jain_harshit",
-      title: "Tech Lead at at Intuit",
+      title: "SDE-3 Intuit",
       avatar:
         "https://pbs.twimg.com/profile_images/1523150875153567744/zpRDym_L_400x400.jpg",
     },
