@@ -72,7 +72,7 @@ export const Config = {
     {
       name: "Tapas Adhikary",
       twitter: "tapasAdhikary",
-      title: "Founder of ReactPlay",
+      title: "Founder of ReactPlay, Educator at tapaScript",
       avatar:
         "https://pbs.twimg.com/profile_images/1495457010598309888/zPrTNF4F_400x400.jpg",
     },
