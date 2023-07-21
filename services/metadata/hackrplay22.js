@@ -130,7 +130,7 @@ export const Config = {
   cta: {
     title: "Be a part of the best react event",
     description:
-      "Learning is a journey than a destination. We developers need avenues, motivations, and opportunities to keep going. Join the Hack-R-Play hackathon to experience it. It will allow you to build a full-stack app using React and Nhost. Why waiting? Register your idea today",
+      "Learning is a journey than a destination. We developers need avenues, motivations, and opportunities to keep going. Join the Hack-R-Play hackathon to experience it. Build something awesome that this world is waiting to see. Why waiting? Register your idea today.",
   },
   partners: [
     {
