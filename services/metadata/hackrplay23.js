@@ -34,9 +34,9 @@ export const Config = {
       "You can build any project of your choice using any technologies you prefer.",
       "The project source code must be open on github.",
       "You must deploy the application publicly.",
-      "You must create content(on any soacila media platform or blog or video) about your participation, building things, etc. Make sure to tag <strong>#hackrplay</strong> and <strong>ReactPlay</strong>",
+      "You must create content(on any social media platform or blog or video) about your participation, building things, etc. Make sure to tag <strong>#hackrplay</strong> and <strong>ReactPlay</strong>",
       "If your project tech stack is supported by [Bugfender](https://bugfender.com), you must show any usage of their SDK/library",
-      "[Read more](https://blog.reactplay.io/announcing-hack-r-play-hackathon-from-react-play) on the ReactPlay repository for each pull request.",
+      "[Read more](https://blog.reactplay.io/announcing-hack-r-play-2) about Hack-R-Play 2.0",
     ],
     footer:
       "Please join the [ReactPlay discord server](https://discord.gg/UfYj4MvW9A) to get any help while you are building.",
