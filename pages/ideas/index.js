@@ -162,7 +162,7 @@ const IdeaListingPage = () => {
               </>
             )}
           </Grid>
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center mt-16">
             <PrimaryButton
               handleOnClick={() => {
                 router.push("/registration");

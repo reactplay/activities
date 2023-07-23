@@ -61,21 +61,23 @@ const Header = ({ links, metainfo, secondary = false }) => {
             </Link>
           </div>
 
-          <div className="md:w-48 w-48 z-10 flex gap-4 items-center">
-            <Image
-              className="rounded-full"
-              height={40}
-              width={40}
-              layout={"fixed"}
-              src={userData?.avatarUrl}
-              alt={"user avatar"}
-              aria-label="user avatar"
-            />
-            <div>
-              <h4 className="text-[#00f2fe]">{userData?.displayName}</h4>
-              <p>{userData?.email}</p>
+          {userData && (
+            <div className="md:w-48 w-48 z-10 flex gap-4 items-center">
+              <Image
+                className="rounded-full"
+                height={40}
+                width={40}
+                layout={"fixed"}
+                src={userData?.avatarUrl}
+                alt={"user avatar"}
+                aria-label="user avatar"
+              />
+              <div>
+                <h4 className="text-[#00f2fe]">{userData?.displayName}</h4>
+                <p>{userData?.email}</p>
+              </div>
             </div>
-          </div>
+          )}
         </header>
       ) : (
         <header className="pt-6 pb-1 px-4 flex md:justify-center justify-end items-baseline bg-transparent font-primary text-white z-10">
