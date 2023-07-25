@@ -125,16 +125,14 @@ export default function Home() {
     let selected_users = storedIdeaData.users;
     let updated_desc = cleanHTMLInput(storedIdeaData.description);
 
-    // const idea_object = (({ title, updated_desc }) => ({ title, description }))(
-    //   storedIdeaData
-    // );
 
     const idea_object = {
       title: storedIdeaData?.title,
-      description: updated_desc,
+      description: cleanHTMLInput(storedIdeaData.description),
     };
 
     console.log("descp", idea_object, updated_desc);
+
     idea_object.owner = userData.id;
     if (!idea_id)
       return insert_idea(idea_object).then((res) => {

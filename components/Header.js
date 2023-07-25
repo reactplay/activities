@@ -62,7 +62,7 @@ const Header = ({ links, metainfo, secondary = false }) => {
           </div>
 
           {userData && (
-            <div className="md:w-48 w-48 z-10 flex gap-4 items-center">
+            <div className="md:w-80 w-48 z-10 flex gap-4 items-center justify-end break-all">
               <Image
                 className="rounded-full"
                 height={40}
