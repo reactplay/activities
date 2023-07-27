@@ -65,10 +65,10 @@ export default function IdeaFilters({
     <div className="flex flex-1 z-[9] border-slate-600 pb-3 justify-center">
       {isAuthenticated ? (
         <div className="flex-1">
-          {/* <OwnerFilter
+          <OwnerFilter
             onChange={(r) => onOwnerChanged(r)}
             selected={filter.owner}
-          ></OwnerFilter> */}
+          ></OwnerFilter>
         </div>
       ) : null}
       <div className="flex-1 hidden md:block">

@@ -11,7 +11,7 @@ import { useAuthenticationStatus, useUserData } from "@nhost/nextjs";
 import { PrimaryButton } from "@/components/Buttons";
 import { get_latest_status } from "@/services/graphql/status";
 import { unescape_new_line } from "@/services/util/string";
-import { Config } from "@/services/metadata/hackrplay22";
+import { Config } from "@/services/metadata/hackrplay23";
 
 const PAGE_SIZE = 12;
 
@@ -30,7 +30,6 @@ const IdeaListingPage = () => {
   const loadIdeas = (filter) => {
     setIsLoading(true);
     const promises = [];
-    console.log(filter);
     promises.push(
       list_ideas(filter || { pagesize: PAGE_SIZE }, userData?.id).then(
         (res) => {
