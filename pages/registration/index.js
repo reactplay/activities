@@ -28,6 +28,8 @@ export default function Home() {
 
   const userData = useUserData();
 
+  const Deadline = new Date("July 25, 2023 5:00:00");
+
   const initializeData = () => {
     if (Object.keys(storedIdeaData).length === 0) {
       setIsDataLoading(true);
@@ -57,6 +59,13 @@ export default function Home() {
     }
   };
 
+  const isDeadlinePassed = (deadlineTimeStamp) => {
+    const targetDate = new Date(deadlineTimeStamp);
+
+    const currentDate = new Date();
+
+    return currentDate > targetDate;
+  };
   useEffect(() => {
     if (!isLoading) {
       if (!isAuthenticated) {
@@ -125,7 +134,6 @@ export default function Home() {
     let selected_users = storedIdeaData.users;
     let updated_desc = cleanHTMLInput(storedIdeaData.description);
 
-
     const idea_object = {
       title: storedIdeaData?.title,
       description: cleanHTMLInput(storedIdeaData.description),
@@ -169,37 +177,50 @@ export default function Home() {
                 Registration
               </h2>
             </div>
-            <div className="flex flex-col flex-1 bg-white">
-              <div className="flex-1 px-10 py-8 overflow-auto">
-                <form>
-                  <FormBuilder
-                    fields={FIELD_TEMPLATE}
-                    onChange={(data) => onIdeaDataChanged(data)}
-                  />
-                </form>
+            {isDeadlinePassed(Deadline) ? (
+              <div className="  flex justify-center w-full">
+                <div className=" p-5 bg-white rounded-md py-20 text-center font-primary tracking-wide w-[85%]">
+                  <h2 className="text-5xl mb-10">Sorry!!</h2>
+                  <h3 className="text-3xl">Registrations are closed!</h3>
+                  <h3 className="text-3xl mt-6">
+                    See you in{" "}
+                    <span className="text-cyan-500">Hack-R-Play 3.0</span> :)
+                  </h3>
+                </div>
               </div>
-              <div>
-                <hr />
-                <div className="py-4 px-10 h-full flex justify-end">
-                  <div className="p-2">
-                    <div>
-                      <SecondaryOutlinedButtonDark>
-                        Cancel
-                      </SecondaryOutlinedButtonDark>
+            ) : (
+              <div className="flex flex-col flex-1 bg-white">
+                <div className="flex-1 px-10 py-8 overflow-auto">
+                  <form>
+                    <FormBuilder
+                      fields={FIELD_TEMPLATE}
+                      onChange={(data) => onIdeaDataChanged(data)}
+                    />
+                  </form>
+                </div>
+                <div>
+                  <hr />
+                  <div className="py-4 px-10 h-full flex justify-end">
+                    <div className="p-2">
+                      <div>
+                        <SecondaryOutlinedButtonDark>
+                          Cancel
+                        </SecondaryOutlinedButtonDark>
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-2">
-                    <PrimaryButton
-                      disabled={isFieldsAreInValid()}
-                      handleOnClick={() => onSubmit()}
-                    >
-                      {`Register Now`}
-                      <FiCheckCircle className="ml-2 my-auto" size={20} />
-                    </PrimaryButton>
+                    <div className="p-2">
+                      <PrimaryButton
+                        disabled={isFieldsAreInValid()}
+                        handleOnClick={() => onSubmit()}
+                      >
+                        {`Register Now`}
+                        <FiCheckCircle className="ml-2 my-auto" size={20} />
+                      </PrimaryButton>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
