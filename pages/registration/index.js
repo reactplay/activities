@@ -28,7 +28,7 @@ export default function Home() {
 
   const userData = useUserData();
 
-  const Deadline = new Date("July 25, 2023 5:00:00");
+  const Deadline = new Date("July 29, 2023 5:00:00");
 
   const initializeData = () => {
     if (Object.keys(storedIdeaData).length === 0) {
