@@ -150,7 +150,7 @@ export default function IdeaDetails(props) {
                 <div className="flex flex-1 px-4 py-8 text-[#ffffff99] whitespace-pre-wrap	">
                   <div className="flex-1">{idea.description}</div>
                   <div className="px-4 hidden md:block">
-                    <StatusBar value={idea.status_history} map={StatusMap} />
+                    {/* <StatusBar value={idea.status_history} map={StatusMap} /> */}
                   </div>
                 </div>
                 <div className="flex">

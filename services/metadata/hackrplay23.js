@@ -30,7 +30,7 @@ export const Config = {
       "All for it? Here are some rules you need to keep in mind:",
     ],
     bullets: [
-      "You must register your idea by <strong>27th July 2023</strong>. Be mindful of not submitting a duplicate idea.",
+      "You must register your idea by <strong>28 July, 2023, 5 AM ( IST )</strong>. Be mindful of not submitting a duplicate idea.",
       "You can build any project of your choice using any technologies you prefer.",
       "The project source code must be open on GitHub.",
       "You must deploy the application publicly.",
