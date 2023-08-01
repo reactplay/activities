@@ -71,7 +71,6 @@ export default function IdeaDetails(props) {
 
   const loadIdeaDetails = (id) => {
     get_idea(id).then((res) => {
-   
       const all_statuses = [];
       console.log(res.idea_idea_status_map);
       res.idea_idea_status_map.forEach((st) => {

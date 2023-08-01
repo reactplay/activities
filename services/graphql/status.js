@@ -14,8 +14,8 @@ export const list_statuses = () => {
 export const insert_ideas_status = (idea_object) => {
 	const insert_obj = {
 		display: 'Insert Idea Status',
-		name: 'Insert_Hackathon_Idea_Status_one',
-		function: 'insert_hackathon_idea_status_one',
+		name: 'Insert_Hackathon_Hackathon_Idea_Status_one',
+		function: 'insert_hackathon_hackathon_idea_status_one',
 		write: true,
 		object: {
 			idea_id: idea_object.id,
