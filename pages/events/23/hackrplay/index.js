@@ -17,6 +17,7 @@ import { Config } from "@/services/metadata/hackrplay23";
 import Winners from "@/components/common/Winners";
 import Link from "next/link";
 import { PrimaryButton } from "@/components/Buttons";
+import Prizes from "@/components/common/Prizes";
 export default function Home() {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
@@ -65,6 +66,7 @@ export default function Home() {
         </div>
       )}
       <About metainfo={Config} />
+      {Config.prizes ? <Prizes metainfo={Config} /> : null}
       <Judges metainfo={Config} />
       {Config.partners ? <Partners metainfo={Config} /> : null}
       {Config.cta ? <CTA metainfo={Config} /> : null}

@@ -46,6 +46,33 @@ export const Config = {
       "Learn, Share, and Win",
     ],
   },
+  prizes: [
+    {
+      position: "Grand Winner",
+      prize: "500 USD",
+      icon: "🥇",
+    },
+    {
+      position: "1st Runner-up",
+      prize: "300 USD",
+      icon: "🥈",
+    },
+    {
+      position: "2nd Runner-up",
+      prize: "200 USD",
+      icon: "🥉",
+    },
+    {
+      position: "Special mention 1",
+      prize: "100 USD",
+      icon: "🌟",
+    },
+    {
+      position: "Special mention 2",
+      prize: "100 USD",
+      icon: "🌟",
+    },
+  ],
   // judges: [],
   judges: [
     {
@@ -123,6 +150,7 @@ export const Config = {
         "Got a question? Please join our Discord(the link is in the footer of this page). You can ask us anything in the hack-r-play 2.0 channel.",
     },
   ],
+
   cta: {
     title: "Be a part of the best react event",
     description:

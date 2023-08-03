@@ -9,7 +9,7 @@ const Judges = ({ metainfo }) => {
   return (
     <section
       id="judges"
-      className={`relative mt-16 bg-brand-primary-highlight bg-opacity-10 flex flex-col justify-center items-center py-24 px-6`}
+      className={`relative bg-brand-primary-highlight bg-opacity-10 flex flex-col justify-center items-center py-24 px-6`}
     >
       <div className="absolute md:-left-16 md:top-6 -left-20 top-3">
         <Image
