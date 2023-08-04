@@ -90,6 +90,13 @@ export const Config = {
         "https://pbs.twimg.com/profile_images/1523150875153567744/zpRDym_L_400x400.jpg",
     },
     {
+      name: "Ali Mustufa",
+      twitter: "ialimustufa",
+      title: "Senior Developer Advocate at Postman",
+      avatar:
+        "https://pbs.twimg.com/profile_images/1663451869828759553/Y4GHh_7T_400x400.jpg",
+    },
+    {
       name: "Koustov Maitra",
       twitter: "koustov",
       title: "Solution Architect, ReactPlay",
