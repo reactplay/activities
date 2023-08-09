@@ -292,7 +292,7 @@ export default function IdeaDetails(props) {
                       process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID ? (
                       <div className="p-2">
                         {/* Follwoing code will be reintroduced for upcoming events. So not removing now */}
-                        {<SecondaryOutlinedButton
+                        {/*<SecondaryOutlinedButton
 													handleOnClick={() =>
 														onEditClicked(idea.id)
 													}>
@@ -301,7 +301,7 @@ export default function IdeaDetails(props) {
 														className='ml-2 my-auto'
 														size={20}
 													/>
-												</SecondaryOutlinedButton>}
+												</SecondaryOutlinedButton>*/}
                       </div>
                     ) : null}
                   </div>
