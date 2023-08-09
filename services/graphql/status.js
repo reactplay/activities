@@ -43,8 +43,8 @@ export const get_latest_status = (idea) => {
 export const get_idea_submission_info = (id) => {
 	const input_obj = {
 		display: 'List Ideas',
-		name: 'Hackathon_Idea_submission',
-		function: 'hackathon_idea_submission',
+		name: 'Hackathon_Hackathon_Idea_submission',
+		function: 'hackathon_hackathon_idea_submission',
 		where: {
 			clause: {
 				operator: 'and',
