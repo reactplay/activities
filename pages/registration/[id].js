@@ -6,6 +6,7 @@ import { NHOST } from "@/services/nhost";
 import { useEffect, useState, forwardRef } from "react";
 import FormBuilder from "@/components/form-builder";
 import { FIELD_TEMPLATE } from "@/services/consts/registration-update-fields";
+import { Config } from "@/services/metadata/hackrplay23";
 import { getAllUsers } from "@/services/graphql/auth";
 import {
   assign_member,
@@ -182,7 +183,7 @@ export default function Home() {
   };
 
   return (
-    <LayoutWrapper title="HACK-R-PLAY | Idea Registration">
+    <LayoutWrapper title="HACK-R-PLAY | Idea Registration" metainfo={Config}>
       <div className="w-full h-full flex flex-col justify-center items-center">
         <div className="w-full h-full max-w-6xl flex shadow-md rounded mb-6 z-[9]">
           <div className="flex flex-col flex-1">
