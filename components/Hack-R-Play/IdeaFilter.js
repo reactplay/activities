@@ -56,6 +56,9 @@ export default function IdeaFilters({
 
   const onSortChanged = (button) => {
     const fl = resetFilter();
+    if (completedActive) {
+      fl.status_filter = "completed";
+    }
     fl.sort_col = button.field;
     fl.sort_asc = button.asc;
     setFilter({ ...fl });
