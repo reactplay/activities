@@ -4,7 +4,6 @@ import Pagination from "@/components/Pagination";
 import SortButtons from "@/components/SortButtons";
 import OwnerFilter from "@/components/OwnerFilter";
 import StatusFilter from "../StatusFilter";
-import CompleteFilter from "../CompleteFilter";
 
 export default function IdeaFilters({
   total,
