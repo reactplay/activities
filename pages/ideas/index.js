@@ -104,15 +104,15 @@ const IdeaListingPage = () => {
           <div className="text-[#ffffff99] py-4"> Total: {ideaCount}</div>
         </div>
 
-          <div className="flex justify-center mt-2 mb-12">
-            <PrimaryButton
-              handleOnClick={() => {
-                router.push("/registration");
-              }}
-            >
-              {`Register now`}
-            </PrimaryButton>
-          </div>
+        <div className="flex justify-center mt-2 mb-12">
+          <PrimaryButton
+            handleOnClick={() => {
+              router.push("/registration");
+            }}
+          >
+            {`Register now`}
+          </PrimaryButton>
+        </div>
 
         <div className="container mx-auto max-w-screen-xl mb-6">
           <IdeaFilters

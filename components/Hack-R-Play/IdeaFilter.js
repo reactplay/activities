@@ -4,6 +4,7 @@ import Pagination from "@/components/Pagination";
 import SortButtons from "@/components/SortButtons";
 import OwnerFilter from "@/components/OwnerFilter";
 import StatusFilter from "../StatusFilter";
+import CompleteFilter from "../CompleteFilter";
 
 export default function IdeaFilters({
   total,
@@ -35,9 +36,15 @@ export default function IdeaFilters({
   const onOwnerChanged = (owner) => {
     const fl = resetFilter();
 
-    fl.owner = owner;
-    setFilter({ ...fl });
-    invokeChange(fl);
+    if (owner === "completed") {
+      fl.status_filter = owner;
+      setFilter({ ...fl });
+      invokeChange(fl);
+    } else {
+      fl.owner = owner;
+      setFilter({ ...fl });
+      invokeChange(fl);
+    }
   };
 
   const onSortChanged = (button) => {
@@ -72,6 +79,10 @@ export default function IdeaFilters({
         </div>
       ) : null}
       <div className="flex-1 hidden md:block">
+        {/* <CompleteFilter
+          onChange={(r) => onOwnerChanged(r)}
+          selected={filter.owner}
+        ></CompleteFilter> */}
         {/* <StatusFilter
           onChange={(r) => onStatusFilterChanged(r)}
           selected={filter.status_filter}

@@ -72,7 +72,7 @@ export const idea_count = (filter, current_user) => {
           {
             field: "status_id",
             operator: "eq",
-            value: filter.status_filter,
+            value: process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID,
           },
         ],
       },
@@ -92,8 +92,8 @@ export const idea_count = (filter, current_user) => {
         ],
       },
     };
-  } 
-  
+  }
+
   // else {
   //   input_obj.where.clause.conditions.push({
   //     field: "hackathon_id",
@@ -184,7 +184,7 @@ export const list_ideas = (filter, current_user) => {
           {
             field: "status_id",
             operator: "eq",
-            value: filter.status_filter,
+            value: process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID,
           },
         ],
       },
