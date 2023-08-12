@@ -207,6 +207,7 @@ export const list_ideas = (filter, current_user) => {
     };
   }
 
+  console.log(input_obj);
   return submit(input_obj).then((res) => {
     const s_col = filter && filter.sort_col ? filter.sort_col : "created_at";
     const s_type = filter && filter.sort_asc ? filter.sort_asc : false;

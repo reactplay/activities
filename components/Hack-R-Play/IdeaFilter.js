@@ -12,6 +12,7 @@ export default function IdeaFilters({
   isAuthenticated,
 }) {
   const [filter, setFilter] = useState({});
+  const [completedActive, setCompletedActive] = useState(false);
 
   useEffect(() => {}, [total]);
 
@@ -27,7 +28,13 @@ export default function IdeaFilters({
 
   const onPageChanged = (index) => {
     const fl = resetFilter();
+
+    if (completedActive) {
+      fl.status_filter = "completed";
+    }
+
     fl.page = index;
+
     setFilter({ ...fl });
     invokeChange(fl);
   };
@@ -36,6 +43,7 @@ export default function IdeaFilters({
     const fl = resetFilter();
 
     if (owner === "completed") {
+      setCompletedActive(true);
       fl.status_filter = owner;
       setFilter({ ...fl });
       invokeChange(fl);
@@ -78,10 +86,6 @@ export default function IdeaFilters({
         </div>
       ) : null}
       <div className="flex-1 hidden md:block">
-        {/* <CompleteFilter
-          onChange={(r) => onOwnerChanged(r)}
-          selected={filter.owner}
-        ></CompleteFilter> */}
         {/* <StatusFilter
           onChange={(r) => onStatusFilterChanged(r)}
           selected={filter.status_filter}
