@@ -31,13 +31,13 @@ export default function OwnerFilter({ onChange, selected }) {
       >
         My Ideas
       </ToolBarButton>
-      <ToolBarButton
+      {/* <ToolBarButton
         handleOnClick={() => onButtonClicked("completed")}
         // disabled={selected === "me"}
         cclas={selectedButton === "completed" ? `text-brand-hightlight` : ""}
       >
         Completed
-      </ToolBarButton>
+      </ToolBarButton> */}
     </div>
   );
 }
