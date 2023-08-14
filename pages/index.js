@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 export default function Home() {
   const router = useRouter();
   useEffect(() => {
-    router.push("events/23/twoplaysamonth");
+    router.push("events/23/hackrplay");
   }, []);
 
   return <Layout title="ReactPlay : #2Plays-A-Month"></Layout>;

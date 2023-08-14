@@ -77,7 +77,16 @@ const Layout = ({ children, title, description, metainfo }) => {
           <main>{children}</main>
           <Footer />
         </div>
-      ) : null}
+      ) : (
+        <>
+          <div className="h-[90vh] flex justify-center items-center p-[40px]">
+            <div
+              className="w-24 h-24 rounded-full animate-spin
+border-y border-solid border-1 border-blue-500 border-t-transparent shadow-md"
+            ></div>
+          </div>
+        </>
+      )}
     </>
   );
 };

@@ -13,10 +13,11 @@ import FAQs from "@/components/common/FAQs";
 
 import DottedAndFilledTriangle from "@/public/common/DottedAndFilledTriangle.svg";
 import Flower from "@/public/common/Flower.svg";
-import { Config } from "@/services/metadata/hackrplay22";
+import { Config } from "@/services/metadata/hackrplay23";
 import Winners from "@/components/common/Winners";
 import Link from "next/link";
 import { PrimaryButton } from "@/components/Buttons";
+import Prizes from "@/components/common/Prizes";
 export default function Home() {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
@@ -32,7 +33,7 @@ export default function Home() {
   if (!mounted) return null;
 
   return (
-    <Layout title="ReactPlay : Hack-R-Play" metainfo={Config}>
+    <Layout title="ReactPlay : Hack-R-Play 2.0" metainfo={Config}>
       <div className="absolute md:left-9 -top-10 left-5 z-0 md:w-32 md:h-32 w-24 h-24">
         <Image
           src={DottedAndFilledTriangle}
@@ -57,7 +58,7 @@ export default function Home() {
           </PrimaryButton>
           <PrimaryButton
             handleOnClick={() => {
-              router.push("hackrplay/registration");
+              router.push("/registration");
             }}
           >
             {`Register now`}
@@ -65,6 +66,7 @@ export default function Home() {
         </div>
       )}
       <About metainfo={Config} />
+      {Config.prizes ? <Prizes metainfo={Config} /> : null}
       <Judges metainfo={Config} />
       {Config.partners ? <Partners metainfo={Config} /> : null}
       {Config.cta ? <CTA metainfo={Config} /> : null}

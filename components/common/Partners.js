@@ -32,7 +32,7 @@ const Partners = ({ metainfo }) => {
                   <div className="md:w-2/5 md:h-2/5 w-1/2 h-1/2">
                     <a href={`${p.link}`} target="_blank" rel="noreferrer">
                       <Image
-                        src={require(`/public/${metainfo.name}/partner0.png`)}
+                        src={require(`/public/${metainfo.name}/bugfender-logo.png`)}
                         alt={`${p.display} logo`}
                         layout="responsive"
                       />

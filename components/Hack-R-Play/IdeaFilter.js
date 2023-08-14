@@ -12,6 +12,7 @@ export default function IdeaFilters({
   isAuthenticated,
 }) {
   const [filter, setFilter] = useState({});
+  const [completedActive, setCompletedActive] = useState(false);
 
   useEffect(() => {}, [total]);
 
@@ -27,7 +28,13 @@ export default function IdeaFilters({
 
   const onPageChanged = (index) => {
     const fl = resetFilter();
+
+    if (completedActive) {
+      fl.status_filter = "completed";
+    }
+
     fl.page = index;
+
     setFilter({ ...fl });
     invokeChange(fl);
   };
@@ -35,13 +42,23 @@ export default function IdeaFilters({
   const onOwnerChanged = (owner) => {
     const fl = resetFilter();
 
-    fl.owner = owner;
-    setFilter({ ...fl });
-    invokeChange(fl);
+    if (owner === "completed") {
+      setCompletedActive(true);
+      fl.status_filter = owner;
+      setFilter({ ...fl });
+      invokeChange(fl);
+    } else {
+      fl.owner = owner;
+      setFilter({ ...fl });
+      invokeChange(fl);
+    }
   };
 
   const onSortChanged = (button) => {
     const fl = resetFilter();
+    if (completedActive) {
+      fl.status_filter = "completed";
+    }
     fl.sort_col = button.field;
     fl.sort_asc = button.asc;
     setFilter({ ...fl });
@@ -72,10 +89,10 @@ export default function IdeaFilters({
         </div>
       ) : null}
       <div className="flex-1 hidden md:block">
-        <StatusFilter
+        {/* <StatusFilter
           onChange={(r) => onStatusFilterChanged(r)}
           selected={filter.status_filter}
-        ></StatusFilter>
+        ></StatusFilter> */}
       </div>
       <div className="flex border-b-2 ">
         <Pagination

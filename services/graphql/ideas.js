@@ -5,8 +5,8 @@ import { insert_ideas_status } from "./status";
 
 export const createIdeaQuery = {
   display: "Insert Idea",
-  name: "Insert_Hackathon_Ideas_One",
-  function: "insert_hackathon_ideas_one",
+  name: "Insert_hackathon_hackathon_Ideas_One",
+  function: "insert_hackathon_hackathon_ideas_one",
   write: true,
   object: {},
   return: ["id"],
@@ -14,8 +14,8 @@ export const createIdeaQuery = {
 
 export const assignIdeaMembers = {
   display: "Insert Idea",
-  name: "Insert_Hackathon_Ideas_Members",
-  function: "insert_hackathon_ideas_members_one",
+  name: "Insert_hackathon_hackathon_Ideas_Members",
+  function: "insert_hackathon_hackathon_ideas_members_one",
   write: true,
   object: {},
   return: ["id"],
@@ -43,8 +43,8 @@ export const assign_member = (idea_id, user_id) => {
 export const idea_count = (filter, current_user) => {
   const input_obj = {
     display: "Count Ideas",
-    name: "Hackathon_Ideas_Aggregate",
-    function: "hackathon_ideas_aggregate",
+    name: "hackathon_hackathon_Ideas_Aggregate",
+    function: "hackathon_hackathon_ideas_aggregate",
     return: [{ aggregate: ["count"] }],
   };
   if (filter && filter.owner && filter.owner === "me" && current_user) {
@@ -72,12 +72,35 @@ export const idea_count = (filter, current_user) => {
           {
             field: "status_id",
             operator: "eq",
-            value: filter.status_filter,
+            value: process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID,
           },
         ],
       },
     };
   }
+
+  if (!input_obj.where) {
+    input_obj.where = {
+      clause: {
+        operator: "and",
+        conditions: [
+          {
+            field: "hackathon_id",
+            operator: "eq",
+            value: process.env.NEXT_PUBLIC_HACKATHON_ID,
+          },
+        ],
+      },
+    };
+  }
+
+  // else {
+  //   input_obj.where.clause.conditions.push({
+  //     field: "hackathon_id",
+  //     operator: "eq",
+  //     value: process.env.NEXT_PUBLIC_HACKATHON_ID,
+  //   });
+  // }
 
   return submit(input_obj).then((res) => {
     return res && res.aggregate ? res.aggregate.count : 0;
@@ -87,8 +110,8 @@ export const idea_count = (filter, current_user) => {
 export const list_ideas = (filter, current_user) => {
   const input_obj = {
     display: "List Ideas",
-    name: "hackathon_ideas",
-    function: "hackathon_ideas",
+    name: "hackathon_hackathon_ideas",
+    function: "hackathon_hackathon_ideas",
     orders: [{ field: "created_at", value: "desc" }],
     return: [
       "description",
@@ -122,6 +145,18 @@ export const list_ideas = (filter, current_user) => {
         },
       },
     ],
+    where: {
+      clause: {
+        operator: "and",
+        conditions: [
+          {
+            field: "hackathon_id",
+            operator: "eq",
+            value: process.env.NEXT_PUBLIC_HACKATHON_ID,
+          },
+        ],
+      },
+    },
     distinct: "id",
   };
   if (filter.pagesize) {
@@ -149,7 +184,7 @@ export const list_ideas = (filter, current_user) => {
           {
             field: "status_id",
             operator: "eq",
-            value: filter.status_filter,
+            value: process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID,
           },
         ],
       },
@@ -172,6 +207,7 @@ export const list_ideas = (filter, current_user) => {
     };
   }
 
+  console.log(input_obj);
   return submit(input_obj).then((res) => {
     const s_col = filter && filter.sort_col ? filter.sort_col : "created_at";
     const s_type = filter && filter.sort_asc ? filter.sort_asc : false;
@@ -196,8 +232,8 @@ export const list_ideas = (filter, current_user) => {
 export const get_idea = (id) => {
   const input_obj = {
     display: "List Ideas",
-    name: "hackathon_ideas",
-    function: "hackathon_ideas",
+    name: "hackathon_hackathon_ideas",
+    function: "hackathon_hackathon_ideas",
     where: {
       clause: {
         operator: "and",
@@ -262,8 +298,8 @@ export const get_idea = (id) => {
 export const update_ideas_demographic = (idea_object) => {
   const insert_obj = {
     display: "Update Idea",
-    name: "Update_Hackathon_Ideas",
-    function: "update_hackathon_ideas",
+    name: "Update_hackathon_hackathon_Ideas",
+    function: "update_hackathon_hackathon_ideas",
     write: true,
     value: {
       title: idea_object.title,
@@ -294,8 +330,8 @@ export const update_ideas_member = (idea_object) => {
     if (!idea_object.idea_members_map) {
       insert_obj = {
         display: "Insert Idea Member",
-        name: "Insert_Hackathon_Ideas_Members_One",
-        function: "insert_hackathon_ideas_members_one",
+        name: "Insert_hackathon_hackathon_Ideas_Members_One",
+        function: "insert_hackathon_hackathon_ideas_members_one",
         write: true,
         object: {
           idea_id: idea_object.id,
@@ -306,8 +342,8 @@ export const update_ideas_member = (idea_object) => {
     } else {
       insert_obj = {
         display: "Update Idea Member",
-        name: "Update_Hackathon_Ideas_Members",
-        function: "update_hackathon_ideas_members",
+        name: "Update_hackathon_hackathon_Ideas_Members",
+        function: "update_hackathon_hackathon_ideas_members",
         write: true,
         value: {
           idea_id: idea_object.id,
@@ -338,8 +374,8 @@ export const insert_idea_submission = (idea_object) => {
   idea_object.status = process.env.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID;
   const insert_submission = {
     display: "Insert Idea Submission",
-    name: "Insert_Hackathon_Idea_Submission_One",
-    function: "insert_hackathon_idea_submission_one",
+    name: "Insert_hackathon_hackathon_Idea_Submission_One",
+    function: "insert_hackathon_hackathon_idea_submission_one",
     write: true,
     object: {
       idea_id: idea_object.id,

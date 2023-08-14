@@ -14,8 +14,8 @@ export const list_statuses = () => {
 export const insert_ideas_status = (idea_object) => {
 	const insert_obj = {
 		display: 'Insert Idea Status',
-		name: 'Insert_Hackathon_Idea_Status_one',
-		function: 'insert_hackathon_idea_status_one',
+		name: 'Insert_Hackathon_Hackathon_Idea_Status_one',
+		function: 'insert_hackathon_hackathon_idea_status_one',
 		write: true,
 		object: {
 			idea_id: idea_object.id,
@@ -27,6 +27,9 @@ export const insert_ideas_status = (idea_object) => {
 	return submit(insert_obj);
 };
 
+export const update_ideas_status = (data) => {
+	console.log(data)
+}
 export const get_latest_status = (idea) => {
 	const all_statuses = [];
 
@@ -40,8 +43,8 @@ export const get_latest_status = (idea) => {
 export const get_idea_submission_info = (id) => {
 	const input_obj = {
 		display: 'List Ideas',
-		name: 'Hackathon_Idea_submission',
-		function: 'hackathon_idea_submission',
+		name: 'Hackathon_Hackathon_Idea_submission',
+		function: 'hackathon_hackathon_idea_submission',
 		where: {
 			clause: {
 				operator: 'and',

@@ -24,6 +24,7 @@ import {
 	get_latest_status,
 } from '@/services/graphql/status';
 import { escape_new_line } from '@/services/util/string';
+import { Config } from '@/services/metadata/hackrplay23';
 
 const Alert = forwardRef(function Alert(props, ref) {
 	return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
@@ -139,7 +140,7 @@ export default function SubmitIdea() {
 	};
 
 	return (
-		<LayoutWrapper title='HACK-R-PLAY | Idea Registration'>
+		<LayoutWrapper title='HACK-R-PLAY | Idea Registration' metainfo={Config}>
 			<div className='w-full h-full flex flex-col justify-center items-center'>
 				<div className='w-full h-full max-w-6xl flex shadow-md rounded mb-6 z-[9]'>
 					<div className='flex flex-col flex-1'>

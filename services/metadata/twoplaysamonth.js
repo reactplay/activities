@@ -4,7 +4,7 @@ export const Config = {
   description:
     "#2PlaysAMonth is an event by ReactPlay for the ReactJs community to learn, build, share in public. Join us.",
   keywords: "ReactPlay, #2PlaysAMonth, ReactJS",
-  completed: false,
+  completed: true,
   started: false,
   links: [
     {

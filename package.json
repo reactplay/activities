@@ -24,7 +24,9 @@
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.4.0"
+    "react-html-parser": "^2.0.2",
+    "react-icons": "^4.4.0",
+    "string-strip-html": "^13.4.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.8",

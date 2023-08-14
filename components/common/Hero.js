@@ -62,13 +62,13 @@ const Hero = ({ metainfo }) => {
           </div>
 
           <div className="flex flex-col justify-center items-center mx-auto md:pt-16 pt-8 md:max-w-3xl z-10">
-            <div className="scale-110">
+            <div className="scale-110 mb-4">
               <Image src={ReactPlayLogo} alt="ReactPlay Logo" layout="fixed" />
             </div>
 
             <div className="-mt-3 block md:w-1/2 md:h-1/2 w-11/12 h-11/12">
               <Image
-                src={require(`/public/${metainfo.name}/BannerLogo.png`)}
+                src={require(`/public/${metainfo.name}/BannerLogo.svg`)}
                 alt="Banner Logo"
                 layout="responsive"
               />

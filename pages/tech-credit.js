@@ -3,12 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import TailWindLogo from "../public/tailwindcss-logotype.svg";
 import NextJsLogo from "../public/Nextjs-logo.png";
+import { Config } from "@/services/metadata/hackrplay22";
 
 const TechCreditPage = () => {
   return (
     <Layout
       title="Tech Stack & Credits"
       description="Know the technology stack and the credits."
+      metainfo={Config}
     >
       <div className="container max-w-screen-xl mx-auto py-16">
         <h2 className="font-primary mb-6 text-3xl md:text-5xl text-center text-slate-100 relative before:content[''] before:absolute before:w-16 before:h-1 before:-bottom-2 before:border-b-[3px] before:rounded-sm before:left-1/2 before:-translate-x-1/2 before:border-[#32F9E5]">

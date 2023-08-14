@@ -3,7 +3,7 @@ import { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { PrimaryButton } from "./Buttons";
 import Image from "next/image";
-
+import { useUserData } from "@nhost/nextjs";
 import { useRouter } from "next/router";
 
 const MobileHeader = ({ links, setMobileActive, redirectToRegistration }) => {
@@ -40,24 +40,44 @@ const Header = ({ links, metainfo, secondary = false }) => {
   const [mobileActive, setMobileActive] = useState(false);
   const router = useRouter();
   const redirectToRegistration = () => {
-    router.push("/hackrplay/2022/registration");
+    router.push("events/22/hackrplay/registration");
   };
+
+  const userData = useUserData();
 
   return (
     <>
       {secondary ? (
-        <header className="pt-4 pb-2 md:px-10 px-5 inline-flex justify-between items-center bg-transparent font-primary text-white z-10 w-full">
+        <header className="pt-8 pb-2 md:px-10 px-5 inline-flex justify-between items-center bg-transparent font-primary text-white z-10 w-full">
           <div className="md:w-40 w-36 z-10">
             <Link href={`/`}>
               <a>
                 <Image
-                  src={require(`/public/${metainfo.name}/NavbarLogo.png`)}
+                  src={require(`/public/${metainfo.name}/BannerLogo.svg`)}
                   alt="Navbar Logo"
                   layout="responsive"
                 />
               </a>
             </Link>
           </div>
+
+          {userData && (
+            <div className="md:w-80 w-48 z-10 flex gap-4 items-center justify-end break-all">
+              <Image
+                className="rounded-full"
+                height={40}
+                width={40}
+                layout={"fixed"}
+                src={userData?.avatarUrl}
+                alt={"user avatar"}
+                aria-label="user avatar"
+              />
+              <div>
+                <h4 className="text-[#00f2fe]">{userData?.displayName}</h4>
+                <p>{userData?.email}</p>
+              </div>
+            </div>
+          )}
         </header>
       ) : (
         <header className="pt-6 pb-1 px-4 flex md:justify-center justify-end items-baseline bg-transparent font-primary text-white z-10">

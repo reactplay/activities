@@ -15,9 +15,9 @@ const links = [
 	},
 ];
 
-export default function LayoutWrapper({ title, description, children}) {
+export default function LayoutWrapper({ title, description, children, metainfo}) {
 	return (
-		<Layout links={links} title={title} description={description}>
+		<Layout links={links} title={title} description={description} metainfo={metainfo}>
 			<div className='absolute left-9 -top-10 opacity-50'>
 				<Image
 					src={DottedAndFilledTriangle}
