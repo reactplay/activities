@@ -258,7 +258,7 @@ export default function IdeaDetails(props) {
                     <div className="flex-1 flex">
                       <div className="p-2 ">
                         {/* Follwoing code will be reintroduced for upcoming events. So not removing now */}
-                        {!idea.status ||
+                        {/* {!idea.status ||
 												idea.status.id !==
 													process.env
 														.NEXT_PUBLIC_HACKATHON_SUBMIT_STATUS_ID ? (
@@ -274,7 +274,7 @@ export default function IdeaDetails(props) {
 															size={20}
 														/>
 													</PrimaryButton>
-												) : null}
+												) : null} */}
                       </div>
                     </div>
 
